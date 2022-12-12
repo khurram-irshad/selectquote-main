@@ -1,0 +1,59 @@
+.wp-container {
+  width: 1080px;
+  max-width: calc(100% - 32px);
+  padding: 0;
+}
+.btn-secondary-md {
+  font-family: "Montserrat", sans-serif;
+  color: $white;
+  font-size: 16px;
+  border-radius: 4px;
+  text-shadow: none;
+  padding: 10px 20px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  background: $secondary;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  &:hover {
+    background: $secondary;
+    color: $white;
+    border-color: #ccc;
+    border-width: 1px;
+  }
+}
+.btn-transparent-md {
+  font-family: "Montserrat", sans-serif;
+  color: $gray-500;
+  font-size: 16px;
+  padding: 10px 20px;
+  font-weight: 300;
+  line-height: normal;
+  text-align: center;
+  background: transparent;
+  a {
+    color: $gray-500;
+    text-decoration: none;
+  }
+  &:first-child {
+    &:active {
+      border: none !important;
+    }
+  }
+}
+table {
+  width: 100%;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 12px 16px;
+  p {
+    word-break: break-all;
+  }
+}

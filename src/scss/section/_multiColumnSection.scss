@@ -1,0 +1,26 @@
+section.multi-column {
+    div.container {
+      .column-container > div {
+        box-sizing: border-box;
+
+        span {
+            margin-top: 27px !important;
+        }
+      }
+    }
+    @include mediaQueries(ipad) {
+        .column-container > div {
+            width: 100% !important;
+        }
+    }
+  
+    @include mediaQueries(mobile) {
+        .column-container {
+            align-items: center;
+            justify-content: center;
+        }
+        .column-container > div {
+            width: 100% !important;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@keyframes vibrate {
+    0% {
+        transform: rotate(8deg);
+    }
+    5% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(-8deg);
+    }
+    15% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(8deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(-8deg);
+    }
+    35% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(8deg);
+    }
+    45% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

@@ -1,0 +1,30 @@
+//Global
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "slick-carousel/slick/slick.css";
+@import "./slickNav";
+@import "./fonts";
+@import "./mixins";
+@import "./variables";
+@import "./global";
+@import "./keyframes";
+@import "./override";
+
+//Partials
+@import "./header";
+@import "./footer";
+
+//Page
+@import "./page/homepage";
+@import "./page/form";
+@import "./page/confirmation";
+@import "./content";
+
+//Section
+@import './section/aboutSection';
+@import "./section/companySection";
+@import './section/multiColumnSection';
+@import "./section/reviewSection";
+@import "./section/heroSection";
+@import "./section/richtextSection";
+@import "./section/faqSection";
+@import "./section/ctaSection";

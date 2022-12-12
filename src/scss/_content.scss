@@ -1,0 +1,947 @@
+#accordion-card {
+  .collapsing {
+    transition: height 1.2s ease !important;
+  }
+  .accordion-symbol {
+    background-color: #00a4c7;
+    border: none;
+    height: 30px;
+  }
+  .card-header {
+    background-color: #ffffff;
+    padding: 25px 20px;
+  }
+  .card {
+    border-radius: 0px;
+    border-left-width: 15px;
+    border-left-color: #ed6306;
+  }
+  .card-active {
+    border-left-color: #00a4c7;
+    transition: border 0.7s linear;
+  }
+  .card-inactive {
+    border-left-color: #ed6306;
+    transition: border 0.7s linear;
+    border-bottom: 0.1px #646464;
+  }
+
+  .header-title {
+    background: 0 0;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    text-align: left;
+    line-height: inherit;
+    padding: inherit;
+    letter-spacing: inherit;
+    color: #333 !important;
+  }
+  .sq-list {
+    margin-left: 25px;
+    list-style-type: disc;
+    padding: 0 0 23px 1em;
+    line-height: 26px;
+    overflow-wrap: break-word;
+    color: #646464;
+  }
+  ol,
+  ul {
+    list-style: none;
+    color: #646464;
+  }
+  li {
+    margin-bottom: 15px;
+  }
+  p {
+    color: #646464;
+  }
+  .faq-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    word-wrap: break-word;
+  }
+}
+
+.permanent-life-insurance {
+  a.free-quote-btn {
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.7em;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00aec7;
+    border: 2px solid #ffffff;
+    border-radius: 22.5px;
+    padding: 0.3em 24px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
+    transition: all 300ms ease 0ms;
+  }
+
+  a.free-quote-btn:hover {
+    color: #00aec7;
+    border-color: #00aec7;
+    background-color: #ffffff;
+  }
+
+  hr {
+    margin: 30px 0 30px;
+  }
+
+  .hero-section {
+    background: url(/images/content/perm-life-pg-hero.webp) no-repeat right
+      center;
+    background-size: 40% contain;
+    border-bottom: 8px solid #646464;
+    box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 30%);
+
+    @include mediaQueries(ipad) {
+      background-position: bottom;
+      background-size: 100% 470px;
+      .hero-content > div {
+        width: 100% !important;
+        padding-bottom: 500px;
+      }
+    }
+
+    @include mediaQueries(mobile) {
+      background-position: bottom;
+      background-size: 100% 270px;
+      .hero-content > div {
+        width: 100% !important;
+        padding-bottom: 300px;
+      }
+      .content-left {
+        width: 100% !important;
+      }
+    }
+    .hero-content {
+      min-height: 400px;
+    }
+    .content-left {
+      width: 540px;
+    }
+    .content-left h3 {
+      font-family: "Helvetica", sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25em;
+      color: #646464;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    .content-left p {
+      font-family: "Montserrat", sans-serif;
+      font-size: 17.6px;
+      line-height: 1.8em;
+      color: #646464;
+    }
+  }
+
+  .content {
+    padding: 54px 0 54px 0;
+
+    .container {
+      max-width: 1080px;
+      padding: 0;
+    }
+    .about-section {
+      p {
+        margin-bottom: 0;
+      }
+
+      p {
+        a {
+          font-weight: 700;
+          color: #f47b20;
+          text-decoration: none;
+        }
+      }
+
+      .agent-review {
+        flex-wrap: wrap;
+        padding: 27px 22px 27px 22px;
+        background-color: #efefef;
+        font-family: "Helvetica", sans-serif;
+        font-size: 16px;
+        color: #646464;
+        line-height: 1.8em;
+      }
+      .agent-review span {
+        margin: 0 5px 0 5px;
+      }
+      .agent-review a {
+        font-weight: 700;
+        color: #f47b20;
+      }
+      .life-insurance-basics {
+        padding-top: 27px;
+        font-family: "Helvetica", sans-serif;
+
+        h1,
+        h2 {
+          font-size: 36px;
+          font-weight: 800;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+          padding-bottom: 16px;
+        }
+      }
+      .insurance-types {
+        font-family: "Helvetica", sans-serif;
+
+        h2 {
+          font-size: 36px;
+          font-weight: 800;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+        }
+
+        .types-row {
+          padding-top: 27px;
+
+          .whole-life {
+            margin-right: 60px;
+          }
+
+          .whole-life,
+          .universal-life {
+            p {
+              padding-bottom: 16px;
+            }
+          }
+        }
+      }
+      .benefits {
+        font-family: "Helvetica", sans-serif;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.3em;
+          color: #646464;
+          padding: 27px 0 27px;
+          margin-bottom: 0px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+          margin-top: 30px;
+        }
+
+        .advantages {
+          .row {
+            p {
+              padding-bottom: 27px;
+            }
+            .left {
+              margin-right: 60px;
+            }
+          }
+        }
+
+        .disadvantages {
+          .row {
+            p {
+              padding-bottom: 27px;
+            }
+            .left {
+              margin-right: 60px;
+            }
+          }
+        }
+      }
+    }
+    .faqs-section {
+      padding: 0 0 27px;
+
+      h2 {
+        font-family: "Helvetica", sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3em;
+        color: #646464;
+        padding-bottom: 10px;
+      }
+    }
+    .cta-section {
+      font-family: "Helvetica", sans-serif;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3em;
+        color: #646464;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.8em;
+        color: #646464;
+      }
+    }
+  }
+}
+
+.paying-taxes {
+  .about {
+    max-width: 1080px;
+    padding: 54px 0 54px;
+    font-family: "Helvetica", sans-serif;
+
+    a.free-quote-btn {
+      display: inline-block;
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.7em;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #00aec7;
+      border: 2px solid #ffffff;
+      border-radius: 22.5px;
+      padding: 0.3em 24px;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
+      transition: all 300ms ease 0ms;
+    }
+
+    a.free-quote-btn:hover {
+      color: #00aec7;
+      border-color: #00aec7;
+      background-color: #ffffff;
+    }
+
+    p {
+      a {
+        font-weight: 700;
+        color: #f47b20;
+        text-decoration: none;
+      }
+    }
+
+    hr {
+      margin: 30px 0 30px;
+    }
+
+    .article-content {
+      margin-right: 60px;
+      h1,
+      h2,
+      h3 {
+        color: #646464;
+      }
+      h1 {
+        font-weight: 800;
+        font-size: 36px;
+        letter-spacing: 1px;
+        padding-bottom: 10px;
+      }
+      h2 {
+        font-weight: 700;
+        font-size: 26px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        line-height: 1.3em;
+      }
+      h3 {
+        font-weight: 700;
+        font-size: 22px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+      p,
+      li {
+        font-size: 16px;
+        font-weight: 500;
+        color: #646464;
+        line-height: 1.8em;
+      }
+      p {
+        padding-bottom: 16px;
+      }
+      @include mediaQueries(mobile) {
+        margin-right: 0;
+      }
+    }
+
+    .article-suggestions {
+      .return-btn {
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #f47b20;
+      }
+      p {
+        font-size: 24px;
+        font-weight: 700;
+        color: #646464;
+        letter-spacing: 1px;
+        line-height: 1.25em;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          padding-bottom: 16px;
+
+          a {
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #f47b20;
+          }
+        }
+      }
+    }
+  }
+  .tagline-section {
+    height: 83px;
+    background-color: #f47b20;
+    .tagline-text {
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25em;
+      color: #ffffff;
+    }
+    input {
+      font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+      border: 1px solid #00aec7;
+      font-size: 15px;
+      text-align: center;
+      outline: none;
+      width: 162px;
+      height: 48.5px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 30%);
+      &::placeholder {
+        color: #00aec7;
+        opacity: 1;
+      }
+      &:-ms-input-placeholder {
+        color: #00aec7;
+      }
+      &::-ms-input-placeholder {
+        color: #00aec7;
+      }
+    }
+    button {
+      font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+      background-color: #00aec7;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px;
+      border: 1px solid #00aec7;
+      cursor: pointer;
+      width: 152px;
+      height: 48.5px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 30%);
+      &:disabled {
+        background-color: #008184;
+        border-color: #008184;
+        cursor: default;
+      }
+    }
+    @include mediaQueries(padpro) {
+      .tagline-text {
+        font-size: 22px;
+      }
+      .form {
+        gap: 0 !important;
+      }
+    }
+    @include mediaQueries(ipad) {
+      height: unset;
+      padding: 25px 0;
+      .container {
+        flex-direction: column;
+        gap: 1rem !important;
+      }
+    }
+    @include mediaQueries(mobile) {
+      height: unset;
+      padding: 25px 0;
+      .container {
+        flex-direction: column;
+        gap: 1rem !important;
+      }
+      .form {
+        gap: 0 !important;
+      }
+    }
+  }
+}
+
+.term-vs-whole {
+  .change {
+    background-color: #efefef;
+    min-height: 350px;
+
+    h1,
+    h2 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.3em;
+      color: #646464;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #646464;
+      line-height: 1.8em;
+      margin-top: 30px;
+    }
+
+    span {
+      color: #f47b20;
+      font-weight: 600;
+    }
+
+    .change-my-mind {
+      max-width: 1280px;
+      margin: auto;
+    }
+  }
+
+  .other-life {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 0px;
+    max-width: 1280px;
+    margin: auto;
+
+    h1,
+    h2 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.3em;
+      color: #646464;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.3em;
+      color: #646464;
+    }
+
+    p {
+      font-size: 16px;
+      color: #646464;
+      line-height: 1.8em;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .free-quote-btn {
+      justify-self: flex-start;
+    }
+
+    span {
+      color: #f47b20;
+      font-weight: 600;
+    }
+  }
+  a.free-quote-btn {
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.7em;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00aec7;
+    border: 2px solid #ffffff;
+    border-radius: 22.5px;
+    padding: 0.3em 24px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
+    transition: all 300ms ease 0ms;
+  }
+
+  a.free-quote-btn:hover {
+    color: #00aec7;
+    border-color: #00aec7;
+    background-color: #ffffff;
+  }
+
+  hr {
+    margin: 30px 0 30px;
+  }
+
+  .hero-section {
+    background: url(/images/content/term-vs-whole.webp) no-repeat right center;
+    background-size: 40% contain;
+    border-bottom: 8px solid #646464;
+
+    @include mediaQueries(ipad) {
+      background-position: bottom;
+      background-size: 100% 470px;
+      .hero-content > div {
+        width: 100% !important;
+        padding-bottom: 500px;
+      }
+    }
+
+    @include mediaQueries(mobile) {
+      background-position: bottom;
+      background-size: 100% 270px;
+      .hero-content > div {
+        width: 100% !important;
+        padding-bottom: 300px;
+      }
+      .content-left {
+        width: 100% !important;
+      }
+    }
+    .hero-content {
+      min-height: 400px;
+    }
+    .content-left {
+      width: 540px;
+    }
+    .content-left h3 {
+      font-family: "Helvetica", sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25em;
+      color: #646464;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    .content-left p {
+      font-family: "Montserrat", sans-serif;
+      font-size: 17.6px;
+      line-height: 1.8em;
+      color: #646464;
+    }
+  }
+
+  .difference-between-table {
+    border: 1px solid #cccccc;
+    thead {
+      tr {
+        border: 1px solid #cccccc;
+
+        th {
+          border: 1px solid #cccccc;
+          padding: 10px;
+          color: #646464;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border: 1px solid #cccccc;
+
+        td {
+          border: 1px solid #cccccc;
+          padding: 10px;
+          color: #646464;
+        }
+      }
+    }
+  }
+  .cost-comparison-table {
+    border: 1px solid #dddddd;
+
+    thead {
+      tr {
+        border: 1px solid #dddddd;
+
+        th {
+          border: 1px solid #dddddd;
+          padding: 10px;
+          color: #646464;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border: 1px solid #dddddd;
+
+        td {
+          border: 1px solid #dddddd;
+          padding: 10px;
+          color: #646464;
+          text-align: center;
+
+          &:nth-child(2),
+          &:nth-child(3) {
+            color: #28aec7;
+            font-weight: 600;
+          }
+        }
+
+        &:nth-child(even) {
+          background-color: #f6f6f6;
+        }
+      }
+    }
+  }
+
+  .cost-comparison-table__italic {
+    font-size: 14px;
+    color: #646464;
+  }
+
+  .content {
+    padding: 54px 0 54px 0;
+
+    .container {
+      max-width: 1280px;
+      padding: 0;
+    }
+    .about-section {
+      p {
+        margin-bottom: 0;
+      }
+
+      span {
+        color: #f47b20;
+        font-weight: 600;
+      }
+
+      .agent-review {
+        display: flex;
+        align-items: center;
+        padding: 27px 22px 27px 22px;
+        background-color: #efefef;
+        font-family: "Helvetica", sans-serif;
+        font-size: 16px;
+        line-height: 1.8em;
+      }
+      .agent-review span {
+        margin: 0 5px 0 5px;
+      }
+      .agent-review a {
+        font-weight: 700;
+        color: #f47b20;
+      }
+      .life-insurance-basics {
+        padding-top: 27px;
+        font-family: "Helvetica", sans-serif;
+
+        .life-insurance-basics-container {
+          background: url(/images/content/term-life.webp) no-repeat right center;
+          background-size: 40% contain;
+        }
+
+        @include mediaQueries(ipad) {
+          .life-insurance-basics-container {
+            background-image: none;
+          }
+          .basics-content > div {
+            width: 100% !important;
+          }
+        }
+
+        @include mediaQueries(mobile) {
+          .life-insurance-basics-container {
+            background-image: none;
+          }
+          .basics-content > div {
+            width: 100% !important;
+          }
+          .content-left {
+            width: 100% !important;
+          }
+        }
+        .basics-content {
+          min-height: 400px;
+        }
+        .content-left {
+          width: 540px;
+        }
+        .content-left h1 {
+          font-family: "Helvetica", sans-serif;
+          font-size: 26px;
+          font-weight: 800;
+          line-height: 1.25em;
+          color: #646464;
+          margin-top: 25px;
+          margin-bottom: 25px;
+        }
+        .content-left p {
+          font-family: "Montserrat", sans-serif;
+          font-size: 17.6px;
+          line-height: 1.8em;
+          color: #646464;
+        }
+        h1,
+        h2 {
+          font-size: 36px;
+          font-weight: 800;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+          padding-bottom: 16px;
+        }
+      }
+      .insurance-types {
+        font-family: "Helvetica", sans-serif;
+
+        .term-life-ul {
+          li {
+            color: #646464;
+          }
+        }
+
+        h2 {
+          font-size: 36px;
+          font-weight: 800;
+          line-height: 1.3em;
+          color: #646464;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+
+          a {
+            font-weight: 700;
+            color: #f47b20;
+            text-decoration: none;
+          }
+        }
+
+        .types-row {
+          padding-top: 27px;
+
+          .whole-life {
+            margin-right: 60px;
+          }
+        }
+      }
+      .benefits {
+        font-family: "Helvetica", sans-serif;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.3em;
+          color: #646464;
+          padding: 27px 0 27px;
+          margin-bottom: 0px;
+        }
+        p {
+          font-size: 16px;
+          color: #646464;
+          line-height: 1.8em;
+          margin-top: 30px;
+        }
+
+        .advantages {
+          .left {
+            margin-right: 60px;
+          }
+        }
+
+        .disadvantages {
+          .row {
+            margin-bottom: 30px;
+
+            .left {
+              margin-right: 60px;
+            }
+          }
+        }
+      }
+    }
+    .faqs-section {
+      padding: 0 0 27px;
+
+      h2 {
+        font-family: "Helvetica", sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3em;
+        color: #646464;
+        padding-bottom: 10px;
+      }
+    }
+    .cta-section {
+      font-family: "Helvetica", sans-serif;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3em;
+        color: #646464;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.8em;
+        color: #646464;
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: "Helvetica", sans-serif;
+  background-color: #efefef;
+
+  .no-hover {
+    pointer-events: none;
+  }
+
+  p,
+  a {
+    font-size: 16px;
+    line-height: 1.75em;
+    color: #646464;
+    text-decoration: none;
+  }
+  p {
+    margin-bottom: 1em;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin: 30px 0 30px;
+  }
+
+  .quick-links {
+    padding: 27px 0 27px;
+    color: #646464;
+
+    p.quick-link-header {
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+    }
+    .footer-column {
+      flex: 1 1 100%; //for equal flex-item width
+      overflow: hidden;
+    }
+    div.footer-column:not(:last-child) {
+      margin-right: 60px;
+    }
+    div.footer-column-item > div {
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      a {
+        font-weight: 400 !important;
+      }
+      a:hover {
+        font-weight: 700 !important;
+        color: #646464;
+      }
+    }
+
+    @include mediaQueries(ipad) {
+      .footer-column:not(:last-child) {
+        margin-right: 0px !important;
+        padding-bottom: 30px;
+      }
+      p.quick-link-header {
+        padding-bottom: 0;
+      }
+    }
+    @include mediaQueries(mobile) {
+      .footer-column:not(:last-child) {
+        margin-right: 0px !important;
+        padding-bottom: 30px;
+      }
+      p.quick-link-header {
+        padding-bottom: 0;
+      }
+    }
+  }
+  .legal_text {
+    margin-bottom: 20px;
+  }
+  .license-name {
+    word-wrap: break-word;
+
+    a:hover {
+      font-weight: 700;
+      color: #646464;
+    }
+  }
+
+  .form-footer {
+    > div > div {
+      align-items: center;
+    }
+    > div > div > div:nth-child(1)::after,
+    > div > div > div:nth-child(2)::after {
+      content: "|";
+      font-size: 16px;
+      line-height: 1.75em;
+      padding: 0 5px;
+    }
+    > div > div > div:nth-child(4) {
+      margin: 0 4%;
+      .footer-column-item {
+        div:nth-child(1) {
+          width: 35px;
+          display: flex;
+          align-items: center;
+        }
+        div:nth-child(2) {
+          width: 150px;
+        }
+      }
+    }
+    > div > div > div:nth-child(5) {
+      width: 114px;
+    }
+
+    @include mediaQueries(mobile) {
+      > div > div {
+        display: block !important;
+      }
+      > div > div > div:nth-child(1),
+      > div > div > div:nth-child(2),
+      > div > div > div:nth-child(3) {
+        display: inline-flex;
+      }
+      > div > div > div:nth-child(4) {
+        margin: 0;
+      }
+    }
+  }
+}
