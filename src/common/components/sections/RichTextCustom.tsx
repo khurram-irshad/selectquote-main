@@ -26,7 +26,7 @@ const RichTextCustomSection = ({
         {title && (
           <h1
             className={
-              ["/legal", "/privacy", "/privacy/ccpa"].includes(path)
+              ["/legal", "/privacy", "/privacy/ccpa" ,"/accessibility-statement"].includes(path)
                 ? "text-center"
                 : ""
             }
