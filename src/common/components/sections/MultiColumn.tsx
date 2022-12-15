@@ -5,8 +5,7 @@ import ColumnSection from './Column';
 import { Type_MultiColumn, } from '@common/types';
 
 const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
-    const { title, columns, numberOfColumns,direction, fullWidth } = section.fields;
-
+    const { title, columns, numberOfColumns, direction, fullWidth } = section.fields;
     return <section className='multi-column'>
         <div className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : "container wp-container"}`}
         >
@@ -18,7 +17,14 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
             <div className='column-container d-flex flex-wrap'>
                 {
                     columns.map(item => <div key={item.sys.id} style={{ width: `${100 / Number(numberOfColumns)}%` }}>
-                        <ColumnSection section={item} />
+                        
+                        <div key={section.sys.id}>
+                            {item.sys.contentType?.sys.id === "templateMultiColumn" ? (
+                                <MultiColumnSection section={item} />
+                            ) : (
+                                <ColumnSection section={item} />
+                            )}
+                        </div>
                     </div>)
                 }
             </div>
