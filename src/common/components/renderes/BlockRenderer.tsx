@@ -13,6 +13,7 @@ import AgentReviewSection from '@components/sections/AgentReview';
 import Hyperlink from '@components/sections/Hyperlink';
 import ImageSection from '@components/sections/Image';
 import RichTextContentSection from '@components/sections/RichTextCustom';
+import ProductReviews from '@components/sections/ProductReviews';
 
 
 type BlockRendererProps = {
@@ -59,6 +60,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Hyperlink]: Hyperlink,
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
+  [ComponentContentTypes.ProductReviews]: ProductReviews,
 };
 
 export { BlockRenderer };
