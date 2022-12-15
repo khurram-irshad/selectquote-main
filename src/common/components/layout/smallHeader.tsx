@@ -20,6 +20,7 @@ export default function ({ header }: { header: Type_Header }) {
         </div>
       </div>
       <div className="header-banner d-flex align-items-center justify-content-center gap-2">
+      <span className="header-text">{bannerText}</span>
         <div className="phone d-flex align-items-center justify-content-center gap-2">
           <div className="phone-icon d-flex align-items-center">
             <img
@@ -33,7 +34,6 @@ export default function ({ header }: { header: Type_Header }) {
             {contactNumber}
           </a>
         </div>
-        <span className="header-text">{bannerText}</span>
       </div>
     </header>
   );

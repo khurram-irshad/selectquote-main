@@ -57,9 +57,11 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
             : "flex-column justify-content-center flex-md-row"
         } gap-2`}
       >
+      <div className="container wp-container">
         <h2>{title}</h2>
         <RichTextRenderer text={content} />
         {renderCallToAction()}
+      </div>
       </div>
     </section>
   );

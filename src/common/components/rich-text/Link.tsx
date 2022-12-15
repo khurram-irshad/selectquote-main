@@ -36,7 +36,7 @@ export const Hyperlink = (props: Props) => {
   return isValidHttpUrl(href) ? (
     <a
       href={href || "/"}
-      style={{ color: "#f47b20", textDecoration: "none", fontWeight: 700 }}
+      style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -44,7 +44,7 @@ export const Hyperlink = (props: Props) => {
     </a>
   ) : (
     <Link href={href || "/"}>
-      <a style={{ color: "#f47b20", textDecoration: "none", fontWeight: 700 }}>
+      <a style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}>
         {linkText}
       </a>
     </Link>
