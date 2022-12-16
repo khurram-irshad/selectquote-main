@@ -4,7 +4,6 @@ import React from "react";
 
 const ReviewCard = ({ review }: { review: any }) => {
   const { color, category, title, author, content } = review.fields;
-  console.log(review, '----------rev')
   return <div className="review-card container">
     <div className="col-xs-12 col-sm-12 col-md-4 border-end">
       <div
