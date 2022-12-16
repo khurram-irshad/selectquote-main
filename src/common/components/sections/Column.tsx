@@ -8,7 +8,7 @@ import ImageSection from './Image';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
-  const contentTypeId = _.get(section, 'sys.contentType.sys.id');
+  const contentTypeId = _.get(section?.fields?.content, 'sys.contentType.sys.id');
   const Component = ContentTypeMap[contentTypeId];
 
   if (!Component) {
@@ -19,7 +19,7 @@ const ColumnSection = ({ section }: { section: any }) => {
   const { id } = section.sys;
 
   const componentProps = {
-    section: section,
+    section: section?.fields?.content,
   };
   return <Component key={`${contentTypeId}-${id}`} {...componentProps} />;
 }

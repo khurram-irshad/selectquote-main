@@ -5,7 +5,7 @@ interface MultiColumn {
     fullwidth?: Contentful.EntryFields.Symbol;
     direction?: Contentful.EntryFields.Symbol;
     columns: Contentful.Entry<any>[];
-    numberOfColumns: Contentful.EntryFields.Symbol;
+    columnPerRow: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
 }
 
