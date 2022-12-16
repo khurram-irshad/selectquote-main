@@ -1,10 +1,11 @@
+import React, { useRef, useState } from "react";
 import { Direction } from "@common/enums/direction";
 import { Type_CTA } from "@common/types";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import React, { useState } from "react";
 import { useRouter } from "next/router";
 
 const CTASection = ({ section }: { section: Type_CTA }) => {
+  const autoInsurance = useRef(null)
   const {
     title,
     content,
@@ -13,6 +14,7 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
     requiredZipCode,
     backgroundColor,
     direction,
+    color
   } = section.fields;
   const [zipcode, setZipcode] = useState("");
 
@@ -58,8 +60,10 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
         } gap-2`}
       >
       <div className="container wp-container">
-        <h2>{title}</h2>
-        <RichTextRenderer text={content} />
+        <h2 style={{color:color}}>{title}</h2>
+        <div ref={autoInsurance}>
+          <RichTextRenderer color={color} text={content} />
+        </div>
         {renderCallToAction()}
       </div>
       </div>
