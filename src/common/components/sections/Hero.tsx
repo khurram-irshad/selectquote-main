@@ -80,9 +80,11 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           <div className="content-left">
             <h3>{title} </h3>
             <RichTextRenderer text={content} />
-            <a className="free-quote-btn" href="/quote-form">
-              {buttonText}
-            </a>
+            {buttonText && (<>
+              <a className="free-quote-btn" href="/quote-form">
+                {buttonText}
+              </a>
+            </>)}
           </div>
         </div>
       </div>

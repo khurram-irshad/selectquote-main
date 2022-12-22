@@ -3,6 +3,7 @@ import React from 'react'
 import _ from 'lodash';
 import ColumnSection from './Column';
 import { Type_MultiColumn, } from '@common/types';
+import { ComponentContentTypes } from '@common/constants/app.constant';
 
 const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
     const { title, columns, direction, columnPerRow, fullWidth } = section.fields;
@@ -15,11 +16,11 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
                 && <RichTextRenderer text={title} />
             }
 
-            <div className=' d-flex flex-wrap'>
+            <div className={`d-flex flex-wrap ${direction=="Horizontal" ? "flex-row":'flex-column'}`}>
                 {
-                    columns.map(item => <div key={item.sys.id} style={{ width: `${item.sys.contentType?.sys.id === "templateMultiColumn" ? 100 / Number(columnPerRow) : item.fields.widthPercentage}%` }}>
+                    columns.map(item => <div key={item.sys.id} style={{ width: `${item.sys.contentType?.sys.id === ComponentContentTypes.MultiColumn ? 100 / Number(columnPerRow) : item.fields.widthPercentage}%` }}>
                         <div key={section.sys.id}>
-                            {item.sys.contentType?.sys.id === "templateMultiColumn" ? (
+                            {item.sys.contentType?.sys.id === ComponentContentTypes.MultiColumn ? (
                                 <MultiColumnSection section={item} />
                             ) : (
                                 <div >
