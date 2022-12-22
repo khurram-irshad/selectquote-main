@@ -1,20 +1,19 @@
-import React from 'react';
-import _ from 'lodash';
-import { ComponentContentTypes } from '@constants/app.constant';
-import HeroSection from '@components/sections/Hero';
-import CTASection from '@components/sections/CTA';
-import CarrierStripsSection from '@components/sections/CarrierStrips';
-import FAQSection from '@components/sections/FAQ';
-import MultiColumnSection from '@components/sections/MultiColumn';
-import RichTextSection from '@components/sections/RichText';
-import CustomerReview from '@components/sections/CustomerReviews';
-import { Type_Page } from '@common/types';
-import AgentReviewSection from '@components/sections/AgentReview';
-import Hyperlink from '@components/sections/Hyperlink';
-import ImageSection from '@components/sections/Image';
-import RichTextContentSection from '@components/sections/RichTextCustom';
-import ProductReviews from '@components/sections/ProductReviews';
-
+import React from "react";
+import _ from "lodash";
+import { ComponentContentTypes } from "@constants/app.constant";
+import HeroSection from "@components/sections/Hero";
+import CTASection from "@components/sections/CTA";
+import CarrierStripsSection from "@components/sections/CarrierStrips";
+import FAQSection from "@components/sections/FAQ";
+import MultiColumnSection from "@components/sections/MultiColumn";
+import RichTextSection from "@components/sections/RichText";
+import CustomerReview from "@components/sections/CustomerReviews";
+import { Type_Page } from "@common/types";
+import AgentReviewSection from "@components/sections/AgentReview";
+import Hyperlink from "@components/sections/Hyperlink";
+import ImageSection from "@components/sections/Image";
+import RichTextContentSection from "@components/sections/RichTextCustom";
+import ProductReviews from "@components/sections/ProductReviews";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -25,13 +24,13 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   if (Array.isArray(section)) {
     return (
       <>
-        {section.map((b) => (
-            <BlockRenderer page={page} section={b} />
+        {section.map((b, index) => (
+          <BlockRenderer key={index} page={page} section={b} />
         ))}
       </>
     );
   }
-  const contentTypeId = _.get(section, 'sys.contentType.sys.id');
+  const contentTypeId = _.get(section, "sys.contentType.sys.id");
   const Component = ContentTypeMap[contentTypeId];
   if (!Component) {
     console.warn(`${contentTypeId} can not be handled`);
