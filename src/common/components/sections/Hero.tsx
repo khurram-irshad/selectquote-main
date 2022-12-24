@@ -12,6 +12,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     gradientEndColor,
     gradientStartingColor,
     backgroundImage,
+    textColor,
+    actionImage
   } = section.fields;
   const router = useRouter();
 

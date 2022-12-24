@@ -1,5 +1,4 @@
 import {
-  Type_ProductReview,
   Type_ProductReviews,
 } from "@common/types/Type_ProductReviews";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
@@ -12,7 +11,7 @@ interface ReviewCardProps {
 }
 
 const ReviewCard = ({ review, child }: ReviewCardProps) => {
-  const { color, category, title, author, content } = review.fields;
+  const { color, category, title, content } = review.fields;
   const isDesktop = useMediaQuery({
     minWidth: 1024,
   });
@@ -41,7 +40,6 @@ const ReviewCard = ({ review, child }: ReviewCardProps) => {
           <span className="text-center">
             <RichTextRenderer text={content.fields.content} />
           </span>
-          <p style={{ textAlign: "center", fontWeight: "bold" }}>{author}</p>
         </div>
       </div>
     </div>
