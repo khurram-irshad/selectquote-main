@@ -22,7 +22,7 @@ export const ComponentContentTypes = {
     Image: 'image',
     CustomerReview: 'templateCustomerReviews',
     Hyperlink: 'hyperLink',
-    ProductReviews: 'templateProductReviews',
+    Cards: 'templateCards',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',

@@ -1,15 +1,18 @@
 import * as Contentful from 'contentful';
-import { Type_RichText } from './Type_RichText';
+import { RichText, Type_RichText } from './Type_RichText';
 
-interface ProductReviews {
-    reviews: Contentful.Entry<ProductReview>[];
-}
 interface ProductReview {
-    category: Contentful.EntryFields.Symbol;
     title: Contentful.EntryFields.Symbol;
     content: Contentful.Entry<Type_RichText>;
     color: Contentful.EntryFields.Symbol;
     showRating: Contentful.EntryFields.Symbol;
 }
-export type Type_ProductReviews = Contentful.Entry<ProductReviews>;
+
+interface Cards {
+    items: Contentful.Entry<ProductReview>[];
+    itemsPerRow: Contentful.EntryFields.Symbol;
+    itemsMarginInPixel: Contentful.EntryFields.Symbol;
+}
+
+export type Type_Cards = Contentful.Entry<Cards>;
 export type Type_ProductReview = Contentful.Entry<ProductReview>;
