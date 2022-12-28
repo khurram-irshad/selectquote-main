@@ -6,7 +6,6 @@ import React from "react";
 import ProductReviewCard from "./ProductReviewCard";
 import Card from "./Card";
 import { ComponentContentTypes } from "@common/constants/app.constant";
-
 const CardsSection = ({ section }: { section: Type_Cards }) => {
   const { items, itemsMargin, itemsPerRow } = section.fields;
   console.log(items)
