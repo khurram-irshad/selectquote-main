@@ -14,6 +14,7 @@ import Hyperlink from "@components/sections/Hyperlink";
 import ImageSection from "@components/sections/Image";
 import RichTextContentSection from "@components/sections/RichTextCustom";
 import ProductReviews from "@components/sections/Cards";
+import MarginSection from "@components/sections/Margin";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -60,6 +61,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
   [ComponentContentTypes.Cards]: ProductReviews,
+  [ComponentContentTypes.Margin]: MarginSection,
 };
 
 export { BlockRenderer };

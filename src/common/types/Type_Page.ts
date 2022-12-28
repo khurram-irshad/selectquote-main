@@ -13,7 +13,6 @@ interface Page {
   sections: Contentful.Entry<any>[];
   seo: Type_SEO;
   footer: Contentful.Entry<Type_Footer>;
-  sideSections: Contentful.Entry<any>[];
   header: Contentful.Entry<Type_Header>;
 }
 

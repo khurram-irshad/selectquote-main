@@ -5,6 +5,8 @@ import { ComponentContentTypes } from '@constants/app.constant';
 import RichTextSection from './RichText';
 import RichTextContentSection from '@components/sections/RichTextCustom';
 import ImageSection from './Image';
+import Hyperlink from './Hyperlink';
+import MarginSection from './Margin';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -28,7 +30,9 @@ export default ColumnSection
 
 const ContentTypeMap = {
   [ComponentContentTypes.CTA]: CTASection,
+  [ComponentContentTypes.Hyperlink]: Hyperlink,
   [ComponentContentTypes.RichText]: RichTextSection,
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
+  [ComponentContentTypes.Margin]: MarginSection,
 };

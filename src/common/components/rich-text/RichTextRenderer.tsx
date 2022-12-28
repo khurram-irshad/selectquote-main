@@ -23,7 +23,7 @@ const RichTextRenderer = ({
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
           [BLOCKS.PARAGRAPH]: (_, children) => (
-            <p style={{ color: color, marginTop: 20, marginBottom: 20 }}>
+            <p style={{ color: color }}>
               {children}{" "}
             </p>
           ),

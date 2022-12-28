@@ -7,6 +7,9 @@ interface MultiColumn {
     columns: Contentful.Entry<any>[];
     columnPerRow: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
+    justifyContent: Contentful.EntryFields.Symbol;
+    backgroundColor: Contentful.EntryFields.Symbol;
+    padding: Contentful.EntryFields.Symbol;
 }
 
 export type Type_MultiColumn = Contentful.Entry<MultiColumn>;

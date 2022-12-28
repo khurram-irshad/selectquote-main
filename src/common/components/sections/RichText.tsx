@@ -10,7 +10,7 @@ const RichTextSection = ({
   const { content } = section.fields;
 
   return (
-    <section className="richtext-render">
+    <section>
       <RichTextRenderer text={content} />
     </section>
   );

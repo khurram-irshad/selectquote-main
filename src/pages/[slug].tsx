@@ -10,7 +10,7 @@ import { getEntry } from "src/common/services/api";
 import { Type_Page } from "@common/types/Type_Page";
 
 export default ({ page }: { page: Type_Page }) => {
-  const { header, footer, sections, sideSections } = page?.fields;
+  const { header, footer, sections } = page?.fields;
   useEffect(() => {
     const reviewSection = sections.find((section) => {
       const contentTypeId = _.get(section, "sys.contentType.sys.id");
@@ -32,19 +32,7 @@ export default ({ page }: { page: Type_Page }) => {
 
   return (
     <Layout page={page} header={header} footer={footer}>
-      {!sideSections && <BlockRenderer section={sections} page={page} />}
-      {sideSections && (
-        <div className="container wp-container">
-          <div className="row ">
-            <div className="col-md-8 col-sm-12">
-              <BlockRenderer section={sections} page={page} />
-            </div>
-            <div className="col-md-4">
-              <BlockRenderer section={sideSections} page={page} />
-            </div>
-          </div>
-        </div>
-      )}
+      <BlockRenderer section={sections} page={page} />
     </Layout>
   );
 };

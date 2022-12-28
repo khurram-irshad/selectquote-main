@@ -14,6 +14,7 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
     requiredZipCode,
     backgroundColor,
     direction,
+    padding,
     color
   } = section.fields;
   const [zipcode, setZipcode] = useState("");
@@ -47,25 +48,23 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
 
   return (
     <section
-      className={`cta-section ${
-        fullWidth ? "container-fluid px-0" : "container wp-container"
-      } ${path === "/" ? "cta-home" : ""}`}
-      style={{ backgroundColor: backgroundColor }}
+      className={`cta-section ${fullWidth ? "container-fluid px-0" : "container wp-container"
+        } ${path === "/" ? "cta-home" : ""}`}
+      style={{ backgroundColor: backgroundColor, padding: `${padding}` }}
     >
       <div
-        className={`d-flex ${
-          direction === Direction.Vertical
+        className={`d-flex ${direction === Direction.Vertical
             ? "flex-column"
             : "flex-column justify-content-center flex-md-row"
-        } gap-2`}
+          } gap-2`}
       >
-      <div className="container wp-container">
-        <h2 style={{color:color}}>{title}</h2>
-        <div ref={autoInsurance}>
-          <RichTextRenderer color={color} text={content} />
+        <div className="container wp-container">
+         {title && (<h2 style={{ color: color, marginBottom: '20px' }}>{title}</h2>)} 
+          <div ref={autoInsurance} >
+            <RichTextRenderer color={color} text={content} />
+          </div>
+          {renderCallToAction()}
         </div>
-        {renderCallToAction()}
-      </div>
       </div>
     </section>
   );

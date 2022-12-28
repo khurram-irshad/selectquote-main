@@ -9,6 +9,8 @@ type CustomRichText= {
     backgroundColor: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
     textAlign: Contentful.EntryFields.Symbol;
+    width: Contentful.EntryFields.Symbol;
+    padding: Contentful.EntryFields.Symbol;
 }
 
 export type Type_RichText = Contentful.Entry<RichText>;

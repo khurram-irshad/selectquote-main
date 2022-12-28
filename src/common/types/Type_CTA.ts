@@ -10,6 +10,8 @@ interface CTA {
     backgroundColor: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
     direction: Contentful.EntryFields.Symbol;
+    color: Contentful.EntryFields.Symbol;
+    padding: Contentful.EntryFields.Symbol;
 }
 
 export type Type_CTA = Contentful.Entry<CTA>;

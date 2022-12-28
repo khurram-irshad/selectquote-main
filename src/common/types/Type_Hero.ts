@@ -13,6 +13,7 @@ interface Hero {
   gradientStartingColor: Contentful.EntryFields.Symbol;
   textColor: Contentful.EntryFields.Symbol;
   actionImage?: TypeImage;
+  topSection?: Contentful.EntryFields.Boolean;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;

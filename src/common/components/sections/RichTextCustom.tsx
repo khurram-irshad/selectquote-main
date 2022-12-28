@@ -8,17 +8,18 @@ const RichTextCustomSection = ({
 }: {
   section: Type_RichTextCustom;
 }) => {
-  const { title, content, backgroundColor, fullWidth } = section.fields;
+  const { title, content, backgroundColor,padding, fullWidth, width, textAlign = 'left' } = section.fields;
   const router = useRouter();
 
   const path = router.asPath;
 
   return (
     <section
-      className="richtext-render"
+      className={`richtext-render text-${textAlign}`}
       style={{ background: backgroundColor }}
     >
       <div
+      style={{width:`${width}`, padding: `${padding}`}}
         className={
           fullWidth ? "container-fluid px-0" : "container wp-container"
         }
@@ -26,7 +27,7 @@ const RichTextCustomSection = ({
         {title && (
           <h1
             className={
-              ["/legal", "/privacy", "/privacy/ccpa" ,"/accessibility-statement"].includes(path)
+              ["/legal", "/privacy", "/privacy/ccpa", "/accessibility-statement"].includes(path)
                 ? "text-center"
                 : ""
             }
