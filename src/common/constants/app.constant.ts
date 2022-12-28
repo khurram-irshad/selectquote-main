@@ -23,6 +23,8 @@ export const ComponentContentTypes = {
     CustomerReview: 'templateCustomerReviews',
     Hyperlink: 'hyperLink',
     Cards: 'templateCards',
+    ProductReview: 'templateProductReview',
+    Card: 'templateCard',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',

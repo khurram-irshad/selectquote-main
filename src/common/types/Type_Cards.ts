@@ -11,7 +11,7 @@ interface ProductReview {
 interface Cards {
     items: Contentful.Entry<ProductReview>[];
     itemsPerRow: Contentful.EntryFields.Symbol;
-    itemsMarginInPixel: Contentful.EntryFields.Symbol;
+    itemsMargin: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Cards = Contentful.Entry<Cards>;
