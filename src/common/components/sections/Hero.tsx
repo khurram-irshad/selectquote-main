@@ -80,19 +80,18 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           <div className="content-left">
             <h3>{title} </h3>
             <RichTextRenderer text={content} />
-            {buttonText ? (<>
+            {buttonText && (<>
               <a className="free-quote-btn" href="/quote-form">
                 {buttonText}
               </a>
-            </>)
-            : actionImage ? ( <>
+            </>
+            )}
+            {actionImage && ( <>
             <a>
-              <img src={`https:${actionImage?.fields.imageFile?.fields.file.url}`} style={{width: "252px" , height: "62px"}}/>
+              <img src={`https:${actionImage?.fields.imageFile?.fields.file.url}`}/>
             </a>
             </>
-            ) : (<>
-            </>)
-            }
+            )}
           </div>
         </div>
       </div>
