@@ -10,9 +10,11 @@ const AssetHyperlink = (props) => <Hyperlink {...props} type="AssetLink" />;
 const RichTextRenderer = ({
   text,
   color = "#646464",
+  itemsMargin,
 }: {
   text: any;
   color?: string;
+  itemsMargin?: string;
 }) => {
   return (
     <>
@@ -23,8 +25,14 @@ const RichTextRenderer = ({
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
           [BLOCKS.PARAGRAPH]: (_, children) => (
-            <p style={{ color: color }}>
-              {children}{" "}
+            <p
+              style={{
+                color: color,
+                marginTop: itemsMargin,
+                marginBottom: itemsMargin,
+              }}
+            >
+              {children}
             </p>
           ),
         },
