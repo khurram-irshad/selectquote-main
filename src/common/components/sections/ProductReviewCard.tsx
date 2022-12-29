@@ -7,7 +7,6 @@ interface CardProps {
   itemsMargin: string;
 }
 const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
-  console.log(itemsMargin);
   const { color, title, content, showRating } = item.fields;
   const isDesktop = useMediaQuery({
     minWidth: 1024,
