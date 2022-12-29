@@ -6,7 +6,7 @@ import RichTextSection from './RichText';
 import RichTextContentSection from '@components/sections/RichTextCustom';
 import ImageSection from './Image';
 import Hyperlink from './Hyperlink';
-import MarginSection from './Margin';
+import MarginSection from './Style';
 
 const ColumnSection = ({ section }: { section: any }) => {
 

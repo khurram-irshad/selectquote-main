@@ -23,7 +23,7 @@ export const ComponentContentTypes = {
     CustomerReview: 'templateCustomerReviews',
     Hyperlink: 'hyperLink',
     Cards: 'templateCards',
-    Margin: 'templateMargin',
+    Style: 'templateStyle',
     ProductReview: 'templateProductReview',
     Card: 'templateCard',
 };
