@@ -10,11 +10,11 @@ const AssetHyperlink = (props) => <Hyperlink {...props} type="AssetLink" />;
 const RichTextRenderer = ({
   text,
   color = "#646464",
-  itemsMargin,
+  itemsMargin = 0,
 }: {
   text: any;
   color?: string;
-  itemsMargin?: string;
+  itemsMargin?: string | number;
 }) => {
   return (
     <>
