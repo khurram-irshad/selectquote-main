@@ -8,7 +8,6 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     title,
     content,
     buttonText,
-    fullWidth,
     gradientEndColor,
     gradientStartingColor,
     backgroundImage,
@@ -31,8 +30,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     >
       <div
         className={
-          "hero-content d-flex align-items-center " +
-          (fullWidth ? "container-fluid px-0" : "container wp-container")
+          "hero-content d-flex align-items-center container wp-container"
         }
       >
         <div className="w-50 position-relative">
@@ -65,7 +63,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     </section>
   ) : (
     <section
-      className="hero-section"
+      className= {"hero-section" + (topSection ? " hero-section-border" : "" )}
       style={{
         backgroundPosition: "right 0px center",
         backgroundImage: backgroundImage
@@ -75,8 +73,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     >
       <div
         className={
-          "hero-content d-flex align-items-center " +
-          (fullWidth ? "container-fluid px-0" : "container wp-container")
+          "hero-content d-flex align-items-center container wp-container"
         }
       >
         <div className="w-50 position-relative">
@@ -87,7 +84,14 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
               <a className="free-quote-btn" href="/quote-form">
                 {buttonText}
               </a>
-            </>)}
+            </>
+            )}
+            {actionImage && ( <>
+            <a>
+              <img src={`https:${actionImage?.fields.imageFile?.fields.file.url}`}/>
+            </a>
+            </>
+            )}
           </div>
         </div>
       </div>

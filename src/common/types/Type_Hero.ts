@@ -12,7 +12,7 @@ interface Hero {
   gradientEndColor: Contentful.EntryFields.Symbol;
   gradientStartingColor: Contentful.EntryFields.Symbol;
   textColor: Contentful.EntryFields.Symbol;
-  actionImage?: TypeImage;
+  actionImage?: TypeHeroImage;
   topSection?: Contentful.EntryFields.Boolean;
 }
 
