@@ -26,7 +26,10 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
     return (
       <>
         {section.map((b, index) => (
-          <BlockRenderer key={index} page={page} section={b} />
+          // wp-container class to be added here
+          <div>
+            <BlockRenderer key={index} page={page} section={b} />
+          </div>
         ))}
       </>
     );

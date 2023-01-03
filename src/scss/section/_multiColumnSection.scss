@@ -2,10 +2,6 @@ section.multi-column {
     div.container {
       .column-container > div {
         box-sizing: border-box;
-
-        span {
-            margin-top: 27px !important;
-        }
       }
     }
     @include mediaQueries(ipad) {
