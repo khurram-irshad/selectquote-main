@@ -1,5 +1,6 @@
 import { Type_RichTextCustom } from "@common/types";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
+import { useRouter } from "next/router";
 import React from "react";
 
 const RichTextCustomSection = ({
