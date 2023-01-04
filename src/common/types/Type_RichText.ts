@@ -5,7 +5,6 @@ export type RichText = CFRichTextTypes.Block | CFRichTextTypes.Inline;
 
 type CustomRichText= {
     content?: Contentful.Entry<RichText>;
-    title: Contentful.EntryFields.Symbol;
     backgroundColor: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
     textAlign: Contentful.EntryFields.Symbol;

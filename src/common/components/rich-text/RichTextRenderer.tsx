@@ -16,6 +16,7 @@ const RichTextRenderer = ({
   color?: string;
   itemsMargin?: string | number;
 }) => {
+
   return (
     <>
       {documentToReactComponents(text, {
@@ -24,21 +25,13 @@ const RichTextRenderer = ({
           [INLINES.ASSET_HYPERLINK]: AssetHyperlink,
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
-          [BLOCKS.PARAGRAPH]: (_, children) => (
-            <p
-              style={{
-                color: color,
-                marginTop: itemsMargin,
-                marginBottom: itemsMargin,
-              }}
-            >
-              {children}
-            </p>
-          ),
+          [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>
         },
+        renderText: text =>
+          text.split("\n").flatMap((text, i) => [i > 0 && <br />, text])
       })}
     </>
   );
 };
-
+const Text = ({ children }) => <p>{children}</p>;
 export default RichTextRenderer;

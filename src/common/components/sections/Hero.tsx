@@ -1,7 +1,6 @@
 import React from "react";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { Type_Hero } from "@common/types";
-import { useRouter } from "next/router";
 
 const HeroSection = ({ section }: { section: Type_Hero }) => {
   const {
@@ -16,9 +15,6 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     topSection,
     fullWidth
   } = section.fields;
-  const router = useRouter();
-
-  const path = router.pathname;
 
   return (
     <section

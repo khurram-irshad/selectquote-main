@@ -1,7 +1,6 @@
 import * as Contentful from 'contentful';
 
 interface MultiColumn {
-    title?: Contentful.EntryFields.Symbol;
     fullwidth?: Contentful.EntryFields.Symbol;
     direction?: Contentful.EntryFields.Symbol;
     columns: Contentful.Entry<any>[];

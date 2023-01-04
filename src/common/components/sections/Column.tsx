@@ -7,6 +7,7 @@ import RichTextContentSection from '@components/sections/RichTextCustom';
 import ImageSection from './Image';
 import Hyperlink from './Hyperlink';
 import MarginSection from './Style';
+import FAQSection from './FAQ';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -19,7 +20,6 @@ const ColumnSection = ({ section }: { section: any }) => {
   }
 
   const { id } = section.sys;
-
   const componentProps = {
     section: section?.fields?.content,
   };
@@ -35,4 +35,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
   [ComponentContentTypes.Style]: MarginSection,
+  [ComponentContentTypes.FAQ]: FAQSection,
 };
