@@ -1,5 +1,6 @@
 .cta-section {
   font-family: "Helvetica", sans-serif;
+  padding: 60px 0;
   // padding-top: 27px;
   // padding-bottom: 27px;
 
@@ -22,7 +23,7 @@
     line-height: 1.7em;
     text-decoration: none;
     color: #ffffff;
-    background-color: #00aec7;
+    background-color: #F47B20;
     border: 2px solid #ffffff;
     border-radius: 22.5px;
     padding: 0.3em 24px;
@@ -37,9 +38,12 @@
   }
 
   h2 {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1.3em;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 41.6px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
     color: #646464;
     margin: 0;
   }
