@@ -7,6 +7,19 @@
   .content-left {
     width: 540px;
   }
+  h1 {
+    font-size: 36px;
+    font-weight: 550;
+    letter-spacing: 1px;
+    line-height: 46.8px;
+    color: #646464;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+
+  }
   h2 {
     font-family: "Poppins", sans-serif;
     font-size: 40px;
@@ -19,11 +32,26 @@
   h3 {
     font-family: "Helvetica", sans-serif;
     font-size: 36px;
-    font-weight: 800;
-    line-height: 1.25em;
+    font-weight: 550;
+    line-height: 45px;
     color: #646464;
     margin-top: 25px;
     margin-bottom: 25px;
+    letter-spacing: 1px;
+  }
+  h6 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 35px;
+    color: #646464;
+    letter-spacing: 1px;
+  }
+  b {
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 28px;
+    color: #646464;
+    font-family: sans-serif;
   }
   p {
     font-family: "Montserrat", sans-serif;

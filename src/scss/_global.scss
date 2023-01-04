@@ -3,6 +3,24 @@
   max-width: calc(100% - 32px);
   padding: 0;
 }
+h3 {
+  font-size: 20px;
+  font-weight: 550;
+  letter-spacing: 0.25px;
+  line-height: 26px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  color: #646464;
+}
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 41.6px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  color: #646464;
+}
 .btn-secondary-md {
   font-family: "Montserrat", sans-serif;
   color: $white;
