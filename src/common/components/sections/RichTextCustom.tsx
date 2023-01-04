@@ -21,7 +21,7 @@ const RichTextCustomSection = ({
       <div
       style={{width:`${width}`, padding: `${padding}`}}
         className={
-          fullWidth ? "container-fluid px-0" : !title ? "container wp-container text-alignment" : "container wp-container"
+          fullWidth ? "container-fluid px-0" : !title ? "container wp-container" : "container wp-container"
         }
       >
         {title && (

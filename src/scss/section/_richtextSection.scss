@@ -1,33 +1,64 @@
 .richtext-render {
-  // padding: 27px 0;
-
+  padding-top: 25px;
   h1 {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 550;
     line-height: 1.3em;
     color: #646464;
     margin-bottom: 15px;
     padding-bottom: 10px;
     overflow-wrap: break-word;
     font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
     // text-align: left;
   }
-  .text-alignment {
-    h2 {
-      text-align: center;
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 41.6px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    color: #646464;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 550;
+    letter-spacing: 0.25px;
+    line-height: 26px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    color: #646464;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28.8px;
+    color: #646464;
+    b {
+      font-size: 24px;
     }
-    h3 {
-      text-align: center;
-    }
-    p {
-      text-align: center;
-    }
+
+  }
+  i {
+    font-weight: 400;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 28.8px;
   }
   p {
     font-size: 16px;
     color: #646464;
     line-height: 1.8em;
     padding-bottom: 1rem;
+  }
+  a {
+    font-family: sans-serif;
+    font-weight: 550 !important;
+  }
+  b {
+    font-size: 18px;
+    font-weight: 600;
   }
   @include mediaQueries(ipad) {
     padding: 30px 0;
@@ -47,17 +78,6 @@
       overflow-wrap: break-word;
       font-family: Arial, Helvetica, sans-serif;
       text-align: left;
-    }
-    .text-alignment {
-      h2 {
-        text-align: center;
-      }
-      h3 {
-        text-align: center;
-      }
-      p {
-        text-align: center;
-      }
     }
     p {
       font-size: 16px;
@@ -87,17 +107,6 @@
       text-align: left;
       font-family: Arial, Helvetica, sans-serif;
     }
-    .text-alignment {
-      h2 {
-        text-align: center;
-      }
-      h3 {
-        text-align: center;
-      }
-      p {
-        text-align: center;
-      }
-    }
     p {
       font-size: 16px;
       color: #646464;
@@ -107,6 +116,16 @@
       line-height: 29px;
       text-align: left;
       font-family: Arial, sans-serif;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 700px !important;
+      letter-spacing: 0.25px;
+      line-height: 26px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      color: #646464;
+      font-family: sans-serif;
     }
   }
 }
