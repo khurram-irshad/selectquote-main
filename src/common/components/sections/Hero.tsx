@@ -13,7 +13,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     textColor,
     actionImage,
     topSection,
-    fullWidth
+    fullWidth,
   } = section.fields;
 
   return (
@@ -35,23 +35,27 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           <div className="content-left">
             <h3>{title} </h3>
             <RichTextRenderer text={content} />
-            {buttonText && (<>
-              <a className="free-quote-btn" href="/quote-form">
-                {buttonText}
-              </a>
-            </>
+            {buttonText && (
+              <>
+                <a className="free-quote-btn" href="/quote-form">
+                  {buttonText}
+                </a>
+              </>
             )}
-            {actionImage && (<>
-              <a>
-                <img src={`https:${actionImage?.fields.imageFile?.fields.file.url}`} />
-              </a>
-            </>
+            {actionImage && (
+              <>
+                <a>
+                  <img
+                    src={`https:${actionImage?.fields.imageFile?.fields.file.url}`}
+                  />
+                </a>
+              </>
             )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 };
 
 export default HeroSection;

@@ -1,13 +1,9 @@
-import { Type_FAQ,  } from "@common/types";
+import { Type_FAQ } from "@common/types";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React, { useState } from "react";
-import { Accordion,  Card } from "react-bootstrap";
+import { Accordion, Card } from "react-bootstrap";
 
-const FAQSection = ({
-  section,
-}: {
-  section: Type_FAQ;
-}) => {
+const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const { title, list, fullWidth } = section.fields;
   const [activeKey, setActiveKey] = useState([]);
   const isCardActive = (eventKey: string) => {
@@ -31,7 +27,9 @@ const FAQSection = ({
   };
 
   return (
-    <section className={`faqs-section ${fullWidth ? "container-fluid px-0" : "container wp-container"}`}>
+    <section
+      className={`faqs-section ${fullWidth ? "container-fluid px-0" : ""}`}
+    >
       <div className="faq-container">
         <h2>{title}</h2>
         <Accordion activeKey={activeKey} className="accordion-card">

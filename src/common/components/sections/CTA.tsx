@@ -5,7 +5,7 @@ import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { useRouter } from "next/router";
 
 const CTASection = ({ section }: { section: Type_CTA }) => {
-  const autoInsurance = useRef(null)
+  const autoInsurance = useRef(null);
   const {
     title,
     content,
@@ -15,7 +15,7 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
     backgroundColor,
     direction,
     padding,
-    color
+    color,
   } = section.fields;
   const [zipcode, setZipcode] = useState("");
 
@@ -48,19 +48,23 @@ const CTASection = ({ section }: { section: Type_CTA }) => {
 
   return (
     <section
-      className={`cta-section ${fullWidth ? "container-fluid px-0" : "container wp-container"
-        } ${path === "/" ? "cta-home" : ""}`}
+      className={`cta-section ${fullWidth ? "container-fluid px-0" : ""} ${
+        path === "/" ? "cta-home" : ""
+      }`}
       style={{ backgroundColor: backgroundColor, padding: `${padding}` }}
     >
       <div
-        className={`d-flex ${direction === Direction.Vertical
+        className={`d-flex ${
+          direction === Direction.Vertical
             ? "flex-column"
             : "flex-column justify-content-center flex-md-row"
-          } gap-2`}
+        } gap-2`}
       >
-        <div className="container wp-container">
-         {title && (<h2 style={{ color: color, marginBottom: '20px' }}>{title}</h2>)} 
-          <div ref={autoInsurance} >
+        <div>
+          {title && (
+            <h2 style={{ color: color, marginBottom: "20px" }}>{title}</h2>
+          )}
+          <div ref={autoInsurance}>
             <RichTextRenderer color={color} text={content} />
           </div>
           {renderCallToAction()}
