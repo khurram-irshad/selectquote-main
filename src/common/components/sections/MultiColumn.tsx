@@ -12,7 +12,7 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
         >
             {
                 section?.fields?.title
-                && <div style={{marginBottom:'20px'}}><RichTextRenderer text={title} /></div>
+                && <div style={{ marginBottom: '20px' }}><RichTextRenderer text={title} /></div>
             }
 
             <div className={`d-flex flex-wrap ${direction == "Horizontal" ? "flex-row" : 'flex-column'} `}>
@@ -22,9 +22,7 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
                             {item.sys.contentType?.sys.id === ComponentContentTypes.MultiColumn ? (
                                 <MultiColumnSection section={item} />
                             ) : (
-                                <div >
-                                    <ColumnSection section={item} />
-                                </div>
+                                <ColumnSection section={item} />
                             )}
                         </div>
                     </div>)

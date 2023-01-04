@@ -34,5 +34,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.RichText]: RichTextSection,
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
-  [ComponentContentTypes.Margin]: MarginSection,
+  [ComponentContentTypes.Style]: MarginSection,
 };
