@@ -26,7 +26,10 @@ const CardsSection = ({ section }: { section: Type_Cards }) => {
 
   return (
     <div className="container">
-      <div className="row d-flex my-5 review-cards">
+      <div
+        className="row d-flex my-5 review-cards"
+        style={{ display: "block", margin: "auto" }}
+      >
         {items.map((item, index) => (
           <>{getComponent(item, index, itemsMargin)}</>
         ))}
