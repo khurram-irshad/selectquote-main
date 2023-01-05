@@ -20,7 +20,6 @@ const Card = ({ item, itemsMargin }: CardProps) => {
         <span className="text-start">
           <RichTextRenderer
             text={content?.fields?.content}
-            itemsMargin={itemsMargin}
           />
         </span>
       </div>
