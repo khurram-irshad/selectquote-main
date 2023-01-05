@@ -5,7 +5,7 @@ const CustomerReview = ({ section }: { section: Type_CustomerReviews }) => {
   const { title, backgroundColor, fullWidth } = section.fields;
   return (
     <section className="review-section" style={{ backgroundColor }}>
-      <div className={fullWidth ? "container-fluid px-0" : "container wp-container"}>
+      <div className={fullWidth ? "container-fluid px-0" : ""}>
         <h2>{title}</h2>
         <div
           id="trustbox"

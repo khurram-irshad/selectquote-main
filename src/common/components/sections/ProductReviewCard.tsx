@@ -25,7 +25,7 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
     >
       <div>
         <div
-          className="card-header px-5 py-2"
+          className="card-header px-3 py-3"
           style={{ backgroundColor: color }}
         >
           <h2 className="text-center fs-3 fw-bolder">{title}</h2>

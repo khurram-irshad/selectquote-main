@@ -25,12 +25,19 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   if (Array.isArray(section)) {
     return (
       <>
-        {section.map((b, index) => (
+        {section.map((b, index) => {
+          const fullWidth = b?.fields?.fullWidth;
           // wp-container class to be added here
-          <div>
-            <BlockRenderer key={index} page={page} section={b} />
-          </div>
-        ))}
+          return (
+            <div
+              className={
+                fullWidth ? "container-fluid px-0" : "container wp-container"
+              }
+            >
+              <BlockRenderer key={index} page={page} section={b} />
+            </div>
+          );
+        })}
       </>
     );
   }

@@ -44,9 +44,7 @@ const CarrierStripsSection = ({ section }: { section: Type_CarrierStrips }) => {
 
   return (
     <section
-      className={`company-section ${
-        fullWidth ? "container-fluid px-0" : "container wp-container"
-      }`}
+      className={`company-section ${fullWidth ? "container-fluid px-0" : ""}`}
     >
       <div
         className="top d-flex align-items-center justify-content-center"
