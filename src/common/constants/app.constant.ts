@@ -24,6 +24,7 @@ export const ComponentContentTypes = {
     Hyperlink: 'hyperLink',
     Cards: 'templateCards',
     Style: 'templateStyle',
+    Button: 'templateButton',
     ProductReview: 'templateProductReview',
     Card: 'templateCard',
 };

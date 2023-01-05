@@ -15,6 +15,7 @@ import ImageSection from "@components/sections/Image";
 import RichTextContentSection from "@components/sections/RichTextCustom";
 import ProductReviews from "@components/sections/Cards";
 import StyleSection from "@components/sections/Style";
+import ButtonSection from "@components/sections/Button";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -72,6 +73,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
   [ComponentContentTypes.Cards]: ProductReviews,
   [ComponentContentTypes.Style]: StyleSection,
+  [ComponentContentTypes.Button]: ButtonSection,
 };
 
 export { BlockRenderer };
