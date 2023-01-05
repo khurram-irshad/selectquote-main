@@ -9,12 +9,10 @@ const AssetHyperlink = (props) => <Hyperlink {...props} type="AssetLink" />;
 
 const RichTextRenderer = ({
   text,
-  color = "#646464",
-  itemsMargin = 0,
+  color,
 }: {
   text: any;
   color?: string;
-  itemsMargin?: string | number;
 }) => {
 
   return (
@@ -25,13 +23,13 @@ const RichTextRenderer = ({
           [INLINES.ASSET_HYPERLINK]: AssetHyperlink,
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
-          [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>
+          [BLOCKS.PARAGRAPH]: (node, children) => <Text color={color}>{children}</Text>
         },
         renderText: text =>
-          text.split("\n").flatMap((text, i) => [i > 0 && <br />, text])
+          text.split("\n").flatMap((text, i) => [i > 0 && <div style={{ paddingBottom: '10px' }}></div>, text])
       })}
     </>
   );
 };
-const Text = ({ children }) => <p>{children}</p>;
+const Text = ({ color, children }) => <p style={{ color: `${color}` }}>{children}</p>;
 export default RichTextRenderer;

@@ -18,7 +18,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
 
   return (
     <section
-      className={"hero-section" + (topSection ? " hero-section-border" : "")}
+      className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
       style={{
         backgroundPosition: "right 0px center",
         backgroundImage: backgroundImage
@@ -33,8 +33,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       >
         <div className="w-50 position-relative">
           <div className="content-left">
-            <h3>{title} </h3>
-            <RichTextRenderer text={content} />
+            <h3 style={{color:textColor}}>{title} </h3>
+            <RichTextRenderer color={textColor} text={content} />
             {buttonText && (
               <>
                 <a className="free-quote-btn" href="/quote-form">

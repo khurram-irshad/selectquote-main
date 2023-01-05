@@ -7,7 +7,6 @@ import { ComponentContentTypes } from "@common/constants/app.constant";
 
 const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
   const {
-    title,
     columns,
     direction,
     justifyContent,
@@ -19,24 +18,16 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
   return (
     <section className="multi-column">
       <div
-        className={`d-flex flex-column ${
-          fullWidth ? "container-fluid px-0" : ""
-        } `}
+        className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
+          } `}
         style={{
           justifyContent: `${justifyContent}`,
           backgroundColor: `${backgroundColor}`,
         }}
       >
-        {section?.fields?.title && (
-          <div style={{ marginBottom: "20px" }}>
-            <RichTextRenderer text={title} />
-          </div>
-        )}
-
         <div
-          className={`d-flex flex-wrap ${
-            direction == "Horizontal" ? "flex-row" : "flex-column"
-          } `}
+          className={`d-flex flex-wrap ${direction == "Horizontal" ? "flex-row" : "flex-column"
+            } `}
         >
           {columns.map((item) => (
             <div
@@ -45,22 +36,19 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
               style={{
                 padding: `${padding}`,
                 justifyContent: `${justifyContent}`,
-                width: `${
-                  item.sys.contentType?.sys.id ===
-                  ComponentContentTypes.MultiColumn
+                width: `${item.sys.contentType?.sys.id ===
+                    ComponentContentTypes.MultiColumn
                     ? 100 / Number(columnPerRow)
                     : item.fields.widthPercentage
-                }%`,
+                  }%`,
               }}
             >
-              <div key={section.sys.id}>
+              <div key={section.sys.id} style={{width:'100%'}}>
                 {item.sys.contentType?.sys.id ===
-                ComponentContentTypes.MultiColumn ? (
+                  ComponentContentTypes.MultiColumn ? (
                   <MultiColumnSection section={item} />
                 ) : (
-                  <div>
-                    <ColumnSection section={item} />
-                  </div>
+                  <ColumnSection section={item} />
                 )}
               </div>
             </div>

@@ -9,7 +9,6 @@ const RichTextCustomSection = ({
   section: Type_RichTextCustom;
 }) => {
   const {
-    title,
     content,
     backgroundColor,
     padding,
@@ -17,37 +16,17 @@ const RichTextCustomSection = ({
     width,
     textAlign = "left",
   } = section.fields;
-  const router = useRouter();
-
-  const path = router.asPath;
-
   return (
     <section
       className={`richtext-render text-${textAlign}`}
       style={{ background: backgroundColor }}
     >
       <div
-        style={{ width: `${width}`, padding: `${padding}` }}
         className={
-          fullWidth ? "container-fluid px-0" : !title ? "text-alignment" : ""
+          fullWidth ? "container-fluid px-0" : ""
         }
+        style={{ width: `${width}`, padding: `${padding}` }}
       >
-        {title && (
-          <h1
-            className={
-              [
-                "/legal",
-                "/privacy",
-                "/privacy/ccpa",
-                "/accessibility-statement",
-              ].includes(path)
-                ? "text-center"
-                : ""
-            }
-          >
-            {title}
-          </h1>
-        )}
         <RichTextRenderer text={content} />
       </div>
     </section>
