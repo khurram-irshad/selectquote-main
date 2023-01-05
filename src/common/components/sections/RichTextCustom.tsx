@@ -9,6 +9,7 @@ const RichTextCustomSection = ({
   section: Type_RichTextCustom;
 }) => {
   const {
+    title,
     content,
     backgroundColor,
     padding,
@@ -23,11 +24,7 @@ const RichTextCustomSection = ({
     >
       <div
         className={
-<<<<<<< HEAD
-          fullWidth ? "container-fluid px-0" : ""
-=======
           fullWidth ? "container wp-container" : !title ? "text-alignment" : ""
->>>>>>> 399903c (chore: added prop for child components to append correct class)
         }
         style={{ width: `${width}`, padding: `${padding}` }}
       >
