@@ -33,6 +33,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
               className={
                 fullWidth ? "container-fluid px-0" : "container wp-container"
               }
+              key={index}
             >
               <BlockRenderer key={index} page={page} section={b} />
             </div>
@@ -43,6 +44,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   }
   const contentTypeId = _.get(section, "sys.contentType.sys.id");
   const Component = ContentTypeMap[contentTypeId];
+
   if (!Component) {
     console.warn(`${contentTypeId} can not be handled`);
     return null;
