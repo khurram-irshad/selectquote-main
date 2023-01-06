@@ -19,6 +19,7 @@ const MultiColumnSection = ({
     direction,
     justifyContent,
     columnPerRow,
+    alignItems,
     fullWidth,
     padding,
     backgroundColor,
@@ -35,8 +36,9 @@ const MultiColumnSection = ({
         }}
       >
         <div
-          className={`d-flex flex-wrap ${!child ? "container wp-container" : ""
+          className={`d-flex flex-wrap  ${!child ? "container wp-container" : ""
             } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
+          style={{ alignItems: alignItems }}
         >
           {columns.map((item) => (
             <div
@@ -46,9 +48,9 @@ const MultiColumnSection = ({
                 padding: `${padding}`,
                 justifyContent: `${justifyContent}`,
                 width: `${item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn
-                    ? 100 / Number(columnPerRow)
-                    : item.fields.widthPercentage
+                  ComponentContentTypes.MultiColumn
+                  ? 100 / Number(columnPerRow)
+                  : item.fields.widthPercentage
                   }%`,
               }}
             >

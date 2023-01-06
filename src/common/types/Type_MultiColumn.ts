@@ -7,6 +7,7 @@ interface MultiColumn {
     columnPerRow: Contentful.EntryFields.Symbol;
     fullWidth: Contentful.EntryFields.Symbol;
     justifyContent: Contentful.EntryFields.Symbol;
+    alignItems: Contentful.EntryFields.Symbol;
     backgroundColor: Contentful.EntryFields.Symbol;
     padding: Contentful.EntryFields.Symbol;
 }
