@@ -27,18 +27,16 @@ const MultiColumnSection = ({
   return (
     <section className="multi-column">
       <div
-        className={`d-flex flex-column ${
-          fullWidth ? "container-fluid px-0" : ""
-        } `}
+        className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
+          } `}
         style={{
           justifyContent: `${justifyContent}`,
           backgroundColor: `${backgroundColor}`,
         }}
       >
         <div
-          className={`d-flex flex-wrap ${
-            !child ? "container wp-container" : ""
-          } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
+          className={`d-flex flex-wrap ${!child ? "container wp-container" : ""
+            } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
         >
           {columns.map((item) => (
             <div
@@ -47,20 +45,19 @@ const MultiColumnSection = ({
               style={{
                 padding: `${padding}`,
                 justifyContent: `${justifyContent}`,
-                width: `${
-                  item.sys.contentType?.sys.id ===
-                  ComponentContentTypes.MultiColumn
+                width: `${item.sys.contentType?.sys.id ===
+                    ComponentContentTypes.MultiColumn
                     ? 100 / Number(columnPerRow)
                     : item.fields.widthPercentage
-                }%`,
+                  }%`,
               }}
             >
               <div key={section.sys.id} style={{ width: "100%" }}>
                 {item.sys.contentType?.sys.id ===
-                ComponentContentTypes.MultiColumn ? (
+                  ComponentContentTypes.MultiColumn ? (
                   <MultiColumnSection section={item} child={true} />
                 ) : (
-                  <div style={{ padding: padding }}>
+                  <div style={{ padding: item?.fields.padding }}>
                     <ColumnSection section={item} />
                   </div>
                 )}
