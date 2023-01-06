@@ -8,6 +8,7 @@ import ImageSection from './Image';
 import Hyperlink from './Hyperlink';
 import MarginSection from './Style';
 import FAQSection from './FAQ';
+import ButtonSection from './Button';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -36,4 +37,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
   [ComponentContentTypes.Style]: MarginSection,
   [ComponentContentTypes.FAQ]: FAQSection,
+  [ComponentContentTypes.Button]: ButtonSection,
 };

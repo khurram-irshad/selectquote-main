@@ -1,6 +1,5 @@
 import { Type_RichTextCustom } from "@common/types";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import { useRouter } from "next/router";
 import React from "react";
 
 const RichTextCustomSection = ({
@@ -9,13 +8,13 @@ const RichTextCustomSection = ({
   section: Type_RichTextCustom;
 }) => {
   const {
-    title,
     content,
     backgroundColor,
     padding,
     fullWidth,
     width,
     textAlign = "left",
+    textColor
   } = section.fields;
   return (
     <section
@@ -24,11 +23,11 @@ const RichTextCustomSection = ({
     >
       <div
         className={
-          fullWidth ? "container wp-container" : !title ? "text-alignment" : ""
+          fullWidth ? "container wp-container" : ""
         }
-        style={{ width: `${width}`, padding: `${padding}` }}
+        style={{ width: `${width}`, padding: `${padding}`,color:`${textColor}` }}
       >
-        <RichTextRenderer text={content} />
+        <RichTextRenderer text={content} color={textColor} />
       </div>
     </section>
   );
