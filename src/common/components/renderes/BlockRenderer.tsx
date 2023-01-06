@@ -2,17 +2,15 @@ import React from "react";
 import _ from "lodash";
 import { ComponentContentTypes } from "@constants/app.constant";
 import HeroSection from "@components/sections/Hero";
-import CTASection from "@components/sections/CTA";
 import CarrierStripsSection from "@components/sections/CarrierStrips";
 import FAQSection from "@components/sections/FAQ";
 import MultiColumnSection from "@components/sections/MultiColumn";
-import RichTextSection from "@components/sections/RichText";
 import CustomerReview from "@components/sections/CustomerReviews";
 import { Type_Page } from "@common/types";
 import AgentReviewSection from "@components/sections/AgentReview";
 import Hyperlink from "@components/sections/Hyperlink";
 import ImageSection from "@components/sections/Image";
-import RichTextContentSection from "@components/sections/RichTextCustom";
+import RichTextContentSection from "@components/sections/RichText";
 import ProductReviews from "@components/sections/Cards";
 import StyleSection from "@components/sections/Style";
 import ButtonSection from "@components/sections/Button";
@@ -64,11 +62,9 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 const ContentTypeMap = {
   [ComponentContentTypes.Hero]: HeroSection,
   [ComponentContentTypes.AgentReview]: AgentReviewSection,
-  [ComponentContentTypes.CTA]: CTASection,
   [ComponentContentTypes.CarrierStrips]: CarrierStripsSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
-  [ComponentContentTypes.RichText]: RichTextSection,
   [ComponentContentTypes.CustomerReview]: CustomerReview,
   [ComponentContentTypes.Hyperlink]: Hyperlink,
   [ComponentContentTypes.Image]: ImageSection,

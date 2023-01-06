@@ -93,7 +93,6 @@ export default ({ quoteForm }: { quoteForm: TypeComponent_Quote_Form }) => {
             }
             let dataString = JSON.stringify(data);
             var finalData = dataString.replace(/\\/g, "");
-            console.log(data);
             const renderScript = document.createElement("script");
             renderScript.innerHTML = `var MediaAlphaExchange = {
           data: ${finalData},
@@ -110,7 +109,6 @@ export default ({ quoteForm }: { quoteForm: TypeComponent_Quote_Form }) => {
             aScript.onload = function () {
                 document.head.appendChild(renderScript);
             };
-            console.log(finalData);
         }
 
     }, []);

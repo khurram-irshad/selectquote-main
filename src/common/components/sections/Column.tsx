@@ -1,9 +1,7 @@
 import React from 'react'
 import _ from 'lodash';
-import CTASection from './CTA';
 import { ComponentContentTypes } from '@constants/app.constant';
-import RichTextSection from './RichText';
-import RichTextContentSection from '@components/sections/RichTextCustom';
+import RichTextSection from '@components/sections/RichText';
 import ImageSection from './Image';
 import Hyperlink from './Hyperlink';
 import MarginSection from './Style';
@@ -30,11 +28,9 @@ const ColumnSection = ({ section }: { section: any }) => {
 export default ColumnSection
 
 const ContentTypeMap = {
-  [ComponentContentTypes.CTA]: CTASection,
   [ComponentContentTypes.Hyperlink]: Hyperlink,
-  [ComponentContentTypes.RichText]: RichTextSection,
   [ComponentContentTypes.Image]: ImageSection,
-  [ComponentContentTypes.RichTextContent]: RichTextContentSection,
+  [ComponentContentTypes.RichTextContent]: RichTextSection,
   [ComponentContentTypes.Style]: MarginSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.Button]: ButtonSection,

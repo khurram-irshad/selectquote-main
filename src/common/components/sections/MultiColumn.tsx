@@ -1,4 +1,4 @@
-import RichTextRenderer from "@components/rich-text/RichTextRenderer";
+
 import React from "react";
 import _ from "lodash";
 import ColumnSection from "./Column";
@@ -7,7 +7,7 @@ import { ComponentContentTypes } from "@common/constants/app.constant";
 
 interface MultiColumnSectionProps {
   section: Type_MultiColumn;
-  child: boolean;
+  child?: boolean;
 }
 
 const MultiColumnSection = ({
