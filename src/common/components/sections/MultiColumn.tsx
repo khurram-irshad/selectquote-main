@@ -5,7 +5,15 @@ import ColumnSection from "./Column";
 import { Type_MultiColumn } from "@common/types";
 import { ComponentContentTypes } from "@common/constants/app.constant";
 
-const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
+interface MultiColumnSectionProps {
+  section: Type_MultiColumn;
+  child: boolean;
+}
+
+const MultiColumnSection = ({
+  section,
+  child = false,
+}: MultiColumnSectionProps) => {
   const {
     columns,
     direction,
@@ -15,19 +23,22 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
     padding,
     backgroundColor,
   } = section.fields;
+
   return (
     <section className="multi-column">
       <div
-        className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
-          } `}
+        className={`d-flex flex-column ${
+          fullWidth ? "container-fluid px-0" : ""
+        } `}
         style={{
           justifyContent: `${justifyContent}`,
           backgroundColor: `${backgroundColor}`,
         }}
       >
         <div
-          className={`d-flex flex-wrap ${direction == "Horizontal" ? "flex-row" : "flex-column"
-            } `}
+          className={`d-flex flex-wrap ${
+            !child ? "container wp-container" : ""
+          } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
         >
           {columns.map((item) => (
             <div
@@ -36,19 +47,22 @@ const MultiColumnSection = ({ section }: { section: Type_MultiColumn }) => {
               style={{
                 padding: `${padding}`,
                 justifyContent: `${justifyContent}`,
-                width: `${item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn
+                width: `${
+                  item.sys.contentType?.sys.id ===
+                  ComponentContentTypes.MultiColumn
                     ? 100 / Number(columnPerRow)
                     : item.fields.widthPercentage
-                  }%`,
+                }%`,
               }}
             >
-              <div key={section.sys.id} style={{width:'100%'}}>
+              <div key={section.sys.id} style={{ width: "100%" }}>
                 {item.sys.contentType?.sys.id ===
-                  ComponentContentTypes.MultiColumn ? (
-                  <MultiColumnSection section={item} />
+                ComponentContentTypes.MultiColumn ? (
+                  <MultiColumnSection section={item} child={true} />
                 ) : (
-                  <ColumnSection section={item} />
+                  <div style={{ padding: padding }}>
+                    <ColumnSection section={item} />
+                  </div>
                 )}
               </div>
             </div>
