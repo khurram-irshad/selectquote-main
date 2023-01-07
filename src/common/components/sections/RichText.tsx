@@ -25,7 +25,7 @@ const RichTextSection = ({
         className={
           fullWidth ? "container wp-container" : ""
         }
-        style={{ width: `${width}`, padding: `${padding}`,color:`${textColor}` }}
+        style={{ width: `${width}`, padding: `${padding}`,color:`${textColor} !important` }}
       >
         <RichTextRenderer text={content} color={textColor} />
       </div>

@@ -31,5 +31,5 @@ const RichTextRenderer = ({
     </>
   );
 };
-const Text = ({ color, children }) => <p style={{ color: `${color}` }}>{children}</p>;
+const Text = ({ color, children }) => <p>{children}</p>;
 export default RichTextRenderer;

@@ -41,8 +41,7 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
           )}
           <span className="text-center">
             <RichTextRenderer
-              text={content.fields.content}
-              itemsMargin={itemsMargin}
+              text={content?.fields?.content}
             />
           </span>
         </div>

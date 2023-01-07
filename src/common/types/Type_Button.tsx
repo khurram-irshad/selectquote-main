@@ -5,6 +5,7 @@ interface Button {
     backgroundColor: Contentful.EntryFields.Symbol;
     textColor: Contentful.EntryFields.Symbol;
     linkUrl: Contentful.EntryFields.Symbol;
+    rounded: Contentful.EntryFields.Boolean;
 }
 
 

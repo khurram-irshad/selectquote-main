@@ -1,19 +1,16 @@
 import React from "react";
-import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { Type_Hero } from "@common/types";
+import ColumnSection from "./Column";
+import { ComponentContentTypes } from "@common/constants/app.constant";
+import MultiColumnSection from "./MultiColumn";
 
 const HeroSection = ({ section }: { section: Type_Hero }) => {
   const {
-    title,
-    content,
-    buttonText,
     gradientEndColor,
     gradientStartingColor,
     backgroundImage,
-    textColor,
-    actionImage,
     topSection,
-    fullWidth,
+    content
   } = section.fields;
 
   return (
@@ -33,24 +30,23 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       >
         <div className="w-50 position-relative">
           <div className="content-left">
-            <h3 style={{color:textColor}}>{title} </h3>
-            <RichTextRenderer color={textColor} text={content} />
-            {buttonText && (
-              <>
-                <a className="free-quote-btn" href="/quote-form">
-                  {buttonText}
-                </a>
-              </>
-            )}
-            {actionImage && (
-              <>
-                <a>
-                  <img
-                    src={`https:${actionImage?.fields.imageFile?.fields.file.url}`}
-                  />
-                </a>
-              </>
-            )}
+            {content?.map((item) => (
+              <div
+                key={item.sys.id}
+                className={`d-flex`}
+              >
+                <div key={section.sys.id} style={{ width: "100%" }}>
+                  {item.sys.contentType?.sys.id ===
+                    ComponentContentTypes.MultiColumn ? (
+                    <MultiColumnSection section={item} child={true} />
+                  ) : (
+                    <div style={{ padding: item?.fields.padding }}>
+                      <ColumnSection section={item} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -12,12 +12,9 @@
     font-weight: 550;
     letter-spacing: 1px;
     line-height: 46.8px;
-    color: #646464;
     margin-top: 20px;
     letter-spacing: 1px;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
 
   }
   h2 {
@@ -26,61 +23,32 @@
     font-weight: 800;
     letter-spacing: 1.5px;
     line-height: 1em;
-    color: #646464;
-    margin-top: 20px;
   }
   h3 {
     font-family: "Helvetica", sans-serif;
     font-size: 36px;
     font-weight: 550;
     line-height: 45px;
-    color: #646464;
-    margin-top: 25px;
-    margin-bottom: 25px;
     letter-spacing: 1px;
   }
   h6 {
     font-size: 28px;
     font-weight: 600;
     line-height: 35px;
-    color: #646464;
     letter-spacing: 1px;
   }
   b {
     font-weight: 550;
     font-size: 16px;
     line-height: 28px;
-    color: #646464;
     font-family: sans-serif;
   }
   p {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     line-height: 1.8em;
-    color: #646464;
   }
-  .free-quote-btn {
-    display: inline-block;
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.7em;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #F47B20;
-    border: 2px solid #ffffff;
-    border-radius: 22.5px;
-    padding: 0.3em 24px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
-    transition: all 300ms ease 0ms;
-    &:hover {
-      color: #00aec7;
-      border-color: #00aec7;
-      background-color: #ffffff;
-    }
-  }
+  
   hr {
     margin: 30px 0 30px;
   }
@@ -94,7 +62,6 @@
     font-size: 13.5px;
     font-weight: 500;
     line-height: 1.5em;
-    color: #646464;
   }
   &.home {
     background-size: contain !important;

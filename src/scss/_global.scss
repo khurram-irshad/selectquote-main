@@ -97,16 +97,13 @@ td {
   font-weight: 700;
   line-height: 1.7em;
   text-decoration: none;
-  color: #ffffff;
-  background-color: #F47B20;
   border: 2px solid #ffffff;
-  border-radius: 22.5px;
   padding: 0.3em 24px;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
   transition: all 300ms ease 0ms;
-  &:hover {
-    color: #00aec7;
-    border-color: #00aec7;
-    background-color: #ffffff;
-  }
+
+ 
+}
+.btn-border {
+  border-radius: 22.5px;
 }
