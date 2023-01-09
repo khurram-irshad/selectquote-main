@@ -20,7 +20,7 @@
     }
     .card-header {
       background-color: #ffffff;
-      padding: 25px 20px;
+      padding: 20px;
     }
     .card {
       border-radius: 0px;
@@ -28,11 +28,11 @@
       border-left-color: #ed6306;
     }
     .card-active {
-      border-left-color: #00a4c7;
+      border-left-color: #ed6306;
       transition: border 0.7s linear;
     }
     .card-inactive {
-      border-left-color: #ed6306;
+      border-left-color: #00a4c7;
       transition: border 0.7s linear;
       border-bottom: 0.1px #646464;
     }
@@ -64,9 +64,10 @@
       color: #646464;
     }
     ol,
-    ul {
+    ul ::marker {
       list-style: none;
       color: #646464;
+      font-size: 1em;
     }
     li {
       margin-bottom: 15px;
@@ -75,12 +76,17 @@
       color: #646464;
     }
     .faq-title {
+      p {
+        font-size: 20px;
+        color: black;
+        font-weight: 700;
+        box-sizing: border-box;
+        margin-bottom: 0px;
+      }
       display: flex;
       justify-content: space-between;
-      font-weight: 700;
       font-size: 20px;
       letter-spacing: 0.25px;
-      color: #666;
       cursor: pointer;
       position: relative;
       word-wrap: break-word;
@@ -93,7 +99,7 @@
     .accordion-card {
       .card-header {
         background-color: #ffffff;
-        padding: 20px 20px;
+        padding: 20px;
       }
       .accordion-symbol {
         background-color: #00a4c7;
@@ -104,7 +110,6 @@
         padding-right: 58px;
       }
       button {
-        margin-top: 3%;
         font-style: normal !important;
         font-weight: 400 !important;
         font-size: 11px !important;
@@ -122,18 +127,14 @@
     .accordion-card {
       .card-header {
         background-color: #ffffff;
-        padding: 20px 20px;
+        padding: 20px;
       }
       .accordion-symbol {
         background-color: #00a4c7;
         border: none;
         height: 24px;
       }
-      .header-title {
-        padding-right: 58px;
-      }
       button {
-        margin-top: 3%;
         font-style: normal !important;
         font-weight: 400 !important;
         font-size: 11px !important;
