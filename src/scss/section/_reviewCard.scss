@@ -1,7 +1,9 @@
 .cards-container {
   max-width: 1080px;
+  margin-bottom: 50px;
 }
 .review-card {
+  min-height: 112vh;
   div.card-header {
     h2 {
       color: #fff;

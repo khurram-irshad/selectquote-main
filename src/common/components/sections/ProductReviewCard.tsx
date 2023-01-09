@@ -17,7 +17,7 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
   return (
     <div
       className={`col-lg-4 col-md-12 review-card px-0
-    } ${child % 3 < 2 || isDesktop ? "border-end min-vh-100" : ""}`}
+    } ${child % 3 < 2 || isDesktop ? "border-end" : ""}`}
       style={{
         backgroundColor:
           withBackground.includes(child) || isDesktop ? "#efefef" : "",
@@ -40,9 +40,7 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
             </div>
           )}
           <span className="text-center">
-            <RichTextRenderer
-              text={content?.fields?.content}
-            />
+            <RichTextRenderer text={content?.fields?.content} />
           </span>
         </div>
       </div>
