@@ -27,6 +27,8 @@ export const ComponentContentTypes = {
     Button: 'templateButton',
     ProductReview: 'templateProductReview',
     Card: 'templateCard',
+    PartnershipForm: 'templatePartnershipForm',
+    Tabs: 'templateTabs',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',

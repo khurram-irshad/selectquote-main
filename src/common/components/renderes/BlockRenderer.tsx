@@ -14,6 +14,8 @@ import RichTextContentSection from "@components/sections/RichText";
 import ProductReviews from "@components/sections/Cards";
 import StyleSection from "@components/sections/Style";
 import ButtonSection from "@components/sections/Button";
+import PartnershipFormSection from "@components/sections/PartnershipForm";
+import TabsSection from "@components/sections/Tabs";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -72,6 +74,8 @@ const ContentTypeMap = {
   [ComponentContentTypes.Cards]: ProductReviews,
   [ComponentContentTypes.Style]: StyleSection,
   [ComponentContentTypes.Button]: ButtonSection,
+  [ComponentContentTypes.PartnershipForm]: PartnershipFormSection,
+  [ComponentContentTypes.Tabs]: TabsSection,
 };
 
 export { BlockRenderer };
