@@ -30,7 +30,8 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
         >
           <h2 className="text-center fs-3 fw-bolder">{title}</h2>
         </div>
-        <div className="card-body d-grid gap-4 py-3 px-4">
+        <div className="card-body d-grid gap-4 py-3 px-4"
+        style={{ color:`${content.fields?.textColor} !important` }}>
           {showRating && (
             <div className="card-review-rating d-flex align-items-center justify-content-center">
               <img

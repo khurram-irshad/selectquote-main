@@ -7,6 +7,7 @@ interface CardProps {
 
 const Card = ({ item, itemsMargin }: CardProps) => {
   const { headerImage, content } = item.fields;
+  
 
   return (
     <div className="col-lg-3 col-md-12 newsroom-card px-0">
@@ -16,7 +17,8 @@ const Card = ({ item, itemsMargin }: CardProps) => {
           alt="newsroom image header"
         />
       </div>
-      <div className="card-content">
+      <div className="card-content"
+      style={{ color:`${content.fields?.textColor} !important` }}>
         <span className="text-start">
           <RichTextRenderer
             text={content?.fields?.content}
