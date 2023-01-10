@@ -39,16 +39,16 @@ export default ({ page }: { page: Type_Page }) => {
 
 export const getServerSideProps = async (context) => {
   const slug = context.params.slug;
-  const childSlugs = [
-    "ccpa",
-    "10-year",
-    "15-year",
-    "20-year",
-    "25-year",
-    "30-year",
-    "35-year",
-    "40-year",
-  ];
+  // const childSlugs = [
+  //   "ccpa",
+  //   "10-year",
+  //   "15-year",
+  //   "20-year",
+  //   "25-year",
+  //   "30-year",
+  //   "35-year",
+  //   "40-year",
+  // ];
   const page = await getEntry(
     {
       slug,
@@ -57,11 +57,11 @@ export const getServerSideProps = async (context) => {
     context
   );
 
-  if (childSlugs.includes(slug) || !page) {
-    return {
-      notFound: true,
-    };
-  }
+  // if (childSlugs.includes(slug) || !page) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
     props: { page: page },
