@@ -13,13 +13,6 @@
     table-display.active {
       display: inline-table;
     }
-    tr:first-child td {
-      font-weight: bold;
-      background-color: #00aec7;
-      color: #fff;
-      text-align: center;
-      border-top: 1px solid #979797;
-    }
     tr:nth-child(even) {
       background-color: #F6F6F6;
     }
@@ -79,4 +72,12 @@
       color: #646464;
       cursor: pointer;
     }
+  }
+.head-title {
+    font-weight: bold;
+    background-color: #00aec7;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #979797;
+    padding: 8px;
   }
