@@ -11,6 +11,13 @@ const TabsSection = ({ section }: { section: Type_Tabs }) => {
         setIsActive(index);
         setselectedTab(data)
     }
+
+    useEffect(() => {
+        setIsActive(0);
+        setselectedTab(items[0])
+    
+    }, [])
+    
     
     return (
         <>
@@ -25,9 +32,9 @@ const TabsSection = ({ section }: { section: Type_Tabs }) => {
                 </tbody>
             </table>
             <div className='head-title'>
-                {selectedTab.fields.title}
+                {selectedTab?.fields?.title}
             </div>
-            <RichTextRenderer text={selectedTab.fields.content?.fields.content} />
+            <RichTextRenderer text={selectedTab?.fields?.content?.fields?.content} />
         </>
     )
 }
