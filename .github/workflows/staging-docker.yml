@@ -33,11 +33,11 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           IMAGE_TAG: '${{ steps.date.outputs.date }}'
           SITE_URL: 'https://selectquote.outliant.com'
-          NODE_ENV: 'master'
+          NODE_ENV: 'development'
           CONTENTFUL_SPACE_ID: 'vr7x4vru4gls'
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
-          CONTENTFUL_ENVIRONMENT: 'develop'
+          CONTENTFUL_ENVIRONMENT: 'master'
         run: |
           docker build --build-arg E_CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID --build-arg E_CONTENTFUL_ACCESS_TOKEN=$CONTENTFUL_ACCESS_TOKEN --build-arg E_CONTENTFUL_PREVIEW_ACCESS_TOKEN=$CONTENTFUL_PREVIEW_ACCESS_TOKEN --build-arg E_CONTENTFUL_ENVIRONMENT=$CONTENTFUL_ENVIRONMENT -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
