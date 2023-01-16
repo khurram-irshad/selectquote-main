@@ -14,7 +14,7 @@ const PartnershipFormSection = ({
       <RichTextRenderer text={title} />
       <div className="row">
         <div className="col">
-          <label for="firstaname" class="form-label">
+          <label for="firstname" className="form-label">
             First Name *
           </label>
           <input
@@ -25,7 +25,7 @@ const PartnershipFormSection = ({
           />
         </div>
         <div className="col">
-          <label for="lastname" class="form-label">
+          <label for="lastname" className="form-label">
             Last Name *
           </label>
           <input
@@ -38,7 +38,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="company" class="form-label">
+          <label for="company" className="form-label">
             Company Name *
           </label>
           <input
@@ -51,7 +51,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="title" class="form-label">
+          <label for="title" className="form-label">
             Your Title *
           </label>
           <input
@@ -64,7 +64,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="email" class="form-label">
+          <label for="email" className="form-label">
             Email *
           </label>
           <input
@@ -75,7 +75,7 @@ const PartnershipFormSection = ({
           />
         </div>
         <div className="col">
-          <label for="phone" class="form-label">
+          <label for="phone" className="form-label">
             Phone Number *
           </label>
           <input
