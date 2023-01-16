@@ -14,9 +14,7 @@ const PartnershipFormSection = ({
       <RichTextRenderer text={title} />
       <div className="row">
         <div className="col">
-          <label for="firstaname" class="form-label">
-            First Name *
-          </label>
+          <label className="form-label">First Name *</label>
           <input
             type="text"
             id="firstaname"
@@ -25,9 +23,7 @@ const PartnershipFormSection = ({
           />
         </div>
         <div className="col">
-          <label for="lastname" class="form-label">
-            Last Name *
-          </label>
+          <label className="form-label">Last Name *</label>
           <input
             type="text"
             id="lastname"
@@ -38,9 +34,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="company" class="form-label">
-            Company Name *
-          </label>
+          <label className="form-label">Company Name *</label>
           <input
             type="text"
             id="company"
@@ -51,9 +45,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="title" class="form-label">
-            Your Title *
-          </label>
+          <label className="form-label">Your Title *</label>
           <input
             type="text"
             id="title"
@@ -64,9 +56,7 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="email" class="form-label">
-            Email *
-          </label>
+          <label className="form-label">Email *</label>
           <input
             type="text"
             id="email"
@@ -75,9 +65,7 @@ const PartnershipFormSection = ({
           />
         </div>
         <div className="col">
-          <label for="phone" class="form-label">
-            Phone Number *
-          </label>
+          <label className="form-label">Phone Number *</label>
           <input
             type="text"
             id="phone"
@@ -88,13 +76,13 @@ const PartnershipFormSection = ({
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="floatingTextarea">Additional Comments</label>
+          <label>Additional Comments</label>
           <textarea className="form-control mt-2" id="floatingTextarea" />
         </div>
       </div>
       <div className="row mt-4">
         <div className="col">
-          <label for="formFile">Add Attachments</label>
+          <label>Add Attachments</label>
           <input className="form-control" type="file" id="formFile" />
         </div>
       </div>
