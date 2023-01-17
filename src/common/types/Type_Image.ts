@@ -5,8 +5,5 @@ export interface Image {
   imageFile: Contentful.Asset;
   link?: Contentful.EntryFields.Symbol;
 }
-export interface TypeHeroImage {
-  fields: Image;
-}
 
 export type Type_Image = Contentful.Entry<Image>;

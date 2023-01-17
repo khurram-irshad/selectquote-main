@@ -1,8 +1,8 @@
 import * as Contentful from "contentful";
-import { TypeHeroImage } from "./Type_Image";
+import { Image } from "./Type_Image";
 
 interface Hero {
-  backgroundImage?: TypeHeroImage;
+  backgroundImage?: Contentful.Entry<Image>;
   gradientEndColor: Contentful.EntryFields.Symbol;
   gradientStartingColor: Contentful.EntryFields.Symbol;
   topSection?: Contentful.EntryFields.Boolean;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Slider from "react-slick";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { Type_CarrierStrips } from "@common/types";

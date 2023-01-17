@@ -1,5 +1,5 @@
 import * as Contentful from "contentful";
-import { TypeImage } from "./Type_Image";
+import { Image } from "./Type_Image";
 
 interface SEO {
   description: Contentful.EntryFields.Symbol;
@@ -7,7 +7,7 @@ interface SEO {
   noIndex: Contentful.EntryFields.Boolean;
   noFollow: Contentful.EntryFields.Boolean;
   includeInSitemap: Contentful.EntryFields.Symbol;
-  shareCardImage: Contentful.Entry<TypeImage>;
+  shareCardImage: Contentful.Entry<Image>;
   shareCardUrl: Contentful.EntryFields.Symbol;
   canonicalUrl: Contentful.EntryFields.Symbol;
 }

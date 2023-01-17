@@ -1,11 +1,11 @@
 import * as Contentful from "contentful";
-import { TypeImage } from "./Type_Image";
+import { Image } from "./Type_Image";
 
 interface Header {
   title: Contentful.EntryFields.Symbol;
   slug: Contentful.EntryFields.Symbol;
-  logo: Contentful.Entry<TypeImage>;
-  logoWithTag: Contentful.Entry<TypeImage>;
+  logo: Contentful.Entry<Image>;
+  logoWithTag: Contentful.Entry<Image>;
   contactNumber: Contentful.EntryFields.Symbol;
   bannerText: Contentful.EntryFields.Symbol;
   primaryButtonText: Contentful.EntryFields.Symbol;
