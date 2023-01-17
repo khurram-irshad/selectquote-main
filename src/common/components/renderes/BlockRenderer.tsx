@@ -16,6 +16,7 @@ import StyleSection from "@components/sections/Style";
 import ButtonSection from "@components/sections/Button";
 import PartnershipFormSection from "@components/sections/PartnershipForm";
 import TabsSection from "@components/sections/Tabs";
+import GallerySection from "@components/sections/Gallery";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -76,6 +77,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Button]: ButtonSection,
   [ComponentContentTypes.PartnershipForm]: PartnershipFormSection,
   [ComponentContentTypes.Tabs]: TabsSection,
+  [ComponentContentTypes.Gallery]: GallerySection,
 };
 
 export { BlockRenderer };

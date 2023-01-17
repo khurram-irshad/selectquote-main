@@ -29,6 +29,7 @@ export const ComponentContentTypes = {
     Card: 'templateCard',
     PartnershipForm: 'templatePartnershipForm',
     Tabs: 'templateTabs',
+    Gallery: 'templateGallery',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',
