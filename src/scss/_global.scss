@@ -1,117 +1,136 @@
-.wp-container {
-  width: 1080px;
-  max-width: calc(100% - 32px);
-  padding: 0;
-}
-
-h1,
-h2,
-h3 {
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: 550;
-  letter-spacing: 0.25px;
-  line-height: 26px;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  line-height: 41.6px;
-}
-
-.btn-secondary-md {
-  font-family: "Montserrat", sans-serif;
-  color: $white;
-  font-size: 16px;
-  border-radius: 4px;
-  text-shadow: none;
-  padding: 10px 20px;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  background: $secondary;
-
-  a {
-    color: $white;
-    text-decoration: none;
-  }
-
-  &:hover {
-    background: $secondary;
-    color: $white;
-    border-color: #ccc;
-    border-width: 1px;
-  }
-}
-
-.btn-transparent-md {
-  font-family: "Montserrat", sans-serif;
-  color: $gray-500;
-  font-size: 16px;
-  padding: 10px 20px;
-  font-weight: 300;
-  line-height: normal;
-  text-align: center;
-  background: transparent;
-
-  a {
-    color: $gray-500;
-    text-decoration: none;
-  }
-
-  &:first-child {
-    &:active {
-      border: none !important;
+.block-render {
+  @include mediaQueries (mobile) {
+    .desktop-blockrender{
+      display: none;
+    }
+    .mobile-blockrender {
+     display: block !important;
     }
   }
-}
-
-table {
-  width: 100%;
-}
-
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 12px 16px;
-
-  p {
-    word-break: break-all;
+  .mobile-blockrender {
+    display: none;
   }
-}
-
-.action-btn {
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.7em;
-  text-decoration: none;
-  border: 2px solid #ffffff;
-  padding: 0.3em 24px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
-  transition: all 300ms ease 0ms;
-}
-
-.btn-primary {
-  background: #f47b20;
-  color: #fff;
-
-  &:hover {
-    background: #fff;
-    color: #f47b20;
-    border: 2px solid #f47b20;
+  .wp-container {
+    width: 1080px;
+    max-width: calc(100% - 32px);
+    padding: 0;
+    .button-container {
+      .action-btn {
+        display: inline-block;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.7em;
+        text-decoration: none;
+        border: 2px solid #ffffff;
+        padding: 0.3em 24px;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
+        transition: all 300ms ease 0ms;
+      }
+      .btn-border {
+        border-radius: 22.5px;
+      }
+      @include mediaQueries (mobile) {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+    @include mediaQueries (mobile) {
+        width: 1080px;
+        max-width: calc(100% - 0px) !important;
+        margin: 0 !important;
+        padding: 0;
+        .richtext-render-desktop {
+          display: none !important;
+        }
+    }
+    .richtext-render-mobile {
+      display: none;
+    }
   }
-}
-
-.btn-border {
-  border-radius: 22.5px;
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 550;
+    letter-spacing: 0.25px;
+    line-height: 26px;
+  }
+  
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 41.6px;
+  
+  }
+  
+  
+  .btn-secondary-md {
+    font-family: "Montserrat", sans-serif;
+    color: $white;
+    font-size: 16px;
+    border-radius: 4px;
+    text-shadow: none;
+    padding: 10px 20px;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    background: $secondary;
+  
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  
+    &:hover {
+      background: $secondary;
+      color: $white;
+      border-color: #ccc;
+      border-width: 1px;
+    }
+  }
+  
+  .btn-transparent-md {
+    font-family: "Montserrat", sans-serif;
+    color: $gray-500;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    background: transparent;
+  
+    a {
+      color: $gray-500;
+      text-decoration: none;
+    }
+  
+    &:first-child {
+      &:active {
+        border: none !important;
+      }
+    }
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 12px 16px;
+  
+    p {
+      word-break: break-all;
+    }
+  }
 }

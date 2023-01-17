@@ -14,43 +14,86 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   } = section.fields;
 
   return (
-    <section
-      className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
-      style={{
-        backgroundPosition: "right 0px center",
-        backgroundImage: backgroundImage
-          ? `linear-gradient(90deg,${gradientStartingColor} 48%,${gradientEndColor} 55%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
-          : "",
-      }}
-    >
-      <div
-        className={
-          "hero-content d-flex align-items-center container wp-container"
-        }
-      >
-        <div className="w-50 position-relative">
-          <div className="content-left">
-            {content?.map((item) => (
-              <div
-                key={item.sys.id}
-                className={`d-flex`}
-              >
-                <div key={section.sys.id} style={{ width: "100%" }}>
-                  {item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn ? (
-                    <MultiColumnSection section={item} child={true} />
-                  ) : (
-                    <div style={{ padding: item?.fields.padding }}>
-                      <ColumnSection section={item} />
+    <div className="hero-block">
+      <div className="hero-section-desktop">
+        <section
+          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
+          style={{
+            backgroundPosition: "right 0px center",
+            backgroundImage: backgroundImage
+              ? `linear-gradient(90deg,${gradientStartingColor} 48%,${gradientEndColor} 55%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+              : "",
+          }}
+        >
+          <div
+            className={
+              "hero-content d-flex align-items-center container wp-container"
+            }
+          >
+            <div className="w-50 position-relative">
+              <div className="content-left">
+                {content?.map((item) => (
+                  <div
+                    key={item.sys.id}
+                    className={`d-flex`}
+                  >
+                    <div key={section.sys.id} style={{ width: "100%" }}>
+                      {item.sys.contentType?.sys.id ===
+                        ComponentContentTypes.MultiColumn ? (
+                        <MultiColumnSection section={item} child={true} />
+                      ) : (
+                        <div style={{ padding: item?.fields.padding }}>
+                          <ColumnSection section={item} />
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+      <div className="hero-section-mobile">
+        <section
+          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
+          style={{
+            backgroundPosition: "right 0px center",
+            backgroundImage: backgroundImage
+              ? `linear-gradient(90deg,${gradientStartingColor} 1%,${gradientEndColor} 55%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+              : "",
+          }}
+        >
+          <div
+            className={
+              "hero-content d-flex align-items-center container wp-container"
+            }
+          >
+            <div className="w-50 position-relative">
+              <div className="content-left">
+                {content?.map((item) => (
+                  <div
+                    key={item.sys.id}
+                    className={`d-flex`}
+                  >
+                    <div key={section.sys.id} style={{ width: "100%" }}>
+                      {item.sys.contentType?.sys.id ===
+                        ComponentContentTypes.MultiColumn ? (
+                        <MultiColumnSection section={item} child={true} />
+                      ) : (
+                        <div style={{ padding: item?.fields.padding }}>
+                          <ColumnSection section={item} />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 };
 

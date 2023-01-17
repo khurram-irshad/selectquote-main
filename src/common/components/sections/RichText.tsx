@@ -17,19 +17,34 @@ const RichTextSection = ({
     textColor
   } = section.fields;
   return (
-    <section
-      className={`richtext-render text-${textAlign}`}
-      style={{ background: backgroundColor }}
-    >
-      <div
-        className={
-          fullWidth ? "container wp-container" : ""
-        }
-        style={{ width: `${width}`, padding: `${padding}`,color:`${textColor} !important` }}
+    <>
+      <section
+        className={`richtext-render text-${textAlign}`}
+        style={{ background: backgroundColor }}
       >
-        <RichTextRenderer text={content} color={textColor} />
-      </div>
-    </section>
+        <div className="wp-container-desktop">
+          <div
+            className={
+              fullWidth ? "container wp-container" : ""
+            }
+            style={{ width: `${width}`, padding: `${padding}`,color:`${textColor} !important` }}
+          >
+            <RichTextRenderer text={content} color={textColor} />
+          </div>
+        </div>
+        <div className="wp-container-mobile">
+          <div
+            className={
+              fullWidth ? "container wp-container" : ""
+            }
+            style={{ width: `${width}`, padding: `${padding}`,color:`${textColor} !important` }}
+          >
+            <RichTextRenderer text={content} color={textColor} />
+          </div>
+        </div>
+      </section>
+      
+    </>  
   );
 };
 
