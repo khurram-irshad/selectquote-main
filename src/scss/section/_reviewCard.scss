@@ -1,8 +1,12 @@
 .cards-container {
   max-width: 1080px;
   margin-bottom: 50px;
+  @include mediaQueries(mobile) {
+    padding: 0;
+    margin: 0;
+  }
 }
-.review-card {
+.review-card-desktop {
   min-height: 112vh;
   div.card-header {
     h2 {
@@ -33,5 +37,13 @@
   }
   div.card-background {
     background-color: $gray-100 !important;
+  }
+}
+@include mediaQueries(mobile) {
+  .review-cards-desktop {
+    display: none !important;
+  }
+  .review-cards-mobile {
+    margin : 10px;
   }
 }

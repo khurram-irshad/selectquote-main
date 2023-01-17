@@ -26,22 +26,42 @@ type BlockRendererProps = {
 const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   if (Array.isArray(section)) {
     return (
-      <>
-        {section.map((b, index) => {
-          const fullWidth = b?.fields?.fullWidth;
-          // wp-container class to be added here
-          return (
-            <div
-              className={
-                fullWidth ? "container-fluid px-0" : "container wp-container"
-              }
-              key={index}
-            >
-              <BlockRenderer key={index} page={page} section={b} />
-            </div>
-          );
-        })}
-      </>
+      <div className="block-render">
+          <div className="desktop-blockrender">
+          {section.map((b, index) => {
+            const fullWidth = b?.fields?.fullWidth;
+            // wp-container class to be added here
+            return (
+              <div
+                className={
+                  fullWidth ? "container-fluid px-0" : "container wp-container"
+                }
+                key={index}
+              >
+                <BlockRenderer key={index} page={page} section={b} />
+              </div>
+            );
+          })}
+        </div>
+        <div className="mobile-blockrender">
+          {section.map((b, index) => {
+            const fullWidth = b?.fields?.fullWidth;
+            // wp-container class to be added here
+            return (
+              <div
+                className={
+                  "container wp-container"
+                }
+                key={index}
+              >
+                <BlockRenderer key={index} page={page} section={b} />
+              </div>
+            );
+          })}
+
+        </div>
+      </div>
+        
     );
   }
   const contentTypeId = _.get(section, "sys.contentType.sys.id");

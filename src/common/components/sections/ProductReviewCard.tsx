@@ -11,13 +11,16 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
   const isDesktop = useMediaQuery({
     minWidth: 1024,
   });
+  const isMobile = useMediaQuery({
+    minWidth: 375,
+  });
 
   const withBackground = [3, 4, 5, 9, 10, 11];
 
   return (
     <div
       className={`col-lg-4 col-md-12 review-card px-0
-    } ${child % 3 < 2 || isDesktop ? "border-end" : ""}`}
+    } ${child % 3 < 2 && isDesktop ? "border-end" : isMobile ? " border-right-0" : ""}`}
       style={{
         backgroundColor:
           withBackground.includes(child) || isDesktop ? "#efefef" : "",

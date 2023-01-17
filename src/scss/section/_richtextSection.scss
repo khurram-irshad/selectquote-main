@@ -71,35 +71,18 @@
       font-weight: 500;
     }
   }
+  .wp-container-mobile {
+    display: none;
+  }
   @include mediaQueries(mobile) {
-    .rich-text-container {
-      max-width: 1080px;
-      margin: auto auto;
-      width: 80%;
+    .wp-container-desktop {
+      display: none;
     }
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 42px;
-      overflow-wrap: break-word;
-      font-family: sans-serif, Helvetica;
-      text-align: left;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    p {
-      font-size: 16px;
-      line-height: 29px;
-      font-weight: 500;
-      line-height: 29px;
-      text-align: left;
-      font-family: Arial, sans-serif;
-    }
-    h3 {
-      font-size: 20px;
-      font-weight: 700px !important;
-      letter-spacing: 0.25px;
-      line-height: 26px;
-      font-family: sans-serif;
+    .wp-container-mobile {
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 20px;
+      display: block;
     }
   }
 }

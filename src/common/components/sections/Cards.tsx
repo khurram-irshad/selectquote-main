@@ -25,13 +25,20 @@ const CardsSection = ({ section }: { section: Type_Cards }) => {
   };
 
   return (
-    <div className="container cards-container">
-      <div className="row d-flex review-cards">
-        {items.map((item, index) => (
-          <>{getComponent(item, index, itemsMargin)}</>
-        ))}
+    <>
+      <div className="container cards-container">
+        <div className="row d-flex review-cards-desktop">
+          {items.map((item, index) => (
+            <>{getComponent(item, index, itemsMargin)}</>
+          ))}
+        </div>
+        <div className="row d-flex review-cards-mobile">
+          {items.map((item, index) => (
+            <>{getComponent(item, index, itemsMargin)}</>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

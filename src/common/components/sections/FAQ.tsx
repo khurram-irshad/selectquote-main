@@ -27,38 +27,72 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   };
 
   return (
-    <section
-      className={`faqs-section ${fullWidth ? "container-fluid px-0" : ""}`}
-    >
-      <div className="faq-container">
-        <h2>{title}</h2>
-        <Accordion activeKey={activeKey} className="accordion-card">
-          {list.map((item, index) => (
-            <Card
-              key={index}
-              onClick={() => onCardClick(item.sys.id)}
-              className={`${
-                isCardActive(item.sys.id) ? "card-active" : "card-inactive"
-              }`}
-            >
-              <Card.Header>
-                <div className="faq-title">
-                  <span className="header-title">
-                    <RichTextRenderer text={item.fields.question} />
-                  </span>
-                  {renderAccodionButton(item.sys.id)}
-                </div>
-              </Card.Header>
-              <Accordion.Collapse eventKey={item.sys.id}>
-                <Card.Body>
-                  <RichTextRenderer text={item.fields.answer} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          ))}
-        </Accordion>
-      </div>
-    </section>
+    <div className="faq-model">
+      <section
+        className={`faqs-section-desktop ${fullWidth ? "container-fluid px-0" : ""}`}
+      >
+        <div className="faq-container">
+          <h2>{title}</h2>
+          <Accordion activeKey={activeKey} className="accordion-card">
+            {list.map((item, index) => (
+              <Card
+                key={index}
+                onClick={() => onCardClick(item.sys.id)}
+                className={`${
+                  isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                }`}
+              >
+                <Card.Header>
+                  <div className="faq-title">
+                    <span className="header-title">
+                      <RichTextRenderer text={item.fields.question} />
+                    </span>
+                    {renderAccodionButton(item.sys.id)}
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey={item.sys.id}>
+                  <Card.Body>
+                    <RichTextRenderer text={item.fields.answer} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+      <section
+        className={`faqs-section-mobile ${fullWidth ? "container-fluid px-0" : ""}`}
+      >
+        <div className="faq-container">
+          <h2>{title}</h2>
+          <Accordion activeKey={activeKey} className="accordion-card">
+            {list.map((item, index) => (
+              <Card
+                key={index}
+                onClick={() => onCardClick(item.sys.id)}
+                className={`${
+                  isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                }`}
+              >
+                <Card.Header>
+                  <div className="faq-title">
+                    <span className="header-title">
+                      <RichTextRenderer text={item.fields.question} />
+                    </span>
+                    {renderAccodionButton(item.sys.id)}
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey={item.sys.id}>
+                  <Card.Body>
+                    <RichTextRenderer text={item.fields.answer} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+    </div>
   );
 };
 export default FAQSection;
