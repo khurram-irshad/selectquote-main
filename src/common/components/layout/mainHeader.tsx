@@ -29,7 +29,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   const renderMainLink = (linkData: any) => {
     const { linkUrl, linkText, hyperlink } = linkData.fields;
     return hyperlink ? (
-      <a target="_blank" href={`${linkUrl}`} rel="noopener noreferrer">
+      <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer">
         {linkText}
       </a>
     ) : (
@@ -61,7 +61,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         <div>
           <a
             className="basicbtn"
-            target="_blank"
+            target="_self"
             href={`${linkUrl}`}
             rel="noopener noreferrer"
           >
@@ -74,8 +74,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (!parent) {
       return (
         <div>
-          <Link className="basicbtn" href={linkUrl}>
-            <a>{linkText}</a>
+          <Link className="basicbtn" href={linkUrl} target="_self">
+            <a target="_self">{linkText}</a>
           </Link>
         </div>
       );
@@ -104,7 +104,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (hyperlink) {
       return (
         <a
-          target="_blank"
+          target="_self"
           href={`${linkUrl}`}
           rel="noopener noreferrer"
           key={key}
@@ -116,8 +116,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
     if (!parent) {
       return (
-        <Link href={linkUrl} key={key}>
-          <a>
+        <Link href={linkUrl} key={key} target="_self">
+          <a target="_self">
             <div className="anchor-wrap">{linkText}</div>
           </a>
         </Link>
