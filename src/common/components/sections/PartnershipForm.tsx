@@ -2,16 +2,12 @@ import { Type_Form } from "@common/types/Type_Form";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React from "react";
 
-const PartnershipFormSection = ({
-  section,
-}: {
-  section: Type_Form;
-}) => {
+const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
   const { title } = section.fields;
 
   return (
     <div className="pt-5 pb-5">
-      <RichTextRenderer text={title.fields.content} />
+      <RichTextRenderer text={title.fields?.content} />
       <div className="row">
         <div className="col">
           <label className="form-label">First Name *</label>
