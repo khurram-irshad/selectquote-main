@@ -28,6 +28,7 @@ export const ComponentContentTypes = {
     ProductReview: 'templateProductReview',
     Card: 'templateCard',
     PartnershipForm: 'templatePartnershipForm',
+    FundingForm: 'templateFundingForm',
     Tabs: 'templateTabs',
     Gallery: 'templateGallery',
 };

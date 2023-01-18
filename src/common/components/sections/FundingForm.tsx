@@ -2,7 +2,7 @@ import { Type_Form } from "@common/types/Type_Form";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React from "react";
 
-const PartnershipFormSection = ({
+const FundingFormSection = ({
   section,
 }: {
   section: Type_Form;
@@ -95,4 +95,4 @@ const PartnershipFormSection = ({
   );
 };
 
-export default PartnershipFormSection;
+export default FundingFormSection;
