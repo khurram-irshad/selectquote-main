@@ -46,42 +46,83 @@ export default function PageFooter({ footer }: { footer: Type_Footer }) {
   };
 
   return (
-    <footer className="content-footer">
-      <div className="container wp-container d-flex flex-column">
-        <div
-          className={
-            "quick-links d-flex flex-column flex-md-row " +
-            (path.includes("quote-form") ? "form-footer" : "")
-          }
-        >
-          {footerColumns?.map((column1, key) => {
-            return <FooterColumn column={column1} key={`footerColumn${key}`} />;
-          })}
-        </div>
-
-        {!path.includes("quote-form") &&
-          footerColumns &&
-          footerColumns.length !== 0 && (
-            <div>
-              <hr />
+    <div className="footer-container">
+      <footer className="content-footer">
+        <div className="content-footer-desktop">
+          <div className="container wp-container d-flex flex-column">
+            <div
+              className={
+                "quick-links d-flex flex-column flex-md-row " +
+                (path.includes("quote-form") ? "form-footer" : "")
+              }
+            >
+              {footerColumns?.map((column1, key) => {
+                return <FooterColumn column={column1} key={`footerColumn${key}`} />;
+              })}
             </div>
-          )}
 
-        <div className="license-name">
-          {!path.includes("quote-form") && (
-            <div className="legal_text">
-              {footerLinks?.map((link, linkKey) => (
-                <div key={`link${linkKey}`} className="d-inline">
-                  <a href={link.fields.url}>{link.fields.title}</a>
-                  {linkKey < footerLinks.length - 1 && " | "}
+            {!path.includes("quote-form") &&
+              footerColumns &&
+              footerColumns.length !== 0 && (
+                <div>
+                  <hr />
                 </div>
-              ))}
-            </div>
-          )}
+              )}
 
-          <RichTextRenderer text={footerContent} />
+            <div className="license-name">
+              {!path.includes("quote-form") && (
+                <div className="legal_text">
+                  {footerLinks?.map((link, linkKey) => (
+                    <div key={`link${linkKey}`} className="d-inline">
+                      <a href={link.fields.url}>{link.fields.title}</a>
+                      {linkKey < footerLinks.length - 1 && " | "}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <RichTextRenderer text={footerContent} />
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+        <div className="content-footer-mobile">
+          <div className="container wp-container d-flex flex-column">
+            <div
+              className={
+                "quick-links d-flex flex-column flex-md-row text-center" +
+                (path.includes("quote-form") ? "form-footer" : "")
+              }
+            >
+              {footerColumns?.map((column1, key) => {
+                return <FooterColumn column={column1} key={`footerColumn${key}`} />;
+              })}
+            </div>
+
+            {!path.includes("quote-form") &&
+              footerColumns &&
+              footerColumns.length !== 0 && (
+                <div>
+                  <hr />
+                </div>
+              )}
+
+            <div className="license-name">
+              {!path.includes("quote-form") && (
+                <div className="legal_text">
+                  {footerLinks?.map((link, linkKey) => (
+                    <div key={`link${linkKey}`} className="d-inline">
+                      <a href={link.fields.url}>{link.fields.title}</a>
+                      {linkKey < footerLinks.length - 1 && " | "}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <RichTextRenderer text={footerContent} />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

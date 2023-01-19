@@ -1,12 +1,23 @@
 .cards-container {
   max-width: 1080px;
   margin-bottom: 50px;
+  .review-cards-mobile {
+    display: none !important;
+  }
   @include mediaQueries(mobile) {
     padding: 0;
     margin: 0;
+    .review-cards-desktop {
+      display: none !important;
+    }
+    .review-cards-mobile {
+      display: block !important;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
   }
 }
-.review-card-desktop {
+.review-cards-desktop {
   min-height: 112vh;
   div.card-header {
     h2 {
@@ -37,13 +48,5 @@
   }
   div.card-background {
     background-color: $gray-100 !important;
-  }
-}
-@include mediaQueries(mobile) {
-  .review-cards-desktop {
-    display: none !important;
-  }
-  .review-cards-mobile {
-    margin : 10px;
   }
 }

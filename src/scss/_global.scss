@@ -10,10 +10,32 @@
   .mobile-blockrender {
     display: none;
   }
+   .multi-column-section {
+      .multi-column-mobile {
+        display: none;
+      }
+  }
   .wp-container {
     width: 1080px;
     max-width: calc(100% - 32px);
     padding: 0;
+    .partnership-form {
+      .partnership-form-mobile {
+        display: none;
+      }
+    }
+    @include mediaQueries (mobile) {
+      .partnership-form {
+        .partnership-form-dekstop {
+          display: none !important;
+        }
+        .partnership-form-mobile {
+          display: block;
+          margin-left: 30px;
+          margin-right: 30px;
+        }
+      }
+    }
     .button-container {
       .action-btn {
         display: inline-block;
@@ -30,9 +52,15 @@
       .btn-border {
         border-radius: 22.5px;
       }
+      a {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
       @include mediaQueries (mobile) {
-        margin-left: 30px;
-        margin-right: 30px;
+        a {
+          margin-left: 30px;
+          margin-right: 30px;
+        }
       }
     }
     @include mediaQueries (mobile) {
@@ -42,6 +70,14 @@
         padding: 0;
         .richtext-render-desktop {
           display: none !important;
+        }
+        .multi-column-section {
+          .multi-column-desktop {
+            display: none;
+          }
+          .multi-column-mobile {
+            display: unset;
+          }
         }
     }
     .richtext-render-mobile {
