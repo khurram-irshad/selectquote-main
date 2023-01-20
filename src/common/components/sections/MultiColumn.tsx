@@ -50,7 +50,7 @@ const MultiColumnSection = ({
                 padding: `${padding}`,
                 justifyContent: `${justifyContent}`,
                 width: `${item.sys.contentType?.sys.id ===
-                  ComponentContentTypes.MultiColumn
+                  ComponentContentTypes.MultiColumn && !item.fields.widthPercentage
                   ? 100 / Number(columnPerRow)
                   : item.fields.widthPercentage
                   }%`,
@@ -61,7 +61,7 @@ const MultiColumnSection = ({
                   ComponentContentTypes.MultiColumn ? (
                   <MultiColumnSection section={item} child={true} />
                 ) : (
-                  <div style={{ padding: item?.fields.padding }}>
+                  <div style={{ padding: item?.fields.padding,height:'100%' }}>
                     <ColumnSection section={item} />
                   </div>
                 )}

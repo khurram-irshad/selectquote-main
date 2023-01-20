@@ -29,6 +29,7 @@ export const ComponentContentTypes = {
     Card: 'templateCard',
     PartnershipForm: 'templatePartnershipForm',
     FundingForm: 'templateFundingForm',
+    Divider: 'templateDivider',
     Tabs: 'templateTabs',
     Gallery: 'templateGallery',
 };

@@ -18,6 +18,7 @@ import PartnershipFormSection from "@components/sections/PartnershipForm";
 import TabsSection from "@components/sections/Tabs";
 import GallerySection from "@components/sections/Gallery";
 import FundingFormSection from "@components/sections/FundingForm";
+import DividerSection from "@components/sections/Divider";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -100,6 +101,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Tabs]: TabsSection,
   [ComponentContentTypes.Gallery]: GallerySection,
   [ComponentContentTypes.FundingForm]: FundingFormSection,
+  [ComponentContentTypes.Divider]: DividerSection,
 };
 
 export { BlockRenderer };

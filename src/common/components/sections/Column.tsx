@@ -7,6 +7,8 @@ import Hyperlink from './Hyperlink';
 import MarginSection from './Style';
 import FAQSection from './FAQ';
 import ButtonSection from './Button';
+import DividerSection from './Divider';
+import MultiColumnSection from './MultiColumn';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -34,4 +36,6 @@ const ContentTypeMap = {
   [ComponentContentTypes.Style]: MarginSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.Button]: ButtonSection,
+  [ComponentContentTypes.Divider]: DividerSection,
+  [ComponentContentTypes.MultiColumn]: MultiColumnSection,
 };
