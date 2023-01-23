@@ -192,3 +192,12 @@
   border-left: 2px solid #d8d8d8;
   height: 100%;
 }
+.gallery {
+  img {
+    cursor: pointer;
+    max-height: 640px;
+  }
+  .styles-module_wrapper__1I_qj {
+    background-color: #3C3C3C !important;
+  }
+}
