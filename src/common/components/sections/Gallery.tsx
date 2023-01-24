@@ -12,7 +12,7 @@ const GallerySection = ({ section }: { section: Type_Gallery }) => {
     let newArray = [];
     for (let i = 0; i < arr.length; i++) {
         let value = arr[i].fields?.imageFile?.fields?.file?.url;
-        let imageName= arr[i].fields?.imageFile?.fields?.file?.fileName;
+        // let imageName= arr[i].fields?.imageFile?.fields?.file?.fileName;
         newArray.push(value);
     }
     return newArray;
@@ -41,13 +41,18 @@ const GallerySection = ({ section }: { section: Type_Gallery }) => {
             />
           ))}
           {isViewerOpen && (
-            <ImageViewer
-              src={ imageArray(images)}
-              currentIndex={ currentImage }
-              disableScroll={ false }
-              closeOnClickOutside={ true }
-              onClose={ closeImageViewer }
-            />
+            <div style={{zIndex: 10000}} >
+              <ImageViewer
+                src={ imageArray(images)}
+                currentIndex={ currentImage }
+                disableScroll
+                closeOnClickOutside={ true }
+                onClose={ closeImageViewer }
+                backgroundStyle={{
+                  opacity: 0.97
+                }}
+              />
+            </div>
           )}
         </div>
       </div>

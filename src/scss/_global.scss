@@ -193,9 +193,13 @@
   height: 100%;
 }
 .gallery {
+  .styles-module_close__2I1sI{
+    right: 27% !important ;
+    top: 15%;
+  }
   img {
     cursor: pointer;
-    max-height: 640px;
+    max-height: 550px;
   }
   .styles-module_wrapper__1I_qj {
     background-color: #3C3C3C !important;
