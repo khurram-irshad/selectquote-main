@@ -81,3 +81,13 @@ export const formStepSchema15 = yup.object().shape({
 export const formStepSchema16 = yup.object().shape({
     life_discovered: yup.string(),
 });
+
+export const partnershipSchema = yup.object().shape({
+    firstName: yup.string().required('First name is required.'),
+    lastName: yup.string().required('Last name is required.'),
+    companyName: yup.string().required('Company name is required.'),
+    email: yup.string().required('Email is required.').matches(REGEX.EMAIL, "Please enter a valid email"),
+    title: yup.string().required('Title is required.'),
+    phoneNumber: yup.string().required('Phone number is required.'),
+    comments: yup.string(),
+});

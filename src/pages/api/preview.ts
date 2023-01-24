@@ -1,7 +1,7 @@
 export default function handler(req, res) {
     const { cpage } = req.query
     res.setPreviewData({})
-
+    console.log(req)
     if (process.env.NODE_ENV === 'production')
         res.redirect(cpage)
     else {
