@@ -24,8 +24,6 @@ const MultiColumnSection = ({
     padding,
     backgroundColor,
   } = section.fields;
-  console.log
-
   return (
     <div className="multi-column-section">
       <section className="multi-column-desktop">
