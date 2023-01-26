@@ -15,6 +15,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     menuItems,
     primaryButtonText,
   } = header.fields;
+
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [search, setSearch] = useState("");
@@ -41,15 +42,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {linkText}
       </NavLink>
     );
-  };
-
-  const getSubmenu = () => {
-    const filterActive = menuItems.find((i) => path === i.fields.linkUrl);
-    return filterActive &&
-      filterActive.fields.parent &&
-      !filterActive.fields.hyperlink
-      ? filterActive
-      : null;
   };
 
   const renderSubLink = (linkData: any) => {
@@ -476,10 +468,10 @@ export default function MainHeader({ header }: { header: Type_Header }) {
       </div>
       {screenWidth > 0 && screenWidth > 1023 && (
         <div className="content-sub-navbar">
-          {getSubmenu() && (
+          {!!menuItems.length && (
             <>
               <ul>
-                {getSubmenu().fields.childItems.map((childItem, key) => (
+                {menuItems?.[0].fields?.childItems.map((childItem, key) => (
                   <li key={`subMenu${key}`}>{renderSubLink(childItem)}</li>
                 ))}
               </ul>
