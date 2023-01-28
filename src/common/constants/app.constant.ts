@@ -32,6 +32,7 @@ export const ComponentContentTypes = {
     Divider: 'templateDivider',
     Tabs: 'templateTabs',
     Gallery: 'templateGallery',
+    Video: 'templateVideo',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',

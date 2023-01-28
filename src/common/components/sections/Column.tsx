@@ -9,6 +9,7 @@ import FAQSection from './FAQ';
 import ButtonSection from './Button';
 import DividerSection from './Divider';
 import MultiColumnSection from './MultiColumn';
+import VideoSection from './Video';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -38,4 +39,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.Button]: ButtonSection,
   [ComponentContentTypes.Divider]: DividerSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
+  [ComponentContentTypes.Video]: VideoSection,
 };
