@@ -14,6 +14,9 @@ class AppService {
     async sendPartnership(model: Partnership) {
         return await HttpService.post('api/partnership', model);
     }
+    async sendFoundation(model: Partnership) {
+        return await HttpService.post('api/foundation', model);
+    }
 }
 
 export const appService = new AppService();
