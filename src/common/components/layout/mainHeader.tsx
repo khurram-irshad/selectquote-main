@@ -28,8 +28,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   const path = router.asPath;
 
   const renderMainLink = (linkData: any) => {
-    const { linkUrl, linkText, hyperlink } = linkData.fields;
-    return hyperlink ? (
+    const { linkUrl, linkText, hyperlink, childItems } = linkData.fields;
+    return !childItems?.length ? (
       <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer">
         {linkText}
       </a>
@@ -76,7 +76,12 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (parent) {
       return (
         <div className="dropdown">
-          <a href="#" className="dropbtn">
+          <a
+            target="_self"
+            href={`${linkUrl}`}
+            rel="noopener noreferrer"
+            className="dropbtn"
+          >
             {linkText}
           </a>
           <div className="dropdown-content">
@@ -119,7 +124,13 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (parent) {
       return (
         <div className="dropdown" key={key}>
-          <a href="#" className="dropbtn">
+          <a
+            target="_self"
+            href={`${linkUrl}`}
+            rel="noopener noreferrer"
+            key={key}
+            className="dropbtn"
+          >
             <div className="anchor-wrap">{linkText}</div>
           </a>
           <div className="dropdown-content">
@@ -194,6 +205,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
   return (
     <header className="content-header w-100 sticky-top">
+      {/* Blue Nav Bar */}
       <div className="content-banner d-flex align-items-center justify-content-center gap-2">
         <span className="content-header-text">{bannerText}</span>
         <div className="phone d-flex align-items-center justify-content-center gap-2">
@@ -218,6 +230,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           </a>
         </div>
       </div>
+      {/* Main Nav */}
       <div className="content-main-navbar">
         {screenWidth > 0 && screenWidth > 1023 && (
           <ul className="main-nav d-flex">
@@ -466,6 +479,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           </div>
         </div>
       </div>
+      {/* Sub Nav */}
       {screenWidth > 0 && screenWidth > 1023 && (
         <div className="content-sub-navbar">
           {!!menuItems.length && (
