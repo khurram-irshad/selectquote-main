@@ -8,11 +8,12 @@ interface Partnership {
     title: string;
     phoneNumber: string;
     comments: string;
+    attachment : string
 }
 
 class AppService {
     async sendPartnership(model: Partnership) {
-        return await HttpService.post('api/partnership', model);
+        return await HttpService.post('/api/partnership', model);
     }
     async sendFoundation(model: Partnership) {
         return await HttpService.post('api/foundation', model);
