@@ -11,7 +11,6 @@ const VideoSection = ({ section }: { section: Type_Video }) => {
       <div className="wrapper">
         <div className="video">
           <ReactPlayer
-            playing
             controls
             width="217px"
             height="250px"
