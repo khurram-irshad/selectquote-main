@@ -1,7 +1,8 @@
+import fs from 'fs';
+import mimemessage from 'mimemessage';
+
 class EmailService {
     async send(model: any) {
-        const fs = require('fs')
-        const mimemessage = require('mimemessage')
         const mailContent = mimemessage.factory({contentType: 'multipart/mixed',body: []});
         mailContent.header('From', model.fromEmail);
         mailContent.header('To', model.toEmail);

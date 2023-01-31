@@ -9,7 +9,6 @@ import { MyInputMask } from "@components/MyInputMask";
 import { MOBILE_MASK } from "@common/constants/app.constant";
 import { appService } from "@common/services/app.service";
 import { buildBusinessTemplate, buildUserTemplate } from "@common/templates/partnership";
-import axios from "axios";
 import { HttpService } from "@common/services/http";
 
 const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
@@ -44,7 +43,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
       if(userEmailResponse.status === 200 && businessEmailResponse.status === 200) {
         setIsEmailSentFund(true)
       }
-      await axios.post("/api/delete", {filepath: imagePath})
+      await appService.deleteImg(imagePath)
     }
     catch(error) {
       console.log(error)
@@ -57,11 +56,11 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
     try {
       const formData = new FormData()
       if(imagePath.length){
-        await axios.post("/api/delete", {filepath: imagePath})
+        await appService.deleteImg(imagePath)
         setImagePath("")
       }
       formData.append("img", e.target.files[0])
-      const {data: {filepath}} = await HttpService.post("/api/upload", formData)
+      const {data: {filepath}} = await appService.uploadImg(formData)
       setImagePath(filepath)
     } catch (err) {
       console.log(err)
