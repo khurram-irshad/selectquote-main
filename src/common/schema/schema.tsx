@@ -90,6 +90,7 @@ export const partnershipSchema = yup.object().shape({
     title: yup.string().required('Title is required.'),
     phoneNumber: yup.string().required('Phone number is required.'),
     comments: yup.string(),
+    attachment: yup.string(),
 });
 
 export const foundationSchema = yup.object().shape({
@@ -108,5 +109,6 @@ export const foundationSchema = yup.object().shape({
     IRS: yup.string().required('Please enter your organization IRS EIN.'),
     reference: yup.string().required('Please enter your third party reference.'),
     boardOfDirector: yup.string().required('Please enter your board directors.'),
-    staffInvolved: yup.string().required('This field cannot be blank.')
+    staffInvolved: yup.string().required('This field cannot be blank.'),
+    attachment : yup.string(),
 });
