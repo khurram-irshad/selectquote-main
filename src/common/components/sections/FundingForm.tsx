@@ -14,6 +14,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
   const [isEmailSent, setIsEmailSent] = useState(false)
   const [imagePath, setImagePath] = useState("")
   const [isUploading , setIsUploading] = useState(false)
+  const [file, setFile] = useState(null);
   const { title } = section.fields;
 
   const { control, handleSubmit, reset } = useForm({
@@ -49,6 +50,13 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
     }
   }
   const uploadFileForFund = async (e) => {
+    const uploadedFile = e.target.files[0];
+    if (uploadedFile.size <= 1500000) {
+      setFile(uploadedFile);
+    } else {
+      alert('File size must be less than 1.5 MB');
+      e.target.value= ""
+    }
     setIsUploading(true)
     try {
       const formData = new FormData()
