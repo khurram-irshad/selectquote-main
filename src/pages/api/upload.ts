@@ -10,11 +10,11 @@ export const config  = {
 
 const readFile  = (
     req: NextApiRequest
-): Promise<{fields: formidable.Fields, files: formidable.Files}> => {
+): Promise<{fields: formidable.Fields, files: any}> => {
     try {
         const options: formidable.Options = {}
         options.uploadDir = path.join(process.cwd(), "/public/images")
-        options.filename =  (name, ext, path, form) => {
+        options.filename = (name, ext, path, form) => {
             return Date.now().toString() + "_" + path.originalFilename;
         }
         const form = formidable(options)
@@ -35,7 +35,7 @@ const handler: NextApiHandler = async (req, res) => {
         await fs.mkdir(path.join(process.cwd() + "public", "images"))
     }
     
-    const {files: {img: {filepath}}}  = await readFile(req)
-    res.json({filepath: filepath})
+    const {files} = await readFile(req)
+    res.json({filepath: files.img.filepath})
 }
 export default handler;
