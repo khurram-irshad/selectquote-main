@@ -29,6 +29,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
   const renderMainLink = (linkData: any) => {
     const { linkUrl, linkText, hyperlink, childItems } = linkData.fields;
+
     return !childItems?.length ? (
       <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer">
         {linkText}
@@ -245,9 +246,9 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 </a>
               </Link>
             </li>
-            {menuItems.map((menuItem, key) => (
-              <li key={`menuItem${key}`}>{renderMainLink(menuItem)}</li>
-            ))}
+            {menuItems.map((menuItem, key) => {
+              return <li key={`menuItem${key}`}>{renderSubLink(menuItem)}</li>;
+            })}
             <li
               className="search-logo"
               onClick={() => {
@@ -479,23 +480,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           </div>
         </div>
       </div>
-      {/* Sub Nav */}
-      {screenWidth > 0 && screenWidth > 1023 && (
-        <div className="content-sub-navbar">
-          {!!menuItems.length && (
-            <>
-              <ul>
-                {menuItems?.[0].fields?.childItems.map((childItem, key) => (
-                  <li key={`subMenu${key}`}>{renderSubLink(childItem)}</li>
-                ))}
-              </ul>
-              <a className="free-quote-btn" href="/quote-form">
-                {primaryButtonText || "Get a Quote"}
-              </a>
-            </>
-          )}
-        </div>
-      )}
     </header>
   );
 }
