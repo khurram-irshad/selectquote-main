@@ -5,7 +5,6 @@ import ReactPlayer from "react-player";
 
 const VideoSection = ({ section }: { section: Type_Video }) => {
   const { title, video, body, footer } = section.fields;
-  console.log(video);
   return (
     <div className="video-section">
       <div className="wrapper">

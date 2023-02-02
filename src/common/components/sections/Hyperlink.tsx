@@ -1,6 +1,7 @@
 import { Type_HyperLink } from "@common/types/Type_HyperLink";
 import React from "react";
 import Link from "next/link";
+import { NULL } from "sass";
 
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   const isValidHttpUrl = (string) => {
@@ -12,7 +13,6 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
     }
     return url.protocol === "http:" || url.protocol === "https:";
   };
-
   return isValidHttpUrl(section.fields.url) ? (
     <a
       href={section.fields.url || "/"}
@@ -26,7 +26,10 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
     </a>
   ) : (
     <Link href={section.fields.url || "/"}>
-      <a>{section.fields.title}</a>
+      <a style={{color: section.fields?.color,
+      textDecoration: "none",
+      fontSize: section.fields.fontSize ,
+      fontWeight: section.fields.fontWeight}}>{section.fields.title}</a>
     </Link>
   );
 };
