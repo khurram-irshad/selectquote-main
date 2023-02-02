@@ -25,7 +25,7 @@ const MultiColumnSection = ({
     backgroundColor,
   } = section.fields;
   return (
-    <div className="multi-column-section">
+    <div className="multi-column-section w-100">
       <section className="multi-column-desktop">
         <div
           className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
@@ -36,9 +36,9 @@ const MultiColumnSection = ({
           }}
         >
         <div
-          className={`d-flex flex-wrap  ${!child ? "container wp-container" : ""
+          className={`d-flex  ${!child ? "container wp-container" : ""
             } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
-          style={{ alignItems: alignItems }}
+          style={{ alignItems: alignItems, justifyContent: `${justifyContent}`, }}
         >
           {columns.map((item) => (
             <div
