@@ -63,6 +63,7 @@ const RichTextRenderer = ({
               fontWeight={fontWeight}
               fontSize={fontSize}
               lineHeight={lineHeight}
+              letterSpacing={letterSpacing}
             >
               {children}
             </Text>
