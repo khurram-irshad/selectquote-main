@@ -36,7 +36,7 @@ const MultiColumnSection = ({
           }}
         >
         <div
-          className={`d-flex  ${!child ? "container wp-container" : ""
+          className={`d-flex flex-wrap ${!child ? "container wp-container" : ""
             } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
           style={{ alignItems: alignItems, justifyContent: `${justifyContent}`, }}
         >

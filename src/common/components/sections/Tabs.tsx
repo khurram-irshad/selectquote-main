@@ -1,6 +1,7 @@
 import { Type_Tabs } from "@common/types/Type_Tabs";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React, { useEffect, useState } from "react";
+import TableSection from "./Table";
 
 const TabsSection = ({ section }: { section: Type_Tabs }) => {
   const { items } = section.fields;
@@ -16,7 +17,6 @@ const TabsSection = ({ section }: { section: Type_Tabs }) => {
     setIsActive(0);
     setselectedTab(items[0]);
   }, []);
-
   return (
     <>
       <table id="tab">
@@ -37,7 +37,7 @@ const TabsSection = ({ section }: { section: Type_Tabs }) => {
         </tbody>
       </table>
       <div className="head-title">{selectedTab?.fields?.title}</div>
-      <RichTextRenderer text={selectedTab?.fields?.content?.fields?.content} />
+      <TableSection section={selectedTab?.fields?.content} />
     </>
   );
 };
