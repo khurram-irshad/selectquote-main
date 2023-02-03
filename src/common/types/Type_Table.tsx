@@ -12,6 +12,7 @@ interface Row {
 }
 interface Column {
     content?: RichText;
+    textAlign: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Table = Contentful.Entry<Table>;
