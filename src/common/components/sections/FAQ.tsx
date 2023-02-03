@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
-  const { title, list, fullWidth } = section.fields;
+  const { title, list, fullWidth,color} = section.fields;
   const [activeKey, setActiveKey] = useState([]);
   const isCardActive = (eventKey: string) => {
     return activeKey.includes(eventKey);

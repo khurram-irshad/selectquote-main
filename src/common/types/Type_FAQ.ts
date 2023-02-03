@@ -5,6 +5,7 @@ interface FAQ {
     title?: Contentful.EntryFields.Symbol;
     list: Contentful.Entry<FAQ_ITEM>[];
     fullWidth: Contentful.EntryFields.Symbol;
+    color: Contentful.EntryFields.Symbol;
 }
 
 interface FAQ_ITEM {
