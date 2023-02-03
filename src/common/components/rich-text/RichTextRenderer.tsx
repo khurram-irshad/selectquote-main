@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { Hyperlink } from "./Link";
@@ -7,7 +7,48 @@ import { EmbeddedAsset } from "./EmbeddedAsset";
 const PlainHyperlink = (props) => <Hyperlink {...props} type="PlainLink" />;
 const AssetHyperlink = (props) => <Hyperlink {...props} type="AssetLink" />;
 
-const RichTextRenderer = ({ text, color }: { text: any; color?: string }) => {
+const Text = ({
+  color,
+  children,
+  fontWeight,
+  fontSize,
+  lineHeight,
+  letterSpacing,
+}: {
+  color?: string;
+  children: ReactNode;
+  lineHeight?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  letterSpacing?: string;
+}) => (
+  <p
+    style={{
+      fontWeight: `${fontWeight}`,
+      fontSize: `${fontSize}`,
+      lineHeight: `${lineHeight}`,
+      letterSpacing: `${letterSpacing}`,
+    }}
+  >
+    {children}
+  </p>
+);
+
+const RichTextRenderer = ({
+  text,
+  color,
+  lineHeight,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+}: {
+  text: any;
+  color?: string;
+  lineHeight?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  letterSpacing?: string;
+}) => {
   return (
     <>
       {documentToReactComponents(text, {
@@ -17,7 +58,14 @@ const RichTextRenderer = ({ text, color }: { text: any; color?: string }) => {
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
           [BLOCKS.PARAGRAPH]: (node, children) => (
-            <Text color={color}>{children}</Text>
+            <Text
+              color={color}
+              fontWeight={fontWeight}
+              fontSize={fontSize}
+              lineHeight={lineHeight}
+            >
+              {children}
+            </Text>
           ),
         },
         renderText: (text) =>
@@ -33,5 +81,5 @@ const RichTextRenderer = ({ text, color }: { text: any; color?: string }) => {
     </>
   );
 };
-const Text = ({ color, children }) => <p>{children}</p>;
+
 export default RichTextRenderer;
