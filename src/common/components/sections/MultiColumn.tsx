@@ -23,10 +23,12 @@ const MultiColumnSection = ({
     fullWidth,
     padding,
     backgroundColor,
+    backgroundImage
   } = section.fields;
+
   return (
-    <div className="multi-column-section w-100">
-      <section className="multi-column-desktop">
+    <div className="multi-column-section w-100" style={{ backgroundPosition:'left center', backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})` }}>
+      <section className="multi-column-desktop" >
         <div
           className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
             } `}
@@ -90,19 +92,16 @@ const MultiColumnSection = ({
                 style={{
                   padding: `${padding}`,
                   justifyContent: `${justifyContent}`,
-                  width: "100%",
                 }}
               >
-                <div key={section.sys.id} style={{ width: "100%" }}>
-                  {item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn ? (
-                    <MultiColumnSection section={item} child={true} />
-                  ) : (
-                    <div style={{ padding: item?.fields.padding }}>
-                      <ColumnSection section={item} />
-                    </div>
-                  )}
-                </div>
+                {item.sys.contentType?.sys.id ===
+                  ComponentContentTypes.MultiColumn ? (
+                  <MultiColumnSection section={item} child={true} />
+                ) : (
+                  <div style={{ padding: item?.fields.padding }}>
+                    <ColumnSection section={item} />
+                  </div>
+                )}
               </div>
             ))}
           </div>

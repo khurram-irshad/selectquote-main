@@ -1,4 +1,5 @@
 import * as Contentful from 'contentful';
+import { Image } from "./Type_Image";
 
 interface MultiColumn {
     fullwidth?: Contentful.EntryFields.Symbol;
@@ -10,6 +11,7 @@ interface MultiColumn {
     alignItems: Contentful.EntryFields.Symbol;
     backgroundColor: Contentful.EntryFields.Symbol;
     padding: Contentful.EntryFields.Symbol;
+    backgroundImage: Contentful.Entry<Image>;
 }
 
 export type Type_MultiColumn = Contentful.Entry<MultiColumn>;
