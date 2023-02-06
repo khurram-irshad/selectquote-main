@@ -14,6 +14,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     backgroundPosition = "center",
     gradientStartingPercentage = "48%",
     gradientEndPercentage = "55%",
+    backgroundSize = "cover",
   } = section.fields;
 
   return (
@@ -24,7 +25,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             topSection ? " hero-section-border hero-section-shadow" : ""
           } `}
           style={{
-            backgroundSize: "cover",
+            backgroundSize: `${backgroundSize}`,
             backgroundPosition: `right 0px ${backgroundPosition}`,
             backgroundImage: backgroundImage
               ? `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
