@@ -1,9 +1,9 @@
-body{
+body {
   font-family: sans-serif;
 }
 
 .block-render {
-  @include mediaQueries (mobile) {
+  @include mediaQueries(mobile) {
     .desktop-blockrender {
       display: none;
     }
@@ -24,7 +24,7 @@ body{
   }
 
   .wp-container {
-    width: 1080px;
+    width: 1200px;
     max-width: calc(100% - 32px);
     padding: 0;
 
@@ -34,7 +34,7 @@ body{
       }
     }
 
-    @include mediaQueries (mobile) {
+    @include mediaQueries(mobile) {
       .partnership-form {
         .partnership-form-dekstop {
           display: none !important;
@@ -71,7 +71,7 @@ body{
         margin-right: 0px;
       }
 
-      @include mediaQueries (mobile) {
+      @include mediaQueries(mobile) {
         a {
           margin-left: 30px;
           margin-right: 30px;
@@ -79,7 +79,7 @@ body{
       }
     }
 
-    @include mediaQueries (mobile) {
+    @include mediaQueries(mobile) {
       width: 1080px;
       max-width: calc(100% - 0px) !important;
       margin: 0 !important;
@@ -124,9 +124,7 @@ body{
     font-weight: 600;
     letter-spacing: 1px;
     line-height: 41.6px;
-
   }
-
 
   .btn-secondary-md {
     font-family: "Montserrat", sans-serif;
@@ -203,8 +201,6 @@ body{
     color: #555;
     padding: 9px 24px;
     font-weight: 400;
-
-
   }
 }
 
@@ -225,10 +221,10 @@ body{
   }
 
   .styles-module_wrapper__1I_qj {
-    background-color: #3C3C3C !important;
+    background-color: #3c3c3c !important;
   }
 }
 
 .border-r {
-  border-right: '1px solid #D8D8D8'
+  border-right: "1px solid #D8D8D8";
 }

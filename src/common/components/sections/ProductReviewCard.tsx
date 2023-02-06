@@ -1,5 +1,6 @@
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface CardProps {
   item: any; // Type_ProductReview;
@@ -8,33 +9,49 @@ interface CardProps {
 }
 const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
   const { color, title, content, showRating } = item.fields;
-  const isDesktop = useMediaQuery({
-    minWidth: 1024,
-  });
-  const isMobile = useMediaQuery({
-    minWidth: 375,
-  });
+  const [screenWidth, setScreenWidth] = useState(0);
+  const path = useRouter().asPath;
 
   const withBackground = [3, 4, 5, 9, 10, 11];
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div
       className={`col-lg-4 col-md-12 review-card px-0
-    } ${child % 3 < 2 && isDesktop ? "border-end" : isMobile ? " border-right-0" : ""}`}
+    ${
+      child % 3 < 2 && screenWidth >= 1024
+        ? "border-end"
+        : screenWidth > 0 && screenWidth < 1024
+        ? " border-right-0"
+        : ""
+    }
+    ${path.includes("contact-us") ? " border-bottom" : ""}`}
       style={{
         backgroundColor:
-          withBackground.includes(child) || isDesktop ? "#efefef" : "",
+          withBackground.includes(child) && screenWidth >= 1024
+            ? "#efefef"
+            : "",
       }}
     >
       <div>
         <div
-          className="card-header px-3 py-3"
+          className="card-header px-4 py-4"
           style={{ backgroundColor: color }}
         >
           <h2 className="text-center fs-3 fw-bolder">{title}</h2>
         </div>
-        <div className="card-body d-grid gap-4 py-3 px-4"
-        style={{ color:`${content.fields?.textColor} !important` }}>
+        <div
+          className="card-body d-grid gap-4 pb-4 px-4"
+          style={{ color: `${content.fields?.textColor} !important` }}
+        >
           {showRating && (
             <div className="card-review-rating d-flex align-items-center justify-content-center">
               <img

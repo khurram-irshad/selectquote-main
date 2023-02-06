@@ -15,6 +15,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     fontWeight,
     lineHeight,
     letterSpacing,
+    normalTextMarginBottom,
   } = section.fields;
   return (
     <>
@@ -41,6 +42,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               fontSize={fontSize}
               lineHeight={lineHeight}
               letterSpacing={letterSpacing}
+              normalTextMarginBottom={normalTextMarginBottom}
             />
           </div>
         </div>
