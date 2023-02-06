@@ -14,8 +14,6 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
 
   const withBackground = [3, 4, 5, 9, 10, 11];
 
-  console.log(path);
-
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     function handleResize() {
