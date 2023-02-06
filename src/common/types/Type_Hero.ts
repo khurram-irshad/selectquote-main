@@ -7,6 +7,9 @@ interface Hero {
   gradientStartingColor: Contentful.EntryFields.Symbol;
   topSection?: Contentful.EntryFields.Boolean;
   content: Contentful.Entry<any>[];
+  backgroundPosition?: Contentful.EntryFields.Symbol;
+  gradientStartingPercentage?: Contentful.EntryFields.Symbol;
+  gradientEndPercentage?: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;
