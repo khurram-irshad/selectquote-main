@@ -1,6 +1,4 @@
 .cards-container {
-  max-width: 1080px;
-  // margin-bottom: 50px;
   .review-cards-mobile {
     display: none !important;
   }
@@ -25,7 +23,7 @@
       font-family: sans-serif;
       font-size: 26.5px !important;
       letter-spacing: 1px;
-      line-height: 34.45px;
+      line-height: 28px;
       font-weight: 550;
     }
   }
@@ -34,6 +32,11 @@
       font-family: sans-serif;
       line-height: 28.8px;
       font-weight: 300;
+      margin-bottom: 0 !important;
+    }
+    h3 {
+      margin-top: 25px;
+      margin-bottom: 10px;
     }
     b {
       font-size: 16px;

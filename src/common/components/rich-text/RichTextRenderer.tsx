@@ -14,6 +14,7 @@ const Text = ({
   fontSize,
   lineHeight,
   letterSpacing,
+  normalTextMarginBottom = "1rem",
 }: {
   color?: string;
   children: ReactNode;
@@ -21,6 +22,7 @@ const Text = ({
   fontSize?: string;
   fontWeight?: string;
   letterSpacing?: string;
+  normalTextMarginBottom?: string;
 }) => (
   <p
     style={{
@@ -28,6 +30,7 @@ const Text = ({
       fontSize: `${fontSize}`,
       lineHeight: `${lineHeight}`,
       letterSpacing: `${letterSpacing}`,
+      marginBottom: `${normalTextMarginBottom}`,
     }}
   >
     {children}
@@ -41,6 +44,7 @@ const RichTextRenderer = ({
   fontSize,
   fontWeight,
   letterSpacing,
+  normalTextMarginBottom,
 }: {
   text: any;
   color?: string;
@@ -48,6 +52,7 @@ const RichTextRenderer = ({
   fontSize?: string;
   fontWeight?: string;
   letterSpacing?: string;
+  normalTextMarginBottom?: string;
 }) => {
   return (
     <>
@@ -64,6 +69,7 @@ const RichTextRenderer = ({
               fontSize={fontSize}
               lineHeight={lineHeight}
               letterSpacing={letterSpacing}
+              normalTextMarginBottom={normalTextMarginBottom}
             >
               {children}
             </Text>
