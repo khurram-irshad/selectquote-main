@@ -10,6 +10,7 @@ import ButtonSection from './Button';
 import DividerSection from './Divider';
 import MultiColumnSection from './MultiColumn';
 import VideoSection from './Video';
+import TableSection from './Table';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -40,4 +41,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.Divider]: DividerSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
   [ComponentContentTypes.Video]: VideoSection,
+  [ComponentContentTypes.Table]: TableSection,
 };
