@@ -16,8 +16,6 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     gradientEndPercentage = "55%",
   } = section.fields;
 
-  console.log("background", backgroundPosition);
-
   return (
     <div className="hero-block">
       <div className="hero-section-desktop">
