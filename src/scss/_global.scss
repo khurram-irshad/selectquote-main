@@ -1,3 +1,7 @@
+body{
+  font-family: sans-serif;
+}
+
 .block-render {
   @include mediaQueries (mobile) {
     .desktop-blockrender {
@@ -179,18 +183,20 @@
     border-width: 1px !important;
     border-color: #979797 !important;
     border-style: solid none solid solid !important;
+
     p {
       // word-break: break-all;
       margin-bottom: 0rem;
     }
   }
 
-  table th{
+  table th {
     color: #555;
     font-weight: 700;
     padding: 9px 24px;
     border-right: 1px solid #979797;
   }
+
   table td {
     border-right: 1px solid #979797;
     border-top: 1px solid #e2dbdb;
@@ -198,7 +204,7 @@
     padding: 9px 24px;
     font-weight: 400;
 
-    
+
   }
 }
 
@@ -221,4 +227,8 @@
   .styles-module_wrapper__1I_qj {
     background-color: #3C3C3C !important;
   }
+}
+
+.border-r {
+  border-right: '1px solid #D8D8D8'
 }

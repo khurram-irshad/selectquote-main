@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
-  const { title, list, fullWidth,color} = section.fields;
+  const { title, list, fullWidth, color } = section.fields;
   const [activeKey, setActiveKey] = useState([]);
   const isCardActive = (eventKey: string) => {
     return activeKey.includes(eventKey);
@@ -12,7 +12,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
 
   const renderAccodionButton = (eventKey: string) => {
     return (
-      <button className="rounded-circle accordion-symbol">
+      <button className="rounded-circle accordion-symbol" style={{ backgroundColor: color }}>
         {isCardActive(eventKey) ? "-" : "+"}
       </button>
     );
@@ -37,10 +37,10 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
             {list.map((item, index) => (
               <Card
                 key={index}
+                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': color  }}
                 onClick={() => onCardClick(item.sys.id)}
-                className={`${
-                  isCardActive(item.sys.id) ? "card-active" : "card-inactive"
-                }`}
+                className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                  }`}
               >
                 <Card.Header>
                   <div className="faq-title">
@@ -70,9 +70,8 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
               <Card
                 key={index}
                 onClick={() => onCardClick(item.sys.id)}
-                className={`${
-                  isCardActive(item.sys.id) ? "card-active" : "card-inactive"
-                }`}
+                className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                  }`}
               >
                 <Card.Header>
                   <div className="faq-title">
