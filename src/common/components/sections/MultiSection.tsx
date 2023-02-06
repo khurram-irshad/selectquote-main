@@ -8,9 +8,11 @@ const MultiSection = ({ section }: { section: Type_MultiSection }) => {
     const { sections, title, backgroundImage, } = section.fields;
     return (
         <div>
-            <div>
-                <RichTextRenderer text={title} />
-            </div>
+            {title && (<>
+                <div>
+                    <RichTextRenderer text={title} />
+                </div>
+            </>)}
             {sections.map(section => (
                 <>
                     <ColumnSection section={section} />
