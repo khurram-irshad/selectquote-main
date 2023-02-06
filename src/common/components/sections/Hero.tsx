@@ -10,18 +10,25 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     gradientStartingColor,
     backgroundImage,
     topSection,
-    content
+    content,
+    backgroundPosition = "center",
+    gradientStartingPercentage = "48%",
+    gradientEndPercentage = "55%",
   } = section.fields;
+
+  console.log("background", backgroundPosition);
 
   return (
     <div className="hero-block">
       <div className="hero-section-desktop">
         <section
-          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
+          className={`hero-section ${
+            topSection ? " hero-section-border hero-section-shadow" : ""
+          } `}
           style={{
-            backgroundPosition: "right 0px center",
+            backgroundPosition: `right 0px ${backgroundPosition}`,
             backgroundImage: backgroundImage
-              ? `linear-gradient(90deg,${gradientStartingColor} 48%,${gradientEndColor} 55%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+              ? `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
               : "",
           }}
         >
@@ -33,13 +40,10 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             <div className="w-50 position-relative">
               <div className="content-left">
                 {content?.map((item) => (
-                  <div
-                    key={item.sys.id}
-                    className={`d-flex`}
-                  >
+                  <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                      ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <div style={{ padding: item?.fields.padding }}>
@@ -56,7 +60,9 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       </div>
       <div className="hero-section-mobile">
         <section
-          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""} `}
+          className={`hero-section ${
+            topSection ? " hero-section-border hero-section-shadow" : ""
+          } `}
           style={{
             backgroundPosition: "right 0px center",
             backgroundImage: backgroundImage
@@ -72,13 +78,10 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             <div className="w-50 position-relative">
               <div className="content-left">
                 {content?.map((item) => (
-                  <div
-                    key={item.sys.id}
-                    className={`d-flex`}
-                  >
+                  <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                      ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <div style={{ padding: item?.fields.padding }}>
