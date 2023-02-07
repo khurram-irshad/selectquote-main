@@ -15,6 +15,7 @@ type CustomRichText = {
   fontWeight: Contentful.EntryFields.Symbol;
   lineHeight: Contentful.EntryFields.Symbol;
   letterSpacing: Contentful.EntryFields.Symbol;
+  fontFamily: Contentful.EntryFields.Symbol;
 };
 
 export type Type_RichText = Contentful.Entry<RichText>;

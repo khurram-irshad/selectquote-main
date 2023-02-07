@@ -15,6 +15,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     fontWeight,
     lineHeight,
     letterSpacing,
+    fontFamily =  `'Montserrat', sans-serif `
   } = section.fields;
 
   return (
@@ -33,6 +34,9 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               lineHeight: `${lineHeight}`,
               fontSize: `${fontSize}`,
               color: `${textColor} !important`,
+              letterSpacing :`${letterSpacing} !important`,
+              fontFamily: `${fontFamily}`
+
             }}
           >
             <RichTextRenderer
