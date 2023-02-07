@@ -1,14 +1,14 @@
 .newsroom-card {
-  margin-bottom: 20px;
+  margin-bottom: 5.5%;
   border: 1px solid $gray-600;
-  min-width: 316px;
+  width: 29.6667%;
 
   &:nth-child(3n + 2) {
-    margin-right: 6%;
+    margin-right: 5.5%;
   }
 
   &:nth-child(3n + 1) {
-    margin-right: 6%;
+    margin-right: 5.5%;
   }
 
   .card-header {
