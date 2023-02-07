@@ -49,11 +49,15 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
           <h2 className="text-center fs-3 fw-bolder">{title}</h2>
         </div>
         <div
-          className="card-body d-grid gap-4 pb-4 px-4"
-          style={{ color: `${content.fields?.textColor} !important` }}
+          className={`card-body d-flex flex-column justify-content-start d-grid gap-4 pb-4 px-4
+          ${path.includes("customer-reviews") ? " card-body-p-override" : ""}`}
+          style={{
+            color: `${content.fields?.textColor} !important`,
+            height: path.includes("customer-reviews") ? "775px" : "",
+          }}
         >
           {showRating && (
-            <div className="card-review-rating d-flex align-items-center justify-content-center">
+            <div className="card-review-rating d-flex align-items-center justify-content-center pt-4">
               <img
                 src={`/images/content/${color.substring(1)}.png`}
                 alt="5 start rating"

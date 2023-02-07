@@ -10,6 +10,7 @@ interface Hero {
   backgroundPosition?: Contentful.EntryFields.Symbol;
   gradientStartingPercentage?: Contentful.EntryFields.Symbol;
   gradientEndPercentage?: Contentful.EntryFields.Symbol;
+  backgroundSize?: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;
