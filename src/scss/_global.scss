@@ -1,6 +1,10 @@
-body {
-  font-family: sans-serif;
+body,
+input,
+textarea,
+select {
+  font-family: 'Montserrat', sans-serif
 }
+
 
 .block-render {
   @include mediaQueries(mobile) {
