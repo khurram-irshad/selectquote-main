@@ -1,11 +1,9 @@
 import * as Contentful from 'contentful';
 
 interface Divider {
-    horizontal: Contentful.EntryFields.Boolean;
-    vertical: Contentful.EntryFields.Boolean;
     margin: Contentful.EntryFields.Symbol;
+    thickBorder: Contentful.EntryFields.Symbol;
+    fullWidth: Contentful.EntryFields.Boolean;
 }
-
-
 
 export type Type_Divider = Contentful.Entry<Divider>;
