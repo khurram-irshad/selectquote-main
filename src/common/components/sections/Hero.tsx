@@ -3,6 +3,7 @@ import { Type_Hero } from "@common/types";
 import ColumnSection from "./Column";
 import { ComponentContentTypes } from "@common/constants/app.constant";
 import MultiColumnSection from "./MultiColumn";
+import { useRouter } from "next/router";
 
 const HeroSection = ({ section }: { section: Type_Hero }) => {
   const {
@@ -16,6 +17,11 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     gradientEndPercentage = "55%",
     backgroundSize = "cover",
   } = section.fields;
+  const path = useRouter().asPath;
+
+  const bgPosition = path.includes("newsroom")
+    ? `50% 50%`
+    : `right 0px ${backgroundPosition}`;
 
   return (
     <div className="hero-block">
@@ -26,7 +32,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           } `}
           style={{
             backgroundSize: `${backgroundSize}`,
-            backgroundPosition: `right 0px ${backgroundPosition}`,
+            backgroundPosition: `${bgPosition}`,
             backgroundImage: backgroundImage
               ? `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
               : "",

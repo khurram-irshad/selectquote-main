@@ -11,6 +11,10 @@
     margin-right: 5.5%;
   }
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   .card-header {
     img {
       width: 100%;
