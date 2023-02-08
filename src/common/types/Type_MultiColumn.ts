@@ -11,6 +11,8 @@ interface MultiColumn {
     alignItems: Contentful.EntryFields.Symbol;
     backgroundColor: Contentful.EntryFields.Symbol;
     padding: Contentful.EntryFields.Symbol;
+    borderLeft: Contentful.EntryFields.Boolean;
+    borderRight: Contentful.EntryFields.Boolean;
     backgroundImage: Contentful.Entry<Image>;
 }
 

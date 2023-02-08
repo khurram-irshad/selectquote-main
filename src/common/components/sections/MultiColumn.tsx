@@ -23,14 +23,16 @@ const MultiColumnSection = ({
     fullWidth,
     padding,
     backgroundColor,
-    backgroundImage
+    backgroundImage,
+    borderLeft,
+    borderRight
   } = section.fields;
 
   return (
-    <div className="multi-column-section w-100" style={{ backgroundPosition:'left center', backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})` }}>
+    <div className="multi-column-section w-100" style={{ backgroundPosition: 'left center', backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})` }}>
       <section className="multi-column-desktop" >
         <div
-          className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
+          className={`d-flex flex-column ${borderRight ? 'border-r' : ''} ${fullWidth ? "container-fluid px-0" : ""
             } `}
           style={{
             justifyContent: `${justifyContent}`,
