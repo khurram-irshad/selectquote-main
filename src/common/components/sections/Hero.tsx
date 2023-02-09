@@ -19,9 +19,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   } = section.fields;
   const path = useRouter().asPath;
 
-  const bgPosition = path.includes("newsroom")
-    ? `50% 50%`
-    : `right 0px ${backgroundPosition}`;
+  const bgPosition =
+    path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
 
   return (
     <div className="hero-block">
