@@ -240,6 +240,28 @@ li {
 .border-r {
   border-right: 1px solid #d8d8d8;
 }
+
 .border-l {
   border-left: 1px solid #d8d8d8;
+}
+
+.container-color-text {
+  padding: 30px 0px;
+
+  .separater {
+    font-weight: 700;
+    color: #646464
+  }
+
+  .title {
+    font-weight: 800 !important;
+    font-size: 36px !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #646464
+  }
+
+  .text {
+    font-family: 'Poppins', sans-serif;
+    ;
+  }
 }

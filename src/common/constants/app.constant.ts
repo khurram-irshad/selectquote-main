@@ -34,6 +34,7 @@ export const ComponentContentTypes = {
     Gallery: 'templateGallery',
     Video: 'templateVideo',
     Table: 'templateTable',
+    ColorText: 'templateColorText',
 };
 
 export const QUOTE_FORM_FIELDS = ['fields.title', 'fields.copy', 'fields.header', 'fields.sections',
