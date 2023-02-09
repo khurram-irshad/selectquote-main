@@ -1582,7 +1582,7 @@
     "styled-components" "^5.3.5"
     "styled-tools" "^1.7.2"
 
-"react-player@^2.11.0":
+"react-player@2.11.0":
   "integrity" "sha512-fIrwpuXOBXdEg1FiyV9isKevZOaaIsAAtZy5fcjkQK9Nhmk1I2NXzY/hkPos8V0zb/ZX416LFy8gv7l/1k3a5w=="
   "resolved" "https://registry.npmjs.org/react-player/-/react-player-2.11.0.tgz"
   "version" "2.11.0"
