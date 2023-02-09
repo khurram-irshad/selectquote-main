@@ -11,6 +11,7 @@ import DividerSection from './Divider';
 import MultiColumnSection from './MultiColumn';
 import VideoSection from './Video';
 import TableSection from './Table';
+import CustomerReview from './CustomerReviews';
 
 const ColumnSection = ({ section }: { section: any }) => {
 
@@ -42,4 +43,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
   [ComponentContentTypes.Video]: VideoSection,
   [ComponentContentTypes.Table]: TableSection,
+  [ComponentContentTypes.CustomerReview]: CustomerReview,
 };
