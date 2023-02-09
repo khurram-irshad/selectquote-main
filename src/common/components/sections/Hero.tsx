@@ -28,7 +28,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       <div className="hero-section-desktop">
         <section
           className={`hero-section ${
-            topSection ? " hero-section-border hero-section-shadow" : ""
+            topSection ? "  hero-section-shadow" : ""
           } `}
           style={{
             backgroundSize: `${backgroundSize}`,
