@@ -55,7 +55,12 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
             style={{
               width: `${width}`,
               padding: `${padding}`,
+              fontWeight: `${fontWeight}`,
+              lineHeight: `${lineHeight}`,
+              fontSize: `${fontSize}`,
               color: `${textColor} !important`,
+              letterSpacing :`${letterSpacing} !important`,
+              fontFamily: `${fontFamily}`
             }}
           >
             <RichTextRenderer text={content} color={textColor} />

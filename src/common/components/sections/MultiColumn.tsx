@@ -91,10 +91,6 @@ const MultiColumnSection = ({
               <div
                 key={item.sys.id}
                 className={`d-flex`}
-                style={{
-                  padding: `${padding}`,
-                  justifyContent: `${justifyContent}`,
-                }}
               >
                 {item.sys.contentType?.sys.id ===
                   ComponentContentTypes.MultiColumn ? (
