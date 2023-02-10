@@ -89,7 +89,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                       ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
-                        <div style={{ padding: item?.fields.padding }}>
+                        <div>
                           <ColumnSection section={item} />
                         </div>
                       )}

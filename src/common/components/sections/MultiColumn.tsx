@@ -63,9 +63,7 @@ const MultiColumnSection = ({
                     ComponentContentTypes.MultiColumn ? (
                     <MultiColumnSection section={item} child={true} />
                   ) : (
-                    <div style={{ padding: item?.fields.padding, height: '100%', width: '100%;' }}>
-                      <ColumnSection section={item} />
-                    </div>
+                    <ColumnSection section={item} />
                   )}
                 </div>
               </div>
@@ -96,7 +94,7 @@ const MultiColumnSection = ({
                   ComponentContentTypes.MultiColumn ? (
                   <MultiColumnSection section={item} child={true} />
                 ) : (
-                  <div style={{ padding: item?.fields.padding }}>
+                  <div >
                     <ColumnSection section={item} />
                   </div>
                 )}

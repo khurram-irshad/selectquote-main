@@ -269,3 +269,14 @@ li {
 ol, ul{
   padding-left: 1rem;
 }
+
+@include mediaQueries(mobile) {
+  .wp-container-desktop {
+    display: none;
+  }
+  .wp-container-mobile {
+    margin-left: 30px;
+    margin-right: 30px;
+    display: block;
+  }
+}

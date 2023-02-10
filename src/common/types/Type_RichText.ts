@@ -1,5 +1,6 @@
 import * as Contentful from "contentful";
 import * as CFRichTextTypes from "@contentful/rich-text-types";
+import Device from "./Type_Device";
 
 export type RichText = CFRichTextTypes.Block | CFRichTextTypes.Inline;
 
@@ -16,6 +17,7 @@ type CustomRichText = {
   lineHeight: Contentful.EntryFields.Symbol;
   letterSpacing: Contentful.EntryFields.Symbol;
   fontFamily: Contentful.EntryFields.Symbol;
+  devices: Contentful.Entry<Device>[];
 };
 
 export type Type_RichText = Contentful.Entry<RichText>;

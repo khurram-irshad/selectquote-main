@@ -1,17 +1,39 @@
+import { DeviceType } from '@common/types/Type_Device';
 import { Type_Divider } from '@common/types/Type_Divider'
 import React from 'react'
 
 const DividerSection = ({ section }: { section: Type_Divider }) => {
-    const { margin, thickBorder, color = '#646464', height = '14px' } = section.fields;
+    const { thickBorder, devices } = section.fields;
+
+    const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
+    const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
+
     return (
         <>
-            {!thickBorder && (
-                <hr style={{ margin: margin }} />
-            )}
-            {thickBorder && (
-                <div style={{ margin: margin, borderBottom: `${height} solid ${color}` }} />
-            )}
-
+            <div className="wp-container-desktop">
+                {!desktop?.fields?.hidden && (
+                    <>
+                        {!thickBorder && (
+                            <hr style={{ margin: desktop?.fields?.margin }} />
+                        )}
+                        {thickBorder && (
+                            <div style={{ margin: desktop?.fields?.margin, borderBottom: `${desktop?.fields?.height} solid ${desktop?.fields?.backgroundColor}` }} />
+                        )}
+                    </>
+                )}
+            </div>
+            <div className="wp-container-mobile">
+                {!mobile?.fields?.hidden && (
+                    <>
+                        {!thickBorder && (
+                            <hr style={{ margin: mobile?.fields?.margin }} />
+                        )}
+                        {thickBorder && (
+                            <div style={{ margin: mobile?.fields?.margin, borderBottom: `${mobile?.fields?.height} solid ${mobile?.fields?.backgroundColor}` }} />
+                        )}
+                    </>
+                )}
+            </div>
         </ >
     )
 }

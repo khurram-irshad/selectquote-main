@@ -1,4 +1,5 @@
 import * as Contentful from 'contentful';
+import Device from './Type_Device';
 
 interface Button {
     title: Contentful.EntryFields.Symbol;
@@ -6,6 +7,7 @@ interface Button {
     textColor: Contentful.EntryFields.Symbol;
     linkUrl: Contentful.EntryFields.Symbol;
     rounded: Contentful.EntryFields.Boolean;
+    devices: Contentful.Entry<Device>[];
 }
 
 

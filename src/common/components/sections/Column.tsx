@@ -12,8 +12,11 @@ import MultiColumnSection from './MultiColumn';
 import VideoSection from './Video';
 import TableSection from './Table';
 import CustomerReview from './CustomerReviews';
+import { DeviceType } from '@common/types/Type_Device';
 
 const ColumnSection = ({ section }: { section: any }) => {
+  const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
+  const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
   const contentTypeId = _.get(section?.fields?.content, 'sys.contentType.sys.id');
   const Component = ContentTypeMap[contentTypeId];
@@ -27,7 +30,9 @@ const ColumnSection = ({ section }: { section: any }) => {
   const componentProps = {
     section: section?.fields?.content,
   };
-  return <Component key={`${contentTypeId}-${id}`} {...componentProps} />;
+  return <div style={{padding:desktop?.fields?.padding}}>
+    <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+  </div>;
 }
 
 export default ColumnSection
