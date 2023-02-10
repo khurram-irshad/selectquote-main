@@ -28,8 +28,9 @@
         .accordion-symbol {
           // background-color: #3d9305;
           border: none;
-          height: 20px;
           color: #ffffff;
+          height: 16px;
+          width: 16.5px;
         }
         .card-header {
           background-color: #ffffff;
@@ -173,8 +174,10 @@
       .accordion-symbol {
         // background-color: #3d9305;
         border: none;
-        height: 20px;
+        height: 16px;
+        width: 16.5px;
         color: #ffffff;
+        padding: 0 0 0 0;
       }
       .card-header {
         background-color: #ffffff;
