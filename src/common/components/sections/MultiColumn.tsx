@@ -75,6 +75,7 @@ const MultiColumnSection = ({
                   style={{ width: "100%", justifyContent: `${justifyContent}` }}
                   className={`d-flex`}
                 >
+
                   {item.sys.contentType?.sys.id ===
                   ComponentContentTypes.MultiColumn ? (
                     <MultiColumnSection section={item} child={true} />
