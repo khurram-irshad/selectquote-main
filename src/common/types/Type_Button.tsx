@@ -8,8 +8,7 @@ interface Button {
     linkUrl: Contentful.EntryFields.Symbol;
     rounded: Contentful.EntryFields.Boolean;
     devices: Contentful.Entry<Device>[];
+    fontSize: Contentful.EntryFields.Symbol;
 }
-
-
 
 export type Type_Button = Contentful.Entry<Button>;

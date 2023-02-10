@@ -93,53 +93,33 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 SelectQuote. A member of our team will be in touch shortly.
               </p>
             ) : (
-              <>
-                <div className="row">
+              <div className="container">
+                <div className="row mb-4">
                   <div className="col">
                     <label className="form-label">First Name *</label>
-                    <UseFormTextField
-                      placeholder="First Name"
-                      control={control}
-                      name="firstName"
-                    />
+                    <UseFormTextField control={control} name="firstName" />
                   </div>
                   <div className="col">
                     <label className="form-label">Last Name *</label>
-                    <UseFormTextField
-                      placeholder="Last Name"
-                      control={control}
-                      name="lastName"
-                    />
+                    <UseFormTextField control={control} name="lastName" />
                   </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row">
                   <div className="col">
                     <label className="form-label">Company Name *</label>
-                    <UseFormTextField
-                      placeholder="Company Name"
-                      control={control}
-                      name="companyName"
-                    />
+                    <UseFormTextField control={control} name="companyName" />
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
                     <label className="form-label">Your Title *</label>
-                    <UseFormTextField
-                      placeholder="Title"
-                      control={control}
-                      name="title"
-                    />
+                    <UseFormTextField control={control} name="title" />
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
                     <label className="form-label">Email *</label>
-                    <UseFormTextField
-                      placeholder="Email"
-                      control={control}
-                      name="email"
-                    />
+                    <UseFormTextField control={control} name="email" />
                   </div>
                   <div className="col">
                     <label className="form-label">Phone Number *</label>
@@ -148,7 +128,6 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                       defaultValue={""}
                       name="phoneNumber"
                       mask={MOBILE_MASK}
-                      placeholder="Phone Number"
                     />
                   </div>
                 </div>
@@ -156,7 +135,6 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                   <div className="col">
                     <label>Additional Comments</label>
                     <UseFormTextField
-                      placeholder="Additional Comments"
                       control={control}
                       type="textarea"
                       name="comments"
@@ -189,7 +167,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                     Connect with us
                   </button>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

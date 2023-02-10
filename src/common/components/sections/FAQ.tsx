@@ -1,6 +1,6 @@
 import { Type_FAQ } from "@common/types";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
@@ -25,6 +25,9 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
         : [...prevState, eventKey]
     );
   };
+  useEffect(() => {
+    onCardClick(list[0].sys.id)
+    },[1])
 
   return (
     <div className="faq-model">
