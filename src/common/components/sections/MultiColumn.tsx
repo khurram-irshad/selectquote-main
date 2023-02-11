@@ -89,19 +89,20 @@ const MultiColumnSection = ({
           </div>
         </div>
       </section>
-      <section className="wp-container-mobile" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin, backgroundColor: `${desktop?.fields?.backgroundColor}` }}>
+      <section className="wp-container-mobile" style={{  backgroundColor: `${desktop?.fields?.backgroundColor}` }}>
         <div
           className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
             } `}
           style={{
             justifyContent: `${justifyContent}`,
             backgroundColor: `${backgroundColor}`,
+            padding: mobile?.fields?.padding, margin: mobile?.fields?.margin
           }}
         >
           <div
             className={`flex-wrap  ${!child ? "container wp-container" : ""} ${direction == "Horizontal" ? "flex-row" : "flex-column"
               } `}
-            style={{ alignItems: alignItems }}
+            style={{ alignItems: alignItems,padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
           >
             {columns.map((item) => (
               <div key={item.sys.id} className={`d-flex`}>
