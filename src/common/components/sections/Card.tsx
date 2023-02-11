@@ -10,7 +10,7 @@ const Card = ({ item, itemsMargin }: CardProps) => {
   
 
   return (
-    <div className="col-lg-3 col-md-12 newsroom-card px-0">
+    <div className="col-lg-3 col-xs-12 newsroom-card px-0">
       <div className="card-header">
         <img
           src={headerImage?.fields?.imageFile?.fields?.file?.url ?? ""}

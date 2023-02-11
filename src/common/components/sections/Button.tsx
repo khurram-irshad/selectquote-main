@@ -13,19 +13,38 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
   const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
   return (
-    <div className="button-container">
-      <a
-        className={`action-btn ${rounded ? "btn-border" : ""}`}
-        style={{
-          color: desktop?.fields?.textColor,
-          backgroundColor: desktop?.fields?.backgroundColor,
-          fontSize: desktop?.fields?.fontSize,
-        }}
-        href={linkUrl}
-      >
-        {title}
-      </a>
-    </div>
+    <>
+      <div className="wp-container-desktop">
+        <div className="button-container">
+          <a
+            className={`action-btn ${rounded ? "btn-border" : ""}`}
+            style={{
+              color: desktop?.fields?.textColor,
+              backgroundColor: desktop?.fields?.backgroundColor,
+              fontSize: desktop?.fields?.fontSize,
+            }}
+            href={linkUrl}
+          >
+            {title}
+          </a>
+        </div>
+      </div>
+      <div className="wp-container-mobile">
+        <div className="button-container">
+          <a
+            className={`action-btn ${rounded ? "btn-border" : ""}`}
+            style={{
+              color: mobile?.fields?.textColor,
+              backgroundColor: mobile?.fields?.backgroundColor,
+              fontSize: mobile?.fields?.fontSize,
+            }}
+            href={linkUrl}
+          >
+            {title}
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -29,7 +29,8 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               fontSize: `${desktop?.fields?.fontSize}`,
               color: `${desktop?.fields?.textColor} !important`,
               letterSpacing: `${desktop?.fields?.letterSpacing} !important`,
-              fontFamily: `${desktop?.fields?.fontFamily}`
+              fontFamily: `${desktop?.fields?.fontFamily}`,
+              margin: desktop?.fields?.margin
             }}
           >
             <RichTextRenderer
@@ -49,7 +50,8 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               fontSize: `${mobile?.fields?.fontSize}`,
               color: `${mobile?.fields?.textColor} !important`,
               letterSpacing: `${mobile?.fields?.letterSpacing} !important`,
-              fontFamily: `${mobile?.fields?.fontFamily}`
+              fontFamily: `${mobile?.fields?.fontFamily}`,
+              margin: mobile?.fields?.margin
             }}
           >
             <RichTextRenderer text={content} color={mobile?.fields?.textColor} />

@@ -1,14 +1,13 @@
 .newsroom-card {
   margin-bottom: 5.5%;
   border: 1px solid $gray-600;
-  width: 29.6667%;
 
   &:nth-child(3n + 2) {
-    margin-right: 5.5%;
+    margin-right: 10%;
   }
 
   &:nth-child(3n + 1) {
-    margin-right: 5.5%;
+    margin-right:10%;
   }
 
   &:last-child {

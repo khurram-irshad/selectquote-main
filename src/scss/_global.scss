@@ -4,7 +4,9 @@ textarea,
 select {
   font-family: 'Montserrat', sans-serif
 }
-
+.wp-container-mobile {
+  display: none;
+}
 
 .block-render {
   @include mediaQueries(mobile) {
@@ -75,12 +77,12 @@ select {
         margin-right: 0px;
       }
 
-      @include mediaQueries(mobile) {
-        a {
-          margin-left: 30px;
-          margin-right: 30px;
-        }
-      }
+      // @include mediaQueries(mobile) {
+      //   a {
+      //     margin-left: 30px;
+      //     margin-right: 30px;
+      //   }
+      // }
     }
 
     @include mediaQueries(mobile) {
@@ -269,14 +271,14 @@ select {
 ol, ul{
   padding-left: 1rem;
 }
-
+li{
+  padding-bottom: 1rem;
+}
 @include mediaQueries(mobile) {
   .wp-container-desktop {
     display: none;
   }
   .wp-container-mobile {
-    margin-left: 30px;
-    margin-right: 30px;
     display: block;
   }
 }
