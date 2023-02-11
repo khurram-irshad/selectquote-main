@@ -19,6 +19,7 @@ interface Device {
     lineHeight: Contentful.EntryFields.Symbol;
     letterSpacing: Contentful.EntryFields.Symbol;
     fontFamily: Contentful.EntryFields.Symbol;
+    widthPercentage: Contentful.EntryFields.Symbol;
     hidden: Contentful.EntryFields.Boolean;
 };
 

@@ -1,4 +1,5 @@
 import * as Contentful from 'contentful';
+import Device from './Type_Device';
 import { Type_RichText } from './Type_RichText';
 
 interface FAQ {
@@ -6,6 +7,7 @@ interface FAQ {
     list: Contentful.Entry<FAQ_ITEM>[];
     fullWidth: Contentful.EntryFields.Symbol;
     color: Contentful.EntryFields.Symbol;
+    devices: Contentful.Entry<Device>[];
 }
 
 interface FAQ_ITEM {

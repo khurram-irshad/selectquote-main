@@ -1,10 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { Type_Image } from "@common/types";
+import { DeviceType } from "@common/types/Type_Device";
 
 const ImageSection = ({ section }: { section: Type_Image }) => {
   const { imageFile, imageName } = section.fields;
+  const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
+  const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
+  
   const socialMedia = [
     "Facebook",
     "Linkedin",

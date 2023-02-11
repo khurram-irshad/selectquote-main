@@ -1,17 +1,17 @@
 .faq-model {
-  .faqs-section-mobile {
-    display: none;
-  }
+  // .faqs-section-mobile {
+  //   display: none;
+  // }
   @include mediaQueries(mobile) {
-    .faqs-section-desktop {
-      display: none;
-    }
+    // .faqs-section-desktop {
+    //   display: none;
+    // }
     .faqs-section-mobile {
-      display: initial;
-      .faq-container {
-        margin-left: 30px;
-        margin-right: 30px;
-      }
+      // display: initial;
+      // .faq-container {
+      //   margin-left: 30px;
+      //   margin-right: 30px;
+      // }
       h2 {
         font-family: "Helvetica", sans-serif;
         font-size: 36px;

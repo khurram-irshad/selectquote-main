@@ -1,10 +1,15 @@
 import { Type_FAQ } from "@common/types";
+import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React, { useState , useEffect } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
-  const { title, list, fullWidth, color } = section.fields;
+  const { title, list, fullWidth, color ,devices} = section.fields;
+  const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
+  const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
+
+
   const [activeKey, setActiveKey] = useState([]);
   const isCardActive = (eventKey: string) => {
     return activeKey.includes(eventKey);
@@ -32,7 +37,8 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   return (
     <div className="faq-model">
       <section
-        className={`faqs-section-desktop ${fullWidth ? "container-fluid px-0" : ""}`}
+      style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}
+        className={`wp-container-desktop faqs-section-desktop  ${fullWidth ? "container-fluid px-0" : ""}`}
       >
         <div className="faq-container">
           <h2>{title}</h2>
@@ -64,7 +70,8 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
         </div>
       </section>
       <section
-        className={`faqs-section-mobile ${fullWidth ? "container-fluid px-0" : ""}`}
+      style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
+        className={`wp-container-mobile faqs-section-mobile `}
       >
         <div className="faq-container">
           <h2>{title}</h2>

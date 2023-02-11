@@ -33,14 +33,14 @@ const MultiColumnSection = ({
 
 
   return (
-    <div
-      className="multi-column-section w-100"
-      style={{
+    <div >
+      <section className="wp-container-desktop " style={{
+        padding: desktop?.fields?.padding,
+        margin: desktop?.fields?.margin,
         backgroundPosition: "left center",
         backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`,
-      }}
-    >
-      <section className="multi-column-desktop" style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin,backgroundColor: `${desktop?.fields?.backgroundColor}`, }}>
+        backgroundColor: `${desktop?.fields?.backgroundColor}`,
+      }}>
         <div
           className={`d-flex flex-column ${borderRight ? "border-r" : ""} ${fullWidth ? "container-fluid px-0" : ""
             } `}
@@ -64,10 +64,10 @@ const MultiColumnSection = ({
                   padding: `${padding}`,
                   justifyContent: `${justifyContent}`,
                   width: `${item.sys.contentType?.sys.id ===
-                      ComponentContentTypes.MultiColumn &&
-                      !item.fields.widthPercentage
-                      ? 100 / Number(columnPerRow)
-                      : item.fields.widthPercentage
+                    ComponentContentTypes.MultiColumn &&
+                    !item.fields.widthPercentage
+                    ? 100 / Number(columnPerRow)
+                    : item.fields.widthPercentage
                     }%`,
                 }}
               >
@@ -89,7 +89,7 @@ const MultiColumnSection = ({
           </div>
         </div>
       </section>
-      <section className="multi-column-mobile" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,backgroundColor: `${desktop?.fields?.backgroundColor}` }}>
+      <section className="wp-container-mobile" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin, backgroundColor: `${desktop?.fields?.backgroundColor}` }}>
         <div
           className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
             } `}
