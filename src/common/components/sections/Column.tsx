@@ -31,10 +31,20 @@ const ColumnSection = ({ section }: { section: any }) => {
     section: section?.fields?.content,
   };
   return <>
-    <div className="wp-container-desktop" style={{ padding: desktop?.fields?.padding,margin: desktop?.fields?.margin }}>
-        <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+    <div className="wp-container-desktop d-flex" style={{
+      width: '100%',
+      padding: desktop?.fields?.padding,
+      margin: desktop?.fields?.margin,
+      justifyContent: `${desktop?.fields?.justifyContent}`,
+      alignItems: desktop?.fields?.alignItems,
+    }}>
+      <Component key={`${contentTypeId}-${id}`} {...componentProps} />
     </div>
-    <div className="wp-container-mobile" style={{ padding: mobile?.fields?.padding,margin: mobile?.fields?.margin }}>
+    <div className="wp-container-mobile" style={{
+      width: '100%', padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,
+      justifyContent: `${mobile?.fields?.justifyContent}`,
+      alignItems: mobile?.fields?.alignItems,
+    }}>
       <Component key={`${contentTypeId}-${id}`} {...componentProps} />
     </div>
   </>;

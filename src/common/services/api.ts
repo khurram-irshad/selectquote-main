@@ -5,7 +5,7 @@ import { getClient } from './client';
 
 const getEntryQuery = (params: GetEntryParams) => ({
   limit: 1,
-  include: 5,
+  include: 10,
   'fields.slug': params.slug,
   content_type: params.pageContentType,
   ...(params?.select && { select: params.select })

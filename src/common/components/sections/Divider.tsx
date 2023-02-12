@@ -10,19 +10,18 @@ const DividerSection = ({ section }: { section: Type_Divider }) => {
 
     return (
         <>
-            <div className="wp-container-desktop">
+            <div className="wp-container-desktop w-100">
                 {!desktop?.fields?.hidden && (
                     <>
                         {!thickBorder && (
                             <hr style={{ margin: desktop?.fields?.margin }} />
                         )}
-                        {thickBorder && (
-                            <div style={{ margin: desktop?.fields?.margin, borderBottom: `${desktop?.fields?.height} solid ${desktop?.fields?.backgroundColor}` }} />
-                        )}
+                            <div style={{  margin: desktop?.fields?.margin, borderBottom: `${desktop?.fields?.height} solid ${desktop?.fields?.backgroundColor}` }} >
+                            </div>
                     </>
                 )}
             </div>
-            <div className="wp-container-mobile">
+            <div className="wp-container-mobile w-100">
                 {!mobile?.fields?.hidden && (
                     <>
                         {!thickBorder && (

@@ -11,9 +11,9 @@ const GallerySection = ({ section }: { section: Type_Gallery }) => {
   function imageArray(arr) {
     let newArray = [];
     for (let i = 0; i < arr.length; i++) {
-        let value = arr[i].fields?.imageFile?.fields?.file?.url;
-        // let imageName= arr[i].fields?.imageFile?.fields?.file?.fileName;
-        newArray.push(value);
+      let value = arr[i].fields?.imageFile?.fields?.file?.url;
+      // let imageName= arr[i].fields?.imageFile?.fields?.file?.fileName;
+      newArray.push(value);
     }
     return newArray;
   }
@@ -28,33 +28,31 @@ const GallerySection = ({ section }: { section: Type_Gallery }) => {
   };
   return (
     <div>
-      <div className="d-flex flex-row">
-        <div className="gallery d-flex">
-          <div></div>
-          {images.map((src, index) => (
-            <img
-              src={ src.fields?.imageFile?.fields?.file?.url }
-              onClick={ () => openImageViewer(index) }
-              width="250"
-              key={ index }
-              style={{ margin: '30px' }}
+      <div className="gallery d-flex">
+        <div></div>
+        {images.map((src, index) => (
+          <img
+            src={src.fields?.imageFile?.fields?.file?.url}
+            onClick={() => openImageViewer(index)}
+            width="250"
+            key={index}
+            style={{ margin: '30px' }}
+          />
+        ))}
+        {isViewerOpen && (
+          <div style={{ zIndex: 10000 }} >
+            <ImageViewer
+              src={imageArray(images)}
+              currentIndex={currentImage}
+              disableScroll
+              closeOnClickOutside={true}
+              onClose={closeImageViewer}
+              backgroundStyle={{
+                opacity: 0.97
+              }}
             />
-          ))}
-          {isViewerOpen && (
-            <div style={{zIndex: 10000}} >
-              <ImageViewer
-                src={ imageArray(images)}
-                currentIndex={ currentImage }
-                disableScroll
-                closeOnClickOutside={ true }
-                onClose={ closeImageViewer }
-                backgroundStyle={{
-                  opacity: 0.97
-                }}
-              />
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )

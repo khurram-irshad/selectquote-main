@@ -289,3 +289,11 @@ ul li:last-child {
     display: block !important;
   }
 }
+
+@include mediaQueries(mobile) {
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+}
