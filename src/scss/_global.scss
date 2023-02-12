@@ -4,9 +4,7 @@ textarea,
 select {
   font-family: 'Montserrat', sans-serif
 }
-.wp-container-mobile {
-  display: none;
-}
+
 
 .block-render {
   @include mediaQueries(mobile) {
@@ -88,8 +86,8 @@ select {
     @include mediaQueries(mobile) {
       width: 1080px;
       max-width: calc(100% - 0px) !important;
-      margin: 0 !important;
-      padding: 0;
+      // margin: 0 !important;
+      // padding: 0;
 
       .richtext-render-desktop {
         display: none !important;
@@ -280,11 +278,14 @@ ul li:last-child {
 }
 
 
+.wp-container-mobile {
+  display: none !important;;
+}
 @include mediaQueries(mobile) {
   .wp-container-desktop {
-    display: none;
+    display: none !important;
   }
   .wp-container-mobile {
-    display: block;
+    display: block !important;
   }
 }

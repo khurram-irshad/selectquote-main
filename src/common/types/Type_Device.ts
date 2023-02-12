@@ -21,6 +21,9 @@ interface Device {
     fontFamily: Contentful.EntryFields.Symbol;
     widthPercentage: Contentful.EntryFields.Symbol;
     hidden: Contentful.EntryFields.Boolean;
+    justifyContent: Contentful.EntryFields.Symbol;
+    direction?: Contentful.EntryFields.Symbol;
+    alignItems: Contentful.EntryFields.Symbol;
 };
 
 export default Device;

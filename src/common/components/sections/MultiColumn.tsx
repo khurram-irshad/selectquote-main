@@ -10,6 +10,60 @@ interface MultiColumnSectionProps {
   child?: boolean;
 }
 
+const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item: any }) => {
+  const { section, child } = parent;
+  const {
+    justifyContent,
+    columnPerRow,
+    padding,
+  } = section.fields;
+
+  const desktop = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
+  const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
+  console.log(desktop)
+  return <>
+    <div
+      key={item.sys.id}
+      className={`d-flex wp-container-desktop`}
+      style={{
+        padding: `${padding}`, justifyContent: `${justifyContent}`,
+        width: `${item.sys.contentType?.sys.id ===
+          ComponentContentTypes.MultiColumn &&
+          !desktop?.fields?.widthPercentage
+          ? 100 / Number(columnPerRow)
+          : desktop?.fields?.widthPercentage
+          }%`,
+      }}
+    >
+      {item.sys.contentType?.sys.id ===
+        ComponentContentTypes.MultiColumn ? (
+        <MultiColumnSection section={item} child={true} />
+      ) : (
+        <ColumnSection section={item} />
+      )}
+    </div>
+    <div
+      key={item.sys.id}
+      className={`d-flex wp-container-mobile`}
+      style={{
+        padding: `${padding}`, justifyContent: `${justifyContent}`,
+        width: `${item.sys.contentType?.sys.id ===
+          ComponentContentTypes.MultiColumn &&
+          !mobile?.fields?.widthPercentage
+          ? 100 / Number(columnPerRow)
+          : mobile?.fields?.widthPercentage
+          }%`,
+      }}
+    >
+      {item.sys.contentType?.sys.id ===
+        ComponentContentTypes.MultiColumn ? (
+        <MultiColumnSection section={item} child={true} />
+      ) : (
+        <ColumnSection section={item} />
+      )}
+    </div>
+  </>
+}
 const MultiColumnSection = ({
   section,
   child = false,
@@ -18,23 +72,18 @@ const MultiColumnSection = ({
     columns,
     direction,
     justifyContent,
-    columnPerRow,
     alignItems,
     fullWidth,
-    padding,
-    backgroundColor,
     backgroundImage,
-    borderLeft,
     borderRight,
   } = section.fields;
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
-
   return (
-    <div >
-      <section className="wp-container-desktop " style={{
+    <>
+      <section className="wp-container-desktop w-100" style={{
         padding: desktop?.fields?.padding,
         margin: desktop?.fields?.margin,
         backgroundPosition: "left center",
@@ -42,84 +91,42 @@ const MultiColumnSection = ({
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
       }}>
         <div
-          className={`d-flex flex-column ${borderRight ? "border-r" : ""} ${fullWidth ? "container-fluid px-0" : ""
-            } `}
+          className={`d-flex flex-wrap 
+        ${desktop?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}
+        ${borderRight ? "border-r" : ""}
+        ${!child ? "container wp-container" : ""} 
+        ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""
+            }`}
           style={{
-            justifyContent: `${justifyContent}`,
+            alignItems: desktop?.fields?.alignItems,
+            justifyContent: `${desktop?.fields?.justifyContent}`,
           }}
         >
-          <div
-            className={`d-flex flex-wrap ${!child ? "container wp-container" : ""
-              } ${direction == "Horizontal" ? "flex-row" : "flex-column"} `}
-            style={{
-              alignItems: alignItems,
-              justifyContent: `${justifyContent}`,
-            }}
-          >
-            {columns.map((item) => (
-              <div
-                key={item.sys.id}
-                className={`d-flex`}
-                style={{
-                  padding: `${padding}`,
-                  justifyContent: `${justifyContent}`,
-                  width: `${item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn &&
-                    !item.fields.widthPercentage
-                    ? 100 / Number(columnPerRow)
-                    : item.fields.widthPercentage
-                    }%`,
-                }}
-              >
-                <div
-                  key={section.sys.id}
-                  style={{ width: "100%", justifyContent: `${justifyContent}` }}
-                  className={`d-flex`}
-                >
-
-                  {item.sys.contentType?.sys.id ===
-                    ComponentContentTypes.MultiColumn ? (
-                    <MultiColumnSection section={item} child={true} />
-                  ) : (
-                    <ColumnSection section={item} />
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          {columns.map((item) => (
+            <RenderColumn parent={{ section, child }} item={item} />
+          ))}
         </div>
       </section>
-      <section className="wp-container-mobile" style={{  backgroundColor: `${desktop?.fields?.backgroundColor}` }}>
+      <section className="wp-container-mobile" style={{ backgroundColor: `${mobile?.fields?.backgroundColor}` }}>
         <div
-          className={`d-flex flex-column ${fullWidth ? "container-fluid px-0" : ""
-            } `}
+          className={`d-flex flex-wrap ${fullWidth ? "container-fluid px-0" : ""}
+          ${!child ? "container wp-container" : ""}
+          ${direction == "Horizontal" ? "flex-row" : "flex-column"} 
+          ${mobile?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}`}
           style={{
-            justifyContent: `${justifyContent}`,
-            backgroundColor: `${backgroundColor}`,
-            padding: mobile?.fields?.padding, margin: mobile?.fields?.margin
+            backgroundColor: `${mobile?.fields?.backgroundColor}`,
+            padding: mobile?.fields?.padding,
+            margin: mobile?.fields?.margin,
+            justifyContent: `${mobile?.fields?.justifyContent}`,
+            alignItems: mobile?.fields?.alignItems,
           }}
         >
-          <div
-            className={`flex-wrap  ${!child ? "container wp-container" : ""} ${direction == "Horizontal" ? "flex-row" : "flex-column"
-              } `}
-            style={{ alignItems: alignItems,padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
-          >
-            {columns.map((item) => (
-              <div key={item.sys.id} className={`d-flex`}>
-                {item.sys.contentType?.sys.id ===
-                  ComponentContentTypes.MultiColumn ? (
-                  <MultiColumnSection section={item} child={true} />
-                ) : (
-                  <div >
-                    <ColumnSection section={item} />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          {columns.map((item) => (
+            <RenderColumn parent={{ section, child }} item={item} />
+          ))}
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
