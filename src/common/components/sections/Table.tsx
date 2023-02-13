@@ -14,7 +14,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
 
     return (
         <>
-            <div className="wp-container-desktop" style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}>
+            <div className="wp-container-desktop w-full" style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}>
                 <table>
                     {header && (<>
                         <tr style={{ backgroundColor: header.fields.backgroundColor }}>
@@ -36,7 +36,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
                     </>)}
                 </table>
             </div>
-            <div className="wp-container-mobile" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}>
+            <div className="wp-container-mobile w-full" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}>
                 <table>
                     {header && (<>
                         <tr style={{ backgroundColor: header.fields.backgroundColor }}>
