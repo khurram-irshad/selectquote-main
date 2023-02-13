@@ -53,7 +53,10 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
           ${path.includes("customer-reviews") ? " card-body-p-override" : ""}`}
           style={{
             color: `${content.fields?.textColor} !important`,
-            height: path.includes("customer-reviews") ? "775px" : "",
+            height:
+              path.includes("customer-reviews") && screenWidth >= 1024
+                ? "775px"
+                : "",
           }}
         >
           {showRating && (
