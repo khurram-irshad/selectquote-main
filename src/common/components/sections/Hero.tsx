@@ -26,9 +26,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     <div className="hero-block">
       <div className="hero-section-desktop">
         <section
-          className={`hero-section ${
-            topSection ? "  hero-section-shadow" : ""
-          } `}
+          className={`hero-section ${topSection ? "  hero-section-shadow" : ""
+            } `}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
@@ -48,12 +47,10 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                   <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                      ComponentContentTypes.MultiColumn ? (
+                        ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
-                        <div style={{ padding: item?.fields.padding }}>
-                          <ColumnSection section={item} />
-                        </div>
+                        <ColumnSection section={item} />
                       )}
                     </div>
                   </div>
@@ -65,9 +62,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       </div>
       <div className="hero-section-mobile">
         <section
-          className={`hero-section ${
-            topSection ? " hero-section-border hero-section-shadow" : ""
-          } `}
+          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""
+            } `}
           style={{
             backgroundPosition: "right 0px center",
             backgroundImage: backgroundImage
@@ -86,7 +82,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                   <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                      ComponentContentTypes.MultiColumn ? (
+                        ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <div>
