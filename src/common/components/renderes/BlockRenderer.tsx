@@ -21,6 +21,7 @@ import FundingFormSection from "@components/sections/FundingForm";
 import DividerSection from "@components/sections/Divider";
 import TableSection from "@components/sections/Table";
 import ColorTextSection from "@components/sections/ColorText";
+import { DeviceType } from "@common/types/Type_Device";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -31,10 +32,12 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   if (Array.isArray(section)) {
     return (
       <div className="block-render">
-          <div className="desktop-blockrender">
+        <div className="desktop-blockrender">
           {section.map((b, index) => {
-            const fullWidth = b?.fields?.fullWidth;
-            // wp-container class to be added here
+            const desktop = b?.fields?.devices?.find(item => item.fields?.type === DeviceType.Desktop);
+            const mobile = b?.fields?.devices?.find(item => item.fields?.type === DeviceType.Mobile);
+
+            const fullWidth = desktop?.fields?.fullWidth;
             return (
               <div
                 className={
@@ -65,7 +68,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 
         </div>
       </div>
-        
+
     );
   }
   const contentTypeId = _.get(section, "sys.contentType.sys.id");

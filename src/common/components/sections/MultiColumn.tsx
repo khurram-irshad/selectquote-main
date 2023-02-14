@@ -22,15 +22,14 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
       key={item.sys.id}
       className={`d-flex wp-container-desktop`}
       style={{
-       
         width: `${item.sys.contentType?.sys.id ===
           ComponentContentTypes.MultiColumn &&
           !desktop?.fields?.widthPercentage
           ? 100 / Number(columnPerRow)
           : desktop?.fields?.widthPercentage
           }%`,
-          justifyContent: `${desktop?.fields?.justifyContent}`,
-          alignItems: desktop?.fields?.alignItems,
+        justifyContent: `${desktop?.fields?.justifyContent}`,
+        alignItems: desktop?.fields?.alignItems,
       }}
     >
       {item.sys.contentType?.sys.id ===
@@ -44,14 +43,15 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
       key={item.sys.id}
       className={`d-flex wp-container-mobile`}
       style={{
+        //display: mobile?.fields?.hidden ? mobile?.fields?.hidden : 'block',
         width: `${item.sys.contentType?.sys.id ===
           ComponentContentTypes.MultiColumn &&
           !mobile?.fields?.widthPercentage
           ? 100 / Number(columnPerRow)
           : mobile?.fields?.widthPercentage
           }%`,
-          justifyContent: `${mobile?.fields?.justifyContent}`,
-          alignItems: mobile?.fields?.alignItems,
+        justifyContent: `${mobile?.fields?.justifyContent}`,
+        alignItems: mobile?.fields?.alignItems,
       }}
     >
       {item.sys.contentType?.sys.id ===
@@ -75,10 +75,10 @@ const MultiColumnSection = ({
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
-
+console.log(desktop?.fields?.fullWidth)
   return (
     <>
-      <section className="wp-container-desktop w-100" style={{
+      <section className="wp-container-desktop d-flex w-100" style={{
         padding: desktop?.fields?.padding,
         margin: desktop?.fields?.margin,
         backgroundPosition: "left center",
@@ -86,11 +86,11 @@ const MultiColumnSection = ({
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
       }}>
         <div
-          className={`d-flex flex-wrap 
+          className={`d-flex flex-wrap  
         ${desktop?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}
         ${borderRight ? "border-r" : ""}
         ${!child ? "" : ""} 
-        ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""
+        ${desktop?.fields?.fullWidth ? "container wp-container " : ""
             }`}
           style={{
             alignItems: desktop?.fields?.alignItems,

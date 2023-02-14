@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { Type_CarrierStrips } from "@common/types";
+import { DeviceType } from "@common/types/Type_Device";
 
 const settings = {
   dots: true,
@@ -24,13 +25,14 @@ const settings = {
 
 const CarrierStripsSection = ({ section }: { section: Type_CarrierStrips }) => {
   const {
-    title,
     images,
-    titleBackgroundColor,
-    contentBackgroundColor,
-    fullWidth,
+    devices
   } = section.fields;
   const [screenWidth, setScreenWidth] = useState(0);
+
+  const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
+  const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
+
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
@@ -42,70 +44,73 @@ const CarrierStripsSection = ({ section }: { section: Type_CarrierStrips }) => {
   }, []);
 
   return (
-    <section
-      className={`company-section ${fullWidth ? "container-fluid px-0" : ""}`}
-    >
-      <div
-        className="top d-flex align-items-center justify-content-center"
-        style={{
-          backgroundColor: titleBackgroundColor,
-        }}
+    <>
+      <section
+        className={`company-section ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
+        style={{ margin: desktop?.fields?.margin }}
       >
-        <RichTextRenderer text={title} />
         <div
-          className="arrow"
-          style={{ borderTopColor: titleBackgroundColor }}
-        ></div>
-      </div>
-      <div
-        className="bottom"
-        style={{ backgroundColor: contentBackgroundColor }}
+          className="bottom wp-container-desktop"
+          style={{ backgroundColor: desktop?.fields?.backgroundColor, padding: desktop?.fields?.padding }}
+        >
+          {screenWidth > 0 && screenWidth > 1024 && (
+            <div className="companies d-flex align-items-center justify-content-between">
+              {images.map((image) => (
+                <div
+                  className="company d-flex align-items-center justify-content-center"
+                  key={image.sys.id}
+                >
+                  <img
+                    src={`https:${image.fields.imageFile.fields.file.url}`}
+                    width={
+                      image?.fields?.imageFile?.fields?.file?.details?.image
+                        ?.width
+                    }
+                    height={
+                      image?.fields?.imageFile?.fields?.file?.details?.image
+                        ?.height
+                    }
+                    alt={image.fields.imageName}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section
+       style={{ margin: mobile?.fields?.margin }}
+        className={`company-section ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
-        {screenWidth > 0 && screenWidth < 1024 && (
-          <Slider className="companies-slider" {...settings}>
-            {images.map((image) => (
-              <div className="company position-relative" key={image.sys.id}>
-                <img
-                  src={`https:${image.fields.imageFile.fields.file.url}`}
-                  width={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.width
-                  }
-                  height={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.height
-                  }
-                  alt={image.fields.imageName}
-                />
-              </div>
-            ))}
-          </Slider>
-        )}
-        {screenWidth > 0 && screenWidth > 1023 && (
-          <div className="companies d-flex align-items-center justify-content-between">
-            {images.map((image) => (
-              <div
-                className="company d-flex align-items-center justify-content-center"
-                key={image.sys.id}
-              >
-                <img
-                  src={`https:${image.fields.imageFile.fields.file.url}`}
-                  width={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.width
-                  }
-                  height={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.height
-                  }
-                  alt={image.fields.imageName}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+        <div
+          className="bottom wp-container-mobile"
+          style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}
+        >
+
+          {screenWidth > 0 && screenWidth < 1024 && (
+            <Slider className="companies-slider" {...settings}>
+              {images.map((image) => (
+                <div className="company position-relative" key={image.sys.id}>
+                  <img
+                    src={`https:${image.fields.imageFile.fields.file.url}`}
+                    width={
+                      image?.fields?.imageFile?.fields?.file?.details?.image
+                        ?.width
+                    }
+                    height={
+                      image?.fields?.imageFile?.fields?.file?.details?.image
+                        ?.height
+                    }
+                    alt={image.fields.imageName}
+                  />
+                </div>
+              ))}
+            </Slider>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

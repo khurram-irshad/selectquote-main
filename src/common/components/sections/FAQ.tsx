@@ -9,7 +9,6 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
 
-
   const [activeKey, setActiveKey] = useState([]);
   const isCardActive = (eventKey: string) => {
     return activeKey.includes(eventKey);
@@ -46,7 +45,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
             {list.map((item, index) => (
               <Card
                 key={index}
-                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': color  }}
+                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': desktop?.fields?.textColor  }}
                 onClick={() => onCardClick(item.sys.id)}
                 className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
                   }`}
@@ -79,6 +78,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
             {list.map((item, index) => (
               <Card
                 key={index}
+                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': mobile?.fields?.textColor  }}
                 onClick={() => onCardClick(item.sys.id)}
                 className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
                   }`}
