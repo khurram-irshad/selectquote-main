@@ -8,7 +8,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
-  
+
   const isValidHttpUrl = (string) => {
     let url;
     try {
@@ -24,17 +24,20 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
       style={{
         textDecoration: "none",
         color: section.fields.color,
-        fontWeight: 700,
+        fontSize: section.fields.fontSize,
+        fontWeight: section.fields.fontWeight
       }}
     >
       {section.fields.title}
     </a>
   ) : (
     <Link href={section.fields.linkUrl || "/"}>
-      <a style={{color: section.fields?.color,
-      textDecoration: "none",
-      fontSize: section.fields.fontSize ,
-      fontWeight: section.fields.fontWeight}}>{section.fields.title}</a>
+      <a style={{
+        color: section.fields?.color,
+        textDecoration: "none",
+        fontSize: section.fields.fontSize,
+        fontWeight: section.fields.fontWeight
+      }}>{section.fields.title}</a>
     </Link>
   );
 };

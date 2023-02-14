@@ -4,8 +4,12 @@ import React from "react";
 import ProductReviewCard from "./ProductReviewCard";
 import Card from "./Card";
 import { ComponentContentTypes } from "@common/constants/app.constant";
+import { DeviceType } from "@common/types/Type_Device";
 const CardsSection = ({ section }: { section: Type_Cards }) => {
-  const { items, itemsMargin, itemsPerRow } = section.fields;
+  const { items, itemsMargin, devices } = section.fields;
+
+  const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
+  const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
 
   const getComponent = (item, index, itemsMargin) => {
     const contentTypeId = _.get(item, "sys.contentType.sys.id");
@@ -26,13 +30,13 @@ const CardsSection = ({ section }: { section: Type_Cards }) => {
 
   return (
     <>
-      <div className="container cards-container">
-        <div className="row d-flex review-cards-desktop">
+      <div className="container cards-container" >
+        <div className="row d-flex review-cards-desktop" style={{ margin: desktop?.fields?.margin, padding: desktop?.fields?.padding }}>
           {items.map((item, index) => (
             <>{getComponent(item, index, itemsMargin)}</>
           ))}
         </div>
-        <div className="row d-flex review-cards-mobile">
+        <div className="row d-flex review-cards-mobile" style={{ margin: mobile?.fields?.margin, padding: mobile?.fields?.padding }}>
           {items.map((item, index) => (
             <>{getComponent(item, index, itemsMargin)}</>
           ))}

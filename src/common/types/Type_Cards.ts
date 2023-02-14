@@ -1,4 +1,5 @@
 import * as Contentful from 'contentful';
+import Device from './Type_Device';
 import { RichText, Type_RichText } from './Type_RichText';
 
 interface ProductReview {
@@ -12,6 +13,7 @@ interface Cards {
     items: Contentful.Entry<ProductReview>[];
     itemsPerRow: Contentful.EntryFields.Symbol;
     itemsMargin: Contentful.EntryFields.Symbol;
+    devices: Contentful.Entry<Device>[];
 }
 
 export type Type_Cards = Contentful.Entry<Cards>;

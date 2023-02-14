@@ -33,7 +33,7 @@ const ColumnSection = ({ section }: { section: any }) => {
   return <>
     <div className="wp-container-desktop d-flex" style={{
       width: '100%',
-      // padding: desktop?.fields?.padding,
+      padding: desktop?.fields?.padding,
       margin: desktop?.fields?.margin,
       justifyContent: `${desktop?.fields?.justifyContent}`,
       alignItems: desktop?.fields?.alignItems,

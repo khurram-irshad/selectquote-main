@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import { ComponentContentTypes } from "@constants/app.constant";
 import HeroSection from "@components/sections/Hero";
-import CarrierStripsSection from "@components/sections/CarrierStrips";
+import SliderSection from "@components/sections/Slider";
 import FAQSection from "@components/sections/FAQ";
 import MultiColumnSection from "@components/sections/MultiColumn";
 import CustomerReview from "@components/sections/CustomerReviews";
@@ -92,7 +92,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 const ContentTypeMap = {
   [ComponentContentTypes.Hero]: HeroSection,
   [ComponentContentTypes.AgentReview]: AgentReviewSection,
-  [ComponentContentTypes.CarrierStrips]: CarrierStripsSection,
+  [ComponentContentTypes.SliderSection]: SliderSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
   [ComponentContentTypes.CustomerReview]: CustomerReview,

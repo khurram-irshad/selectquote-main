@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import { Type_CarrierStrips } from "@common/types";
 import { DeviceType } from "@common/types/Type_Device";
+import { Type_Slider } from "@common/types/Type_Slider";
 
 const settings = {
   dots: true,
@@ -23,7 +22,7 @@ const settings = {
   ],
 };
 
-const CarrierStripsSection = ({ section }: { section: Type_CarrierStrips }) => {
+const SliderSection = ({ section }: { section: Type_Slider }) => {
   const {
     images,
     devices
@@ -114,4 +113,4 @@ const CarrierStripsSection = ({ section }: { section: Type_CarrierStrips }) => {
   );
 };
 
-export default CarrierStripsSection;
+export default SliderSection;

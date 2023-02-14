@@ -75,7 +75,7 @@ const MultiColumnSection = ({
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
-console.log(desktop?.fields?.fullWidth)
+  console.log(desktop?.fields?.fullWidth)
   return (
     <>
       <section className="wp-container-desktop d-flex w-100" style={{
@@ -86,11 +86,11 @@ console.log(desktop?.fields?.fullWidth)
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
       }}>
         <div
-          className={`d-flex flex-wrap  
+          className={`d-flex flex-wrap 
         ${desktop?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}
         ${borderRight ? "border-r" : ""}
-        ${!child ? "" : ""} 
-        ${desktop?.fields?.fullWidth ? "container wp-container " : ""
+        ${!child ? "container wp-container" : "w-100"} 
+       
             }`}
           style={{
             alignItems: desktop?.fields?.alignItems,
