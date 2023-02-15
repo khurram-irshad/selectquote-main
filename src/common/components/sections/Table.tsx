@@ -36,7 +36,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
                     </>)}
                 </table>
             </div>
-            <div className="wp-container-mobile w-full" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}>
+            <div className="wp-container-mobile w-full overflow-auto" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin}}>
                 <table>
                     {header && (<>
                         <tr style={{ backgroundColor: header.fields.backgroundColor }}>
