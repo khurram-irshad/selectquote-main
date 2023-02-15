@@ -102,7 +102,7 @@ const MultiColumnSection = ({
           ))}
         </div>
       </section>
-      <section className="wp-container-mobile" style={{ backgroundColor: `${mobile?.fields?.backgroundColor}` }}>
+      <section className="wp-container-mobile" style={{ backgroundColor: `${mobile?.fields?.backgroundColor}`,backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`, }}>
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
           ${!child ? "container wp-container" : ""}
