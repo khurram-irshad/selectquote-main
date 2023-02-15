@@ -172,7 +172,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
           </div>
         </div>
         <div className="partnership-form-mobile">
-          <div className="pt-5 pb-5">
+          <div className="pb-5">
             <RichTextRenderer text={title} />
             <div className="row">
               <div className="col">
@@ -184,7 +184,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                   aria-label="First name"
                 />
               </div>
-              <div className="col">
+              <div className="col mt-4">
                 <label className="form-label">Last Name *</label>
                 <input
                   type="text"
@@ -194,8 +194,9 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 />
               </div>
             </div>
-            <div className="row mt-4">
-              <div className="col">
+
+            <div className="row">
+              <div className="col mt-3">
                 <label className="form-label">Company Name *</label>
                 <input
                   type="text"
@@ -205,7 +206,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 />
               </div>
             </div>
-            <div className="row mt-4">
+            <div className="row mt-2">
               <div className="col">
                 <label className="form-label">Your Title *</label>
                 <input
