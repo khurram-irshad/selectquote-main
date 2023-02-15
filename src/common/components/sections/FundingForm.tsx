@@ -76,195 +76,388 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
   return (
 
     <div className="pt-5 pb-5">
+      <div className="desktop-form">
+        <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+          <RichTextRenderer text={title.fields.content} />
+          {isEmailSent ?
+            <p style={{color: "#646464" }}>
+              Thank you for sahring you interest in partnering with SelectQuote. A member of our team will be in touch shortly.
+            </p>
+            :
+            <>
+              <div className="row">
+                <div className="col">
+                  <label className="form-label">First Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='firstName' width= "100%"/>
+                </div>
+                <div className="col">
+                  <label className="form-label">Last Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='lastName' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Email *</label>
+                  <UseFormTextField placeholder="" control={control} name='email' width= "100%"/>
+                </div>
+                <div className="col">
+                  <label className="form-label">Phone Number *</label>
+                  <UseFormTextField placeholder="" control={control} name='phoneNumber' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationName' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Website *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationWesbsite' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Address *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationAddress' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Mission Statement *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationStatement' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please provide an overview of your organization, including history,
+                    current programs and activities, and any accomplishments from the
+                    last three years *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='organizationOverview' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <p>Please provide a brief description of your proposal, including:</p>
+                <div className="col">
+                  <ul>
+                    <li>Problem or need which you seek to address</li>
+                    <li>Purpose, objectives, and key anticipated outcomes</li>
+                    <li>Individuals or communities served</li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul>
+                    <li>Budget/amount of funding requested</li>
+                    <li>Overview of how funds will be spent</li>
+                    <li>Timeline</li>
+                  </ul>
+                </div>
+                <div>
+                <UseFormTextField placeholder="" control={control} name='organizationDescription' width= "100%"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please specify the needs and/or program this grant will directly
+                    support. *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='program' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list how much money you're requesting. *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='amount' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Will there be any partners in this proposal?
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes">Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no">No</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization IRS EIN Number *</label>
+                  <UseFormTextField placeholder="" control={control} name='IRS' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please provide a third-party reference *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='reference' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list your Board of Directors: *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='boardOfDirector' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list name and title of any key staff involved with this
+                    project: *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='staffInvolved' width= "100%"/>
+                </div>
+              </div>
+
+              <div className="row mt-4">
+                <label className="form-label">Please attach the following:</label>
+                <div className="col">
+                  <ul>
+                    <li>Cash flow statement</li>
+                    <li>Audited financial statements</li>
+                    <li>Current operating budget</li>
+                  </ul>
+                </div>
+                <div className="col">
+                  <ul>
+                    <li>Annual Report</li>
+                    <li>
+                      Any supplementary documents which you feel will be essential to
+                      the review committee
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label>Add Attachments</label>
+                  <UseFormTextField className="form-control" customChange={uploadFileForFund} accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps" type="file" name="img" control={control}  width= "100%"/>
+                </div>
+              </div>
+              <div className="mt-4">
+                <div className="button-container">
+                <button type="submit" className="action-btn btn-border"  style={{ color: "#ffffff", backgroundColor: "#F47B20" }} disabled={isUploading}> 
+                      Connect with us
+                </button>
+                </div>
+              </div>
+          </>
+      }    
+      </form>
+    </div>
+    <div className="mobile-form">
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-        <RichTextRenderer text={title.fields.content} />
-        {isEmailSent ?
-          <p style={{color: "#646464" }}>
-            Thank you for sahring you interest in partnering with SelectQuote. A member of our team will be in touch shortly.
-          </p>
-          :
-          <>
-            <div className="row">
-              <div className="col">
-                <label className="form-label">First Name *</label>
-                <UseFormTextField placeholder="" control={control} name='firstName' />
+          <RichTextRenderer text={title.fields.content} />
+          {isEmailSent ?
+            <p style={{color: "#646464" }}>
+              Thank you for sahring you interest in partnering with SelectQuote. A member of our team will be in touch shortly.
+            </p>
+            :
+            <>
+              <div className="row">
+                <div className="row">
+                  <label className="form-label">First Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='firstName' width= "100%"/>
+                </div>
+                <div className="row">
+                  <label className="form-label">Last Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='lastName' width= "100%"/>
+                </div>
               </div>
-              <div className="col">
-                <label className="form-label">Last Name *</label>
-                <UseFormTextField placeholder="" control={control} name='lastName' />
+              <div className="row mt-4">
+                <div className="row">
+                  <label className="form-label">Email *</label>
+                  <UseFormTextField placeholder="" control={control} name='email' width= "100%"/>
+                </div>
+                <div className="row">
+                  <label className="form-label">Phone Number *</label>
+                  <UseFormTextField placeholder="" control={control} name='phoneNumber' width= "100%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Email *</label>
-                <UseFormTextField placeholder="" control={control} name='email' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Name *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationName' width= "94%" />
+                </div>
               </div>
-              <div className="col">
-                <label className="form-label">Phone Number *</label>
-                <UseFormTextField placeholder="" control={control} name='phoneNumber' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Website *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationWesbsite'  width= "94%" />
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Organization Name *</label>
-                <UseFormTextField placeholder="" control={control} name='organizationName' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Address *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationAddress'  width= "94%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Organization Website *</label>
-                <UseFormTextField placeholder="" control={control} name='organizationWesbsite' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization Mission Statement *</label>
+                  <UseFormTextField placeholder="" control={control} name='organizationStatement'  width= "94%" />
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Organization Address *</label>
-                <UseFormTextField placeholder="" control={control} name='organizationAddress' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please provide an overview of your organization, including history,
+                    current programs and activities, and any accomplishments from the
+                    last three years *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='organizationOverview' width= "94%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Organization Mission Statement *</label>
-                <UseFormTextField placeholder="" control={control} name='organizationStatement' />
+              <div className="row mt-4">
+                <p>Please provide a brief description of your proposal, including:</p>
+                <div className="row">
+                  <ul>
+                    <li>Problem or need which you seek to address</li>
+                    <li>Purpose, objectives, and key anticipated outcomes</li>
+                    <li>Individuals or communities served</li>
+                  </ul>
+                </div>
+                <div className="row">
+                  <ul>
+                    <li>Budget/amount of funding requested</li>
+                    <li>Overview of how funds will be spent</li>
+                    <li>Timeline</li>
+                  </ul>
+                </div>
+                <div>
+                <UseFormTextField placeholder="" control={control} name='organizationDescription' width= "94%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please provide an overview of your organization, including history,
-                  current programs and activities, and any accomplishments from the
-                  last three years *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='organizationOverview' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please specify the needs and/or program this grant will directly
+                    support. *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='program' width= "94%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <p>Please provide a brief description of your proposal, including:</p>
-              <div className="col">
-                <ul>
-                  <li>Problem or need which you seek to address</li>
-                  <li>Purpose, objectives, and key anticipated outcomes</li>
-                  <li>Individuals or communities served</li>
-                </ul>
-              </div>
-              <div className="col">
-                <ul>
-                  <li>Budget/amount of funding requested</li>
-                  <li>Overview of how funds will be spent</li>
-                  <li>Timeline</li>
-                </ul>
-              </div>
-              <div>
-              <UseFormTextField placeholder="" control={control} name='organizationDescription' />
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please specify the needs and/or program this grant will directly
-                  support. *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='program' />
-              </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please list how much money you're requesting. *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='amount' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list how much money you're requesting. *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='amount' width= "94%"/>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Will there be any partners in this proposal?
-                </label>
-                <ul className="custom-radio">
-                  <li>
-                    <input type="radio" id="yes" name="radio-option" />
-                    <label htmlFor="yes">Yes</label>
-                  </li>
-                  <li>
-                    <input type="radio" id="no" name="radio-option" />
-                    <label htmlFor="no">No</label>
-                  </li>
-                </ul>
+              <div className="row mt-4">
+                <div className="row">
+                  <label className="form-label">
+                    Will there be any partners in this proposal?
+                  </label>
+                  <ul className="custom-radio row pb-1">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes">Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no">No</label>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Organization IRS EIN Number *</label>
-                <UseFormTextField placeholder="" control={control} name='IRS' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">Organization IRS EIN Number *</label>
+                  <UseFormTextField placeholder="" control={control} name='IRS' width= "94%"/>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please provide a third-party reference *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='reference' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please provide a third-party reference *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='reference' width= "94%"/>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please list your Board of Directors: *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='boardOfDirector' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list your Board of Directors: *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='boardOfDirector' width= "94%"/>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">
-                  Please list name and title of any key staff involved with this
-                  project: *
-                </label>
-                <UseFormTextField placeholder="" control={control} name='staffInvolved' />
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label">
+                    Please list name and title of any key staff involved with this
+                    project: *
+                  </label>
+                  <UseFormTextField placeholder="" control={control} name='staffInvolved' width= "94%"/>
+                </div>
               </div>
-            </div>
 
-            <div className="row mt-4">
-              <label className="form-label">Please attach the following:</label>
-              <div className="col">
-                <ul>
-                  <li>Cash flow statement</li>
-                  <li>Audited financial statements</li>
-                  <li>Current operating budget</li>
-                </ul>
+              <div className="row mt-4">
+                <label className="form-label">Please attach the following:</label>
+                <div className="row">
+                  <ul>
+                    <li>Cash flow statement</li>
+                    <li>Audited financial statements</li>
+                    <li>Current operating budget</li>
+                  </ul>
+                </div>
+                <div className="row">
+                  <ul>
+                    <li>Annual Report</li>
+                    <li>
+                      Any supplementary documents which you feel will be essential to
+                      the review committee
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div className="col">
-                <ul>
-                  <li>Annual Report</li>
-                  <li>
-                    Any supplementary documents which you feel will be essential to
-                    the review committee
-                  </li>
-                </ul>
+              <div className="row mt-4">
+                <div className="col">
+                  <label>Add Attachments</label>
+                  <UseFormTextField className="form-control" customChange={uploadFileForFund} accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps" type="file" name="img" control={control}  width= "94%"/>
+                </div>
               </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label>Add Attachments</label>
-                <UseFormTextField className="form-control" customChange={uploadFileForFund} accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps" type="file" name="img" control={control}  />
+              <div className="mt-4">
+                <div className="button-container">
+                <button type="submit" className="action-btn btn-border"  style={{ color: "#ffffff", backgroundColor: "#F47B20" }} disabled={isUploading}> 
+                      Connect with us
+                </button>
+                </div>
               </div>
-            </div>
-            <div className="mt-4">
-              <div className="button-container">
-              <button type="submit" className="action-btn btn-border"  style={{ color: "#ffffff", backgroundColor: "#F47B20" }} disabled={isUploading}> 
-                    Connect with us
-              </button>
-              </div>
-            </div>
-        </>
-    }    
-    </form>
+          </>
+      }    
+      </form>
+    </div>
     </div>
   );
 };
