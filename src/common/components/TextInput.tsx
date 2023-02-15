@@ -14,9 +14,10 @@ type FieldProps = {
     children?: React.ReactNode,
     customChange?: any
     accept?: any
+    width?: any
 }
 
-export const UseFormTextField = ({ control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept}: FieldProps) => {
+export const UseFormTextField = ({ width, control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept}: FieldProps) => {
     return (
         <Controller
             name={name}
@@ -30,7 +31,7 @@ export const UseFormTextField = ({ control, name, disabled = false, placeholder,
                                 customChange(e)
                             }
                             onChange(e)
-                        }} disabled={disabled} className={className} style={{ width: '100%' }} accept= {accept} />
+                        }} disabled={disabled} className={className} style={{ width: width }} accept= {accept} />
                         {children}
                         {error && (
                             <Form.Text id="passwordHelpBlock" className="text-danger" muted>

@@ -41,3 +41,15 @@
     background: #ddd;
   }
 }
+.mobile-form {
+  display: none;
+}
+@include mediaQueries(mobile) {
+  .desktop-form {
+    display: none;
+  }
+  .mobile-form {
+    display: block;
+    padding: 0 40px 0 40px;
+  }
+}
