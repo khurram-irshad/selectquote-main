@@ -3,6 +3,7 @@ import { Image } from "./Type_Image";
 
 interface Hero {
   backgroundImage?: Contentful.Entry<Image>;
+  backgroundImageMobile?: Contentful.Entry<Image>;
   gradientEndColor: Contentful.EntryFields.Symbol;
   gradientStartingColor: Contentful.EntryFields.Symbol;
   topSection?: Contentful.EntryFields.Boolean;
