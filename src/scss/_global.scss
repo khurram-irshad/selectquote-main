@@ -292,6 +292,7 @@ ul li:last-child {
   }
   .wp-container-mobile {
     display: block !important;
+    max-width: calc(100% - 0px) !important;
   }
 }
 
