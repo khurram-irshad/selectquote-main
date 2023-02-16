@@ -12,6 +12,11 @@ interface Hero {
   gradientStartingPercentage?: Contentful.EntryFields.Symbol;
   gradientEndPercentage?: Contentful.EntryFields.Symbol;
   backgroundSize?: Contentful.EntryFields.Symbol;
+  mobileContentPaddingTop?: Contentful.EntryFields.Symbol;
+  mobileGradientStartingPercent?: Contentful.EntryFields.Symbol;
+  mobileGradientEndPercent?: Contentful.EntryFields.Symbol;
+  mobileBackgroundSize?: Contentful.EntryFields.Symbol;
+  reverseImagePosition?: Contentful.EntryFields.Boolean;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;

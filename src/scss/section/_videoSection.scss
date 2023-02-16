@@ -1,3 +1,16 @@
+.wp-container-mobile {
+  .video-section {
+    .wrapper {
+      display: block;
+      flex-direction: row;
+      width: 250px;
+      .copy {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .video-section {
   .wrapper {
     display: flex;
