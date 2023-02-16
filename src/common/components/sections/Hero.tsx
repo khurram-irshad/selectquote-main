@@ -10,17 +10,30 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     gradientEndColor,
     gradientStartingColor,
     backgroundImage,
+    backgroundImageMobile,
     topSection,
     content,
     backgroundPosition = "center",
     gradientStartingPercentage = "48%",
     gradientEndPercentage = "55%",
     backgroundSize = "cover",
+    mobileContentPaddingTop = "200px",
+    mobileGradientStartingPercent = "58%",
+    mobileGradientEndPercent = "68%",
+    mobileBackgroundSize = "contain",
+    reverseImagePosition,
   } = section.fields;
   const path = useRouter().asPath;
 
   const bgPosition =
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
+
+  const bgTop = mobileContentPaddingTop.substring(
+    0,
+    mobileContentPaddingTop.length - 2
+  );
+
+  const bgTopCalculation = Number(bgTop) * 2 + Number(bgTop) / 2;
 
   return (
     <div className="hero-block">
@@ -61,24 +74,36 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           </div>
         </section>
       </div>
+
       <div className="hero-section-mobile">
         <section
           className={`hero-section ${
             topSection ? " hero-section-border hero-section-shadow" : ""
           } `}
           style={{
-            backgroundSize: "contain",
-            backgroundPosition: "center top",
-            backgroundImage: backgroundImage
-              ? `linear-gradient(0deg,${gradientStartingColor} 58%,${gradientEndColor} 68%), url(https://www.selectquote.com/wp-content/uploads/brand-contactUs-hero-mobile.jpg)`
-              : "",
+            backgroundSize: `${mobileBackgroundSize}`,
+            backgroundPosition: `center ${
+              reverseImagePosition ? `${bgTopCalculation.toString()}px` : "top"
+            }`,
+            backgroundImage:
+              backgroundImageMobile && topSection
+                ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`
+                : "",
           }}
         >
           <div
             className={"hero-content d-flex align-items-center"}
-            style={{ paddingTop: "200px" }}
+            style={{
+              paddingTop:
+                topSection && backgroundImageMobile && !reverseImagePosition
+                  ? mobileContentPaddingTop
+                  : "0",
+              paddingBottom: reverseImagePosition
+                ? mobileContentPaddingTop
+                : "0",
+            }}
           >
-            <div style={{ padding: "40px" }}>
+            <div style={{ padding: topSection ? "40px 0" : "0 0 40px 0" }}>
               <div>
                 {content?.map((item) => (
                   <div key={item.sys.id} className={`d-flex`}>
