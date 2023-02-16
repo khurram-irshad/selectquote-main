@@ -41,10 +41,6 @@ select {
       .partnership-form {
         .partnership-form-dekstop {
           display: none !important;
-
-          .form-control {
-            width: 100%;
-          }
         }
 
         .partnership-form-mobile {
@@ -301,4 +297,8 @@ ul li:last-child {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.form-control {
+  width: 100% !important;
 }
