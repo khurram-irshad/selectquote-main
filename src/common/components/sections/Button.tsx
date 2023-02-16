@@ -22,6 +22,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: desktop?.fields?.textColor,
               backgroundColor: desktop?.fields?.backgroundColor,
               fontSize: desktop?.fields?.fontSize,
+              padding:desktop?.fields?.padding,
+              borderRadius:desktop?.fields?.borderRadius,
             }}
             href={linkUrl}
           >
@@ -37,6 +39,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: mobile?.fields?.textColor,
               backgroundColor: mobile?.fields?.backgroundColor,
               fontSize: mobile?.fields?.fontSize,
+              padding:mobile?.fields?.padding,
+              borderRadius:mobile?.fields?.borderRadius,
             }}
             href={linkUrl}
           >
