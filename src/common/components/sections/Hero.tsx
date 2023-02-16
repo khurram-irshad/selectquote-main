@@ -26,8 +26,9 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     <div className="hero-block">
       <div className="hero-section-desktop">
         <section
-          className={`hero-section ${topSection ? "  hero-section-shadow" : ""
-            } `}
+          className={`hero-section ${
+            topSection ? "  hero-section-shadow" : ""
+          } `}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
@@ -47,7 +48,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                   <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                      ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <ColumnSection section={item} />
@@ -62,27 +63,28 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       </div>
       <div className="hero-section-mobile">
         <section
-          className={`hero-section ${topSection ? " hero-section-border hero-section-shadow" : ""
-            } `}
+          className={`hero-section ${
+            topSection ? " hero-section-border hero-section-shadow" : ""
+          } `}
           style={{
-            backgroundPosition: "right 0px center",
+            backgroundSize: "contain",
+            backgroundPosition: "center top",
             backgroundImage: backgroundImage
-              ? `linear-gradient(90deg,${gradientStartingColor} 1%,${gradientEndColor} 55%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+              ? `linear-gradient(0deg,${gradientStartingColor} 58%,${gradientEndColor} 68%), url(https://www.selectquote.com/wp-content/uploads/brand-contactUs-hero-mobile.jpg)`
               : "",
           }}
         >
           <div
-            className={
-              "hero-content d-flex align-items-center container wp-container"
-            }
+            className={"hero-content d-flex align-items-center"}
+            style={{ paddingTop: "200px" }}
           >
-            <div className="w-50 position-relative">
-              <div className="content-left">
+            <div style={{ padding: "40px" }}>
+              <div>
                 {content?.map((item) => (
                   <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                      ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <div>
