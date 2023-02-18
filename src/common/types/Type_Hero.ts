@@ -17,6 +17,8 @@ interface Hero {
   mobileGradientEndPercent?: Contentful.EntryFields.Symbol;
   mobileBackgroundSize?: Contentful.EntryFields.Symbol;
   reverseImagePosition?: Contentful.EntryFields.Boolean;
+  mobileImageHeight?: Contentful.EntryFields.Symbol;
+  mobileImageWidth?: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;
