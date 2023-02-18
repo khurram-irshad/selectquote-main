@@ -11,7 +11,7 @@ interface Device {
     fullWidth: Contentful.EntryFields.Symbol;
     textAlign: Contentful.EntryFields.Symbol;
     width: Contentful.EntryFields.Symbol;
-    height: Contentful.EntryFields.Boolean;
+    height: Contentful.EntryFields.Symbol;
     padding: Contentful.EntryFields.Symbol;
     margin: Contentful.EntryFields.Symbol;
     fontSize: Contentful.EntryFields.Symbol;

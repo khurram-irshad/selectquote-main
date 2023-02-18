@@ -8,7 +8,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
-  
+
   const socialMedia = [
     "Facebook",
     "Linkedin",
@@ -16,30 +16,59 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
     "Youtube",
     "Business Profile Image",
   ];
+  if (!desktop) return (<></>);
 
   return (
     <>
-      {socialMedia.includes(imageName) ? (
-        <a
-          href={`https:${section.fields?.link}`}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+
+      <div className="wp-container-desktop ">
+        {section.fields?.link ? (
+          <a
+            href={`https:${section.fields?.link}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              src={`https:${imageFile?.fields?.file?.url}`}
+              width={desktop.fields.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
+              height={desktop.fields.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
+              alt={imageName || imageFile?.fields?.title}
+            />
+          </a>
+        ) : (
           <Image
             src={`https:${imageFile?.fields?.file?.url}`}
-            width={imageFile?.fields?.file?.details?.image?.width}
-            height={imageFile?.fields?.file?.details?.image?.height}
+            width={desktop.fields.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
+            height={desktop.fields.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
             alt={imageName || imageFile?.fields?.title}
           />
-        </a>
-      ) : (
-        <Image
-          src={`https:${imageFile?.fields?.file?.url}`}
-          width={imageFile?.fields?.file?.details?.image?.width}
-          height={imageFile?.fields?.file?.details?.image?.height}
-          alt={imageName || imageFile?.fields?.title}
-        />
-      )}
+        )}
+
+      </div>
+      <div className="wp-container-mobile ">
+        {section.fields?.link ? (
+          <a
+            href={`https:${section.fields?.link}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              src={`https:${imageFile?.fields?.file?.url}`}
+              width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
+              height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
+              alt={imageName || imageFile?.fields?.title}
+            />
+          </a>
+        ) : (
+          <Image
+            src={`https:${imageFile?.fields?.file?.url}`}
+            width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
+            height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
+            alt={imageName || imageFile?.fields?.title}
+          />
+        )}
+
+      </div>
     </>
   );
 };

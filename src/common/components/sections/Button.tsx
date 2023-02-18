@@ -22,8 +22,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: desktop?.fields?.textColor,
               backgroundColor: desktop?.fields?.backgroundColor,
               fontSize: desktop?.fields?.fontSize,
-              padding:desktop?.fields?.padding,
-              borderRadius:desktop?.fields?.borderRadius,
+              padding: desktop?.fields?.padding ? desktop?.fields?.padding : '6px 15px',
+              borderRadius: desktop?.fields?.borderRadius,
             }}
             href={linkUrl}
           >
@@ -39,8 +39,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: mobile?.fields?.textColor,
               backgroundColor: mobile?.fields?.backgroundColor,
               fontSize: mobile?.fields?.fontSize,
-              padding:mobile?.fields?.padding,
-              borderRadius:mobile?.fields?.borderRadius,
+              padding: mobile?.fields?.padding ? mobile?.fields?.padding : '6px 15px',
+              borderRadius: mobile?.fields?.borderRadius,
             }}
             href={linkUrl}
           >

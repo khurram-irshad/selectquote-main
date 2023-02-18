@@ -28,7 +28,7 @@ export default function Layout({
 
       {children}
 
-      <PageFooter footer={footer} />
+      {/* <PageFooter footer={footer} /> */}
     </SSRProvider>
   );
 }
