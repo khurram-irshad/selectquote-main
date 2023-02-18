@@ -22,18 +22,13 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     mobileGradientEndPercent = "68%",
     mobileBackgroundSize = "contain",
     reverseImagePosition,
+    mobileImageHeight,
+    mobileImageWidth,
   } = section.fields;
   const path = useRouter().asPath;
 
   const bgPosition =
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
-
-  const bgTop = mobileContentPaddingTop.substring(
-    0,
-    mobileContentPaddingTop.length - 2
-  );
-
-  const bgTopCalculation = Number(bgTop) * 2 + Number(bgTop) / 2;
 
   return (
     <div className="hero-block">
@@ -76,53 +71,95 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       </div>
 
       <div className="hero-section-mobile">
-        <section
-          className={`hero-section ${
-            topSection ? " hero-section-border hero-section-shadow" : ""
-          } `}
-          style={{
-            backgroundSize: `${mobileBackgroundSize}`,
-            backgroundPosition: `center ${
-              reverseImagePosition ? `${bgTopCalculation.toString()}px` : "top"
-            }`,
-            backgroundImage:
-              backgroundImageMobile && topSection
-                ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`
-                : "",
-          }}
-        >
-          <div
-            className={"hero-content d-flex align-items-center"}
+        {!reverseImagePosition && (
+          <section
+            className={`hero-section`}
             style={{
-              paddingTop:
-                topSection && backgroundImageMobile && !reverseImagePosition
-                  ? mobileContentPaddingTop
-                  : "0",
-              paddingBottom: reverseImagePosition
-                ? mobileContentPaddingTop
-                : "0",
+              backgroundColor: "#f8f8f8",
+              backgroundSize: `${mobileBackgroundSize}`,
+              backgroundPosition: "center top",
+              backgroundImage:
+                backgroundImageMobile && topSection
+                  ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`
+                  : "",
             }}
           >
-            <div style={{ padding: topSection ? "40px 0" : "0 0 40px 0" }}>
-              <div>
-                {content?.map((item) => (
-                  <div key={item.sys.id} className={`d-flex`}>
-                    <div key={section.sys.id} style={{ width: "100%" }}>
-                      {item.sys.contentType?.sys.id ===
-                      ComponentContentTypes.MultiColumn ? (
-                        <MultiColumnSection section={item} child={true} />
-                      ) : (
-                        <div>
-                          <ColumnSection section={item} />
-                        </div>
-                      )}
+            <div
+              className={"hero-content d-flex align-items-center"}
+              style={{
+                paddingTop:
+                  topSection && backgroundImageMobile
+                    ? mobileContentPaddingTop
+                    : "0",
+              }}
+            >
+              <div style={{ padding: topSection ? "40px 0" : "0 0 40px 0" }}>
+                <div>
+                  {content?.map((item) => (
+                    <div key={item.sys.id} className={`d-flex`}>
+                      <div key={section.sys.id} style={{ width: "100%" }}>
+                        {item.sys.contentType?.sys.id ===
+                        ComponentContentTypes.MultiColumn ? (
+                          <MultiColumnSection section={item} child={true} />
+                        ) : (
+                          <div>
+                            <ColumnSection section={item} />
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+        {reverseImagePosition && (
+          <section className="hero-section">
+            <div
+              className={"hero-content d-flex align-items-center"}
+              style={{}}
+            >
+              <div style={{ padding: topSection ? "40px 0" : "0 0 40px 0" }}>
+                <div>
+                  {content?.map((item) => (
+                    <div key={item.sys.id} className={`d-flex`}>
+                      <div key={section.sys.id} style={{ width: "100%" }}>
+                        {item.sys.contentType?.sys.id ===
+                        ComponentContentTypes.MultiColumn ? (
+                          <MultiColumnSection section={item} child={true} />
+                        ) : (
+                          <div>
+                            <ColumnSection section={item} />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {backgroundImageMobile && (
+              <div
+                style={{
+                  display: "inline-block",
+                  position: "relative",
+                  width: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundSize: `cover`,
+                    backgroundPosition: "center top",
+                    backgroundImage: `url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`,
+                    backgroundRepeat: "no-repeat",
+                    minHeight: `${mobileImageHeight}`,
+                  }}
+                />
+              </div>
+            )}
+          </section>
+        )}
       </div>
     </div>
   );
