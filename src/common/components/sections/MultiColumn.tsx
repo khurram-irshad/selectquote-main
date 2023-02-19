@@ -75,12 +75,13 @@ const MultiColumnSection = ({
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
-  console.log(desktop?.fields?.fullWidth)
+
   return (
     <>
       <section className="wp-container-desktop d-flex w-100" style={{
         padding: desktop?.fields?.padding,
         margin: desktop?.fields?.margin,
+        borderRadius: desktop?.fields?.borderRadius,
         backgroundPosition: "left center",
         backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`,
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
@@ -102,15 +103,18 @@ const MultiColumnSection = ({
           ))}
         </div>
       </section>
-      <section className="wp-container-mobile" style={{ backgroundColor: `${mobile?.fields?.backgroundColor}`,backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`, }}>
+      <section className="wp-container-mobile" style={{
+        padding: mobile?.fields?.padding,
+        margin: mobile?.fields?.margin,
+        backgroundColor: `${mobile?.fields?.backgroundColor}`,
+        backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`,
+        borderRadius: mobile?.fields?.borderRadius,
+      }}>
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
           ${!child ? "container wp-container" : ""}
           ${mobile?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}`}
           style={{
-            backgroundColor: `${mobile?.fields?.backgroundColor}`,
-            padding: mobile?.fields?.padding,
-            margin: mobile?.fields?.margin,
             justifyContent: `${mobile?.fields?.justifyContent}`,
             alignItems: mobile?.fields?.alignItems,
           }}
