@@ -8,16 +8,6 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
-
-  const socialMedia = [
-    "Facebook",
-    "Linkedin",
-    "Twitter",
-    "Youtube",
-    "Business Profile Image",
-  ];
-  if (!desktop) return (<></>);
-
   return (
     <>
 
@@ -29,17 +19,19 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             target="_blank"
           >
             <Image
+              style={{ borderRadius: desktop?.fields?.borderRadius }}
               src={`https:${imageFile?.fields?.file?.url}`}
-              width={desktop.fields.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
-              height={desktop.fields.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
+              width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
+              height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
               alt={imageName || imageFile?.fields?.title}
             />
           </a>
         ) : (
           <Image
+          style={{ borderRadius: desktop?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
-            width={desktop.fields.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
-            height={desktop.fields.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
+            width={desktop?.fields.width ? desktop?.fields.width : imageFile?.fields?.file?.details?.image?.width}
+            height={desktop?.fields.height ? desktop?.fields.height : imageFile?.fields?.file?.details?.image?.height}
             alt={imageName || imageFile?.fields?.title}
           />
         )}
@@ -61,6 +53,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
           </a>
         ) : (
           <Image
+            style={{ borderRadius: mobile?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
             width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
             height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}

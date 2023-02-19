@@ -24,6 +24,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               fontSize: desktop?.fields?.fontSize,
               padding: desktop?.fields?.padding ? desktop?.fields?.padding : '6px 15px',
               borderRadius: desktop?.fields?.borderRadius,
+              border:desktop?.fields?.border,
             }}
             href={linkUrl}
           >
@@ -41,6 +42,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               fontSize: mobile?.fields?.fontSize,
               padding: mobile?.fields?.padding ? mobile?.fields?.padding : '6px 15px',
               borderRadius: mobile?.fields?.borderRadius,
+              border:mobile?.fields?.border,
             }}
             href={linkUrl}
           >
