@@ -6,6 +6,17 @@
       width: 250px;
       .copy {
         width: 100%;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .video {
+        div {
+          width: 100% !important;
+          video {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+          }
+        }
       }
     }
   }
@@ -19,10 +30,14 @@
     margin-bottom: 60px;
     margin-left: 20px;
     .video {
-      video {
-        object-fit: cover;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+      div {
+        width: 217px;
+        height: 250px;
+        video {
+          object-fit: cover;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
       }
     }
     .copy {
