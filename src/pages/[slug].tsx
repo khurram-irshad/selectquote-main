@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import Layout from "@components/layout";
 import _ from "lodash";
-import { BlockRenderer } from "@components/renderes/BlockRenderer";
+// import { BlockRenderer } from "@components/renderes/BlockRenderer";
 import {
   PageContentTypes,
   ComponentContentTypes,
 } from "@constants/app.constant";
 import { getEntry } from "src/common/services/api";
 import { Type_Page } from "@common/types/Type_Page";
+import { BlockRenderer } from "@components/renderes/BlockRenderer";
 
 export default ({ page }: { page: Type_Page }) => {
-  const { header, footer, sections } = page?.fields;
+  const { header, sections } = page?.fields;
   useEffect(() => {
     const reviewSection = sections.find((section) => {
       const contentTypeId = _.get(section, "sys.contentType.sys.id");
@@ -31,24 +32,15 @@ export default ({ page }: { page: Type_Page }) => {
   }, []);
 
   return (
-    <Layout page={page} header={header} footer={footer}>
+    <Layout page={page} header={header}>
       <BlockRenderer section={sections} page={page} />
     </Layout>
   );
 };
 
 export const getServerSideProps = async (context) => {
+
   const slug = context.params.slug;
-  // const childSlugs = [
-  //   "ccpa",
-  //   "10-year",
-  //   "15-year",
-  //   "20-year",
-  //   "25-year",
-  //   "30-year",
-  //   "35-year",
-  //   "40-year",
-  // ];
   const page = await getEntry(
     {
       slug,
@@ -57,11 +49,12 @@ export const getServerSideProps = async (context) => {
     context
   );
 
-  // if (childSlugs.includes(slug) || !page) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  console.log(page)
+  if (!page) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { page: page },

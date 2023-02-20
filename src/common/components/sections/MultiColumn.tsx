@@ -4,6 +4,7 @@ import ColumnSection from "./Column";
 import { Type_MultiColumn } from "@common/types";
 import { ComponentContentTypes } from "@common/constants/app.constant";
 import { DeviceType } from "@common/types/Type_Device";
+import { Direction } from "@common/enums/direction";
 
 interface MultiColumnSectionProps {
   section: Type_MultiColumn;
@@ -88,7 +89,7 @@ const MultiColumnSection = ({
       }}>
         <div
           className={`d-flex flex-wrap 
-        ${desktop?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}
+        ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
         ${borderRight ? "border-r" : ""}
         ${!child ? "container wp-container" : "w-100"} 
        
@@ -113,7 +114,7 @@ const MultiColumnSection = ({
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
           ${!child ? "container wp-container" : ""}
-          ${mobile?.fields?.direction === "Horizontal" ? "flex-row" : "flex-column"}`}
+          ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
           style={{
             justifyContent: `${mobile?.fields?.justifyContent}`,
             alignItems: mobile?.fields?.alignItems,

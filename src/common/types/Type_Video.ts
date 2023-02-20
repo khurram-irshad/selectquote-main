@@ -1,5 +1,4 @@
 import * as Contentful from "contentful";
-import { Image } from "./Type_Image";
 
 interface Video {
   video: Contentful.Asset

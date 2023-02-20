@@ -79,34 +79,31 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
       </section>
 
       <section
-       style={{ margin: mobile?.fields?.margin }}
+        style={{ margin: mobile?.fields?.margin }}
         className={`company-section ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
         <div
           className="bottom wp-container-mobile"
           style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}
         >
-
-          {screenWidth > 0 && screenWidth < 1024 && (
-            <Slider className="companies-slider" {...settings}>
-              {images.map((image) => (
-                <div className="company position-relative" key={image.sys.id}>
-                  <img
-                    src={`https:${image.fields.imageFile.fields.file.url}`}
-                    width={
-                      image?.fields?.imageFile?.fields?.file?.details?.image
-                        ?.width
-                    }
-                    height={
-                      image?.fields?.imageFile?.fields?.file?.details?.image
-                        ?.height
-                    }
-                    alt={image.fields.imageName}
-                  />
-                </div>
-              ))}
-            </Slider>
-          )}
+          <Slider className="companies-slider" {...settings}>
+            {images.map((image) => (
+              <div className="company position-relative" key={image.sys.id}>
+                <img
+                  src={`https:${image.fields.imageFile.fields.file.url}`}
+                  width={
+                    image?.fields?.imageFile?.fields?.file?.details?.image
+                      ?.width
+                  }
+                  height={
+                    image?.fields?.imageFile?.fields?.file?.details?.image
+                      ?.height
+                  }
+                  alt={image.fields.imageName}
+                />
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
     </>

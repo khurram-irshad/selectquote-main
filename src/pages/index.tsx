@@ -11,7 +11,7 @@ import { BlockRenderer } from "@components/renderes/BlockRenderer";
 import { getEntry } from "@common/services/api";
 
 export default ({ page }: { page: Type_Page }) => {
-  const { header, footer, sections } = page?.fields;
+  const { header, sections } = page?.fields;
 
   useEffect(() => {
     const reviewSection = sections.find((section) => {
@@ -33,7 +33,7 @@ export default ({ page }: { page: Type_Page }) => {
   }, []);
 
   return (
-    <Layout page={page} header={header} footer={footer}>
+    <Layout page={page} header={header} >
       <BlockRenderer section={sections} page={page} />
     </Layout>
   );
