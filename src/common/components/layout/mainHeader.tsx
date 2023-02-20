@@ -29,6 +29,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
   const renderMainLink = (linkData: any) => {
     const { linkUrl, linkText, hyperlink, childItems } = linkData.fields;
+
     return !childItems?.length ? (
       <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer">
         {linkText}
@@ -245,9 +246,9 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 </a>
               </Link>
             </li>
-            {menuItems.map((menuItem, key) => (
-              <li key={`menuItem${key}`}>{renderMainLink(menuItem)}</li>
-            ))}
+            {menuItems.map((menuItem, key) => {
+              return <li key={`menuItem${key}`}>{renderSubLink(menuItem)}</li>;
+            })}
             <li
               className="search-logo"
               onClick={() => {
@@ -262,18 +263,16 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 alt="search-icon"
               />
             </li>
+            <li>
+              <a className="free-quote-btn" href="/quote-form">
+                Get Free Quote
+              </a>
+            </li>
           </ul>
         )}
         {screenWidth > 0 && screenWidth < 1024 && (
           <>
             <div className="container wp-container main-mobile-nav">
-              <div
-                className="burger-logo"
-                onClick={() => {
-                  setShowSearch(false);
-                  setShowMobileMenu(!showMobileMenu);
-                }}
-              ></div>
               <Link href={"/"}>
                 <a>
                   <img
@@ -285,19 +284,28 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                   />
                 </a>
               </Link>
-              <div
-                className="search-logo"
-                onClick={() => {
-                  setShowMobileMenu(false);
-                  setShowSearch(!showSearch);
-                }}
-              >
-                <img
-                  width={24}
-                  height={24}
-                  src="/images/content/search.webp"
-                  alt="search-icon"
-                />
+              <div className="right-buttons-group">
+                <div
+                  className="search-logo"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setShowSearch(!showSearch);
+                  }}
+                >
+                  <img
+                    width={24}
+                    height={24}
+                    src="/images/content/search.webp"
+                    alt="search-icon"
+                  />
+                </div>
+                <div
+                  className="burger-logo"
+                  onClick={() => {
+                    setShowSearch(false);
+                    setShowMobileMenu(!showMobileMenu);
+                  }}
+                ></div>
               </div>
             </div>
             <div className={"mobile-menu " + (showMobileMenu ? "show" : "")}>
@@ -479,23 +487,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           </div>
         </div>
       </div>
-      {/* Sub Nav */}
-      {screenWidth > 0 && screenWidth > 1023 && (
-        <div className="content-sub-navbar">
-          {!!menuItems.length && (
-            <>
-              <ul>
-                {menuItems?.[0].fields?.childItems.map((childItem, key) => (
-                  <li key={`subMenu${key}`}>{renderSubLink(childItem)}</li>
-                ))}
-              </ul>
-              <a className="free-quote-btn" href="/quote-form">
-                {primaryButtonText || "Get a Quote"}
-              </a>
-            </>
-          )}
-        </div>
-      )}
     </header>
   );
 }
