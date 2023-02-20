@@ -15,7 +15,7 @@ export const ComponentContentTypes = {
     AgentReview: 'templateAgentReview',
     CTA: 'templateCta',
     FAQ: 'faqItem',
-    SliderSection: 'templateCarrierStrips',
+    SliderSection: 'templateSlider',
     MultiColumn: 'templateMultiColumn',
     RichTextContent: 'richTextContent',
     RichText: 'richText',
