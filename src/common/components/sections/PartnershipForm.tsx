@@ -12,7 +12,7 @@ import {
   buildBusinessTemplate,
   buildUserTemplate,
 } from "@common/templates/partnership";
-import { HttpService } from "@common/services/http";
+import { FileUploader } from "react-drag-drop-files";
 
 const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
   const [isEmailSentFund, setIsEmailSentFund] = useState(false);
@@ -24,6 +24,8 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(partnershipSchema),
   });
+  const fileTypes = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"];
+  const [uploadedFileName, setUploadedFileName] = useState<any>(null);
 
   const onSubmit = async (event: any) => {
     try {
@@ -55,15 +57,17 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
       console.log(error);
     }
   };
-
   const uploadFile = async (e) => {
-    const uploadedFile = e.target.files[0];
+    const uploadedFile = e[0];
     if (uploadedFile.size <= 1500000) {
       setFile(uploadedFile);
     } else {
       alert("File size must be less than 1.5 MB");
-      e.target.value = "";
+      return;
     }
+    const fileName = uploadedFile?.name;
+    // Set the name of the uploaded file in state
+    setUploadedFileName(fileName);
     setIsUploading(true);
     try {
       const formData = new FormData();
@@ -71,7 +75,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
         await appService.deleteImg(imagePath);
         setImagePath("");
       }
-      formData.append("img", e.target.files[0]);
+      formData.append("img", e[0]);
       const {
         data: { filepath },
       } = await appService.uploadImg(formData);
@@ -97,37 +101,38 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="row mb-4">
                   <div className="col">
                     <label className="form-label">First Name *</label>
-                    <UseFormTextField control={control} name="firstName" />
+                    <UseFormTextField control={control} name="firstName"  width="100%"/>
                   </div>
                   <div className="col">
                     <label className="form-label">Last Name *</label>
-                    <UseFormTextField control={control} name="lastName" />
+                    <UseFormTextField control={control} name="lastName" width="100%" />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
                     <label className="form-label">Company Name *</label>
-                    <UseFormTextField control={control} name="companyName" />
+                    <UseFormTextField control={control} name="companyName" width="100%"/>
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
                     <label className="form-label">Your Title *</label>
-                    <UseFormTextField control={control} name="title" />
+                    <UseFormTextField control={control} name="title" width="100%"/>
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
                     <label className="form-label">Email *</label>
-                    <UseFormTextField control={control} name="email" />
+                    <UseFormTextField control={control} name="email" width="100%"/>
                   </div>
                   <div className="col">
-                    <label className="form-label">Phone Number *</label>
+                    <label className="form-label" >Phone Number *</label>
                     <MyInputMask
                       control={control}
                       defaultValue={""}
                       name="phoneNumber"
                       mask={MOBILE_MASK}
+                      
                     />
                   </div>
                 </div>
@@ -138,22 +143,20 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                       control={control}
                       type="textarea"
                       name="comments"
+                      width="100%"
                     />
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
                     <label>Add Attachments</label>
-                    <UseFormTextField
-                      className="form-control"
-                      customChange={uploadFile}
-                      accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps"
-                      type="file"
-                      name="img"
-                      control={control}
-                    />
+                    <div id="fileupload">
+                      <FileUploader handleChange={uploadFile} name="file" types={fileTypes} multiple= "false" 
+                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
+                      {uploadedFileName && <p>{uploadedFileName}</p>}
+                    </div>
+                    </div>
                   </div>
-                </div>
                 <div className="mt-4 button-container">
                   <button
                     className="action-btn btn-border"
@@ -246,7 +249,11 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
             <div className="row mt-4">
               <div className="col">
                 <label>Add Attachments</label>
-                <input className="form-control" type="file" id="formFile" />
+                <div id="fileupload">
+                  <FileUploader handleChange={uploadFile} name="file" types={fileTypes} multiple= "false" 
+                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
+                      {uploadedFileName && <p>{uploadedFileName}</p>}
+                </div>
               </div>
             </div>
             <div className="mt-4">

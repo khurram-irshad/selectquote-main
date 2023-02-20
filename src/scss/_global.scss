@@ -299,6 +299,42 @@ ul li:last-child {
   }
 }
 
-.form-control {
-  width: 100% !important;
+// .form-control {
+//   width: 100% !important;
+// }
+#fileupload {
+  svg {
+    display: none;
+  }
+  label {
+    border : 1px solid #ced4da;
+    height: 68px;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    
+  }
+  span {
+    text-decoration: none;
+  }
+  .file-types {
+    display: none;
+  }
+  .sc-hLBbgP {
+    white-space: pre-line;
+  }
+  // .sc-hLBbgP{
+  //   span {
+  //     display: none;
+  //   }
+  // }
+  .zIGoD {
+    p {
+      padding: 15px;
+      margin-bottom: 0px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #646446;
+    }
+  }
 }
