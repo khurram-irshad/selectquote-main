@@ -263,6 +263,11 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 alt="search-icon"
               />
             </li>
+            <li>
+              <a className="free-quote-btn" href="/quote-form">
+                Get Free Quote
+              </a>
+            </li>
           </ul>
         )}
         {screenWidth > 0 && screenWidth < 1024 && (
@@ -279,26 +284,28 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                   />
                 </a>
               </Link>
-              <div
-                className="burger-logo"
-                onClick={() => {
-                  setShowSearch(false);
-                  setShowMobileMenu(!showMobileMenu);
-                }}
-              ></div>
-              <div
-                className="search-logo"
-                onClick={() => {
-                  setShowMobileMenu(false);
-                  setShowSearch(!showSearch);
-                }}
-              >
-                <img
-                  width={24}
-                  height={24}
-                  src="/images/content/search.webp"
-                  alt="search-icon"
-                />
+              <div className="right-buttons-group">
+                <div
+                  className="search-logo"
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    setShowSearch(!showSearch);
+                  }}
+                >
+                  <img
+                    width={24}
+                    height={24}
+                    src="/images/content/search.webp"
+                    alt="search-icon"
+                  />
+                </div>
+                <div
+                  className="burger-logo"
+                  onClick={() => {
+                    setShowSearch(false);
+                    setShowMobileMenu(!showMobileMenu);
+                  }}
+                ></div>
               </div>
             </div>
             <div className={"mobile-menu " + (showMobileMenu ? "show" : "")}>
