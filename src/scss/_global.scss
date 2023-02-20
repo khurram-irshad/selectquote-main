@@ -287,7 +287,7 @@ ul li:last-child {
     display: none !important;
   }
   .wp-container-mobile {
-    display: block !important;
+    display: flex !important;
     max-width: calc(100% - 0px) !important;
   }
 }

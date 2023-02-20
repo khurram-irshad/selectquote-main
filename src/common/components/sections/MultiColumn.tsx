@@ -113,7 +113,7 @@ const MultiColumnSection = ({
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
           ${!child ? "container wp-container" : ""}
-          ${mobile?.fields?.direction == "Horizontal" ? "flex-row" : "flex-column"}`}
+          ${mobile?.fields?.direction === "Horizontal" ? "flex-row" : "flex-column"}`}
           style={{
             justifyContent: `${mobile?.fields?.justifyContent}`,
             alignItems: mobile?.fields?.alignItems,
