@@ -1,11 +1,11 @@
 import { Type_FAQ } from "@common/types";
 import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
-  const { title, list, fullWidth, color ,devices} = section.fields;
+  const { title, list, devices, homePage } = section.fields;
   const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
 
@@ -16,9 +16,14 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
 
   const renderAccodionButton = (eventKey: string) => {
     return (
-      <button className="rounded-circle accordion-symbol" style={{ backgroundColor: color }}>
-        {isCardActive(eventKey) ? "-" : "+"}
-      </button>
+      <>
+        <button className="rounded-circle accordion-symbol wp-container-desktop" style={{ backgroundColor: desktop?.fields?.textAlign }}>
+          {isCardActive(eventKey) ? "-" : "+"}
+        </button>
+        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{ backgroundColor: mobile?.fields?.textAlign }}>
+          {isCardActive(eventKey) ? "-" : "+"}
+        </button>
+      </>
     );
   };
 
@@ -31,13 +36,13 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   };
   useEffect(() => {
     onCardClick(list[0].sys.id)
-    },[1])
+  }, [1])
 
   return (
     <div className="faq-model">
       <section
-      style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}
-        className={`wp-container-desktop faqs-section-desktop  ${fullWidth ? "container-fluid px-0" : ""}`}
+        style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}
+        className={`wp-container-desktop faqs-section-desktop  ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
         <div className="faq-container">
           <h2>{title}</h2>
@@ -45,7 +50,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
             {list.map((item, index) => (
               <Card
                 key={index}
-                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': desktop?.fields?.textColor  }}
+                style={{ borderLeftColor: isCardActive(item.sys.id) ? '#ed6306' : desktop?.fields?.textColor }}
                 onClick={() => onCardClick(item.sys.id)}
                 className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
                   }`}
@@ -69,7 +74,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
         </div>
       </section>
       <section
-      style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
+        style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
         className={`wp-container-mobile faqs-section-mobile `}
       >
         <div className="faq-container">
@@ -78,7 +83,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
             {list.map((item, index) => (
               <Card
                 key={index}
-                style={{borderLeftColor:isCardActive(item.sys.id) ? '#ed6306': mobile?.fields?.textColor  }}
+                style={{ borderLeftColor: isCardActive(item.sys.id) ? '#ed6306' : mobile?.fields?.textColor }}
                 onClick={() => onCardClick(item.sys.id)}
                 className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
                   }`}
