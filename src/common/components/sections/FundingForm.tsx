@@ -8,18 +8,21 @@ import { MyInputMask } from "@components/MyInputMask";
 import { MOBILE_MASK } from "@common/constants/app.constant";
 import { appService } from "@common/services/app.service";
 import { foundationSchema } from "@common/schema/schema";
+import { FileUploader } from "react-drag-drop-files";
 import { fundBusinessTemplate, fundUserTemplate } from "@common/templates/fundingform";
-import { HttpService } from "@common/services/http";
+
 const FundingFormSection = ({ section }: { section: Type_Form }) => {
   const [isEmailSent, setIsEmailSent] = useState(false)
   const [imagePath, setImagePath] = useState("")
   const [isUploading , setIsUploading] = useState(false)
   const [file, setFile] = useState(null);
   const { title } = section.fields;
+  const [uploadedFileName, setUploadedFileName] = useState<any>(null);
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(foundationSchema),
   });
+  const fileTypes = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"];
 
   const onSubmit = async (event: any) => {
     try {
@@ -50,13 +53,16 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
     }
   }
   const uploadFileForFund = async (e) => {
-    const uploadedFile = e.target.files[0];
+    const uploadedFile = e[0];
     if (uploadedFile.size <= 1500000) {
       setFile(uploadedFile);
     } else {
       alert('File size must be less than 1.5 MB');
-      e.target.value= ""
+      return;
     }
+    const fileName = uploadedFile?.name;
+    // Set the name of the uploaded file in state
+    setUploadedFileName(fileName);
     setIsUploading(true)
     try {
       const formData = new FormData()
@@ -64,7 +70,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
         await appService.deleteImg(imagePath)
         setImagePath("")
       }
-      formData.append("img", e.target.files[0])
+      formData.append("img", e[0])
       const {data: {filepath}} = await appService.uploadImg(formData)
       setImagePath(filepath)
     } catch (err) {
@@ -253,7 +259,12 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label>Add Attachments</label>
-                  <UseFormTextField className="form-control" customChange={uploadFileForFund} accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps" type="file" name="img" control={control}  width= "100%"/>
+                  <div id="fileupload">
+                  <FileUploader handleChange={uploadFileForFund} name="file" types={fileTypes} multiple= "true" 
+                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize= {1500000} style={{ whiteSpace: 'pre-line' }}>
+                        {uploadedFileName && <p>{uploadedFileName}</p>}
+                  </FileUploader>
+                  </div>
                 </div>
               </div>
               <div className="mt-4">
@@ -444,7 +455,11 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label>Add Attachments</label>
-                  <UseFormTextField className="form-control" customChange={uploadFileForFund} accept=".png, .jfif, .jpeg, .pjp , .jpg, .ppt, .pptx, .pdf, .jpe, .pot, .pps" type="file" name="img" control={control}  width= "94%"/>
+                  <div id="fileupload">
+                  <FileUploader handleChange={uploadFileForFund} name="file" types={fileTypes} multiple= {false} 
+                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
+                      {uploadedFileName && <p>{uploadedFileName}</p>}
+                  </div>
                 </div>
               </div>
               <div className="mt-4">
