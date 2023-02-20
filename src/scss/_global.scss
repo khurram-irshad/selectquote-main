@@ -287,7 +287,11 @@ ul li:last-child {
     display: none !important;
   }
   .wp-container-mobile {
-    display: flex !important;
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    display: block !important;
     max-width: calc(100% - 0px) !important;
   }
 }
