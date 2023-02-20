@@ -268,13 +268,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {screenWidth > 0 && screenWidth < 1024 && (
           <>
             <div className="container wp-container main-mobile-nav">
-              <div
-                className="burger-logo"
-                onClick={() => {
-                  setShowSearch(false);
-                  setShowMobileMenu(!showMobileMenu);
-                }}
-              ></div>
               <Link href={"/"}>
                 <a>
                   <img
@@ -286,6 +279,13 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                   />
                 </a>
               </Link>
+              <div
+                className="burger-logo"
+                onClick={() => {
+                  setShowSearch(false);
+                  setShowMobileMenu(!showMobileMenu);
+                }}
+              ></div>
               <div
                 className="search-logo"
                 onClick={() => {
