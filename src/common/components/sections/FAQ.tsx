@@ -3,6 +3,7 @@ import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React, { useState, useEffect } from "react";
 import { Accordion, Card } from "react-bootstrap";
+import { BsChevronDown } from 'react-icons/bs';
 
 const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const { title, list, devices, homePage } = section.fields;
@@ -28,12 +29,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const homePageAccordionButton = (eventKey : string ) => {
    return (
     <>
-    <label className="accordion-symbol wp-container-desktop" style={{color: "black" , fontSize: "25px"}}>
-      {isCardActive(eventKey) ? "˅" : "˅"}
-    </label>
-    <label className="accordion-symbol wp-container-mobile">
-      {isCardActive(eventKey) ? "˅" : "˅"}
-    </label>
+      {isCardActive(eventKey) ? <BsChevronDown /> : <BsChevronDown />}
   </>
    )
   }
@@ -103,7 +99,6 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
                     <span className="header-title">
                       <RichTextRenderer text={item.fields.question} />
                     </span>
-                    {homePageAccordionButton(item.sys.id)}
                   </div>
                 </Card.Header>
                 <Accordion.Collapse eventKey={item.sys.id}>
