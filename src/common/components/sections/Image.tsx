@@ -8,6 +8,8 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
+  console.log(imageFile?.fields)
+  console.log(imageFile?.fields?.file?.url)
   return (
     <>
 
