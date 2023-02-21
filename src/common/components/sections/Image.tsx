@@ -16,9 +16,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
       <div className="wp-container-desktop " >
         {section.fields?.link ? (
           <a
-            href={`https:${section.fields?.link}`}
-            rel="noopener noreferrer"
-            target="_blank"
+            href={`${section.fields?.link}`}
           >
             <Image
               style={{ borderRadius: desktop?.fields?.borderRadius }}
@@ -42,9 +40,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
       <div className="wp-container-mobile " style={{ justifyContent: mobile?.fields?.justifyContent, alignItems: mobile?.fields?.alignItems }}>
         {section.fields?.link ? (
           <a
-            href={`https:${section.fields?.link}`}
-            rel="noopener noreferrer"
-            target="_blank"
+            href={`${section.fields?.link}`}
           >
             <Image
               src={`https:${imageFile?.fields?.file?.url}`}
