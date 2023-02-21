@@ -32,7 +32,6 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
   const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
 
-
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     function handleResize() {
@@ -41,6 +40,32 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+
+  const renderImage = (image) => {
+    const desktop = image?.fields?.devices?.find(item => item.fields?.type === DeviceType.Desktop);
+    const mobile = image?.fields?.devices?.find(item => item.fields?.type === DeviceType.Mobile);
+    return <>
+      <img
+        className="wp-container-desktop"
+        src={`https:${image.fields.imageFile.fields.file.url}`}
+        width={desktop?.fields?.width ? desktop.fields.width : image?.fields?.imageFile?.fields?.file?.details?.image
+          ?.width}
+        height={desktop?.fields?.height ? desktop.fields.height : image?.fields?.imageFile?.fields?.file?.details?.image
+          ?.height}
+        alt={image.fields.imageName}
+      />
+      <img
+        className="wp-container-mobile"
+        src={`https:${image.fields.imageFile.fields.file.url}`}
+        width={mobile?.fields?.width ? mobile.fields.width : image?.fields?.imageFile?.fields?.file?.details?.image
+          ?.width}
+        height={mobile?.fields?.height ? mobile.fields.height : image?.fields?.imageFile?.fields?.file?.details?.image
+          ?.height}
+        alt={image.fields.imageName}
+      />
+    </>
+  }
 
   return (
     <>
@@ -53,24 +78,13 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
           style={{ backgroundColor: desktop?.fields?.backgroundColor, padding: desktop?.fields?.padding }}
         >
           {screenWidth > 0 && screenWidth > 1024 && (
-            <div className="companies d-flex align-items-center justify-content-between">
+            <div className="companies d-flex align-items-center justify-content-around">
               {images.map((image) => (
                 <div
                   className="company d-flex align-items-center justify-content-center"
                   key={image.sys.id}
                 >
-                  <img
-                    src={`https:${image.fields.imageFile.fields.file.url}`}
-                    width={
-                      image?.fields?.imageFile?.fields?.file?.details?.image
-                        ?.width
-                    }
-                    height={
-                      image?.fields?.imageFile?.fields?.file?.details?.image
-                        ?.height
-                    }
-                    alt={image.fields.imageName}
-                  />
+                  {renderImage(image)}
                 </div>
               ))}
             </div>
@@ -83,24 +97,13 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
         className={`company-section ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
         <div
-          className="bottom wp-container-mobile"
+          className="bottom wp-container-mobile-block"
           style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}
         >
           <Slider className="companies-slider" {...settings}>
             {images.map((image) => (
               <div className="company position-relative" key={image.sys.id}>
-                <img
-                  src={`https:${image.fields.imageFile.fields.file.url}`}
-                  width={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.width
-                  }
-                  height={
-                    image?.fields?.imageFile?.fields?.file?.details?.image
-                      ?.height
-                  }
-                  alt={image.fields.imageName}
-                />
+                {renderImage(image)}
               </div>
             ))}
           </Slider>
