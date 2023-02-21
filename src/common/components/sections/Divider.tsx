@@ -16,12 +16,14 @@ const DividerSection = ({ section }: { section: Type_Divider }) => {
                         {!thickBorder && (
                             <hr style={{ margin: desktop?.fields?.margin }} />
                         )}
-                            <div style={{  margin: desktop?.fields?.margin, borderBottom: `${desktop?.fields?.height} solid ${desktop?.fields?.backgroundColor}` }} >
+                        {thickBorder && (
+                            <div style={{ margin: desktop?.fields?.margin, borderBottom: `${desktop?.fields?.height} solid ${desktop?.fields?.backgroundColor}` }} >
                             </div>
+                        )}
                     </>
                 )}
             </div>
-            <div className="wp-container-mobile w-100">
+            <div className="wp-container-mobile-block w-100">
                 {!mobile?.fields?.hidden && (
                     <>
                         {!thickBorder && (

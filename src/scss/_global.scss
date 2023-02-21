@@ -282,6 +282,9 @@ ul li:last-child {
 .wp-container-mobile {
   display: none !important;
 }
+.wp-container-mobile-block {
+  display: none !important;
+}
 @include mediaQueries(mobile) {
   .wp-container-desktop {
     display: none !important;
@@ -292,6 +295,9 @@ ul li:last-child {
     }
     display: flex !important;
     max-width: calc(100% - 0px) !important;
+  }
+  .wp-container-mobile-block {
+    display: block !important;
   }
 }
 
