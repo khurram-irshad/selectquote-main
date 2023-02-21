@@ -256,13 +256,18 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 </div>
               </div>
             </div>
-            <div className="mt-4">
-              <button
-                type="submit"
-                className="action-btn btn-primary btn-border"
-              >
-                Connect with us
-              </button>
+            <div className="mt-4 button-container">
+                  <button
+                    className="action-btn btn-border"
+                    type="submit"
+                    style={{
+                      color: "#ffff",
+                      backgroundColor: "rgb(244, 123, 32)",
+                    }}
+                    disabled={isUploading}
+                  >
+                    Connect with us
+                  </button>
             </div>
           </div>
         </div>
