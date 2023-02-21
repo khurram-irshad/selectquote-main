@@ -18,6 +18,7 @@ type CustomRichText = {
   letterSpacing: Contentful.EntryFields.Symbol;
   fontFamily: Contentful.EntryFields.Symbol;
   devices: Contentful.Entry<Device>[];
+  contentId: Contentful.EntryFields.Symbol;
 };
 
 export type Type_RichText = Contentful.Entry<RichText>;

@@ -6,6 +6,7 @@ interface Button {
     backgroundColor: Contentful.EntryFields.Symbol;
     textColor: Contentful.EntryFields.Symbol;
     linkUrl: Contentful.EntryFields.Symbol;
+    scrollToId: Contentful.EntryFields.Symbol;
     rounded: Contentful.EntryFields.Boolean;
     devices: Contentful.Entry<Device>[];
     fontSize: Contentful.EntryFields.Symbol;

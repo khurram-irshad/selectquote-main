@@ -6,7 +6,8 @@ import React from "react";
 const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
   const {
     content,
-    devices
+    devices,
+    contentId
   } = section.fields;
 
   const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
@@ -20,6 +21,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
       >
         <div className={`wp-container-desktop text-${desktop?.fields?.textAlign}`} style={{ background: desktop?.fields?.backgroundColor }}>
           <div
+            id={contentId}
             className={desktop?.fields?.fullWidth ? "container wp-container" : ""}
             style={{
               width: `${desktop?.fields?.width}`,
@@ -41,6 +43,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
         </div>
         <div className={`wp-container-mobile text-${mobile?.fields?.textAlign}`} style={{ background: mobile?.fields?.backgroundColor }}>
           <div
+            id={contentId}
             className={mobile?.fields?.fullWidth ? "container wp-container" : ""}
             style={{
               width: `${mobile?.fields?.width}`,

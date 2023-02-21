@@ -8,6 +8,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     linkUrl,
     rounded = true,
     devices,
+    scrollToId
   } = section.fields;
 
   const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);

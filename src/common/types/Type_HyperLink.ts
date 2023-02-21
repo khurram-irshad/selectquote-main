@@ -9,6 +9,7 @@ interface HyperLink {
     fontSize: Contentful.EntryFields.Symbol;
     fontWeight: Contentful.EntryFields.Symbol;
     devices: Contentful.Entry<Device>[];
+    scrollToId: Contentful.EntryFields.Symbol;
 }
 
 export type Type_HyperLink = Contentful.Entry<HyperLink>;
