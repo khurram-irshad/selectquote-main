@@ -289,9 +289,8 @@ ul li:last-child {
   .wp-container-mobile {
     .button-container {
       display: flex;
-      justify-content: center;
     }
-    display: block !important;
+    display: flex !important;
     max-width: calc(100% - 0px) !important;
   }
 }

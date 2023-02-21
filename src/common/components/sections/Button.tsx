@@ -22,7 +22,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: desktop?.fields?.textColor,
               backgroundColor: desktop?.fields?.backgroundColor,
               fontSize: desktop?.fields?.fontSize,
-              padding: desktop?.fields?.padding ? desktop?.fields?.padding : '6px 15px',
+              padding: desktop?.fields?.padding ? desktop?.fields?.padding : '',
               borderRadius: desktop?.fields?.borderRadius,
               border:desktop?.fields?.border,
             }}

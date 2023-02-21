@@ -104,7 +104,7 @@ const MultiColumnSection = ({
           ))}
         </div>
       </section>
-      <section className="wp-container-mobile" style={{
+      <section className="wp-container-mobile d-flex w-100" style={{
         padding: mobile?.fields?.padding,
         margin: mobile?.fields?.margin,
         backgroundColor: `${mobile?.fields?.backgroundColor}`,
@@ -113,7 +113,7 @@ const MultiColumnSection = ({
       }}>
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
-          ${!child ? "container wp-container" : ""}
+          ${!child ? "container wp-container" : "w-100"}
           ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
           style={{
             justifyContent: `${mobile?.fields?.justifyContent}`,
