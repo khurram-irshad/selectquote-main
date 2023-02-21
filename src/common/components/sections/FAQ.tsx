@@ -13,7 +13,6 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const isCardActive = (eventKey: string) => {
     return activeKey.includes(eventKey);
   };
-
   const renderAccodionButton = (eventKey: string) => {
     return (
       <>
@@ -26,7 +25,18 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
       </>
     );
   };
-
+  const homePageAccordionButton = (eventKey : string ) => {
+   return (
+    <>
+    <label className="accordion-symbol wp-container-desktop" style={{color: "black" , fontSize: "25px"}}>
+      {isCardActive(eventKey) ? "˅" : "˅"}
+    </label>
+    <label className="accordion-symbol wp-container-mobile">
+      {isCardActive(eventKey) ? "˅" : "˅"}
+    </label>
+  </>
+   )
+  }
   const onCardClick = (eventKey) => {
     setActiveKey((prevState) =>
       prevState.includes(eventKey)
@@ -40,7 +50,75 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
 
   return (
     <div className="faq-model">
+      {homePage ? (
+        <div id="homepage-faq"> 
+        <section
+        style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}
+        className={`wp-container-desktop faqs-section-desktop  ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
+      >
+        <div className="faq-container">
+          <h2>{title}</h2>
+          <Accordion activeKey={activeKey} className="accordion-card">
+            {list.map((item, index) => (
+              <Card
+                key={index}
+                onClick={() => onCardClick(item.sys.id)}
+                className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                  }`}
+              >
+                <Card.Header>
+                  <div className="faq-title">
+                    <span className="header-title">
+                      <RichTextRenderer text={item.fields.question} />
+                    </span>
+                    {homePageAccordionButton(item.sys.id)}
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey={item.sys.id}>
+                  <Card.Body>
+                    <RichTextRenderer text={item.fields.answer} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            ))}
+          </Accordion>
+        </div>
+      </section>
       <section
+        style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}
+        className={`wp-container-mobile faqs-section-mobile `}
+      >
+        <div className="faq-container">
+          <h2>{title}</h2>
+          <Accordion activeKey={activeKey} className="accordion-card">
+            {list.map((item, index) => (
+              <Card
+                key={index}
+                onClick={() => onCardClick(item.sys.id)}
+                className={`${isCardActive(item.sys.id) ? "card-active" : "card-inactive"
+                  }`}
+              >
+                <Card.Header>
+                  <div className="faq-title">
+                    <span className="header-title">
+                      <RichTextRenderer text={item.fields.question} />
+                    </span>
+                    {homePageAccordionButton(item.sys.id)}
+                  </div>
+                </Card.Header>
+                <Accordion.Collapse eventKey={item.sys.id}>
+                  <Card.Body>
+                    <RichTextRenderer text={item.fields.answer} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+      </div>
+      ) : ( <div>
+        <section
         style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}
         className={`wp-container-desktop faqs-section-desktop  ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
@@ -106,7 +184,9 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
           </Accordion>
         </div>
       </section>
+      </div>) }
     </div>
+    
   );
 };
 export default FAQSection;
