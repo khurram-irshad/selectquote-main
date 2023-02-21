@@ -1,9 +1,7 @@
 import React from "react";
-import SmallHeader from "./layout/smallHeader";
 import MainHeader from "./layout/mainHeader";
 import { Type_Page } from "../types/Type_Page";
 import PageHead from "./Head";
-import LargeHeader from "./layout/largeHeader";
 import { SSRProvider } from "react-bootstrap";
 
 export default function Layout({
@@ -20,8 +18,8 @@ export default function Layout({
     <SSRProvider>
       <PageHead page={page} />
       {navigationOnly && <MainHeader header={header} />}
-      {smallNavbarOnly && <SmallHeader header={header} />}
-      {largeNavbarOnly && <LargeHeader header={header} />}
+      {/* {smallNavbarOnly && <SmallHeader header={header} />}
+      {largeNavbarOnly && <LargeHeader header={header} />} */}
 
       {children}
     </SSRProvider>

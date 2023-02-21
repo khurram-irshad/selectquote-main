@@ -35,11 +35,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {linkText}
       </a>
     ) : (
-      <NavLink
-        href={linkUrl}
-        className=""
-        exact={linkUrl === "/" ? true : false}
-      >
+      <NavLink href="#" className="" exact={linkUrl === "/" ? true : false}>
         {linkText}
       </NavLink>
     );
@@ -77,12 +73,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (parent) {
       return (
         <div className="dropdown">
-          <a
-            target="_self"
-            href={`${linkUrl}`}
-            rel="noopener noreferrer"
-            className="dropbtn"
-          >
+          <a target="_self" rel="noopener noreferrer" className="dropbtn">
             {linkText}
           </a>
           <div className="dropdown-content">
@@ -265,7 +256,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
             </li>
             <li>
               <a className="free-quote-btn" href="/quote-form">
-                Get Free Quote
+                Get a Quote
               </a>
             </li>
           </ul>
@@ -374,113 +365,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                   </div>
                 )}
               </div>
-              <Dropdown>
-                <Dropdown.Toggle className="w-100 d-flex justify-content-between align-items-center dropdown-btn text-capitalize">
-                  {filter === "all" ? "All results" : filter}
-                </Dropdown.Toggle>
+            </div>
 
-                <Dropdown.Menu className="w-100 dropdown-content">
-                  <Dropdown.Item
-                    className={filter === "all" ? "selected" : ""}
-                    onClick={() => setFilter("all")}
-                  >
-                    All results
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className={filter === "action 1" ? "selected" : ""}
-                    onClick={() => setFilter("action 1")}
-                  >
-                    Action 1
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className={filter === "action 2" ? "selected" : ""}
-                    onClick={() => setFilter("action 2")}
-                  >
-                    Another 2
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    className={filter === "action 3" ? "selected" : ""}
-                    onClick={() => setFilter("action 3")}
-                  >
-                    Action 3
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-            <div className="search-results">
-              <div className="label">
-                180 results <b>{filter}</b>
-              </div>
-              <div className="search-item d-flex align-items-center">
-                <img
-                  src="/images/content/paying-taxes.webp"
-                  alt="paying-taxes"
-                  width={98}
-                  height={98}
-                />
-                <div className="details">
-                  <h2>
-                    <a href="#">
-                      Questions to Ask When Buying Life Insurance | SelectQuote
-                    </a>
-                  </h2>
-                  <p>
-                    There are many factors to consider when shopping for life
-                    insurance and finding the right policy. When buying life
-                    insurance you should ask questions like. There are many
-                    factors to consider when shopping for life insurance and
-                    finding the right policy. When buying life insurance you
-                    should ask questions like......
-                  </p>
-                </div>
-              </div>
-              <div className="search-item d-flex align-items-center">
-                <img
-                  src="/images/content/paying-taxes.webp"
-                  alt="paying-taxes"
-                  width={98}
-                  height={98}
-                />
-                <div className="details">
-                  <h2>
-                    <a href="#">
-                      Questions to Ask When Buying Life Insurance | SelectQuote
-                    </a>
-                  </h2>
-                  <p>
-                    There are many factors to consider when shopping for life
-                    insurance and finding the right policy. When buying life
-                    insurance you should ask questions like. There are many
-                    factors to consider when shopping for life insurance and
-                    finding the right policy. When buying life insurance you
-                    should ask questions like......
-                  </p>
-                </div>
-              </div>
-              <div className="search-item d-flex align-items-center">
-                <img
-                  src="/images/content/paying-taxes.webp"
-                  alt="paying-taxes"
-                  width={98}
-                  height={98}
-                />
-                <div className="details">
-                  <h2>
-                    <a href="#">
-                      Questions to Ask When Buying Life Insurance | SelectQuote
-                    </a>
-                  </h2>
-                  <p>
-                    There are many factors to consider when shopping for life
-                    insurance and finding the right policy. When buying life
-                    insurance you should ask questions like. There are many
-                    factors to consider when shopping for life insurance and
-                    finding the right policy. When buying life insurance you
-                    should ask questions like......
-                  </p>
-                </div>
-              </div>
-            </div>
             <div className="no-result text-center">
               No search results with keyword <b>{search}</b>
             </div>
