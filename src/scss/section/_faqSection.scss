@@ -1,7 +1,58 @@
 .faq-model {
-  // .faqs-section-mobile {
-  //   display: none;
-  // }
+  #homepage-faq {
+    .faqs-section-desktop{
+      .faq-container {
+        .accordion-card {
+          .card-header {
+            border: none !important;
+            border-radius: 20px !important;
+          }
+          .card {
+            border-radius: 20px !important;
+            margin-bottom: 10px;
+          }
+          .card-active {
+            transition: border 0.7s linear;
+            border: 2px solid;
+            border-color: #F47B21 !important;
+          }
+          .card-inactive {
+            transition: border 0.7s linear;
+            border-radius: 20px !important;
+            border: none !important;
+          }
+        } 
+      }
+    }
+  }
+  @include mediaQueries (mobile) {
+    #homepage-faq {
+      .faqs-section-mobile{
+        .faq-container {
+          .accordion-card {
+            .card-header {
+              border: none !important;
+              border-radius: 20px !important;
+            }
+            .card {
+              border-radius: 20px !important;
+              margin-bottom: 10px;
+            }
+            .card-active {
+              transition: border 0.7s linear;
+              border: 2px solid;
+              border-color: #F47B21 !important;
+            }
+            .card-inactive {
+              transition: border 0.7s linear;
+              border-radius: 20px !important;
+              border: none !important;
+            }
+          } 
+        }
+      }
+    }
+  }
   width: 100%;
   @include mediaQueries(mobile) {
     // .faqs-section-desktop {
