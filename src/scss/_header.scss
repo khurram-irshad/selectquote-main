@@ -83,11 +83,11 @@ header.content-header {
     }
     @include mediaQueries(ipad) {
       height: auto !important;
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: unset !important;
       padding: 9px 0;
       a.phone-cta {
-        font-size: 24px;
+        font-size: 12px;
         line-height: 1px;
       }
       span.content-header-text {
@@ -95,12 +95,12 @@ header.content-header {
       }
     }
     @include mediaQueries(mobile) {
-      flex-direction: column-reverse;
+      flex-direction: column;
       height: auto !important;
       gap: 0 !important;
       padding: 9px 0;
       a.phone-cta {
-        font-size: 24px;
+        font-size: 12px;
         line-height: 1px;
       }
       span.content-header-text {
@@ -113,7 +113,6 @@ header.content-header {
     background-color: $white;
     .main-mobile-nav {
       display: none;
-      width: 90%;
       height: 82px;
       .burger-logo {
         display: flex;
@@ -546,7 +545,7 @@ header.content-header {
 
   @include mediaQueries(ipad) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     .main-nav,
     .main-mobile-nav {
       display: flex !important;
@@ -575,7 +574,7 @@ header.content-header {
   }
   @include mediaQueries(mobile) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     .main-nav,
     .main-mobile-nav {
       display: flex !important;
