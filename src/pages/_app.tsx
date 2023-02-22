@@ -7,6 +7,7 @@ import {
 } from "@common/services/storage";
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
+import { ComponentContentTypes } from "@constants/app.constant";
 
 export default function Apps({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
   const queryParams: any = router.query;
 
   const storeSessionData = (data) => {
-    SessionStorageService.setItem("site_session_data", data);
+    SessionStorageService.setItem(ComponentContentTypes.SiteSession, data);
     window.dispatchEvent(new Event("storage"));
   };
   
@@ -40,11 +41,11 @@ export default function Apps({ Component, pageProps }: AppProps) {
     };
   
     const setStorage = (sCode) => {
-      const storageSiteData = SessionStorageService.getItem("site_session_data");
+      const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
       const site_session_id = storageSiteData ? storageSiteData.site_session_id : generateSessionId();
       let site_data_model = {
         site_session_id,
-        site_campaign_phone: "1-855-653-6700",
+        site_campaign_phone: ComponentContentTypes.PhoneNumber,
       };
   
       if (sCode) {
@@ -67,7 +68,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
     getData();
   }, [queryParams]);
   useEffect(() => {
-    const storageSiteData = SessionStorageService.getItem("site_session_data");
+    const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
   }, []);
   return <Component {...pageProps} />;
 }

@@ -28,6 +28,8 @@ export const ComponentContentTypes = {
     Video: 'templateVideo',
     Table: 'templateTable',
     ColorText: 'templateColorText',
+    PhoneNumber: '1-855-653-6700',
+    SiteSession: 'site_session_data'
 };
 
 
