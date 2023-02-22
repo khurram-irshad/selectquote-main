@@ -25,7 +25,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               fontSize: desktop?.fields?.fontSize,
               padding: desktop?.fields?.padding ? desktop?.fields?.padding : '',
               borderRadius: desktop?.fields?.borderRadius,
-              border:desktop?.fields?.border,
+              border: desktop?.fields?.border,
+              fontFamily: desktop?.fields?.fontFamily,
             }}
             href={linkUrl}
           >
@@ -41,9 +42,10 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               color: mobile?.fields?.textColor,
               backgroundColor: mobile?.fields?.backgroundColor,
               fontSize: mobile?.fields?.fontSize,
-              padding: mobile?.fields?.padding ? mobile?.fields?.padding : '6px 15px',
+              padding: mobile?.fields?.padding ? mobile?.fields?.padding : '',
               borderRadius: mobile?.fields?.borderRadius,
-              border:mobile?.fields?.border,
+              border: mobile?.fields?.border,
+              fontFamily: desktop?.fields?.fontFamily,
             }}
             href={linkUrl}
           >

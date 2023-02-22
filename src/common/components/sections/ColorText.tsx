@@ -4,7 +4,6 @@ import React from 'react'
 
 const ColorTextSection = ({ section }: { section: Type_ColorText }) => {
     const { title, items } = section.fields;
-    console.log(title)
     return (
         <div className="container-color-text">
             <div className="d-flex flex-row justify-content-center title" >
