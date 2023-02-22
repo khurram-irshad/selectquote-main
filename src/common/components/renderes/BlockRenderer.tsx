@@ -53,7 +53,6 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
         <div className="mobile-blockrender">
           {section.map((b, index) => {
             const fullWidth = b?.fields?.fullWidth;
-            // wp-container class to be added here
             return (
               <div
                 className={
