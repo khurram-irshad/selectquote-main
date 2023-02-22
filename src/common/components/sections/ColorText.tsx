@@ -6,7 +6,6 @@ import React from 'react'
 const ColorTextSection = ({ section }: { section: Type_ColorText }) => {
     const { title, items } = section.fields;
 
-
     const getItem = (item, i) => {
         const desktop = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
         const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);

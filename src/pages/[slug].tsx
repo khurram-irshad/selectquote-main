@@ -28,7 +28,6 @@ export default ({ page }: { page: Type_Page }) => {
     // };
     // }
   }, []);
-
   return (
     <Layout page={page} header={header}>
       <BlockRenderer section={sections} page={page} />
