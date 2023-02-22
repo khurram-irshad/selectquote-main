@@ -1,4 +1,5 @@
 import * as Contentful from 'contentful';
+
 import { RichText, Type_RichTextCustom } from './Type_RichText';
 
 interface ColorText {
