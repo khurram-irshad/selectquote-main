@@ -5,6 +5,14 @@ select {
   font-family: "Montserrat", sans-serif;
 }
 
+#trent {
+  scroll-margin-top: 150px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 .block-render {
   @include mediaQueries(mobile) {
     .desktop-blockrender {
@@ -247,12 +255,11 @@ ul li:last-child {
     display: none;
   }
   label {
-    border : 1px solid #ced4da;
+    border: 1px solid #ced4da;
     height: 68px;
     min-width: 100%;
     max-width: 100%;
     border-radius: 10px;
-    
   }
   span {
     text-decoration: none;
