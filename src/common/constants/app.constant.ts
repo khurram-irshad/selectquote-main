@@ -13,7 +13,7 @@ export const ComponentContentTypes = {
     RichTextContent: 'richTextContent',
     RichText: 'richText',
     Image: 'image',
-    CustomerReview: 'templateCustomerReviews',
+    TrustPilot: 'templateTrustPilot',
     Hyperlink: 'hyperLink',
     Cards: 'templateCards',
     Style: 'templateStyle',

@@ -5,7 +5,6 @@ import HeroSection from "@components/sections/Hero";
 import SliderSection from "@components/sections/Slider";
 import FAQSection from "@components/sections/FAQ";
 import MultiColumnSection from "@components/sections/MultiColumn";
-import CustomerReview from "@components/sections/CustomerReviews";
 import { Type_Page } from "@common/types";
 import AgentReviewSection from "@components/sections/AgentReview";
 import Hyperlink from "@components/sections/Hyperlink";
@@ -22,6 +21,7 @@ import DividerSection from "@components/sections/Divider";
 import TableSection from "@components/sections/Table";
 import ColorTextSection from "@components/sections/ColorText";
 import { DeviceType } from "@common/types/Type_Device";
+import SectionTrustPilot from "@components/sections/TrustPilot";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -95,7 +95,6 @@ const ContentTypeMap = {
   [ComponentContentTypes.SliderSection]: SliderSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
-  [ComponentContentTypes.CustomerReview]: CustomerReview,
   [ComponentContentTypes.Hyperlink]: Hyperlink,
   [ComponentContentTypes.Image]: ImageSection,
   [ComponentContentTypes.RichTextContent]: RichTextContentSection,
@@ -109,6 +108,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Divider]: DividerSection,
   [ComponentContentTypes.Table]: TableSection,
   [ComponentContentTypes.ColorText]: ColorTextSection,
+  [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
 
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { Type_Page } from "@common/types";
 
@@ -37,6 +37,15 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     pageNoFollow = noFollow;
   }
 
+  useEffect(() => {
+    var aScript = document.createElement("script");
+    aScript.type = "text/javascript";
+    aScript.src =
+      "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
+    aScript.async = true;
+    document.head.appendChild(aScript);
+  }, [])
+
   return (
     <Head>
       <link rel="icon" href="/favicon.ico"></link>
@@ -61,7 +70,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       <link rel="preconnect" href="https://fonts.googleapis.com"></link>
       <link rel="preconnect" href="https://fonts.gstatic.com"></link>
       <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
-     
+
       <meta name="keywords" content={pageKeywords} />
       {pageCanonicalUrl !== "" && (
         <link rel="canonical" href={pageCanonicalUrl} />

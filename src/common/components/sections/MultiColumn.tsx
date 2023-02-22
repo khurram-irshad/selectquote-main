@@ -20,7 +20,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
   const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   return <>
     <div
-      key={item.sys.id}
+      key={`desktop-${item.sys.id}`}
       className={`d-flex wp-container-desktop`}
       style={{
         width: `${item.sys.contentType?.sys.id ===
@@ -41,7 +41,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
       )}
     </div>
     <div
-      key={item.sys.id}
+      key={`mobile-${item.sys.id}`}
       className={`d-flex wp-container-mobile`}
       style={{
         //display: mobile?.fields?.hidden ? mobile?.fields?.hidden : 'block',
@@ -100,7 +100,7 @@ const MultiColumnSection = ({
           }}
         >
           {columns.map((item) => (
-            <RenderColumn parent={{ section, child }} item={item} />
+            <RenderColumn key={`dekstop-col-${item.sys.id}`} parent={{ section, child }} item={item} />
           ))}
         </div>
       </section>
@@ -121,7 +121,7 @@ const MultiColumnSection = ({
           }}
         >
           {columns.map((item) => (
-            <RenderColumn parent={{ section, child }} item={item} />
+            <RenderColumn  key={`mobile-col-${item.sys.id}`} parent={{ section, child }} item={item} />
           ))}
         </div>
       </section>

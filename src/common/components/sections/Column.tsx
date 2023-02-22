@@ -11,8 +11,8 @@ import DividerSection from './Divider';
 import MultiColumnSection from './MultiColumn';
 import VideoSection from './Video';
 import TableSection from './Table';
-import CustomerReview from './CustomerReviews';
 import { DeviceType } from '@common/types/Type_Device';
+import SectionTrustPilot from './TrustPilot';
 
 const ColumnSection = ({ section }: { section: any }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
@@ -63,5 +63,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,
   [ComponentContentTypes.Video]: VideoSection,
   [ComponentContentTypes.Table]: TableSection,
-  [ComponentContentTypes.CustomerReview]: CustomerReview,
+  [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
 };
