@@ -1,16 +1,17 @@
 import { Type_Header } from "@common/types/Type_Header";
 import React, { useState, useEffect } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { NavLink } from "./navLink";
+import {
+  SessionStorageService,
+} from "@common/services/storage";
 
 export default function MainHeader({ header }: { header: Type_Header }) {
   const router = useRouter();
   const {
     logo,
     logoWithTag,
-    contactNumber,
     bannerText,
     menuItems,
     primaryButtonText,
@@ -24,6 +25,42 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   const [childSlides, setChildSlides] = useState([]);
   const [slideNav, setSlideNav] = useState([]);
   const [screenWidth, setScreenWidth] = useState(0);
+  const [phoneNumber, setPhoneNumber] = useState('1-855-653-6700');
+  const [sCode, setScode] = useState('');
+  const route = useRouter();
+  if (typeof window !== 'undefined') {
+    var pageUrl = document.location.href;
+  }
+
+  useEffect(() => {
+
+    const handleStorageChange = () => {
+      const storageSiteData = SessionStorageService.getItem('site_session_data');
+      if (storageSiteData) {
+        const {
+          site_campaign_phone: site_campaign_phone,
+        } = storageSiteData
+        setPhoneNumber(site_campaign_phone);
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
+
+    const storageSiteData = SessionStorageService.getItem('site_session_data');
+    if (storageSiteData) {
+      const {
+        site_campaign_phone: site_campaign_phone,
+        site_source_code: site_source_code,
+      } = storageSiteData
+      setPhoneNumber(site_campaign_phone);
+      setScode(site_source_code);
+    }
+  }, [route.query.slug]);
 
   const path = router.asPath;
 
@@ -217,8 +254,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
               />
             )}
           </div>
-          <a className="phone-cta" href={`tel:${contactNumber}`}>
-            {contactNumber}
+          <a className="phone-cta" href={`tel:${phoneNumber}`}>
+            {phoneNumber}
           </a>
         </div>
       </div>

@@ -24,7 +24,19 @@ class AppService {
     }
     async  uploadImg (formData: any){
         return await HttpService.post("/api/upload", formData)
-
+    }
+    async getScode(sCode) {
+        try {
+            const response = await HttpService.get(
+              `https://d9fs82ix42pq1.cloudfront.net/dev/sqcmp1/get_campaigns_table_csv?campaignKey=${sCode}`
+            );
+            if (response && response.data) {
+              return response.data[0];
+            }
+          } catch (error) {
+            console.log(error);
+          }
+          return null;
     }
 }
 
