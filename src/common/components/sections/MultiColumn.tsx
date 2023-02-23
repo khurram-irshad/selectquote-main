@@ -44,7 +44,6 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
       key={`mobile-${item.sys.id}`}
       className={`d-flex wp-container-mobile`}
       style={{
-        //display: mobile?.fields?.hidden ? mobile?.fields?.hidden : 'block',
         width: `${item.sys.contentType?.sys.id ===
           ComponentContentTypes.MultiColumn &&
           !mobile?.fields?.widthPercentage
@@ -88,10 +87,9 @@ const MultiColumnSection = ({
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
       }}>
         <div
-          className={`d-flex flex-wrap 
+          className={`d-flex flex-wrap  w-100
         ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
         ${borderRight ? "border-r" : ""}
-        ${!child ? "container wp-container" : "w-100"} 
        
             }`}
           style={{
@@ -113,7 +111,7 @@ const MultiColumnSection = ({
       }}>
         <div
           className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
-          ${!child ? "container wp-container" : "w-100"}
+         
           ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
           style={{
             justifyContent: `${mobile?.fields?.justifyContent}`,
