@@ -33,30 +33,36 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
     return (
       <div className="block-render">
         <div className="desktop-blockrender">
-          {section.map((b, index) => {
-            const desktop = b?.fields?.devices?.find(item => item.fields?.type === DeviceType.Desktop);
-            const mobile = b?.fields?.devices?.find(item => item.fields?.type === DeviceType.Mobile);
-
+          {section.map((item, index) => {
+            const desktop = item?.fields?.devices?.find(item => item.fields?.type === DeviceType.Desktop);
+            const fullBackgroundColor = item?.fields?.fullBackgroundColor;
+            const fullBackgroundImage = item?.fields?.fullBackgroundImage;
             const fullWidth = desktop?.fields?.fullWidth;
+           
             return (
               <div
-                className={
-                  fullWidth ? "container-fluid px-0" : "container wp-container"
-                }
+                className={`${fullBackgroundColor  || fullWidth ? "container-fluid px-0" : "container"}`}
+                style={{
+                  backgroundColor: fullBackgroundColor ? fullBackgroundColor : '',
+                  backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
+                }}
                 key={index}
               >
-                <BlockRenderer key={index} page={page} section={b} />
+                {(fullBackgroundColor || fullBackgroundImage) ? <div className="container">
+                  <BlockRenderer key={index} page={page} section={item} />
+                </div> : (
+                  <BlockRenderer key={index} page={page} section={item} />
+                )}
               </div>
             );
           })}
         </div>
         <div className="mobile-blockrender">
           {section.map((b, index) => {
-            const fullWidth = b?.fields?.fullWidth;
             return (
               <div
                 className={
-                  "container wp-container"
+                  "p-0"
                 }
                 key={index}
               >

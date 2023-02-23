@@ -34,9 +34,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     <div className="hero-block">
       <div className="hero-section-desktop">
         <section
-          className={`hero-section ${
-            topSection ? "  hero-section-shadow" : ""
-          } `}
+          className={`hero-section ${topSection ? "  hero-section-shadow" : ""
+            } `}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
@@ -47,7 +46,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
         >
           <div
             className={
-              "hero-content d-flex align-items-center container wp-container"
+              `hero-content d-flex align-items-center  wp-container ${topSection ? 'container' : ''}`
             }
           >
             <div className="w-50 position-relative">
@@ -56,7 +55,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                   <div key={item.sys.id} className={`d-flex`}>
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
-                      ComponentContentTypes.MultiColumn ? (
+                        ComponentContentTypes.MultiColumn ? (
                         <MultiColumnSection section={item} child={true} />
                       ) : (
                         <ColumnSection section={item} />
@@ -99,7 +98,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                     <div key={item.sys.id} className={`d-flex`}>
                       <div key={section.sys.id} style={{ width: "100%" }}>
                         {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                          ComponentContentTypes.MultiColumn ? (
                           <MultiColumnSection section={item} child={true} />
                         ) : (
                           <div>
@@ -126,7 +125,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                     <div key={item.sys.id} className={`d-flex`}>
                       <div key={section.sys.id} style={{ width: "100%" }}>
                         {item.sys.contentType?.sys.id ===
-                        ComponentContentTypes.MultiColumn ? (
+                          ComponentContentTypes.MultiColumn ? (
                           <MultiColumnSection section={item} child={true} />
                         ) : (
                           <div>

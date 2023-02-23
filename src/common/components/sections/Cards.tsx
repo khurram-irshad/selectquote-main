@@ -30,7 +30,7 @@ const CardsSection = ({ section }: { section: Type_Cards }) => {
 
   return (
     <>
-      <div className="container cards-container" >
+      <div className="cards-container" >
         <div className="row d-flex review-cards-desktop" style={{ margin: desktop?.fields?.margin, padding: desktop?.fields?.padding }}>
           {items.map((item, index) => (
             <>{getComponent(item, index, itemsMargin)}</>

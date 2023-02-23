@@ -83,14 +83,12 @@ const MultiColumnSection = ({
         margin: desktop?.fields?.margin,
         borderRadius: desktop?.fields?.borderRadius,
         backgroundPosition: "left center",
-        backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`,
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
       }}>
         <div
           className={`d-flex flex-wrap  w-100
         ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
         ${borderRight ? "border-r" : ""}
-       
             }`}
           style={{
             alignItems: desktop?.fields?.alignItems,
@@ -110,7 +108,7 @@ const MultiColumnSection = ({
         borderRadius: mobile?.fields?.borderRadius,
       }}>
         <div
-          className={`d-flex flex-wrap ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}
+          className={`d-flex flex-wrap w-100 
          
           ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
           style={{

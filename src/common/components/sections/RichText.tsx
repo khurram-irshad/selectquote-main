@@ -64,6 +64,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               letterSpacing: `${mobile?.fields?.letterSpacing} !important`,
               fontFamily: `${mobile?.fields?.fontFamily}`,
               margin: mobile?.fields?.margin,
+              
             }}
           >
             <RichTextRenderer
