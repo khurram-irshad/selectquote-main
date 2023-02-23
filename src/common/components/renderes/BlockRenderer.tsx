@@ -22,7 +22,7 @@ import TableSection from "@components/sections/Table";
 import ColorTextSection from "@components/sections/ColorText";
 import { DeviceType } from "@common/types/Type_Device";
 import SectionTrustPilot from "@components/sections/TrustPilot";
-import ReviewSliderSection from "@components/sections/ReviewSlider";
+import StaticReviewsSection from "@components/sections/StaticReviews";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -118,7 +118,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Table]: TableSection,
   [ComponentContentTypes.ColorText]: ColorTextSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
-  [ComponentContentTypes.ReviewSlider]: ReviewSliderSection,
+  [ComponentContentTypes.StaticReviews]: StaticReviewsSection,
 };
 
 export { BlockRenderer };

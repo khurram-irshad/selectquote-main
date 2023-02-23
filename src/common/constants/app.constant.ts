@@ -27,9 +27,9 @@ export const ComponentContentTypes = {
   Video: "templateVideo",
   Table: "templateTable",
   ColorText: "templateColorText",
+  StaticReviews: "templateStaticReviews",
   PhoneNumber: "1-855-653-6700",
   SiteSession: "site_session_data",
-  ReviewSlider: "templateStaticReviews",
 };
 
 export const DAYS_ARRAY = Array.from(Array(31).keys(), (n) => {
