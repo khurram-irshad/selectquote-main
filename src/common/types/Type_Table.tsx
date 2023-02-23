@@ -9,6 +9,7 @@ interface Table {
 interface Row {
     columns: Contentful.Entry<Column>[];
     header: Contentful.EntryFields.Boolean;
+    backgroundColor: Contentful.EntryFields.Symbol;
 }
 interface Column {
     content?: RichText;
