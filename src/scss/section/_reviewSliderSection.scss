@@ -1,0 +1,31 @@
+.review-container {
+  width: 40%;
+  margin: 0 auto;
+  p {
+    text-align: center;
+  }
+  .review-title {
+    font-weight: 700;
+    line-height: 34px;
+    font-size: 30px;
+    color: #231f20 !important;
+    letter-spacing: undefined !important;
+    font-family: "Poppins", sans-serif;
+  }
+  .slider-list {
+    padding: 20px 0;
+  }
+
+  .trust-pilot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 20px 0;
+  }
+
+  .slick-dots li button:before {
+    width: 8px;
+    height: 8px;
+    background-color: orange;
+  }
+}

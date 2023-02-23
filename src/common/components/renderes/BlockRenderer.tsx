@@ -22,6 +22,7 @@ import TableSection from "@components/sections/Table";
 import ColorTextSection from "@components/sections/ColorText";
 import { DeviceType } from "@common/types/Type_Device";
 import SectionTrustPilot from "@components/sections/TrustPilot";
+import ReviewSliderSection from "@components/sections/ReviewSlider";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -34,23 +35,33 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
       <div className="block-render">
         <div className="desktop-blockrender">
           {section.map((item, index) => {
-            const desktop = item?.fields?.devices?.find(item => item.fields?.type === DeviceType.Desktop);
+            const desktop = item?.fields?.devices?.find(
+              (item) => item.fields?.type === DeviceType.Desktop
+            );
             const fullBackgroundColor = item?.fields?.fullBackgroundColor;
             const fullBackgroundImage = item?.fields?.fullBackgroundImage;
             const fullWidth = desktop?.fields?.fullWidth;
-           
+
             return (
               <div
-                className={`${fullBackgroundColor  || fullWidth ? "container-fluid px-0" : "container"}`}
+                className={`${
+                  fullBackgroundColor || fullWidth
+                    ? "container-fluid px-0"
+                    : "container"
+                }`}
                 style={{
-                  backgroundColor: fullBackgroundColor ? fullBackgroundColor : '',
+                  backgroundColor: fullBackgroundColor
+                    ? fullBackgroundColor
+                    : "",
                   backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
                 }}
                 key={index}
               >
-                {(fullBackgroundColor || fullBackgroundImage) ? <div className="container">
-                  <BlockRenderer key={index} page={page} section={item} />
-                </div> : (
+                {fullBackgroundColor || fullBackgroundImage ? (
+                  <div className="container">
+                    <BlockRenderer key={index} page={page} section={item} />
+                  </div>
+                ) : (
                   <BlockRenderer key={index} page={page} section={item} />
                 )}
               </div>
@@ -60,20 +71,13 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
         <div className="mobile-blockrender">
           {section.map((b, index) => {
             return (
-              <div
-                className={
-                  "p-0"
-                }
-                key={index}
-              >
+              <div className={"p-0"} key={index}>
                 <BlockRenderer key={index} page={page} section={b} />
               </div>
             );
           })}
-
         </div>
       </div>
-
     );
   }
   const contentTypeId = _.get(section, "sys.contentType.sys.id");
@@ -114,7 +118,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.Table]: TableSection,
   [ComponentContentTypes.ColorText]: ColorTextSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
-
+  [ComponentContentTypes.ReviewSlider]: ReviewSliderSection,
 };
 
 export { BlockRenderer };
