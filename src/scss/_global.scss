@@ -5,6 +5,10 @@ select {
   font-family: "Montserrat", sans-serif;
 }
 
+.container {
+  padding: 0px;
+}
+
 #trent {
   scroll-margin-top: 150px;
 }
@@ -101,18 +105,15 @@ html {
   }
 
   .wp-container-mobile {
-    .button-container {
-      display: flex;
-    }
-
     display: flex !important;
-    max-width: calc(100% - 0px) !important;
+   
   }
 
   .wp-container-mobile-block {
     display: block !important;
   }
 }
+
 
 .button-container {
   .action-btn {
@@ -136,6 +137,7 @@ html {
     margin-right: 0px;
   }
 }
+
 .wp-container {
   width: 1200px;
   max-width: calc(100%);
@@ -193,19 +195,6 @@ html {
     align-items: center;
   }
 }
-@include mediaQueries(md) {
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@include mediaQueries(lg) {
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 
 .verticalLine {
   border-left: 2px solid #d8d8d8;
@@ -312,26 +301,20 @@ ul li:last-child {
 }
 
 
-@include mediaQueries(xxl) {
+@include mediaQueries(mobile) {
   .container {
     width: 80% !important;
     max-width: 1200px !important;
   }
 }
-@include mediaQueries(xl) {
+
+@include mediaQueries(desktop) {
   .container {
     width: 80% !important;
     max-width: 1200px !important;
   }
 }
-@include mediaQueries(lg) {
-  .container {
-    width: 80% !important;
-    max-width: 1200px !important;
-  }
-}
-@include mediaQueries(md) {
-  .container {
-    width: 100% !important;
-  }
+
+p {
+  margin-bottom: 0rem;
 }

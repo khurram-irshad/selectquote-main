@@ -33,18 +33,22 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
   if (Array.isArray(section)) {
     return (
       <div className="block-render">
-        <div className="desktop-blockrender">
           {section.map((item, index) => {
             const desktop = item?.fields?.devices?.find(
               (item) => item.fields?.type === DeviceType.Desktop
             );
+            const mobile = item?.fields?.devices?.find(
+              (item) => item.fields?.type === DeviceType.Mobile
+            );
             const fullBackgroundColor = item?.fields?.fullBackgroundColor;
             const fullBackgroundImage = item?.fields?.fullBackgroundImage;
             const fullWidth = desktop?.fields?.fullWidth;
+            const fullWidthMobile = mobile?.fields?.fullWidth;
 
             return (
+             <>
               <div
-                className={`${
+                className={`desktop-blockrender ${
                   fullBackgroundColor || fullWidth
                     ? "container-fluid px-0"
                     : "container"
@@ -65,18 +69,31 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
                   <BlockRenderer key={index} page={page} section={item} />
                 )}
               </div>
-            );
-          })}
-        </div>
-        <div className="mobile-blockrender">
-          {section.map((b, index) => {
-            return (
-              <div className={"p-0"} key={index}>
-                <BlockRenderer key={index} page={page} section={b} />
+              <div
+                className={`mobile-blockrender ${
+                  fullBackgroundColor || fullWidthMobile
+                    ? "container-fluid px-0"
+                    : "container"
+                }`}
+                style={{
+                  backgroundColor: fullBackgroundColor
+                    ? fullBackgroundColor
+                    : "",
+                  backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
+                }}
+                key={index}
+              >
+                {fullBackgroundColor || fullBackgroundImage ? (
+                  <div className="container">
+                    <BlockRenderer key={index} page={page} section={item} />
+                  </div>
+                ) : (
+                  <BlockRenderer key={index} page={page} section={item} />
+                )}
               </div>
+             </>
             );
           })}
-        </div>
       </div>
     );
   }

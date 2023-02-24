@@ -1,7 +1,12 @@
 .newsroom-card {
   margin-bottom: 5.5%;
   border: 1px solid $gray-600;
-  width: 29.6%;
+
+   width: 29.6%;
+   @include mediaQueries(mobile) {
+    width: 100%;
+
+  }
 
   &:nth-child(3n + 2) {
     margin-right: 5.5%;
