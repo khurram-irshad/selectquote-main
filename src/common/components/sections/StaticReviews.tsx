@@ -25,6 +25,15 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
     infinite: true,
     speed: 500,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   useEffect(() => {
@@ -39,7 +48,8 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
   return (
     <>
       <div className="review-container " >
-        <div className="wp-container-desktop" style={{ padding: desktop?.fields?.padding, width: desktop?.fields?.width }}>
+        <div>
+          <div className="wp-container-desktop" style={{ padding: desktop?.fields?.padding, width: desktop?.fields?.width }}>
           <p className="review-title">
             <RichTextRenderer
               text={title}
@@ -56,14 +66,14 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
             ))}
           </Slider>
 
-        </div>
-        <div className="wp-container-mobile" style={{ padding: mobile?.fields?.padding, width: mobile?.fields?.width }}>
-          <p className="review-title">
+          </div>
+          <div className="wp-container-mobile" style={{ padding: mobile?.fields?.padding, width: mobile?.fields?.width }}>
+            <p className="review-title">
             <RichTextRenderer
               text={title}
             />
-          </p>
-          <Slider className="slider-list" {...settings}>
+            </p>
+            <Slider className="slider-list" {...settings}>
             {items.map((item, index) => (
               <>
                 <RichTextSection key={index} section={item} />
@@ -72,8 +82,8 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
                 </div>
               </>
             ))}
-          </Slider>
-
+            </Slider>
+          </div>
         </div>
       </div>
     </>
