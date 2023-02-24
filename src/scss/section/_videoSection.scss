@@ -10,6 +10,7 @@
         border-bottom-right-radius: 0px;
       }
       .video {
+        width: 100% !important;
         div {
           width: 100% !important;
           video {
@@ -26,12 +27,13 @@
   .wrapper {
     display: flex;
     border-radius: 10px;
-    width: 500px;
+    max-width: 500px;
     margin-bottom: 60px;
     margin-left: 20px;
     .video {
+      width: 40%;
       div {
-        width: 217px;
+        width: 100% !important;
         height: 250px;
         video {
           object-fit: cover;
@@ -43,7 +45,7 @@
     .copy {
       background-color: rgb(0, 174, 199);
       color: #fff;
-      width: 57%;
+      width: 60%;
       padding: 20px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
