@@ -9,7 +9,7 @@ const ColorTextSection = ({ section }: { section: Type_ColorText }) => {
     const getItem = (item, i) => {
         const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
         return <>
-            <span className="text" style={{ lineHeight: mobile?.fields?.lineHeight, color: mobile?.fields?.textColor, fontWeight: mobile?.fields?.fontWeight, margin: mobile?.fields?.margin, }}>{item?.fields?.title}
+            <span className="text" style={{ lineHeight: mobile?.fields?.lineHeight, color: mobile?.fields?.textColor, fontWeight: mobile?.fields?.fontWeight, margin: mobile?.fields?.margin, }}>{item?.fields?.content}
             </span>
             {i < items?.length - 1 && (
                 <span className="separater">|</span>

@@ -21,9 +21,6 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
         >
           <div
             id={contentId}
-            className={
-              desktop?.fields?.fullWidth ? "container wp-container" : ""
-            }
             style={{
               width: `${desktop?.fields?.widthPercentage ?? desktop?.fields?.width
                 }`,
@@ -49,9 +46,6 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
         >
           <div
             id={contentId}
-            className={
-              mobile?.fields?.fullWidth ? "container wp-container" : ""
-            }
             style={{
               width: `${mobile?.fields?.width}`,
               padding: `${mobile?.fields?.padding}`,
