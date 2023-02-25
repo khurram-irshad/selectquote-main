@@ -32,10 +32,10 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
 
   return (
     <div className="hero-block">
-      <div className="hero-section-desktop">
+      <div className="hero-section-desktop ">
         <section
           className={`hero-section ${topSection ? "  hero-section-shadow" : ""
-            } `}
+            } ${!topSection ? 'container' : ''} `}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
@@ -74,7 +74,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
           <section
             className={`hero-section`}
             style={{
-              backgroundColor: "#f8f8f8",
+              // backgroundColor: "#f8f8f8",
               backgroundSize: `${mobileBackgroundSize}`,
               backgroundPosition: "center top",
               backgroundImage:
