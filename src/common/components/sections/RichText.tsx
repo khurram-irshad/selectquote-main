@@ -17,7 +17,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     <>
         <div
           className={`wp-container-desktop text-${desktop?.fields?.textAlign}`}
-          style={{ background: desktop?.fields?.backgroundColor }}
+          style={{ background: desktop?.fields?.backgroundColor,width: desktop?.fields?.width }}
         >
           <div
             id={contentId}
@@ -45,7 +45,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
         </div>
         <div
           className={`wp-container-mobile text-${mobile?.fields?.textAlign}`}
-          style={{ background: mobile?.fields?.backgroundColor }}
+          style={{ background: mobile?.fields?.backgroundColor,width: mobile?.fields?.width }}
         >
           <div
             id={contentId}

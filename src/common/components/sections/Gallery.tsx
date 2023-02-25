@@ -29,14 +29,11 @@ const GallerySection = ({ section }: { section: Type_Gallery }) => {
   return (
     <div>
       <div className="gallery d-flex">
-        <div></div>
         {images.map((src, index) => (
           <img
             src={src.fields?.imageFile?.fields?.file?.url}
             onClick={() => openImageViewer(index)}
-            width="250"
             key={index}
-            style={{ margin: '30px' }}
           />
         ))}
         {isViewerOpen && (
