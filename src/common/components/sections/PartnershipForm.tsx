@@ -100,50 +100,314 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
               <div className="container">
                 <div className="row mb-4">
                   <div className="col">
-                    <label className="form-label">First Name *</label>
-                    <UseFormTextField control={control} name="firstName"  width="100%"/>
+                    <UseFormTextField control={control} name="firstName"  width="100%" height="50px" placeholder="First Name *"/>
                   </div>
                   <div className="col">
-                    <label className="form-label">Last Name *</label>
-                    <UseFormTextField control={control} name="lastName" width="100%" />
+                    <UseFormTextField control={control} name="lastName" width="100%" height="50px" placeholder="Last Name *"/>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col">
-                    <label className="form-label">Company Name *</label>
-                    <UseFormTextField control={control} name="companyName" width="100%"/>
+                    <UseFormTextField control={control} name="companyName" width="100%" height="50px" placeholder="Company Name *"/>
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
-                    <label className="form-label">Your Title *</label>
-                    <UseFormTextField control={control} name="title" width="100%"/>
+                    <UseFormTextField control={control} name="title" width="100%" height="50px" placeholder="Your Title *"/>
                   </div>
                 </div>
                 <div className="row mt-4">
                   <div className="col">
-                    <label className="form-label">Email *</label>
-                    <UseFormTextField control={control} name="email" width="100%"/>
+                    <UseFormTextField control={control} name="email" width="100%" placeholder="Email *" height="50px"/>
                   </div>
                   <div className="col">
-                    <label className="form-label" >Phone Number *</label>
                     <MyInputMask
                       control={control}
                       defaultValue={""}
                       name="phoneNumber"
                       mask={MOBILE_MASK}
+                      placeholder="Phone Number *"
+                      height = "50px"
                       
                     />
                   </div>
                 </div>
                 <div className="row mt-4">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Where is this comapny located?*</b>
+                  </label>
                   <div className="col">
-                    <label>Additional Comments</label>
+                    <UseFormTextField control={control} name="City" width="100%" placeholder="city " height="50px"/>
+                  </div>
+                  <div className="col">
+                    <UseFormTextField control={control} name="state" width="100%" placeholder="state " height="50px"/>
+                  </div>
+                </div>
+                <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>How  many employees does your company have?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="1-25" name="radio-option" />
+                      <label htmlFor="1-25" style={{color: "#646446", borderRadius: "30px"}}>1-25</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="26-50" name="radio-option" />
+                      <label htmlFor="26-50" style={{color: "#646446" , borderRadius: "30px"}}>26-50</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="51-100" name="radio-option" />
+                      <label htmlFor="51-100" style={{color: "#646446" , borderRadius: "30px"}}>51-100</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="100ormore" name="radio-option" />
+                      <label htmlFor="100 or more" style={{color: "#646446" , borderRadius: "30px"}}>100 or more</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Does your comapny have insurance coverage?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can your comapny provide an Acord Certificate?*</b> (General Liability, Erros & Omissions, and/ or Cyber Protection)
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What insurance verticals are you selling call/leads in?*</b> (Select all that apply)
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" style={{width:"30px" , height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Medicare</label>
+                        <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>FE</label>
+                        <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Term</label>
+                    </div>
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px" , width: "55.5%"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Home</label>
+                        <label htmlFor="checkbox5" style={{color:"#646464"}}><input type="checkbox" id="checkbox5" name="checkbox5" style={{width:"30px", height:"40px" , position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Auto</label>
+                    </div>
+                    <div className="col" style={{display: "flex", marginTop: "30px"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "90%" ,  color:"#646464"}}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What lead type(s) do you currently offer?*</b>
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" style={{width:"30px" , height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Transfers</label>
+                        <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Inbounds</label>
+                        <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Data</label>
+                        <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Clicks</label>
+                    </div>
+                    <div className="col" style={{display: "flex", marginTop: "30px"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "90%" , color:"#646464" }}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What are the primary sources of these leads?*</b>
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" style={{width:"30px" , height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Websites</label>
+                        <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>TV</label>
+                        <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Radio</label>
+                        <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Direct Mail</label>
+                    </div>
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px" , width: "39%"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Social</label>
+                        <label htmlFor="checkbox5" style={{color:"#646464"}}><input type="checkbox" id="checkbox5" name="checkbox5" style={{width:"30px", height:"40px" , position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Data</label>
+                    </div>
+                    <div className="col" style={{display: "flex", marginTop: "30px"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "90%" ,  color:"#646464"}}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What is your daily average volume by insurance vertical and lead type and how does this vary by season?*</b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="volume" width="100%" placeholder="Volume " height="50px"/>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Do you work with a Call Center? Is this an owned and operated call center? Where is it located? Is the Customer data stored in the United States?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+            </div>
+            <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="OwnedOperated" name="radio-option" />
+                      <label htmlFor="Owned & Operated" style={{color: "#646446" , borderRadius: "30px"}}>Owned & Operated</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="3rdParty" name="radio-option" />
+                      <label htmlFor="3rd Party"style={{color: "#646446" , borderRadius: "30px"}}>3rd Party</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can you make changes to your sources?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>no</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="maybe" name="radio-option" />
+                      <label htmlFor="maybe"style={{color: "#646446" , borderRadius: "30px"}}>maybe</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What is your general pricing range by lead type?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can you implement an API key  for data posting?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>no</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="maybe" name="radio-option" />
+                      <label htmlFor="maybe"style={{color: "#646446" , borderRadius: "30px"}}>maybe</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What call routing system/softwre(s) do you currently use?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are you able to filter calls by age/geographical area/states/zip codes?* </b> (List all that apply)
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are you able to send a specified amount of calls by day and/or hour?* </b>(i.e if we give you a maximum number
+                    of calls per day of the week/set schedule, etc.)
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Is the majority of your traffic U65 or 065, if both what is the split between both?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Do you use jornaya or Trusted Form?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="N/A" name="radio-option" />
+                      <label htmlFor="N/A"style={{color: "#646446" , borderRadius: "30px"}}>N/A</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+                <div className="row mt-4">
+                  <div className="col">
+                    <label style={{marginBottom: "15px" , color: "#646464"}}>Additional Comments</label>
                     <UseFormTextField
                       control={control}
                       type="textarea"
                       name="comments"
                       width="100%"
+                      height="100px"
+                      placeholder="Enter text here"
                     />
                   </div>
                 </div>
@@ -164,10 +428,11 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                     style={{
                       color: "#ffff",
                       backgroundColor: "rgb(244, 123, 32)",
+                      width: "15%"
                     }}
                     disabled={isUploading}
                   >
-                    Connect with us
+                    submit
                   </button>
                 </div>
               </div>
@@ -179,71 +444,380 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
             <RichTextRenderer text={title} />
             <div className="row">
               <div className="col">
-                <label className="form-label">First Name *</label>
                 <input
                   type="text"
                   id="firstaname"
                   className="form-control"
                   aria-label="First name"
+                  placeholder="First Name *" 
+                  style={{height: "50px"}}
                 />
               </div>
               <div className="col mt-4">
-                <label className="form-label">Last Name *</label>
                 <input
                   type="text"
                   id="lastname"
                   className="form-control"
                   aria-label="Last name"
+                  placeholder="Last Name *" 
+                  style={{height: "50px"}}
                 />
               </div>
             </div>
 
             <div className="row">
               <div className="col mt-3">
-                <label className="form-label">Company Name *</label>
                 <input
                   type="text"
                   id="company"
                   className="form-control"
                   aria-label="Company name"
+                  placeholder="Company Name *"
+                  style={{height: "50px"}}
                 />
               </div>
             </div>
             <div className="row mt-2">
               <div className="col">
-                <label className="form-label">Your Title *</label>
                 <input
                   type="text"
                   id="title"
                   className="form-control"
                   aria-label="Your Title"
+                  placeholder="Your Title *"
+                  style={{height: "50px"}}
                 />
               </div>
             </div>
             <div className="row mt-4">
               <div className="col">
-                <label className="form-label">Email *</label>
                 <input
                   type="text"
                   id="email"
                   className="form-control"
                   aria-label="Email"
-                />
-              </div>
-              <div className="col">
-                <label className="form-label">Phone Number *</label>
-                <input
-                  type="text"
-                  id="phone"
-                  className="form-control"
-                  aria-label="Phone number"
+                  placeholder="Email *"
+                  style={{height: "50px"}}
                 />
               </div>
             </div>
             <div className="row mt-4">
               <div className="col">
+                <input
+                  type="text"
+                  id="phone"
+                  className="form-control"
+                  aria-label="Phone number"
+                  placeholder="Phone Number *"
+                  style={{height: "50px"}}
+                />
+              </div>
+            </div>
+            <div className="row mt-4">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Where is this comapny located?*</b>
+                  </label>
+                  <div className="row">
+                    <UseFormTextField control={control} name="City" width="108%" placeholder="city " height="50px" />
+                  </div>
+                  <div className="row" style={{marginTop:"10px"}}>
+                    <UseFormTextField control={control} name="state" width="108%" placeholder="state " height="50px" />
+                  </div>
+                </div>
+                <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>How  many employees does your company have?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li className="row" style={{width:"45%"}}>
+                      <input className="row" type="radio" id="1-25" name="radio-option"/>
+                      <label htmlFor="1-25" className="row" style={{color: "#646446", borderRadius: "30px"}}>1-25</label>
+                    </li>
+                    <li className="row" style={{width:"45%"}}>
+                      <input className="row" type="radio" id="26-50" name="radio-option" />
+                      <label htmlFor="26-50"  style={{color: "#646446" , borderRadius: "30px"}}>26-50</label>
+                    </li>
+                    <li className="row" style={{width:"45%" , marginTop: "10px" , marginLeft:"-10px"}}>
+                      <input className="row" type="radio" id="51-100" name="radio-option" />
+                      <label htmlFor="51-100" style={{color: "#646446" , borderRadius: "30px"}}>51-100</label>
+                    </li>
+                    <li className="row" style={{width:"45%",  marginTop:"10px" , marginLeft: "10px"}}>
+                      <input className="row" type="radio" id="100ormore" name="radio-option" />
+                      <label htmlFor="100 or more" style={{color: "#646446" , borderRadius: "30px"}}>100 or more</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Does your comapny have insurance coverage?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li className="row" style={{width:"45%"}}>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li className="row" style={{width:"45%"}}>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can your comapny provide an Acord Certificate?*</b> (General Liability, Erros & Omissions, and/ or Cyber Protection)
+                  </label>
+                  <ul className="custom-radio">
+                    <li className="row" style={{width:"45%"}}>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li className="row" style={{width:"45%"}}>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What insurance verticals are you selling call/leads in?*</b> (Select all that apply)
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" style={{width:"30px" , height:"40px", position: "relative",
+                        display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Medicare</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" style={{width:"30px", height:"40px",
+                     position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>FE</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" style={{width:"30px", height:"40px",
+                         position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Term</label>
+                    </div>
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between", width: "55.5%"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Home</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox5" style={{color:"#646464"}}><input type="checkbox" id="checkbox5" name="checkbox5" style={{width:"30px", height:"40px" ,
+                         position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Auto</label>
+                    </div>
+                    <div className="col" style={{display: "flex"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464", width:"30%"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "60%" ,  color:"#646464"}}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What lead type(s) do you currently offer?*</b>
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" style={{width:"30px" , height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Transfers</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Inbounds</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Data</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Clicks</label>
+                    </div>
+                    <div className="col" style={{display: "flex"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464" , width:"30%"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "60%" , color:"#646464" }}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What are the primary sources of these leads?*</b>
+                </label>
+                <div className="checkbox-list">
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , marginTop: "30px"}}>
+                        <label htmlFor="checkbox1" style={{color:"#646464"}}><input type="checkbox" id="checkbox1" name="checkbox1" 
+                        style={{width:"30px" , height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Websites</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox2" style={{color:"#646464"}}><input type="checkbox" id="checkbox2" name="checkbox2" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>TV</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Radio</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox3" style={{color:"#646464"}}><input type="checkbox" id="checkbox3" name="checkbox3" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Direct Mail</label>
+                    </div>
+                    <div className="col" style={{display: "flex" , justifyContent: "space-between" , width: "39%"}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Social</label>
+                    </div>
+                    <div>
+                    <label htmlFor="checkbox5" style={{color:"#646464"}}><input type="checkbox" id="checkbox5" name="checkbox5" 
+                    style={{width:"30px", height:"40px" , position: "relative" ,display: "inline-block", verticalAlign: "middle" , marginRight: "10px"}}/>Data</label>
+                    </div>
+                    <div className="col" style={{display: "flex",}}>
+                        <label htmlFor="checkbox4" style={{color:"#646464"}}><input type="checkbox" id="checkbox4" name="checkbox4" 
+                        style={{width:"30px", height:"40px", position: "relative" ,display: "inline-block", verticalAlign: "middle", marginRight: "10px"}}/>Other</label>
+                        <input type="text" id="line-input" name="line-input" 
+                        style={{border: "none" , borderBottom: "1px solid #646464" , outline: "none" , background: "transparent" , marginBottom: "13px" , marginLeft: "5px" , width: "60%" ,  color:"#646464"}}></input>
+                    </div>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What is your daily average volume by insurance vertical and lead type and how does this vary by season?*</b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="volume" width="100%" placeholder="Enter volume " height="150px"/>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Do you work with a Call Center? Is this an owned and operated call center? Where is it located? 
+                      Is the Customer data stored in the United States?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+            </div>
+            <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="OwnedOperated" name="radio-option" />
+                      <label htmlFor="Owned & Operated" style={{color: "#646446" , borderRadius: "30px"}}>Owned & Operated</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="3rdParty" name="radio-option"  />
+                      <label htmlFor="3rd Party"style={{color: "#646446" , borderRadius: "30px"}}>3rd Party</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can you make changes to your sources?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>yes</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="no" name="radio-option"/>
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>no</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="maybe" name="radio-option" />
+                      <label htmlFor="maybe"style={{color: "#646446" , borderRadius: "30px"}}>maybe</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What is your general pricing range by lead type?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Can you implement an API key  for data posting?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>yes</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>no</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="maybe" name="radio-option" />
+                      <label htmlFor="maybe"style={{color: "#646446" , borderRadius: "30px"}}>maybe</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>What call routing system/softwre(s) do you currently use?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are you able to filter calls by age/geographical area/states/zip codes?* </b> (List all that apply)
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Are you able to send a specified amount of calls by day and/or hour?* </b>(i.e if we give you a maximum number
+                    of calls per day of the week/set schedule, etc.)
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+              </div>
+              <div className="row mt-5">
+                <label className="form-label" style={{color: "#646446"}}>
+                    <b>Is the majority of your traffic U65 or 065, if both what is the split between both?* </b>
+                </label>
+                <div className="col">
+                  <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="150px"/>
+                </div>
+              </div>
+              <div className="row mt-4">
+                <div className="col">
+                  <label className="form-label" style={{color: "#646446"}}>
+                    <b>Do you use jornaya or Trusted Form?*</b>
+                  </label>
+                  <ul className="custom-radio">
+                    <li>
+                      <input type="radio" id="yes" name="radio-option" />
+                      <label htmlFor="yes" style={{color: "#646446" , borderRadius: "30px"}}>Yes</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="no" name="radio-option" />
+                      <label htmlFor="no"style={{color: "#646446" , borderRadius: "30px"}}>No</label>
+                    </li>
+                    <li style={{marginTop: "10px"}}>
+                      <input type="radio" id="N/A" name="radio-option" />
+                      <label htmlFor="N/A"style={{color: "#646446" , borderRadius: "30px"}}>N/A</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+           
+            <div className="row mt-4">
+              <div className="col">
                 <label>Additional Comments</label>
-                <textarea className="form-control mt-2" id="floatingTextarea" />
+                <textarea className="form-control mt-2" id="floatingTextarea" placeholder="enter text here" style={{height: "150px"}}/>
               </div>
             </div>
             <div className="row mt-4">
@@ -266,7 +840,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                     }}
                     disabled={isUploading}
                   >
-                    Connect with us
+                    submit
                   </button>
             </div>
           </div>

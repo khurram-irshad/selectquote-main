@@ -14,9 +14,10 @@ type FieldProps = {
     inputProps?: any,
     children?: React.ReactNode,
     mask: string;
+    height: any;
 }
 
-export const MyInputMask = ({ control, name, type, defaultValue, placeholder, className, disabled, mask }: FieldProps) => {
+export const MyInputMask = ({ control, name, type, defaultValue, placeholder, className, disabled, mask , height }: FieldProps) => {
     return (
         <Controller
             name={name}
@@ -30,7 +31,7 @@ export const MyInputMask = ({ control, name, type, defaultValue, placeholder, cl
                     onChange={onChange}
                 >
                     {(inputProps: any) => (
-                        <Form.Control {...inputProps} type={type} placeholder={placeholder} value={value}  onChange={onChange} disabled={disabled} className={className} style={{ width: '100%' }} />
+                        <Form.Control {...inputProps} type={type} placeholder={placeholder} value={value}  onChange={onChange} disabled={disabled} className={className} style={{ width: '100%', height: height}} />
                     )}
                 </InputMask>
             )}
