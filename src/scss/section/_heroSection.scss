@@ -8,6 +8,13 @@
     }
     .hero-section-mobile {
       display: block !important;
+      .hero-section {
+        div {
+          .hero-image {
+            margin: 0 -13% !important
+          }
+        }
+      }
     }
   }
   .hero-section {
