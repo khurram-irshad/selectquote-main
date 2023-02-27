@@ -5,7 +5,11 @@
    width: 29.6%;
    @include mediaQueries(mobile) {
     width: 100%;
-
+    .card-header {
+      img {
+        height: 113px;
+      }
+    }
   }
 
   &:nth-child(3n + 2) {
