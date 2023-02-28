@@ -37,6 +37,8 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     pageNoFollow = noFollow;
   }
 
+  
+
   useEffect(() => {
     var aScript = document.createElement("script");
     aScript.type = "text/javascript";
