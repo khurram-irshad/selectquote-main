@@ -122,7 +122,7 @@ const MultiColumnSection = ({
         }}>
           <div
             className={`d-flex flex-wrap w-100 
-           
+            ${borderRight ? "border-b" : ""}
             ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
             style={{
               justifyContent: `${mobile?.fields?.justifyContent}`,

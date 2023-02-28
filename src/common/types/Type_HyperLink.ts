@@ -3,6 +3,7 @@ import Device from './Type_Device';
 
 interface HyperLink {
     title: Contentful.EntryFields.Symbol;
+    type: Contentful.EntryFields.Symbol;
     linkUrl: Contentful.EntryFields.Symbol;
     devices: Contentful.Entry<Device>[];
     scrollToId: Contentful.EntryFields.Symbol;

@@ -202,6 +202,10 @@ html {
 .border-r {
   border-right: 1px solid #d8d8d8;
 }
+.border-b {
+  padding:20px 0px;
+  border-bottom: 1px solid #d8d8d8;
+}
 
 .border-l {
   border-left: 1px solid #d8d8d8;
@@ -361,11 +365,11 @@ p {
   }
 }
 
-.hyperlink {
+.link-button {
   padding: 8px 16px;
   border-radius: 5px;
 }
 
-.hyperlink:hover {
+.link-button:hover {
   background-color: #efefef;
 }

@@ -1,10 +1,11 @@
 import { Type_HyperLink } from "@common/types/Type_HyperLink";
 import React from "react";
 import Link from "next/link";
-import { NULL } from "sass";
 import { DeviceType } from "@common/types/Type_Device";
 
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
+  const { type } = section.fields;
+
   const desktop = section?.fields?.devices?.find(
     (item) => item?.fields?.type === DeviceType.Desktop
   );
@@ -26,7 +27,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   ) ? (
     <a
       href={section.fields.linkUrl || "/"}
-      className="hyperlink"
+      className={type === 'Button' ? 'link-button' : ''}
       style={{
         textDecoration: "none",
         color: section.fields.color,
@@ -39,7 +40,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   ) : (
     <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")}>
       <a
-      className="hyperlink"
+        className={type === 'Button' ? 'link-button' : ''}
         style={{
           color: section.fields?.color,
           textDecoration: "none",
