@@ -56,7 +56,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                     <div key={section.sys.id} style={{ width: "100%" }}>
                       {item.sys.contentType?.sys.id ===
                         ComponentContentTypes.MultiColumn ? (
-                        <MultiColumnSection section={item} child={true} />
+                        <MultiColumnSection section={item}  />
                       ) : (
                         <ColumnSection section={item} />
                       )}
@@ -99,7 +99,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                       <div key={section.sys.id} style={{ width: "100%" }}>
                         {item.sys.contentType?.sys.id ===
                           ComponentContentTypes.MultiColumn ? (
-                          <MultiColumnSection section={item} child={true} />
+                          <MultiColumnSection section={item} />
                         ) : (
                           <div>
                             <ColumnSection section={item} />
@@ -126,7 +126,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                       <div key={section.sys.id} style={{ width: "100%" }}>
                         {item.sys.contentType?.sys.id ===
                           ComponentContentTypes.MultiColumn ? (
-                          <MultiColumnSection section={item} child={true} />
+                          <MultiColumnSection section={item} />
                         ) : (
                           <div>
                             <ColumnSection section={item} />
