@@ -147,6 +147,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
                 }}
               >
                 <div
+                  className="hero-image"
                   style={{
                     backgroundSize: `cover`,
                     backgroundPosition: "center top",
