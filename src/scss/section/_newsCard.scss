@@ -1,13 +1,22 @@
 .newsroom-card {
   margin-bottom: 5.5%;
   border: 1px solid $gray-600;
-
-   width: 29.6%;
+  max-height: 420px;
+  width: 29.6%;
    @include mediaQueries(mobile) {
     width: 100%;
     .card-header {
       img {
         height: 113px !important;
+      }
+    }
+  }
+
+  @include mediaQueries(tab) {
+    width: 100%;
+    .card-header {
+      img {
+        height: 232px !important;
       }
     }
   }
