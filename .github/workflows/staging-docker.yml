@@ -65,3 +65,11 @@ jobs:
           service: ${{ secrets.ECS_SERVICE }}
           cluster: ${{ secrets.ECS_CLUSTER }}
           wait-for-service-stability: false
+  invalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Access webhook URL
+        env:
+          URL: https://895jfrp4q0.execute-api.us-west-2.amazonaws.com/api
+        run: |
+          curl $URL
