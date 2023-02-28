@@ -28,6 +28,7 @@ const Text = ({
     <p
       style={{
         fontWeight: `${fontWeight}`,
+        color:`${color}`,
         fontSize: `${fontSize}`,
         lineHeight: `${lineHeight}`,
         letterSpacing: `${letterSpacing}`,

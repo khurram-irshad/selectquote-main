@@ -8,6 +8,7 @@ import {
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
 import { ComponentContentTypes } from "@constants/app.constant";
+import { GlobalContextProvider } from "src/context/globalContext";
 
 export default function Apps({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
     SessionStorageService.setItem(ComponentContentTypes.SiteSession, data);
     window.dispatchEvent(new Event("storage"));
   };
-  
+
   useEffect(() => {
     const getData = async () => {
       let sCode = null;
@@ -39,7 +40,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
       }
       setStorage(sCode);
     };
-  
+
     const setStorage = (sCode) => {
       const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
       const site_session_id = storageSiteData ? storageSiteData.site_session_id : generateSessionId();
@@ -47,14 +48,14 @@ export default function Apps({ Component, pageProps }: AppProps) {
         site_session_id,
         site_campaign_phone: ComponentContentTypes.PhoneNumber,
       };
-  
+
       if (sCode) {
         site_data_model = {
           ...site_data_model,
           site_campaign_phone: sCode["Phone Number"],
         };
       }
-  
+
       if (!storageSiteData) {
         storeSessionData(site_data_model);
       } else {
@@ -64,11 +65,16 @@ export default function Apps({ Component, pageProps }: AppProps) {
         });
       }
     };
-  
+
     getData();
   }, [queryParams]);
   useEffect(() => {
     const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
   }, []);
-  return <Component {...pageProps} />;
+  return (
+    <GlobalContextProvider>
+      <Component {...pageProps} />
+    </GlobalContextProvider>
+  )
+
 }

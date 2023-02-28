@@ -7,6 +7,8 @@ interface Button {
     scrollToId: Contentful.EntryFields.Symbol;
     rounded: Contentful.EntryFields.Boolean;
     devices: Contentful.Entry<Device>[];
+    hoverBackground: Contentful.EntryFields.Symbol;
+    hoverColor: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Button = Contentful.Entry<Button>;

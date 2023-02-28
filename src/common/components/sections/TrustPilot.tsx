@@ -5,7 +5,7 @@ import React from "react";
 
 const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
   const { type, devices } = section.fields;
-  console.log(type)
+
   // const desktop = devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   // const mobile = devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 

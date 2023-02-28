@@ -15,6 +15,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
 
   return (
     <>
+    
         <div
           className={`wp-container-desktop text-${desktop?.fields?.textAlign}`}
           style={{ background: desktop?.fields?.backgroundColor,width: desktop?.fields?.width }}

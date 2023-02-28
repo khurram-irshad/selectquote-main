@@ -1,3 +1,4 @@
+import { ScreenMode } from '@common/enums/Mode';
 import stringify from 'fast-safe-stringify';
 
 
@@ -28,4 +29,11 @@ export const maskMobile = (mobile: string) => {
 
 export const replaceAt = (string, index, valueToReplace) => {
   return string.substring(0, index) + valueToReplace + string.substring(index + 1)
+}
+
+export const isMobile = (screenWidth: ScreenMode) => {
+  return screenWidth === ScreenMode.Mobile
+}
+export const isDesktop = (screenMode: ScreenMode) => {
+  return screenMode === ScreenMode.Desktop
 }

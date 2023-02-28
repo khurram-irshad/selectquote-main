@@ -23,6 +23,8 @@ import ColorTextSection from "@components/sections/ColorText";
 import { DeviceType } from "@common/types/Type_Device";
 import SectionTrustPilot from "@components/sections/TrustPilot";
 import StaticReviewsSection from "@components/sections/StaticReviews";
+import { useGlobalContext } from "src/context";
+import { isDesktop, isMobile } from "@common/helpers/helper";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -30,70 +32,75 @@ type BlockRendererProps = {
 };
 
 const BlockRenderer = ({ page, section }: BlockRendererProps) => {
+
+  const { screenMode } = useGlobalContext();
+
   if (Array.isArray(section)) {
     return (
       <div className="block-render">
-          {section.map((item, index) => {
-            const desktop = item?.fields?.devices?.find(
-              (item) => item.fields?.type === DeviceType.Desktop
-            );
-            const mobile = item?.fields?.devices?.find(
-              (item) => item.fields?.type === DeviceType.Mobile
-            );
-            const fullBackgroundColor = item?.fields?.fullBackgroundColor;
-            const fullBackgroundImage = item?.fields?.fullBackgroundImage;
-            const fullWidth = desktop?.fields?.fullWidth;
-            const fullWidthMobile = mobile?.fields?.fullWidth;
+        {section.map((item, index) => {
+          const desktop = item?.fields?.devices?.find(
+            (item) => item.fields?.type === DeviceType.Desktop
+          );
+          const mobile = item?.fields?.devices?.find(
+            (item) => item.fields?.type === DeviceType.Mobile
+          );
+          const fullBackgroundColor = item?.fields?.fullBackgroundColor;
+          const fullBackgroundImage = item?.fields?.fullBackgroundImage;
+          const fullWidth = desktop?.fields?.fullWidth;
+          const fullWidthMobile = mobile?.fields?.fullWidth;
 
-            return (
-             <>
-              <div
-                className={`desktop-blockrender ${
-                  fullBackgroundColor || fullWidth
+          return (
+            <>
+              {isDesktop(screenMode) && (
+                <div
+                  className={`desktop-blockrender ${fullBackgroundColor || fullWidth
                     ? "container-fluid px-0"
                     : "container"
-                }`}
-                style={{
-                  backgroundColor: fullBackgroundColor
-                    ? fullBackgroundColor
-                    : "",
-                  backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
-                }}
-                key={index}
-              >
-                {fullBackgroundColor || fullBackgroundImage ? (
-                  <div className="container">
+                    }`}
+                  style={{
+                    backgroundColor: fullBackgroundColor
+                      ? fullBackgroundColor
+                      : "",
+                    backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
+                  }}
+                  key={`${index}-desktop`}
+                >
+                  {fullBackgroundColor || fullBackgroundImage ? (
+                    <div className="container">
+                      <BlockRenderer key={index} page={page} section={item} />
+                    </div>
+                  ) : (
                     <BlockRenderer key={index} page={page} section={item} />
-                  </div>
-                ) : (
-                  <BlockRenderer key={index} page={page} section={item} />
-                )}
-              </div>
-              <div
-                className={`mobile-blockrender ${
-                  fullBackgroundColor || fullWidthMobile
+                  )}
+                </div>
+              )}
+              {isMobile(screenMode) && (
+                <div
+                  className={`mobile-blockrender ${fullBackgroundColor || fullWidthMobile
                     ? "container-fluid px-0"
                     : "container"
-                }`}
-                style={{
-                  backgroundColor: fullBackgroundColor
-                    ? fullBackgroundColor
-                    : "",
-                  backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
-                }}
-                key={index}
-              >
-                {fullBackgroundColor || fullBackgroundImage ? (
-                  <div className="container">
+                    }`}
+                  style={{
+                    backgroundColor: fullBackgroundColor
+                      ? fullBackgroundColor
+                      : "",
+                    backgroundImage: `url(https:${fullBackgroundImage?.fields?.imageFile?.fields?.file?.url})`,
+                  }}
+                  key={`${index}-mobile`}
+                >
+                  {fullBackgroundColor || fullBackgroundImage ? (
+                    <div className="container">
+                      <BlockRenderer key={index} page={page} section={item} />
+                    </div>
+                  ) : (
                     <BlockRenderer key={index} page={page} section={item} />
-                  </div>
-                ) : (
-                  <BlockRenderer key={index} page={page} section={item} />
-                )}
-              </div>
-             </>
-            );
-          })}
+                  )}
+                </div>
+              )}
+            </>
+          );
+        })}
       </div>
     );
   }

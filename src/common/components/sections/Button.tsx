@@ -1,6 +1,9 @@
+import { isDesktop, isMobile } from "@common/helpers/helper";
 import { Type_Button } from "@common/types/Type_Button";
 import { DeviceType } from "@common/types/Type_Device";
-import React from "react";
+import useWindowDimensions from "@components/WindowDimension";
+import React, { useEffect, useState } from "react";
+import { useGlobalContext } from "src/context";
 
 const ButtonSection = ({ section }: { section: Type_Button }) => {
   const {
@@ -8,51 +11,60 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     linkUrl,
     rounded = true,
     devices,
-    scrollToId
+    scrollToId,
+    hoverBackground,
+    hoverColor
   } = section.fields;
+  const [isFocused, setFocus] = useState(false);
+  const { screenMode } = useGlobalContext();
 
   const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
   return (
     <>
-      <div className="wp-container-desktop">
+      {isDesktop(screenMode) && (
         <div className="button-container">
           <a
             className={`action-btn ${rounded ? "btn-border" : ""}`}
+            onMouseEnter={() => setFocus(true)}
+            onMouseLeave={() => setFocus(false)}
             style={{
-              color: desktop?.fields?.textColor,
-              backgroundColor: desktop?.fields?.backgroundColor,
               fontSize: desktop?.fields?.fontSize,
               padding: desktop?.fields?.padding ? desktop?.fields?.padding : '',
               borderRadius: desktop?.fields?.borderRadius,
               border: desktop?.fields?.border,
-              fontFamily: desktop?.fields?.fontFamily,
+              backgroundColor: isFocused ? hoverBackground : desktop?.fields?.backgroundColor,
+              color: isFocused ? hoverColor : desktop?.fields?.textColor,
+              borderColor: isFocused ? hoverColor : desktop?.fields?.textColor
             }}
             href={linkUrl}
           >
             {title}
           </a>
         </div>
-      </div>
-      <div className="wp-container-mobile">
+      )}
+
+      {isMobile(screenMode) && (
         <div className="button-container">
           <a
+            onMouseEnter={() => setFocus(true)}
+            onMouseLeave={() => setFocus(false)}
             className={`action-btn ${rounded ? "btn-border" : ""}`}
             style={{
-              color: mobile?.fields?.textColor,
-              backgroundColor: mobile?.fields?.backgroundColor,
               fontSize: mobile?.fields?.fontSize,
               padding: mobile?.fields?.padding ? mobile?.fields?.padding : '',
               borderRadius: mobile?.fields?.borderRadius,
               border: mobile?.fields?.border,
-              fontFamily: desktop?.fields?.fontFamily,
+              backgroundColor: isFocused ? hoverBackground : mobile?.fields?.backgroundColor,
+              color: isFocused ? hoverColor : mobile?.fields?.textColor,
+              borderColor: isFocused ? hoverColor : mobile?.fields?.textColor
             }}
             href={linkUrl}
           >
             {title}
           </a>
         </div>
-      </div>
+      )}
     </>
   );
 };

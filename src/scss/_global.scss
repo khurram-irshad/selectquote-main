@@ -121,6 +121,7 @@ html {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.7em;
+    font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     border: 2px solid #ffffff;
     padding: 0.3em 24px;
@@ -212,7 +213,7 @@ html {
   .separater {
     font-weight: 700;
     color: #646464;
-    margin:0px 10px
+    margin: 0px 10px
   }
 
   .title {
@@ -226,12 +227,13 @@ html {
   .text {
     font-family: "Poppins", sans-serif;
   }
-  
+
   @include mediaQueries(desktop) {
     padding: 10px 90px 30px;
   }
+
   @include mediaQueries(mobile) {
-    padding:10px 10px 30px;
+    padding: 10px 10px 30px;
   }
 }
 
@@ -316,6 +318,7 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+
   .styles-module_close__2I1sI {
     right: 27% !important;
     top: 15%;
@@ -339,6 +342,7 @@ p {
     }
   }
 }
+
 @include mediaQueries(tab) {
   .gallery {
     img {
@@ -346,6 +350,7 @@ p {
     }
   }
 }
+
 @include mediaQueries(mobile) {
   .gallery {
     img {
@@ -354,4 +359,13 @@ p {
       margin: 0 3.5% 9.5% 0;
     }
   }
+}
+
+.hyperlink {
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.hyperlink:hover {
+  background-color: #efefef;
 }
