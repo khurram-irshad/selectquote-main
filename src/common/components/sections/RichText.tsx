@@ -1,11 +1,13 @@
+import { isDesktop, isMobile } from "@common/helpers/helper";
 import { Type_RichTextCustom } from "@common/types";
 import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import React from "react";
+import { useGlobalContext } from "src/context";
 
 const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
   const { content, devices, contentId } = section.fields;
-
+  const { screenMode } = useGlobalContext();
   const desktop = devices?.find(
     (item) => item.fields?.type === DeviceType.Desktop
   );
@@ -15,10 +17,10 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
 
   return (
     <>
-    
+      {isDesktop(screenMode) && (
         <div
-          className={`wp-container-desktop text-${desktop?.fields?.textAlign}`}
-          style={{ background: desktop?.fields?.backgroundColor,width: desktop?.fields?.width }}
+          className={`text-${desktop?.fields?.textAlign}`}
+          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width }}
         >
           <div
             id={contentId}
@@ -41,9 +43,12 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
             />
           </div>
         </div>
+      )}
+
+      {isMobile(screenMode) && (
         <div
-          className={`wp-container-mobile text-${mobile?.fields?.textAlign}`}
-          style={{ background: mobile?.fields?.backgroundColor,width: mobile?.fields?.width }}
+          className={`text-${mobile?.fields?.textAlign}`}
+          style={{ background: mobile?.fields?.backgroundColor, width: mobile?.fields?.width }}
         >
           <div
             id={contentId}
@@ -66,6 +71,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
             />
           </div>
         </div>
+      )}
     </>
   );
 };
