@@ -3,7 +3,7 @@ import "../scss/app.scss";
 import { AppProps } from "next/app";
 import React, { useEffect } from "react";
 import {
-  SessionStorageService,
+  SessionStorageService, StorageService,
 } from "@common/services/storage";
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
@@ -33,9 +33,29 @@ export default function Apps({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (router.isReady) {
+        const queryParams = router.query;
+        localStorage.setItem('lastQueryParams', JSON.stringify(queryParams.campaignKey));
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [router]);
+  useEffect(() => {
     const getData = async () => {
       let sCode = null;
-      if (queryParams && queryParams.campaignKey) {
+      let lastParams=(localStorage.getItem('lastQueryParams'))
+      if (lastParams!= 'undefined') {
+        lastParams = JSON.parse(lastParams)
+      }
+      if (lastParams && !queryParams.campaignKey) {
+        sCode = await appService.getScode(lastParams);
+      }
+      else if (queryParams && queryParams.campaignKey)
+      {
         sCode = await appService.getScode(queryParams.campaignKey);
       }
       setStorage(sCode);
@@ -78,3 +98,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
   )
 
 }
+function setStorage(queryParams: any) {
+  throw new Error("Function not implemented.");
+}
+
