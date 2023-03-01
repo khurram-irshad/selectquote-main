@@ -98,7 +98,4 @@ export default function Apps({ Component, pageProps }: AppProps) {
   )
 
 }
-function setStorage(queryParams: any) {
-  throw new Error("Function not implemented.");
-}
 
