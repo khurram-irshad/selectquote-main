@@ -9,15 +9,15 @@ import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 const PartnershipIntro = () => {
     const router = useRouter();
-    
+
     const { control, handleSubmit, reset } = useForm({
         resolver: yupResolver(partnershipSchema),
     });
 
-    const onSubmit = async (event: any) => {
+    const onSubmit = (event: any) => {
         router.push('/partnerships-detail');
     };
-    
+
     return (
         <div>
             <div className="partnership-form">
@@ -56,7 +56,7 @@ const PartnershipIntro = () => {
                             />
                         </div>
                     </div>
-                    
+
                     <div className="mt-4 button-container">
                         <button
                             className="action-btn btn-border submit-button"
@@ -66,7 +66,6 @@ const PartnershipIntro = () => {
                                 backgroundColor: "rgb(244, 123, 32)",
                                 width: "15%"
                             }}
-                        // disabled={isUploading}
                         >
                             Continue
                         </button>
