@@ -23,7 +23,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
   return (
     <>
       {isDesktop(screenMode) && (
-        <div className="button-container">
+        <div className="button-container">  
           <a
             className={`action-btn ${rounded ? "btn-border" : ""}`}
             onMouseEnter={() => setFocus(true)}

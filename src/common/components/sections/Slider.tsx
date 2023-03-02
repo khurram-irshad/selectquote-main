@@ -6,7 +6,7 @@ import { Type_Slider } from "@common/types/Type_Slider";
 const settings = {
   dots: true,
   infinite: true,
-  autoplay: false,
+  autoplay: true,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,

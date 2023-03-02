@@ -13,10 +13,13 @@ import VideoSection from './Video';
 import TableSection from './Table';
 import { DeviceType } from '@common/types/Type_Device';
 import SectionTrustPilot from './TrustPilot';
+import { isDesktop, isMobile } from '@common/helpers/helper';
+import { useGlobalContext } from 'src/context';
 
 const ColumnSection = ({ section }: { section: any }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
+  const { screenMode } = useGlobalContext();
 
   const contentTypeId = _.get(section?.fields?.content, 'sys.contentType.sys.id');
   const Component = ContentTypeMap[contentTypeId];
@@ -31,22 +34,26 @@ const ColumnSection = ({ section }: { section: any }) => {
     section: section?.fields?.content,
   };
   return <>
-    <div className="wp-container-desktop d-flex" style={{
-      width: '100%',
-      padding: desktop?.fields?.padding,
-      margin: desktop?.fields?.margin,
-      justifyContent: `${desktop?.fields?.justifyContent}`,
-      alignItems: desktop?.fields?.alignItems,
-    }}>
-      <Component key={`${contentTypeId}-${id}`} {...componentProps} />
-    </div>
-    <div className="wp-container-mobile" style={{
-      width: '100%', padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,
-      justifyContent: `${mobile?.fields?.justifyContent}`,
-      alignItems: mobile?.fields?.alignItems,
-    }}>
-      <Component key={`${contentTypeId}-${id}`} {...componentProps} />
-    </div>
+    {isDesktop(screenMode) && (
+      <div className="d-flex" style={{
+        width: '100%',
+        padding: desktop?.fields?.padding,
+        margin: desktop?.fields?.margin,
+        justifyContent: `${desktop?.fields?.justifyContent}`,
+        alignItems: desktop?.fields?.alignItems,
+      }}>
+        <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+      </div>
+    )}
+    {isMobile(screenMode) && (
+      <div className="d-flex" style={{
+        width: '100%', padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,
+        justifyContent: `${mobile?.fields?.justifyContent}`,
+        alignItems: mobile?.fields?.alignItems,
+      }}>
+        <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+      </div>
+    )}
   </>;
 }
 
