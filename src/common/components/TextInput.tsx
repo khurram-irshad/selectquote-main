@@ -15,9 +15,10 @@ type FieldProps = {
     customChange?: any
     accept?: any
     width?: any
+    height?: any
 }
 
-export const UseFormTextField = ({ width, control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept}: FieldProps) => {
+export const UseFormTextField = ({ width, height, control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept}: FieldProps) => {
     return (
         <Controller
             name={name}
@@ -26,12 +27,12 @@ export const UseFormTextField = ({ width, control, name, disabled = false, place
             render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                 <>
                     <InputGroup style={{ flexDirection: 'column' }}>
-                        <Form.Control type={type} placeholder={placeholder} value={value} isInvalid={!!error} onChange={(e) => {
+                        <Form.Control type={type} placeholder={placeholder}  value={value} isInvalid={!!error} onChange={(e) => {
                             if(name === "img"){
                                 customChange(e)
                             }
                             onChange(e)
-                        }} disabled={disabled} className={className} style={{ width: width }} accept= {accept} />
+                        }} disabled={disabled} className={className} style={{ width: width , height: height}} accept= {accept} />
                         {children}
                         {error && (
                             <Form.Text id="passwordHelpBlock" className="text-danger" muted>

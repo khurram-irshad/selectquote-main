@@ -16,7 +16,55 @@ select {
 html {
   scroll-behavior: smooth;
 }
-
+.partnership-form {
+ .comapny-located {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+ }
+ .check-list {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  margin-top: 30px;
+  }
+  .check-list-other {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .other-field {
+    display: flex;
+    height: 40px; 
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    justify-content: flex-start;
+    border: 1px solid rgb(206, 212, 218); 
+    padding-left: 0px ;
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px ; 
+    margin-left: 10px;
+    width: 98%;
+  }
+  .other-button{
+    z-index: 10; 
+    border-radius: 30px; 
+    background: white;
+    color: #646464;  
+    border-width: thin; 
+    width: 18%; 
+    border: 1px solid rgb(206, 212, 218);
+  }
+  .submit-button {
+    color: #ffff;
+    background-color: rgb(244, 123, 32);
+    width: 15%
+  }
+  .other-line-input{
+    width: 90%;
+  }
+}
 .block-render {
   @include mediaQueries(mobile) {
     .desktop-blockrender {
@@ -100,6 +148,63 @@ html {
 }
 
 @include mediaQueries(mobile) {
+  .comapny-located {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    padding-bottom: 10px;
+   }
+   .radio-list {
+     display: flex;
+     flex-direction: row;
+     width: 45% !important;
+     margin-bottom: 10px !important;
+   }
+   .partnership-form {
+    .check-list {
+      display: flex;
+      flex-direction: column !important;
+      justify-content: space-between;
+      margin-top: 0px !important;
+    }
+    .check-list-other {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: space-between;
+      margin-top: 0px !important; 
+    }
+    .other-field {
+      display: flex;
+      height: 40px; 
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      justify-content: flex-start;
+      border: 1px solid rgb(206, 212, 218); 
+      padding-left: 0px ;
+      border-bottom-right-radius: 10px; 
+      border-top-right-radius: 10px ; 
+      margin-left: 10px;
+      width: 94%;
+    }
+    .other-button{
+      z-index: 10; 
+      border-radius: 30px; 
+      background: white;
+      color: #646464;  
+      border-width: thin; 
+      width: 50% !important; 
+      border: 1px solid rgb(206, 212, 218);
+    }
+    .submit-button {
+      color: #ffff;
+      background-color: rgb(244, 123, 32);
+      width: 40% !important
+    }
+    .other-line-input{
+      width: 66%;
+    }
+   }
+   
   .wp-container-desktop {
     display: none !important;
   }
@@ -143,28 +248,6 @@ html {
   width: 1200px;
   max-width: calc(100%);
   padding: 0;
-
-  .partnership-form {
-    .partnership-form-mobile {
-      display: none;
-    }
-  }
-
-  @include mediaQueries(mobile) {
-    .partnership-form {
-      .partnership-form-dekstop {
-        display: none !important;
-      }
-
-      .partnership-form-mobile {
-        display: block;
-        margin-left: 30px;
-        margin-right: 30px;
-      }
-    }
-  }
-
-
 
   @include mediaQueries(mobile) {
     // width: 1080px;
@@ -364,7 +447,6 @@ p {
     }
   }
 }
-
 .link-button {
   padding: 8px 16px;
   border-radius: 5px;

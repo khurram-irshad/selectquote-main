@@ -13,13 +13,15 @@ import {
   buildUserTemplate,
 } from "@common/templates/partnership";
 import { FileUploader } from "react-drag-drop-files";
+import PartnershipIntro from "@components/PartnershipIntro";
+import PartnershipDetail from "@components/PartnershipDetail";
 
 const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
   const [isEmailSentFund, setIsEmailSentFund] = useState(false);
   const [imagePath, setImagePath] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [file, setFile] = useState(null);
-  const { title } = section.fields;
+  const { title, step } = section.fields;
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(partnershipSchema),
@@ -85,6 +87,7 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
     }
     setIsUploading(false);
   };
+  console.log(section.fields)
   return (
     <div className="partnership-form">
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
@@ -97,178 +100,11 @@ const PartnershipFormSection = ({ section }: { section: Type_Form }) => {
                 SelectQuote. A member of our team will be in touch shortly.
               </p>
             ) : (
-              <div className="container">
-                <div className="row mb-4">
-                  <div className="col">
-                    <label className="form-label">First Name *</label>
-                    <UseFormTextField control={control} name="firstName"  width="100%"/>
-                  </div>
-                  <div className="col">
-                    <label className="form-label">Last Name *</label>
-                    <UseFormTextField control={control} name="lastName" width="100%" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col">
-                    <label className="form-label">Company Name *</label>
-                    <UseFormTextField control={control} name="companyName" width="100%"/>
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <label className="form-label">Your Title *</label>
-                    <UseFormTextField control={control} name="title" width="100%"/>
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <label className="form-label">Email *</label>
-                    <UseFormTextField control={control} name="email" width="100%"/>
-                  </div>
-                  <div className="col">
-                    <label className="form-label" >Phone Number *</label>
-                    <MyInputMask
-                      control={control}
-                      defaultValue={""}
-                      name="phoneNumber"
-                      mask={MOBILE_MASK}
-                      
-                    />
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <label>Additional Comments</label>
-                    <UseFormTextField
-                      control={control}
-                      type="textarea"
-                      name="comments"
-                      width="100%"
-                    />
-                  </div>
-                </div>
-                <div className="row mt-4">
-                  <div className="col">
-                    <label>Add Attachments</label>
-                    <div id="fileupload">
-                      <FileUploader handleChange={uploadFile} name="file" types={fileTypes} multiple= "false" 
-                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
-                      {uploadedFileName && <p>{uploadedFileName}</p>}
-                    </div>
-                    </div>
-                  </div>
-                <div className="mt-4 button-container">
-                  <button
-                    className="action-btn btn-border"
-                    type="submit"
-                    style={{
-                      color: "#ffff",
-                      backgroundColor: "rgb(244, 123, 32)",
-                    }}
-                    disabled={isUploading}
-                  >
-                    Connect with us
-                  </button>
-                </div>
+              <div >
+                {step === 'Intro' && <PartnershipIntro />}
+                {step === 'Detail' && <PartnershipDetail />}
               </div>
             )}
-          </div>
-        </div>
-        <div className="partnership-form-mobile">
-          <div className="pb-5">
-            <RichTextRenderer text={title} />
-            <div className="row">
-              <div className="col">
-                <label className="form-label">First Name *</label>
-                <input
-                  type="text"
-                  id="firstaname"
-                  className="form-control"
-                  aria-label="First name"
-                />
-              </div>
-              <div className="col mt-4">
-                <label className="form-label">Last Name *</label>
-                <input
-                  type="text"
-                  id="lastname"
-                  className="form-control"
-                  aria-label="Last name"
-                />
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col mt-3">
-                <label className="form-label">Company Name *</label>
-                <input
-                  type="text"
-                  id="company"
-                  className="form-control"
-                  aria-label="Company name"
-                />
-              </div>
-            </div>
-            <div className="row mt-2">
-              <div className="col">
-                <label className="form-label">Your Title *</label>
-                <input
-                  type="text"
-                  id="title"
-                  className="form-control"
-                  aria-label="Your Title"
-                />
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label className="form-label">Email *</label>
-                <input
-                  type="text"
-                  id="email"
-                  className="form-control"
-                  aria-label="Email"
-                />
-              </div>
-              <div className="col">
-                <label className="form-label">Phone Number *</label>
-                <input
-                  type="text"
-                  id="phone"
-                  className="form-control"
-                  aria-label="Phone number"
-                />
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label>Additional Comments</label>
-                <textarea className="form-control mt-2" id="floatingTextarea" />
-              </div>
-            </div>
-            <div className="row mt-4">
-              <div className="col">
-                <label>Add Attachments</label>
-                <div id="fileupload">
-                  <FileUploader handleChange={uploadFile} name="file" types={fileTypes} multiple= "false" 
-                      label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
-                      {uploadedFileName && <p>{uploadedFileName}</p>}
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 button-container">
-                  <button
-                    className="action-btn btn-border"
-                    type="submit"
-                    style={{
-                      color: "#ffff",
-                      backgroundColor: "rgb(244, 123, 32)",
-                    }}
-                    disabled={isUploading}
-                  >
-                    Connect with us
-                  </button>
-            </div>
           </div>
         </div>
       </form>
