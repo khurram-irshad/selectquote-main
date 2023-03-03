@@ -55,15 +55,8 @@
   }
   width: 100%;
   @include mediaQueries(mobile) {
-    // .faqs-section-desktop {
-    //   display: none;
-    // }
+   
     .faqs-section-mobile {
-      // display: initial;
-      // .faq-container {
-      //   margin-left: 30px;
-      //   margin-right: 30px;
-      // }
       h2 {
         font-family: "Helvetica", sans-serif;
         font-size: 36px;
@@ -184,31 +177,7 @@
           }
         }
       }
-      @include mediaQueries(ipad) {
-        h2 {
-          font-size: 30px;
-          text-align: center;
-        }
-        .accordion {
-          margin-top: 3%;
-        }
-        .accordion-card {
-          .card-header {
-            background-color: #ffffff;
-            padding: 20px;
-          }
-          .accordion-symbol {
-            // background-color: #3d9305;
-            border: none;
-            height: 24px;
-          }
-          button {
-            font-style: normal !important;
-            font-weight: 400 !important;
-            font-size: 11px !important;
-          }
-        }
-      }
+      
     }
   }
   .faqs-section-desktop {
@@ -289,6 +258,7 @@
       }
       p {
         color: #646464;
+      font-family: "Montserrat", sans-serif !important;
       }
       .faq-title {
         p {
@@ -297,6 +267,7 @@
           font-weight: 700;
           box-sizing: border-box;
           margin-bottom: 0px;
+          font-family:  "Poppins", sans-serif !important;
         }
         display: flex;
         justify-content: space-between;
@@ -331,31 +302,7 @@
         }
       }
     }
-    @include mediaQueries(ipad) {
-      h2 {
-        font-size: 30px;
-        text-align: center;
-      }
-      .accordion {
-        margin-top: 3%;
-      }
-      .accordion-card {
-        .card-header {
-          background-color: #ffffff;
-          padding: 20px;
-        }
-        .accordion-symbol {
-          // background-color: #3d9305;
-          border: none;
-          height: 24px;
-        }
-        button {
-          font-style: normal !important;
-          font-weight: 400 !important;
-          font-size: 11px !important;
-        }
-      }
-    }
+    
   }
 
 }
