@@ -66,6 +66,9 @@ html {
   .other-line-input{
     width: 90%;
   }
+  .top-space {
+    margin-top: 100px;
+  }
 }
 .block-render {
   @include mediaQueries(mobile) {
@@ -210,6 +213,9 @@ html {
     }
     .other-line-input{
       width: 66%;
+    }
+    .top-space{
+      margin-top: 50px !important;
     }
    }
    

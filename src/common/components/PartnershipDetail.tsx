@@ -1,12 +1,8 @@
-import { partnershipSchema } from "@common/schema/schema";
-import { Type_Form } from "@common/types/Type_Form";
-import RichTextRenderer from "@components/rich-text/RichTextRenderer";
+import { partnershipDetailSchema } from "@common/schema/schema";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UseFormTextField } from "@components/TextInput";
-import { MyInputMask } from "@components/MyInputMask";
-import { MOBILE_MASK } from "@common/constants/app.constant";
 import { appService } from "@common/services/app.service";
 import {
   buildBusinessTemplate,
@@ -18,17 +14,20 @@ const PartnershipDetail = () => {
     const [imagePath, setImagePath] = useState("");
     const [isUploading, setIsUploading] = useState(false);
     const [file, setFile] = useState(null);
+    const [radioValue, setRadioValue] = useState('');
   
     const { control, handleSubmit, reset } = useForm({
-      resolver: yupResolver(partnershipSchema),
+      resolver: yupResolver(partnershipDetailSchema),
     });
     const fileTypes = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"];
     const [uploadedFileName, setUploadedFileName] = useState<any>(null);
   
     const onSubmit = async (event: any) => {
+        const email = JSON.parse(localStorage.getItem('email'))
+        debugger
       try {
         const userEmailResponse = await appService.sendPartnership({
-          toEmail: event.email,
+          toEmail: email,
           fromEmail: "donotreply@selectquote.com",
           subject: "Thank you for contacting SelectQuote",
           body: buildUserTemplate(event),
@@ -87,91 +86,110 @@ const PartnershipDetail = () => {
     return (
         <div>
             <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-                <div className="mt-4 row">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                
+            {isEmailSentFund ? (
+              <p style={{ color: "#646464" }}>
+                Thank you for sahring you interest in partnering with
+                SelectQuote. A member of our team will be in touch shortly.
+              </p>
+            ) : (
+            <>
+
+                <div className="row mt-4">
+                    <label className="form-label" style={{ color: "#646446", marginBottom: "45px" }}>
                         <b>Where is this comapny located?*</b>
                     </label>
                     <div className="comapny-located">
-                        <UseFormTextField control={control} name="City" width="100%" placeholder="city " height="50px" />
+                        <UseFormTextField control={control} name="city" width="100%" placeholder="city " height="50px" />
                     </div>
                     <div className="comapny-located">
                         <UseFormTextField control={control} name="state" width="100%" placeholder="state " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label" style={{ color: "#646446"}}>
                             <b>How  many employees does your company have?*</b>
                         </label>
                         <ul className="custom-radio">
                             <li className="radio-list">
-                                <input type="radio" id="1-25" name="radio-option" />
-                                <label htmlFor="1-25" style={{ color: "#646446", borderRadius: "30px" }}>1-25</label>
                             </li>
                             <li className="radio-list">
-                                <input type="radio" id="26-50" name="radio-option" />
+                                <UseFormTextField
+                            control={control} 
+                            name = "others"
+                            width="100%"
+                            height="50px"
+                            type="radio"/>
                                 <label htmlFor="26-50" style={{ color: "#646446", borderRadius: "30px" }}>26-50</label>
                             </li>
                             <li className="radio-list">
-                                <input type="radio" id="51-100" name="radio-option" />
+                                <input type="radio" value="51-100" name="radioOption2" />
                                 <label htmlFor="51-100" style={{ color: "#646446", borderRadius: "30px" }}>51-100</label>
                             </li>
                             <li className="radio-list">
-                                <input type="radio" id="100ormore" name="radio-option" />
+                                <input type="radio" value="100ormore" name="radioOption4" />
                                 <label htmlFor="100 or more" style={{ color: "#646446", borderRadius: "30px" }}>100 or more</label>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Does your comapny have insurance coverage?*</b>
                         </label>
                         <ul className="custom-radio">
                             <li className="radio-list">
-                                <input type="radio" id="yes" name="radio-option" />
-                                <label htmlFor="yes" style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
+                                <input type="radio" value="yes" name="radio-option-insurance" />                                <label htmlFor="yes" style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
                             </li>
                             <li className="radio-list">
-                                <input type="radio" id="no" name="radio-option" />
+                                <input type="radio" value="no" name="radio-option-insurance1" />
                                 <label htmlFor="no" style={{ color: "#646446", borderRadius: "30px" }}>No</label>
                             </li>
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
                         <button className="other-button">Others</button>
-                        <input
-                            style={{ border: "none", width: "100%", outline: "none" }}
-                            type="text"
-                            placeholder="Enter text here" />
+                        <UseFormTextField
+                            placeholder="Enter text here"
+                            control={control}
+                            border= "none"
+                            outline= "none" 
+                            name = "others"
+                            width="100%"
+                            height="50px"/>
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Can your comapny provide an Acord Certificate?*</b> (General Liability, Erros & Omissions, and/ or Cyber Protection)
                         </label>
                         <ul className="custom-radio">
                             <li className="radio-list">
-                                <input type="radio" id="yes" name="radio-option" />
+                                <input type="radio" value="yes" name="radio-option-accord" />
                                 <label htmlFor="yes" style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
                             </li>
                             <li className="radio-list">
-                                <input type="radio" id="no" name="radio-option" />
+                                <input type="radio" value="no" name="radio-option-accord" />
                                 <label htmlFor="no" style={{ color: "#646446", borderRadius: "30px" }}>No</label>
                             </li>
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
                         <button className="other-button">Others</button>
-                        <input
-                            style={{ border: "none", width: "100%", outline: "none" }}
-                            type="text"
-                            placeholder="Enter text here" />
+                        <UseFormTextField
+                            placeholder="Enter text here"
+                            control={control}
+                            border= "none"
+                            outline= "none" 
+                            name = "others1"
+                            width="100%"
+                            height="50px"/>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row top-space">
                     <label className="form-label" style={{ color: "#646446" }}>
                         <b>What insurance verticals are you selling call/leads in?*</b> (Select all that apply)
                     </label>
@@ -191,7 +209,7 @@ const PartnershipDetail = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row top-space">
                     <label className="form-label" style={{ color: "#646446" }}>
                         <b>What lead type(s) do you currently offer?*</b>
                     </label>
@@ -208,7 +226,7 @@ const PartnershipDetail = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row top-space">
                     <label className="form-label" style={{ color: "#646446" }}>
                         <b>What are the primary sources of these leads?*</b>
                     </label>
@@ -229,40 +247,40 @@ const PartnershipDetail = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What is your daily average volume by insurance vertical and lead type and how does this vary by season?*</b>
                     </label>
                     <div className="col">
                         <UseFormTextField control={control} name="volume" width="100%" placeholder="Volume " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Do you work with a Call Center? Is this an owned and operated call center? Where is it located? Is the Customer data stored in the United States?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="canswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row" style={{marginTop: "100px"}}>
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label" style={{ color: "#646446"}}>
                             <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
                         </label>
                         <ul className="custom-radio">
                             <li style={{ marginBottom: "10px" }}>
                                 <input type="radio" id="OwnedOperated" name="radio-option" />
-                                <label htmlFor="Owned & Operated" style={{ color: "#646446", borderRadius: "30px" }}>Owned & Operated</label>
+                                <label htmlFor="OwnedOperated" style={{ color: "#646446", borderRadius: "30px" }}>Owned & Operated</label>
                             </li>
                             <li>
                                 <input type="radio" id="3rdParty" name="radio-option" />
-                                <label htmlFor="3rd Party" style={{ color: "#646446", borderRadius: "30px" }}>3rd Party</label>
+                                <label htmlFor="3rdParty" style={{ color: "#646446", borderRadius: "30px" }}>3rd Party</label>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Can you make changes to your sources?*</b>
@@ -283,15 +301,15 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What is your general pricing range by lead type?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="lanswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Can you implement an API key  for data posting?*</b>
@@ -312,40 +330,40 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What call routing system/softwre(s) do you currently use?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="sanswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row" style={{marginTop: "100px"}}>
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Are you able to filter calls by age/geographical area/states/zip codes?* </b> (List all that apply)
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="ganswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Are you able to send a specified amount of calls by day and/or hour?* </b>(i.e if we give you a maximum number
                         of calls per day of the week/set schedule, etc.)
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="danswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-5">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                <div className="row top-space">
+                    <label className="form-label" style={{ color: "#646446", marginBottom: "45px" }}>
                         <b>Is the majority of your traffic U65 or 065, if both what is the split between both?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="answer" width="100%" placeholder="Your answer " height="50px" />
+                        <UseFormTextField control={control} name="uanswer" width="100%" placeholder="Your answer " height="50px" />
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Do you use jornaya or Trusted Form?*</b>
@@ -367,16 +385,20 @@ const PartnershipDetail = () => {
                     </div>
                     <div className="mt-4 other-field">
                         <button className="other-button">Others</button>
-                        <input
-                            style={{ border: "none", width: "100%", outline: "none" }}
-                            type="text"
-                            placeholder="Enter text here" />
+                        <UseFormTextField
+                            placeholder="Enter text here"
+                            control={control}
+                            border= "none"
+                            outline= "none" 
+                            name = "others3"
+                            width="100%"
+                            height="50px"/>
                     </div>
                 </div>
 
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
-                        <label style={{ marginBottom: "15px", color: "#646464" }}>Additional Comments</label>
+                        <label style={{ marginBottom: "15px", color: "#646464" }}><b>Additional Comments</b></label>
                         <UseFormTextField
                             control={control}
                             type="textarea"
@@ -387,11 +409,11 @@ const PartnershipDetail = () => {
                         />
                     </div>
                 </div>
-                <div className="row mt-4">
+                <div className="row top-space">
                     <div className="col">
                         <label style={{ color: "#646464" }}>Add Attachments</label>
                         <div id="fileupload">
-                            <FileUploader handleChange={uploadFile} name="file" types={fileTypes} multiple="false"
+                            <FileUploader handleChange={uploadFile}  types={fileTypes} multiple="false"
                                 label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }} />
                             {uploadedFileName && <p>{uploadedFileName}</p>}
                         </div>
@@ -401,6 +423,7 @@ const PartnershipDetail = () => {
                     <button
                         className="action-btn btn-border submit-button"
                         type="submit"
+                        onClick= {()=>(handleSubmit(onSubmit))}
                         style={{
                             color: "#ffff",
                             backgroundColor: "rgb(244, 123, 32)",
@@ -411,8 +434,10 @@ const PartnershipDetail = () => {
                         submit
                     </button>
                 </div>
+            </>
+            )}     
             </form>
-        </div >
+        </div>
     )
 }
 
