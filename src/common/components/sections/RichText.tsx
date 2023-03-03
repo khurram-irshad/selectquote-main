@@ -25,21 +25,19 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
           <div
             id={contentId}
             style={{
-              width: `${desktop?.fields?.widthPercentage ?? desktop?.fields?.width
-                }`,
+              width: `${desktop?.fields?.widthPercentage ?? desktop?.fields?.width}`,
               padding: `${desktop?.fields?.padding}`,
-              fontWeight: `${desktop?.fields?.fontWeight}`,
-              lineHeight: `${desktop?.fields?.lineHeight}`,
-              fontSize: `${desktop?.fields?.fontSize}`,
-              color: `${desktop?.fields?.textColor} !important`,
-              letterSpacing: `${desktop?.fields?.letterSpacing} !important`,
-              fontFamily: `${desktop?.fields?.fontFamily}`,
               margin: desktop?.fields?.margin,
             }}
           >
             <RichTextRenderer
               text={content}
               color={desktop?.fields?.textColor}
+              fontWeight={`${desktop?.fields?.fontWeight}`}
+              lineHeight={`${desktop?.fields?.lineHeight}`}
+              fontSize={`${desktop?.fields?.fontSize}`}
+              fontFamily={`${desktop?.fields?.fontFamily}`}
+              letterSpacing={desktop?.fields?.letterSpacing}
             />
           </div>
         </div>
@@ -53,21 +51,19 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
           <div
             id={contentId}
             style={{
-              width: `${mobile?.fields?.width}`,
+              width: `${mobile?.fields?.widthPercentage ?? mobile?.fields?.width}`,
               padding: `${mobile?.fields?.padding}`,
-              fontWeight: `${mobile?.fields?.fontWeight}`,
-              lineHeight: `${mobile?.fields?.lineHeight}`,
-              fontSize: `${mobile?.fields?.fontSize}`,
-              color: `${mobile?.fields?.textColor} !important`,
-              letterSpacing: `${mobile?.fields?.letterSpacing} !important`,
-              fontFamily: `${mobile?.fields?.fontFamily}`,
               margin: mobile?.fields?.margin,
-
             }}
           >
             <RichTextRenderer
               text={content}
               color={mobile?.fields?.textColor}
+              fontWeight={`${mobile?.fields?.fontWeight}`}
+              lineHeight={`${mobile?.fields?.lineHeight}`}
+              fontSize={`${mobile?.fields?.fontSize}`}
+              fontFamily={`${mobile?.fields?.fontFamily}`}
+              letterSpacing={mobile?.fields?.letterSpacing}
             />
           </div>
         </div>
