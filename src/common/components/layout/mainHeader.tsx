@@ -388,28 +388,19 @@ export default function MainHeader({ header }: { header: Type_Header }) {
             <div className="close-btn" onClick={() => setShowSearch(false)}>
               <img src="/images/content/close.svg" />
             </div>
-            <div className="inputs-container">
-              <div className="input-container position-relative">
-                <input
-                  className="search-input"
-                  type="text"
-                  placeholder="Search..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                {search !== "" && (
-                  <div className="clear-btn" onClick={() => setSearch("")}>
-                    <img src="/images/content/close.svg" />
-                  </div>
-                )}
-              </div>
-            </div>
 
-            <div className="no-result text-center">
-              No search results with keyword <b>{search}</b>
-            </div>
+             {/* <!-- (3) Main search bar on website --> */}
+          <div id="searchfield-container"></div>
+          <div id="autocomplete-container"></div>
+          {/* <!-- (4) Search results page UI components --> */}
+          <div id="tabs"></div>
+          <div className="select-wrapper"><div id="select-list"></div></div>
+          <div id="searchresults-container"></div>
+          <div id="loadmore"></div>
+
           </div>
         </div>
+        
       </div>
     </header>
   );

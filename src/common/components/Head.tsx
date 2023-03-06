@@ -37,15 +37,49 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     pageNoFollow = noFollow;
   }
 
+  const injectedScript = [
+    {
+      element: 'script',
+      type: 'text/javascript',
+      source: "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
+      async: true,
+    },
+    {
+      element: 'script',
+      type: 'text/javascript',
+      source: "https://cdn.jsdelivr.net/npm/addsearch-js-client@0.4/dist/addsearch-js-client.min.js",
+      async: true,
+    },
+    {
+      element: 'script',
+      type: 'text/javascript',
+      source: "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4.8/dist/addsearch-search-ui.min.js",
+      async: true,
+    },
+    {
+      element: 'script',
+      type: 'text/javascript',
+      source: "/addsearch/js/ui.js",
+      async: true,
+    }
+  ]
+
 
 
   useEffect(() => {
-    var aScript = document.createElement("script");
-    aScript.type = "text/javascript";
-    aScript.src =
-      "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
-    aScript.async = true;
-    document.head.appendChild(aScript);
+    injectedScript.map(inject => { 
+      let createdElement: any = document.createElement(inject.element);
+      createdElement.type = inject.type;
+      createdElement.src = inject.source;
+      createdElement.async = inject.async;
+     return document.head.appendChild(createdElement)
+    })
+
+    var aLink = document.createElement("link");
+    aLink.rel = "stylesheet";
+    aLink.href =
+      "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4/dist/addsearch-search-ui.min.css";
+    document.head.appendChild(aLink);
   }, [])
 
   return (
@@ -67,9 +101,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       <meta name="twitter:label1" content="Est. reading time" />
       <meta name="twitter:data1" content="9 minutes" />
       <meta property="og:image" content={pageImage} />
-
-
-
       <meta name="keywords" content={pageKeywords} />
       {pageCanonicalUrl !== "" && (
         <link rel="canonical" href={pageCanonicalUrl} />
@@ -84,9 +115,9 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       )}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-
       <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
+      <script></script>
     </Head>
   );  
 };
