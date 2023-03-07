@@ -19,7 +19,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
         <>
             {isDesktop(screenMode) && (
                 <div className=" w-100" style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}>
-                    <table>
+                    <table >
                         {header && (<>
                             <tr style={{ backgroundColor: header.fields.backgroundColor }}>
                                 {header?.fields?.columns?.map(item => (

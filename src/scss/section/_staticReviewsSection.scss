@@ -1,14 +1,14 @@
-
-
 .review-container {
   .wp-container-mobile {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
+
     .slick-slider {
       width: 340px;
     }
   }
+
   div {
     margin: 0 auto;
   }
@@ -16,14 +16,19 @@
   p {
     text-align: center;
   }
+
   .review-title {
     font-weight: 700;
     line-height: 34px;
     font-size: 30px;
     color: #231f20 !important;
     letter-spacing: undefined !important;
-    font-family: "Poppins", sans-serif;
+
+    p {
+      font-family: "Poppins", sans-serif !important;
+    }
   }
+
   .slider-list {
     padding: 20px 0;
   }

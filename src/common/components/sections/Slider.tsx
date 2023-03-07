@@ -84,7 +84,13 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
                   className="company d-flex align-items-center justify-content-center"
                   key={image.sys.id}
                 >
-                  {renderImage(image)}
+                  {image.fields?.link ? (
+                    <a href={`${image.fields?.link}`}
+                    > {renderImage(image)}</a>
+
+                  ) : (
+                    renderImage(image)
+                  )}
                 </div>
               ))}
             </div>
