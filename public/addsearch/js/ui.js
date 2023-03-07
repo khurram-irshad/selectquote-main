@@ -7,7 +7,7 @@ var conf = {
 
 var searchui = new AddSearchUI(client);
 
-const searchResultsTemplate = `
+var searchResultsTemplate = `
   <div class="addsearch-searchresults">    
     {{#if resultcount}}
       <div class="addsearch-results-count">{{> numberOfResultsTemplate }} for<span class="keyword"><em>{{keyword}}</em></span></div>
@@ -40,7 +40,7 @@ const searchResultsTemplate = `
   </div>
 `;
 
-const FILTERS_SELECTLIST_TEMPLATE = `
+var FILTERS_SELECTLIST_TEMPLATE = `
   <div class="addsearch-filters-selectlist custom-select">
     <select>
       {{#each options}}
