@@ -6,7 +6,7 @@
     float: left;
     margin: 0 5px 0 0;
     width: 190px;
-    height: 40px;
+    height: 56px;
     position: relative;
   }
 
@@ -28,7 +28,7 @@
 
   input[type="radio"]:checked + label {
     background: #00aec7;
-    color: #fff;
+    color: #fff !important;
   }
   label {
     padding: 5px;
@@ -36,6 +36,7 @@
     cursor: pointer;
     z-index: 90;
     text-align: center;
+    padding: 15px;
   }
   label:hover {
     background: #ddd;

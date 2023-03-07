@@ -2,32 +2,32 @@ import { REGEX } from "@common/constants/app.constant";
 import * as yup from "yup";
 
 export const partnershipSchema = yup.object().shape({
-    firstName: yup.string().required('First name is required.'),
-    lastName: yup.string().required('Last name is required.'),
-    companyName: yup.string().required('Company name is required.'),
-    email: yup.string().required('Email is required.').matches(REGEX.EMAIL, "Please enter a valid email"),
-    title: yup.string().required('Title is required.'),
-    phoneNumber: yup.string().required('Phone number is required.'),
+    firstName: yup.string().required('This field is required'),
+    lastName: yup.string().required('This field is required'),
+    companyName: yup.string().required('This field is required'),
+    email: yup.string().required('This field is required').matches(REGEX.EMAIL, "Please enter a valid email"),
+    title: yup.string().required('This field is required'),
+    phoneNumber: yup.string().required('This field is required'),
     
 });
 export const partnershipDetailSchema = yup.object().shape({
     comments: yup.string(),
     attachment: yup.string(),
-    city : yup.string().required('city name is required.'),
-    state : yup.string().required('state is required.'),
-    volume: yup.string().required('required'),
-    canswer: yup.string().required('required'),
-    lanswer: yup.string().required('required'),
-    sanswer: yup.string().required('required'),
-    ganswer: yup.string().required('required'),
-    danswer: yup.string().required('required'),
-    uanswer: yup.string().required('required'),
-    radioOption: yup.string()
-    // others: yup.string().when('radioOption', {
-    //     is: undefined,
-    //     then: yup.string().required(),
-    //     otherwise: yup.string(),
-    // }),
+    city : yup.string().required('This field is required'),
+    state : yup.string().required('This field is required'),
+    volume: yup.string().required('This field is required'),
+    canswer: yup.string().required('This field is required'),
+    lanswer: yup.string().required('This field is required'),
+    sanswer: yup.string().required('This field is required'),
+    ganswer: yup.string().required('This field is required'),
+    danswer: yup.string().required('This field is required'),
+    uanswer: yup.string().required('This field is required'),
+    radiooption: yup.string().required('This field is required'),
+    radiooption1: yup.string().required('This field is required'),
+    radiooption2: yup.string().required('This field is required'),
+    radiooption3: yup.string().required('This field is required'),
+    radiooption4: yup.string().required('This field is required'),
+    radiooption5: yup.string().required('This field is required'),
 })
 export const foundationSchema = yup.object().shape({
     firstName: yup.string().required('Please enter your first name'),

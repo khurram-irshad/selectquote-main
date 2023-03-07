@@ -21,7 +21,7 @@ type FieldProps = {
     value? : any
 }
 
-export const UseFormTextField = ({ width, height, control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept , border , outline}: FieldProps) => {
+export const UseFormTextField = ({ width = "100%", height= "50px", control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept , border , outline}: FieldProps) => {
     return (
         <Controller
             name={name}
