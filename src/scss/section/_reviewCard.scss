@@ -49,9 +49,18 @@
     }
   }
 }
+
+
 .review-cards-desktop {
-  // min-height: 112vh;
   div.card-header {
+    @media screen and (min-device-width: 980px) and (max-device-width: 1435px) {
+      h2 {
+        min-height: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
     h2 {
       color: #fff;
       font-family: "Poppins", sans-serif;
