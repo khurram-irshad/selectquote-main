@@ -27,7 +27,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   ) ? (
     <a
       href={section.fields.linkUrl || "/"}
-      className={type === 'Button' ? 'link-button' : ''}
+      className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
       style={{
         textDecoration: "none",
         color: section.fields.color,
@@ -40,7 +40,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   ) : (
     <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")}>
       <a
-        className={type === 'Button' ? 'link-button' : ''}
+        className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
         style={{
           color: section.fields?.color,
           textDecoration: "none",
