@@ -85,13 +85,11 @@ const PageHead = ({ page }: { page: Type_Page }) => {
 
 
   useEffect(() => {
-    if (document.body) {
       var aScript = document.createElement("script");
       aScript.type = "text/javascript";
       aScript.src =
         "/addsearch/js/ui.js";
       document.body.appendChild(aScript);
-    }
   },[]);
 
   return (
