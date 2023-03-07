@@ -56,12 +56,12 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       source: "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4.8/dist/addsearch-search-ui.min.js",
       async: true,
     },
-    {
-      element: 'script',
-      type: 'text/javascript',
-      source: "/addsearch/js/ui.js",
-      async: true,
-    }
+    // {
+    //   element: 'script',
+    //   type: 'text/javascript',
+    //   source: "/addsearch/js/ui.js",
+    //   async: true,
+    // }
   ]
 
 
@@ -80,7 +80,17 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     aLink.href =
       "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4/dist/addsearch-search-ui.min.css";
     document.head.appendChild(aLink);
+   
   }, [])
+
+
+  useEffect(() => {
+      var aScript = document.createElement("script");
+      aScript.type = "text/javascript";
+      aScript.src =
+        "/addsearch/js/ui.js";
+      document.body.appendChild(aScript);
+  },[]);
 
   return (
     <Head>

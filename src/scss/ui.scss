@@ -420,6 +420,11 @@ $searchMaxHeight: 1000px;
 #searchresults-container {
   overflow-y: scroll;
   height: calc(100%);
+  margin: 40px 0 80px;
+}
+
+#searchresults-container::-webkit-scrollbar {
+  width: 0 !important
 }
 
 #loadmore {
