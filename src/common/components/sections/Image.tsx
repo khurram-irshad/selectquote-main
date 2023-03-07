@@ -40,8 +40,8 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
     <>
       {section.fields?.link ? (
         <a
-          target="_blank"
-          rel="noopener noreferrer"
+          rel={section.fields?.externalLink ? "noopener noreferrer" : ''}
+          target={section.fields?.externalLink ? "_blank" : ''}
           href={`${section.fields?.link}`}
         >
           {renderImage()}
