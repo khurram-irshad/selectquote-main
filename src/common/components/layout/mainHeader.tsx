@@ -293,7 +293,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
               />
             </li>
             <li>
-              <a className="free-quote-btn" href="/quote-form">
+              <a className="free-quote-btn" href="https://life.selectquote.com/quote-form/?pass_sid=23ystg-11k9-wfbwno&pass_cid=NBn4QLCUpqPMUz3IoYSn&pass_channel=B-DE&pass_sid=23ystg-11k9-wfbwno&pass_cid=NBn4QLCUpqPMUz3IoYSn&pass_channel=B-DE">
                 Get a Quote
               </a>
             </li>
