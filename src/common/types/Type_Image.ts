@@ -5,6 +5,7 @@ export interface Image {
   imageName: Contentful.EntryFields.Symbol;
   imageFile: Contentful.Asset;
   link?: Contentful.EntryFields.Symbol;
+  externalLink: Contentful.EntryFields.Symbol;
   devices: Contentful.Entry<Device>[];
 }
 
