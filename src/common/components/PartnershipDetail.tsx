@@ -11,6 +11,7 @@ import {
 import { FileUploader } from "react-drag-drop-files";
 import { useRouter } from 'next/router';
 import { StorageService } from "@common/services/storage";
+import { FILE_TYPES } from "@common/constants/app.constant";
 const PartnershipDetail = () => {
     const [isEmailSentFund, setIsEmailSentFund] = useState(false);
     const [imagePath, setImagePath] = useState("");
@@ -21,7 +22,7 @@ const PartnershipDetail = () => {
     const [selectedRadio2, setSelectedRadio2] = useState(undefined);
     const router = useRouter();
     useEffect(() => {
-        if (!StorageService.getItem('model')?.firstName) {
+        if (!StorageService.getItem('partnerShipModel')?.firstName) {
           // Redirect to the main page
           router.push('/partnerships-intro');
         }
@@ -30,15 +31,15 @@ const PartnershipDetail = () => {
     const { control, handleSubmit, reset , getValues } = useForm({
       resolver: yupResolver(partnershipDetailSchema),
     });
-    const fileTypes = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"];
+    
     const [uploadedFileName, setUploadedFileName] = useState<any>(null);
 
     const onSubmit = async (event: any) => {
-        const introModel = StorageService.getItem('model');
-        const partnerShipDetails = { ...introModel, ...event };
+        const partnerShipIntroModel = StorageService.getItem('partnerShipModel');
+        const partnerShipDetails = { ...partnerShipIntroModel, ...event };
       try {
         const userEmailResponse = await appService.sendPartnership({
-          toEmail: "khurram",
+          toEmail: partnerShipDetails.email,
           fromEmail: "donotreply@selectquote.com",
           subject: "Thank you for contacting SelectQuote",
           body: buildUserTemplate(partnerShipDetails),
@@ -1008,7 +1009,7 @@ const PartnershipDetail = () => {
                     <div className="col">
                         <label style={{ color: "#646464" }}>Add Attachments</label>
                         <div id="fileupload">
-                            <FileUploader handleChange={uploadFile}  types={fileTypes} multiple="false"
+                            <FileUploader handleChange={uploadFile}  types={FILE_TYPES} multiple="false"
                                 label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }} />
                             {uploadedFileName && <p>{uploadedFileName}</p>}
                         </div>

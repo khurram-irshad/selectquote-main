@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { UseFormTextField } from "@components/TextInput";
 import { MyInputMask } from "@components/MyInputMask";
-import { MOBILE_MASK } from "@common/constants/app.constant";
+import { FILE_TYPES, MOBILE_MASK } from "@common/constants/app.constant";
 import { appService } from "@common/services/app.service";
 import { foundationSchema } from "@common/schema/schema";
 import { FileUploader } from "react-drag-drop-files";
@@ -22,7 +22,6 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(foundationSchema),
   });
-  const fileTypes = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"];
 
   const onSubmit = async (event: any) => {
     try {
@@ -260,7 +259,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label>Add Attachments</label>
                   <div id="fileupload">
-                  <FileUploader handleChange={uploadFileForFund} name="file" types={fileTypes} multiple= "true" 
+                  <FileUploader handleChange={uploadFileForFund} name="file" types={FILE_TYPES} multiple= "true" 
                       label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize= {1500000} style={{ whiteSpace: 'pre-line' }}>
                         {uploadedFileName && <p>{uploadedFileName}</p>}
                   </FileUploader>
@@ -456,7 +455,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label>Add Attachments</label>
                   <div id="fileupload">
-                  <FileUploader handleChange={uploadFileForFund} name="file" types={fileTypes} multiple= {false} 
+                  <FileUploader handleChange={uploadFileForFund} name="file" types={FILE_TYPES} multiple= {false} 
                       label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
                       {uploadedFileName && <p>{uploadedFileName}</p>}
                   </div>
