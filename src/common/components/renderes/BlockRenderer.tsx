@@ -35,6 +35,8 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 
   const { screenMode } = useGlobalContext();
 
+  console.log('screenMode->', screenMode);
+
   if (Array.isArray(section)) {
     return (
       <div className="block-render">
@@ -49,6 +51,8 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
           const fullBackgroundImage = item?.fields?.fullBackgroundImage;
           const fullWidth = desktop?.fields?.fullWidth;
           const fullWidthMobile = mobile?.fields?.fullWidth;
+
+          console.log(fullBackgroundColor || fullWidth)
 
           return (
             <>

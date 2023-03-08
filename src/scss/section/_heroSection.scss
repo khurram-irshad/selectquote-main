@@ -8,14 +8,7 @@
     }
     .hero-section-mobile {
       display: block !important;
-      .hero-section {
-        div {
-          .hero-image {
-            margin: 0 -12%;
-            width: 124%;
-          }
-        }
-      }
+      
     }
   }
   .hero-section {
@@ -33,6 +26,15 @@
       .content-left {
         width: 100% !important;
       }
+    }
+
+    @include mediaQueries(tab) {
+     
+        div{
+          .hero-image {height:680px !important}
+        }
+     
+      
     }
   }
   .hero-section-shadow {
