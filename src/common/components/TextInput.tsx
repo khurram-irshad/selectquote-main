@@ -16,9 +16,12 @@ type FieldProps = {
     accept?: any
     width?: any
     height?: any
+    border?: any
+    outline?: any
+    value? : any
 }
 
-export const UseFormTextField = ({ width, height, control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept}: FieldProps) => {
+export const UseFormTextField = ({ width = "100%", height= "50px", control, name, disabled = false, placeholder, type = 'text', className, defaultValue = '', children, customChange , accept , border , outline}: FieldProps) => {
     return (
         <Controller
             name={name}
@@ -32,7 +35,7 @@ export const UseFormTextField = ({ width, height, control, name, disabled = fals
                                 customChange(e)
                             }
                             onChange(e)
-                        }} disabled={disabled} className={className} style={{ width: width , height: height}} accept= {accept} />
+                        }} disabled={disabled} className={className} style={{ width: width , height: height , border: border , outline: outline}} accept= {accept} />
                         {children}
                         {error && (
                             <Form.Text id="passwordHelpBlock" className="text-danger" muted>

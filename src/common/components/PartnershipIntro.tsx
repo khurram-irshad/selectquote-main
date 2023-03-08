@@ -7,42 +7,46 @@ import { partnershipSchema } from "@common/schema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
+import { StorageService } from '@common/services/storage';
+
 const PartnershipIntro = () => {
     const router = useRouter();
-
-    const { control, handleSubmit, reset } = useForm({
+    
+    const { control, handleSubmit } = useForm({
         resolver: yupResolver(partnershipSchema),
     });
 
     const onSubmit = (event: any) => {
+        // Store the form data in the localStorage
+        StorageService.setItem('model' , event)
         router.push('/partnerships-detail');
     };
-
+    
     return (
         <div>
             <div className="partnership-form">
                 <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="row mb-4">
+                    <div className="row intro-fields">
                         <div className="col">
-                            <UseFormTextField control={control} name="firstName" width="100%" height="50px" placeholder="First Name *" />
+                            <UseFormTextField control={control} name="firstName"  placeholder="First Name *" />
                         </div>
                         <div className="col">
-                            <UseFormTextField control={control} name="lastName" width="100%" height="50px" placeholder="Last Name *" />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <UseFormTextField control={control} name="companyName" width="100%" height="50px" placeholder="Company Name *" />
+                            <UseFormTextField control={control} name="lastName"  placeholder="Last Name *" />
                         </div>
                     </div>
-                    <div className="row mt-4">
+                    <div className="row intro-fields">
                         <div className="col">
-                            <UseFormTextField control={control} name="title" width="100%" height="50px" placeholder="Your Title *" />
+                            <UseFormTextField control={control} name="companyName"  placeholder="Company Name *" />
                         </div>
                     </div>
-                    <div className="row mt-4">
+                    <div className="row intro-fields">
                         <div className="col">
-                            <UseFormTextField control={control} name="email" width="100%" placeholder="Email *" height="50px" />
+                            <UseFormTextField control={control} name="title"  placeholder="Your Title *" />
+                        </div>
+                    </div>
+                    <div className="row intro-fields">
+                        <div className="col">
+                            <UseFormTextField control={control} name="email"  placeholder="Email *" height="50px" />
                         </div>
                         <div className="col">
                             <MyInputMask
@@ -56,7 +60,7 @@ const PartnershipIntro = () => {
                             />
                         </div>
                     </div>
-
+                    
                     <div className="mt-4 button-container">
                         <button
                             className="action-btn btn-border submit-button"
