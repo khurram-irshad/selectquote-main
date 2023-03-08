@@ -24,11 +24,13 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     reverseImagePosition,
     mobileImageHeight,
     mobileImageWidth,
+    padding = '0',
   } = section.fields;
   const path = useRouter().asPath;
 
   const bgPosition =
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
+  
 
   return (
     <div className="hero-block">
@@ -42,6 +44,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             backgroundImage: backgroundImage
               ? `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
               : "",
+            padding,
           }}
         >
           <div

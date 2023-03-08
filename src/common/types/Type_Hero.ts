@@ -19,6 +19,7 @@ interface Hero {
   reverseImagePosition?: Contentful.EntryFields.Boolean;
   mobileImageHeight?: Contentful.EntryFields.Symbol;
   mobileImageWidth?: Contentful.EntryFields.Symbol;
+  padding?: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Hero = Contentful.Entry<Hero>;
