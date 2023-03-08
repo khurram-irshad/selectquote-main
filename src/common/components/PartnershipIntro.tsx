@@ -18,7 +18,7 @@ const PartnershipIntro = () => {
 
     const onSubmit = (event: any) => {
         // Store the form data in the localStorage
-        StorageService.setItem('model' , event)
+        StorageService.setItem('partnerShipModel' , event)
         router.push('/partnerships-detail');
     };
     

@@ -47,3 +47,5 @@ export const REGEX = {
 };
 
 export const MOBILE_MASK = "(999) 999-9999";
+
+export const FILE_TYPES = ["PNG", "JFIF", "JPEG", "PJP", "JPG", "PPT", "PPTX", "PDF", "JPE", "POT", "PPS"]
