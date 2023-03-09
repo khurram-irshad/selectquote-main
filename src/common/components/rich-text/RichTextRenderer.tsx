@@ -56,7 +56,6 @@ const RichTextRenderer = ({
   letterSpacing?: string;
   fontFamily?: string;
 }) => {
-  console.log(letterSpacing)
   return (
     <>
       {documentToReactComponents(text, {

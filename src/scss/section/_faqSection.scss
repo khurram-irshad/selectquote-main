@@ -20,6 +20,7 @@
             transition: border 0.7s linear;
             border-radius: 20px !important;
             border: none !important;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
           }
         } 
       }
@@ -47,6 +48,15 @@
               transition: border 0.7s linear;
               border-radius: 20px !important;
               border: none !important;
+              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+            }
+            .header-title {
+              p {
+              font-family: "Montserrat", sans-serif !important;
+              }
+            }
+            p {
+              font-family: "Montserrat", sans-serif !important;
             }
           } 
         }
@@ -197,7 +207,7 @@
       .accordion-symbol {
         // background-color: #3d9305;
         border: none;
-        height: 16px;
+        height: 18px;
         width: 16.5px;
         color: #ffffff;
         padding: 0 0 0 0;
