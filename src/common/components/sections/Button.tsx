@@ -35,7 +35,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               border: desktop?.fields?.border,
               backgroundColor: isFocused ? hoverBackground : desktop?.fields?.backgroundColor,
               color: isFocused ? hoverColor : desktop?.fields?.textColor,
-              borderColor: isFocused ? hoverColor : desktop?.fields?.textColor
+              borderColor: isFocused ? hoverColor : desktop?.fields?.textColor,
+              boxShadow: desktop?.fields?.boxShadow? desktop?.fields?.boxShadow:'0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
             href={linkUrl}
           >
@@ -57,7 +58,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               border: mobile?.fields?.border,
               backgroundColor: isFocused ? hoverBackground : mobile?.fields?.backgroundColor,
               color: isFocused ? hoverColor : mobile?.fields?.textColor,
-              borderColor: isFocused ? hoverColor : mobile?.fields?.textColor
+              borderColor: isFocused ? hoverColor : mobile?.fields?.textColor,
+              boxShadow: mobile?.fields?.boxShadow? mobile?.fields?.boxShadow:'0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
             href={linkUrl}
           >

@@ -8,9 +8,11 @@ select {
 .container {
   padding: 0px;
 }
-.hyperlink{
+
+.hyperlink {
   font-family: "Montserrat", sans-serif !important;
 }
+
 #trent {
   scroll-margin-top: 150px;
 }
@@ -18,60 +20,69 @@ select {
 html {
   scroll-behavior: smooth;
 }
+
 .partnership-form {
- .comapny-located {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
- }
- .check-list {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between;
-  margin-top: 30px;
+  .comapny-located {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
   }
+
+  .check-list {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
   .check-list-other {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between;
     margin-top: 30px;
   }
+
   .other-field {
     display: flex;
-    height: 56px; 
+    height: 56px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     justify-content: flex-start;
-    border: 1px solid rgb(206, 212, 218); 
-    padding-left: 0px ;
-    border-bottom-right-radius: 10px; 
-    border-top-right-radius: 10px ; 
+    border: 1px solid rgb(206, 212, 218);
+    padding-left: 0px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     margin-left: 10px;
     width: 98%;
   }
-  .other-button{
+
+  .other-button {
     text-align: center;
     padding: 15px;
-    z-index: 10; 
-    border-radius: 30px; 
+    z-index: 10;
+    border-radius: 30px;
     background: white;
-    color: #646464;  
-    border-width: thin; 
-    width: 18%; 
+    color: #646464;
+    border-width: thin;
+    width: 18%;
     border: 1px solid rgb(206, 212, 218);
   }
+
   .submit-button {
     color: #ffff;
     background-color: rgb(244, 123, 32);
     width: 15%
   }
-  .other-line-input{
+
+  .other-line-input {
     width: 90%;
   }
+
   .top-space {
     margin-top: 100px;
   }
 }
+
 .block-render {
   @include mediaQueries(mobile) {
     .desktop-blockrender {
@@ -135,7 +146,8 @@ html {
     font-weight: 700;
     padding: 9px 24px;
     border-right: 1px solid #979797;
-    p{
+
+    p {
       font-family: "Montserrat", sans-serif !important;
     }
   }
@@ -146,7 +158,8 @@ html {
     color: #555;
     padding: 9px 24px;
     font-weight: 400;
-    p{
+
+    p {
       font-family: "Montserrat", sans-serif !important;
     }
   }
@@ -166,61 +179,69 @@ html {
     flex-direction: row !important;
     width: 100% !important;
     padding-bottom: 10px;
-   }
-   .radio-list {
-     display: flex;
-     flex-direction: row;
-     width: 45% !important;
-     margin-bottom: 10px !important;
-   }
-   .partnership-form {
+  }
+
+  .radio-list {
+    display: flex;
+    flex-direction: row;
+    width: 45% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .partnership-form {
     .check-list {
       display: flex;
       flex-direction: column !important;
       justify-content: space-between;
       margin-top: 0px !important;
     }
+
     .check-list-other {
       display: flex !important;
       flex-direction: row !important;
       justify-content: space-between;
-      margin-top: 0px !important; 
+      margin-top: 0px !important;
     }
+
     .other-field {
       display: flex;
-      height: 40px; 
+      height: 40px;
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       justify-content: flex-start;
-      border: 1px solid rgb(206, 212, 218); 
-      padding-left: 0px ;
-      border-bottom-right-radius: 10px; 
-      border-top-right-radius: 10px ; 
+      border: 1px solid rgb(206, 212, 218);
+      padding-left: 0px;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
       margin-left: 10px;
       width: 94%;
     }
-    .other-button{
-      z-index: 10; 
-      border-radius: 30px; 
+
+    .other-button {
+      z-index: 10;
+      border-radius: 30px;
       background: white;
-      color: #646464;  
-      border-width: thin; 
-      width: 50% !important; 
+      color: #646464;
+      border-width: thin;
+      width: 50% !important;
       border: 1px solid rgb(206, 212, 218);
     }
+
     .submit-button {
       color: #ffff;
       background-color: rgb(244, 123, 32);
       width: 40% !important
     }
-    .other-line-input{
+
+    .other-line-input {
       width: 66%;
     }
-    .top-space{
+
+    .top-space {
       margin-top: 50px !important;
     }
-   }
-   
+  }
+
   .wp-container-desktop {
     display: none !important;
   }
@@ -242,14 +263,13 @@ html {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.7em;
-    font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     border: 2px solid #ffffff;
     padding: 0.3em 24px;
-    // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 30%);
     transition: all 300ms ease 0ms;
     cursor: pointer;
   }
+
 
   .btn-border {
     border-radius: 22.5px;
@@ -302,8 +322,9 @@ html {
 .border-r {
   border-right: 1px solid #d8d8d8;
 }
+
 .border-b {
-  padding:20px 0px;
+  padding: 20px 0px;
   border-bottom: 1px solid #d8d8d8;
 }
 
@@ -464,6 +485,7 @@ p {
     }
   }
 }
+
 .link-button {
   padding: 8px 16px;
   border-radius: 5px;
@@ -472,17 +494,21 @@ p {
 .link-button:hover {
   background-color: #efefef;
 }
+
 .input-group {
   input:focus {
     box-shadow: none !important;
-  } 
+  }
 }
+
 #passwordHelpBlock {
-  color : red !important
+  color: red !important
 }
+
 .intro-fields {
   margin-bottom: 42px;
 }
+
 .other-line-input {
   border-top: none;
   border-right: none;
@@ -498,13 +524,15 @@ p {
   border-bottom-right-radius: 0px;
   margin-top: -24px;
 }
+
 .form-control {
   input:focus {
     box-shadow: none;
   }
 }
+
 .radio-align {
-  display : flex ; 
-  padding-left: 10px !important; 
-  padding-right: 30% !important; 
+  display: flex;
+  padding-left: 10px !important;
+  padding-right: 30% !important;
 }
