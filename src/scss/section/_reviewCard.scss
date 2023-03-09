@@ -47,6 +47,12 @@
     .review-cards-mobile {
       display: block !important;
     }
+    .card-body {
+      p {
+        font-family: "Montserrat", sans-serif !important
+
+      }
+    }
   }
 }
 
@@ -98,6 +104,7 @@
     p {
       margin-bottom: 1rem;
       margin-top: 1rem;
+      font-family: "Montserrat", sans-serif !important;
     }
   }
 

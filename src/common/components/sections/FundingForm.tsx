@@ -92,45 +92,45 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
             <>
               <div className="row">
                 <div className="col">
-                  <label className="form-label">First Name *</label>
+                  <label className="form-label">First Name <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='firstName' width= "100%"/>
                 </div>
                 <div className="col">
-                  <label className="form-label">Last Name *</label>
+                  <label className="form-label">Last Name <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='lastName' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Email *</label>
+                  <label className="form-label">Email <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='email' width= "100%"/>
                 </div>
                 <div className="col">
-                  <label className="form-label">Phone Number *</label>
+                  <label className="form-label">Phone Number <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='phoneNumber' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Name *</label>
+                  <label className="form-label">Organization Name <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationName' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Website *</label>
+                  <label className="form-label">Organization Website <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationWesbsite' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Address *</label>
+                  <label className="form-label">Organization Address <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationAddress' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Mission Statement *</label>
+                  <label className="form-label">Organization Mission Statement <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationStatement' width= "100%"/>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                   <label className="form-label">
                     Please provide an overview of your organization, including history,
                     current programs and activities, and any accomplishments from the
-                    last three years *
+                    last three years <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='organizationOverview' width= "100%"/>
                 </div>
@@ -168,7 +168,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label className="form-label">
                     Please specify the needs and/or program this grant will directly
-                    support. *
+                    support. <span className="text-danger">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='program' width= "100%"/>
                 </div>
@@ -177,7 +177,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please list how much money you're requesting. *
+                    Please list how much money you're requesting. <span className="text-danger">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='amount' width= "100%"/>
                 </div>
@@ -203,7 +203,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
 
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization IRS EIN Number *</label>
+                  <label className="form-label">Organization IRS EIN Number <span className="text-danger">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='IRS' width= "100%"/>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please provide a third-party reference *
+                    Please provide a third-party reference <span className="text-danger">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='reference' width= "100%"/>
                 </div>
@@ -220,7 +220,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please list your Board of Directors: *
+                    Please list your Board of Directors: <span className="text-danger">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='boardOfDirector' width= "100%"/>
                 </div>
@@ -230,7 +230,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label className="form-label">
                     Please list name and title of any key staff involved with this
-                    project: *
+                    project: <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='staffInvolved' width= "100%"/>
                 </div>
@@ -257,7 +257,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label>Add Attachments</label>
+                  {/* <label>Add Attachments</label> */}
                   <div id="fileupload">
                   <FileUploader handleChange={uploadFileForFund} name="file" types={FILE_TYPES} multiple= "true" 
                       label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize= {1500000} style={{ whiteSpace: 'pre-line' }}>
@@ -269,7 +269,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="mt-4">
                 <div className="button-container">
                 <button type="submit" className="action-btn btn-border"  style={{ color: "#ffffff", backgroundColor: "#F47B20" }} disabled={isUploading}> 
-                      Connect with us
+                      Apply Now
                 </button>
                 </div>
               </div>
@@ -288,45 +288,45 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
             <>
               <div className="row">
                 <div className="row">
-                  <label className="form-label">First Name *</label>
+                  <label className="form-label">First Name <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='firstName' width= "100%"/>
                 </div>
                 <div className="row">
-                  <label className="form-label">Last Name *</label>
+                  <label className="form-label">Last Name <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='lastName' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="row">
-                  <label className="form-label">Email *</label>
+                  <label className="form-label">Email <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='email' width= "100%"/>
                 </div>
                 <div className="row">
-                  <label className="form-label">Phone Number *</label>
+                  <label className="form-label">Phone Number <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='phoneNumber' width= "100%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Name *</label>
+                  <label className="form-label">Organization Name <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationName' width= "94%" />
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Website *</label>
+                  <label className="form-label">Organization Website <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationWesbsite'  width= "94%" />
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Address *</label>
+                  <label className="form-label">Organization Address <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationAddress'  width= "94%"/>
                 </div>
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization Mission Statement *</label>
+                  <label className="form-label">Organization Mission Statement <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='organizationStatement'  width= "94%" />
                 </div>
               </div>
@@ -335,7 +335,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                   <label className="form-label">
                     Please provide an overview of your organization, including history,
                     current programs and activities, and any accomplishments from the
-                    last three years *
+                    last three years <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='organizationOverview' width= "94%"/>
                 </div>
@@ -364,7 +364,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label className="form-label">
                     Please specify the needs and/or program this grant will directly
-                    support. *
+                    support. <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='program' width= "94%"/>
                 </div>
@@ -373,7 +373,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please list how much money you're requesting. *
+                    Please list how much money you're requesting. <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='amount' width= "94%"/>
                 </div>
@@ -384,7 +384,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                   <label className="form-label">
                     Will there be any partners in this proposal?
                   </label>
-                  <ul className="custom-radio row pb-1">
+                  <ul className="custom-radio col pb-1 radio-align">
                     <li>
                       <input type="radio" id="yes" name="radio-option" />
                       <label htmlFor="yes">Yes</label>
@@ -399,7 +399,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
 
               <div className="row mt-4">
                 <div className="col">
-                  <label className="form-label">Organization IRS EIN Number *</label>
+                  <label className="form-label">Organization IRS EIN Number <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='IRS' width= "94%"/>
                 </div>
               </div>
@@ -407,7 +407,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please provide a third-party reference *
+                    Please provide a third-party reference <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='reference' width= "94%"/>
                 </div>
@@ -416,7 +416,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="row mt-4">
                 <div className="col">
                   <label className="form-label">
-                    Please list your Board of Directors: *
+                    Please list your Board of Directors: <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='boardOfDirector' width= "94%"/>
                 </div>
@@ -426,7 +426,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                 <div className="col">
                   <label className="form-label">
                     Please list name and title of any key staff involved with this
-                    project: *
+                    project: <span className="asterick-color">*</span>
                   </label>
                   <UseFormTextField placeholder="" control={control} name='staffInvolved' width= "94%"/>
                 </div>
@@ -453,7 +453,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               </div>
               <div className="row mt-4">
                 <div className="col">
-                  <label>Add Attachments</label>
+                  {/* <label>Add Attachments</label> */}
                   <div id="fileupload">
                   <FileUploader handleChange={uploadFileForFund} name="file" types={FILE_TYPES} multiple= {false} 
                       label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }}/>
@@ -464,7 +464,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               <div className="mt-4">
                 <div className="button-container">
                 <button type="submit" className="action-btn btn-border"  style={{ color: "#ffffff", backgroundColor: "#F47B20" }} disabled={isUploading}> 
-                      Connect with us
+                      Apply Now
                 </button>
                 </div>
               </div>
