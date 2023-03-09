@@ -20,12 +20,12 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
   const { screenMode } = useGlobalContext();
   const desktop = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
-  
+
   return <>
     {isDesktop(screenMode) && (
       <div
         key={`desktop-${item.sys.id}`}
-        className={`d-flex wp-container-desktop`}
+        className={`d-flex`}
         style={{
           width: `${item.sys.contentType?.sys.id ===
             ComponentContentTypes.MultiColumn &&
@@ -49,7 +49,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
 
       <div
         key={`mobile-${item.sys.id}`}
-        className={`d-flex wp-container-mobile`}
+        className={`d-flex`}
         style={{
           width: `${item.sys.contentType?.sys.id ===
             ComponentContentTypes.MultiColumn &&
@@ -77,7 +77,6 @@ const MultiColumnSection = ({
   const {
     columns,
     backgroundImage,
-    borderRight,
   } = section.fields;
   const { screenMode } = useGlobalContext();
 
@@ -87,7 +86,7 @@ const MultiColumnSection = ({
   return (
     <>
       {isDesktop(screenMode) && (
-        <section className="d-flex w-100" style={{
+        <section className="d-flex w-100 h-100" style={{
           padding: desktop?.fields?.padding,
           margin: desktop?.fields?.margin,
           borderRadius: desktop?.fields?.borderRadius,
@@ -95,9 +94,9 @@ const MultiColumnSection = ({
           backgroundColor: `${desktop?.fields?.backgroundColor}`,
         }}>
           <div
-            className={`d-flex flex-wrap  w-100
+            className={`d-flex flex-wrap  w-100 
         ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
-        ${borderRight ? "border-r" : ""}
+        ${desktop?.fields?.separater ? "border-r " : ""}
             }`}
             style={{
               alignItems: desktop?.fields?.alignItems,
@@ -122,7 +121,7 @@ const MultiColumnSection = ({
         }}>
           <div
             className={`d-flex flex-wrap w-100 
-            ${borderRight ? "border-b" : ""}
+            ${mobile?.fields?.separater ? "border-b" : ""}
             ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
             style={{
               justifyContent: `${mobile?.fields?.justifyContent}`,
