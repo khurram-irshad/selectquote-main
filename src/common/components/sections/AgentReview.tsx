@@ -15,27 +15,27 @@ const AgentReviewSection = ({ section }: { section: Type_AgentReview }) => {
     <section
       className={`about-section ${fullWidth ? "container-fluid px-0" : ""}`}
     >
-      <div className="agent-review d-flex align-items-center">
+      <div className="agent-review ">
         <Image
           src="/images/content/orange-checkmark-icon.png"
           alt="orange-checkmark-icon"
           width={20}
           height={17}
         />
-        <span>{status}</span>
+        <span className="mx-2">{status}</span>
         <Image
           src="/images/content/info-icon-orange.png"
           alt="orange-checkmark-icon"
           width={20}
           height={20}
         />
-        <span>by</span>
+        <span className="mx-2">by</span>
         <a
           href={`https://www.selectquote.com/life-insurance-agent-review-panel/?page_anchor=${pageAnchor}`}
         >
           {agentName}
         </a>
-        <span>
+        <span className="mx-2">
           last reviewed {format(parseISO(lastReviewDate), "MMMM yyyy")}
         </span>
       </div>

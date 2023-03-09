@@ -17,10 +17,10 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const renderAccodionButton = (eventKey: string) => {
     return (
       <>
-        <button className="rounded-circle accordion-symbol wp-container-desktop" style={{ backgroundColor: desktop?.fields?.textAlign }}>
+        <button className="rounded-circle accordion-symbol wp-container-desktop" style={{ backgroundColor: desktop?.fields?.textColor }}>
           {isCardActive(eventKey) ? "-" : "+"}
         </button>
-        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{ backgroundColor: mobile?.fields?.textAlign }}>
+        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{ backgroundColor: mobile?.fields?.textColor }}>
           {isCardActive(eventKey) ? "-" : "+"}
         </button>
       </>
