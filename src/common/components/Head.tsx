@@ -67,7 +67,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
 
 
   useEffect(() => {
-    setTimeout(() => {
+   
       injectedScript.map(inject => {
         let createdElement: any = document.createElement(inject.element);
         createdElement.type = inject.type;
@@ -75,7 +75,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
         createdElement.async = inject.async;
         return document.head.appendChild(createdElement)
       })
-    }, 3000);
+   
 
     var aLink = document.createElement("link");
     aLink.rel = "stylesheet";
@@ -87,11 +87,13 @@ const PageHead = ({ page }: { page: Type_Page }) => {
 
 
   useEffect(() => {
+    setTimeout(() => {
     var aScript = document.createElement("script");
     aScript.type = "text/javascript";
     aScript.src =
       "/addsearch/js/ui.js";
-    document.body.appendChild(aScript);
+      document.body.appendChild(aScript);
+    }, 3000);  
   }, []);
 
   return (
