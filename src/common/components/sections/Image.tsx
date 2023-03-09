@@ -15,13 +15,15 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const renderImage = () => {
     return <>
       {isDesktop(screenMode) && (
-        <Image
-          style={{ borderRadius: desktop?.fields?.borderRadius }}
-          src={`https:${imageFile?.fields?.file?.url}`}
-          width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
-          height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
-          alt={imageName || imageFile?.fields?.title}
-        />
+        <div>
+          <Image
+            style={{ borderRadius: desktop?.fields?.borderRadius }}
+            src={`https:${imageFile?.fields?.file?.url}`}
+            width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
+            height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
+            alt={imageName || imageFile?.fields?.title}
+          />
+        </div>
       )}
       {isMobile(screenMode) && (
         <div style={{ justifyContent: mobile?.fields?.justifyContent, alignItems: mobile?.fields?.alignItems }}>
