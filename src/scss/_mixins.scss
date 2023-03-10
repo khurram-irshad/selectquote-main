@@ -10,11 +10,11 @@
     }
   }
   @else if $deviceType==tab {
-    @media screen and (min-device-width: 768px) and (max-device-width: 980px) {
+    @media screen and (min-device-width: 481px) and (max-device-width: 980px) {
       @content;
     }
 
-    @media screen and (min-width: 768px) and (max-width: 980px) {
+    @media screen and (min-width: 481px) and (max-width: 980px) {
       @content;
     }
   }
