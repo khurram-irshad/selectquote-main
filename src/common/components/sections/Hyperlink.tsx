@@ -4,8 +4,7 @@ import Link from "next/link";
 import { DeviceType } from "@common/types/Type_Device";
 
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
-  const { type } = section.fields;
-
+  const { type, underline } = section.fields;
   const desktop = section?.fields?.devices?.find(
     (item) => item?.fields?.type === DeviceType.Desktop
   );
@@ -29,10 +28,11 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
       href={section.fields.linkUrl || "/"}
       className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
       style={{
-        textDecoration: "none",
+        textDecoration: !underline ? "none" : '',
         color: section.fields.color,
         fontSize: section.fields.fontSize,
         fontWeight: section.fields.fontWeight,
+
       }}
     >
       {section.fields.title}
@@ -43,7 +43,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
         className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
         style={{
           color: section.fields?.color,
-          textDecoration: "none",
+          textDecoration: !underline ? "none" : '',
           fontSize: section.fields.fontSize,
           fontWeight: section.fields.fontWeight,
         }}
