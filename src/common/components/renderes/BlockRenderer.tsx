@@ -35,7 +35,6 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 
   const { screenMode } = useGlobalContext();
 
-  console.log('screenMode->', screenMode);
 
   if (Array.isArray(section)) {
     return (

@@ -1,6 +1,7 @@
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import MultiColumnSection from "./MultiColumn";
 
 interface CardProps {
   item: any; // Type_ProductReview;
@@ -11,7 +12,6 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
   const { color, title, content, showRating } = item.fields;
   const [screenWidth, setScreenWidth] = useState(0);
   const path = useRouter().asPath;
-
   const withBackground = [3, 4, 5, 9, 10, 11];
 
   useEffect(() => {
@@ -26,13 +26,12 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
   return (
     <div
       className={`col-lg-4 col-md-12 review-card px-0
-    ${
-      child % 3 < 2 && screenWidth >= 1024
-        ? "border-end"
-        : screenWidth > 0 && screenWidth < 1024
-        ? " border-right-0"
-        : ""
-    }
+    ${child % 3 < 2 && screenWidth >= 1024
+          ? "border-end"
+          : screenWidth > 0 && screenWidth < 1024
+            ? " border-right-0"
+            : ""
+        }
     ${path.includes("contact-us") ? " border-bottom" : ""}`}
       style={{
         backgroundColor:
@@ -62,13 +61,14 @@ const ProductReviewCard = ({ item, child, itemsMargin }: CardProps) => {
           {showRating && (
             <div className="card-review-rating d-flex align-items-center justify-content-center pt-4">
               <img
-                src={`/images/content/${color.substring(1)}.png`}
+                src={`/images/content/${color?.substring(1)}.png`}
                 alt="5 start rating"
               />
             </div>
           )}
           <span className="text-center">
-            <RichTextRenderer text={content?.fields?.content} />
+            <MultiColumnSection section={content} />
+            {/* <RichTextRenderer text={content?.fields?.content} /> */}
           </span>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
+import MultiColumnSection from "./MultiColumn";
 
 interface CardProps {
   item: any;
@@ -7,7 +8,7 @@ interface CardProps {
 
 const Card = ({ item, itemsMargin }: CardProps) => {
   const { headerImage, content } = item.fields;
-  
+
 
   return (
     <div className="col-lg-3 col-xs-12 newsroom-card px-0">
@@ -17,13 +18,13 @@ const Card = ({ item, itemsMargin }: CardProps) => {
           alt="newsroom image header"
         />
       </div>
-      <div className="card-content"
-      style={{ color:`${content.fields?.textColor} !important` }}>
-        <span className="text-start">
+      <div className="card-content">
+        {/* <span className="text-start">
           <RichTextRenderer
             text={content?.fields?.content}
           />
-        </span>
+        </span> */}
+        <MultiColumnSection section={content} />
       </div>
     </div>
   );
