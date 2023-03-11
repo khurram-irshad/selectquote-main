@@ -176,7 +176,7 @@ header.content-header {
           > a {
             color: $primary;
             &::after {
-              color: $primary;
+              color: #f47b20;
             }
           }
           > .dropdown-content {
@@ -205,6 +205,7 @@ header.content-header {
           position: absolute;
           right: 0;
           font-weight: 800;
+          color:#f47b20;
         }
       }
       .basicbtn::after {
@@ -215,21 +216,20 @@ header.content-header {
         position: absolute;
         top: 22px;
         left: 0;
-        background-color: $tertiary;
+        background-color: $secondary;
         width: 200px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
-
+        color: $gray-500;
         .dropdown {
           position: static;
         }
-
         .dropdown:hover,
         .dropdown:focus-within {
           a {
             background-color: $primary;
             &::after {
-              color: $white;
+              color: #f47b20;
             }
           }
           .anchor-wrap {
@@ -264,17 +264,21 @@ header.content-header {
               background-color: $white;
               transform-origin: bottom right;
               transition: transform 0.25s ease-out;
+              color: #f47b20;
             }
           }
           &:hover {
             background-color: $primary;
+            color: $white;
             &::after {
-              color: $white;
+              color: #f47b20;
             }
             .anchor-wrap {
+              font-weight: 600;
               color: $white;
-              font-weight: 400;
+
               &::after {
+                color: #f47b20;
                 transform: scaleX(1);
                 transform-origin: bottom left;
               }
@@ -298,7 +302,8 @@ header.content-header {
           background-color: $primary;
           a,
           .anchor-wrap {
-            color: $white;
+            color: #f47b20;
+            
           }
         }
       }
@@ -377,11 +382,11 @@ header.content-header {
       padding: 5px 16px;
       border-radius: 3px;
       &::after {
-        color: $secondary;
+        color: #f47b20;
       }
       &:focus {
         background: transparent;
-        color: $gray-500;
+        color: #f47b20;
         border-color: $secondary;
       }
     }
@@ -401,7 +406,7 @@ header.content-header {
         &:hover,
         &.selected {
           background-color: $secondary;
-          color: $white;
+          color: #f47b20;
         }
       }
       &:last-child a {
@@ -527,7 +532,7 @@ header.content-header {
           content: "\39";
           font-size: 14px;
           font-weight: 500;
-          color: #2b2b2b;
+          color: #f47b20;
           font-size: 14px;
           font-weight: 700;
         }
