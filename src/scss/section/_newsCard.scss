@@ -13,12 +13,14 @@
   }
 
   @include mediaQueries(tab) {
+    max-height: 520px;
     width: 100%;
     .card-header {
       img {
         height: 232px !important;
       }
     }
+    
   }
 
   &:nth-child(3n + 2) {
