@@ -92,6 +92,7 @@ const MultiColumnSection = ({
           borderRadius: desktop?.fields?.borderRadius,
           backgroundPosition: "left center",
           backgroundColor: `${desktop?.fields?.backgroundColor}`,
+          boxShadow: desktop?.fields?.boxShadow
         }}>
           <div
             className={`d-flex flex-wrap  w-100 
@@ -118,6 +119,7 @@ const MultiColumnSection = ({
           backgroundColor: `${mobile?.fields?.backgroundColor}`,
           backgroundImage: `url(https:${backgroundImage?.fields?.imageFile?.fields?.file?.url})`,
           borderRadius: mobile?.fields?.borderRadius,
+          boxShadow: mobile?.fields?.boxShadow
         }}>
           <div
             className={`d-flex flex-wrap w-100 

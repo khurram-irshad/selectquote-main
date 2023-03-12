@@ -41,6 +41,8 @@ const ColumnSection = ({ section }: { section: any }) => {
         margin: desktop?.fields?.margin,
         justifyContent: `${desktop?.fields?.justifyContent}`,
         alignItems: desktop?.fields?.alignItems,
+        backgroundColor: `${desktop?.fields?.backgroundColor}`,
+        borderRadius: desktop?.fields?.borderRadius,
       }}>
         <Component key={`${contentTypeId}-${id}`} {...componentProps} />
       </div>
@@ -50,6 +52,8 @@ const ColumnSection = ({ section }: { section: any }) => {
         width: '100%', padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,
         justifyContent: `${mobile?.fields?.justifyContent}`,
         alignItems: mobile?.fields?.alignItems,
+        backgroundColor: `${mobile?.fields?.backgroundColor}`,
+        borderRadius: mobile?.fields?.borderRadius,
       }}>
         <Component key={`${contentTypeId}-${id}`} {...componentProps} />
       </div>
