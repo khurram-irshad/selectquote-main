@@ -32,6 +32,8 @@ interface Device {
     borderRadius: Contentful.EntryFields.Symbol;
     border: Contentful.EntryFields.Symbol;
     boxShadow: Contentful.EntryFields.Symbol;
+    overflowWrap: 'break-word' | 'normal' | 'initial' | 'inherit';
+    maxWidth: string;
 };
 
 export default Device;

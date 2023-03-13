@@ -38,6 +38,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               fontSize={`${desktop?.fields?.fontSize}`}
               fontFamily={`${desktop?.fields?.fontFamily}`}
               letterSpacing={desktop?.fields?.letterSpacing}
+              overflowWrap={desktop?.fields?.overflowWrap}
             />
           </div>
         </div>
