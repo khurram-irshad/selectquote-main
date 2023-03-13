@@ -25,6 +25,7 @@ import SectionTrustPilot from "@components/sections/TrustPilot";
 import StaticReviewsSection from "@components/sections/StaticReviews";
 import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from "@common/helpers/helper";
+import { RocketLawyerSection } from "@components/sections/RocketLawyer";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -144,6 +145,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.ColorText]: ColorTextSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
   [ComponentContentTypes.StaticReviews]: StaticReviewsSection,
+  [ComponentContentTypes.RocketLawyer]: RocketLawyerSection,
 };
 
 export { BlockRenderer };
