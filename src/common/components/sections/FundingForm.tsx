@@ -189,10 +189,10 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                     Will there be any partners in this proposal?
                   </label>
                   <ul className="custom-radio">
-                    <li>
-                      <input type="radio" id="yes" name="radio-option" />
-                      <label htmlFor="yes">Yes</label>
-                    </li>
+                  <li>
+                    <input type="radio" id="yes" name="radio-option" />
+                    <label htmlFor="yes">Yes</label>
+                  </li>
                     <li>
                       <input type="radio" id="no" name="radio-option" />
                       <label htmlFor="no">No</label>

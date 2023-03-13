@@ -14,7 +14,8 @@ const Text = ({
   fontSize,
   lineHeight,
   letterSpacing,
-  fontFamily
+  fontFamily,
+  overflowWrap
 }: {
   color?: string;
   children: ReactNode;
@@ -23,6 +24,7 @@ const Text = ({
   fontWeight?: string;
   letterSpacing?: string;
   fontFamily?: string;
+  overflowWrap?: 'break-word' | 'normal' | 'initial' | 'inherit';
 }) => {
   return (
     <p
@@ -33,6 +35,7 @@ const Text = ({
         lineHeight: `${lineHeight}`,
         letterSpacing: `${letterSpacing}`,
         fontFamily: `${fontFamily}`,
+        overflowWrap: `${overflowWrap}`
       }}
     >
       {children}
@@ -46,7 +49,8 @@ const RichTextRenderer = ({
   fontSize,
   fontWeight,
   letterSpacing,
-  fontFamily
+  fontFamily,
+  overflowWrap
 }: {
   text: any;
   color?: string;
@@ -55,6 +59,7 @@ const RichTextRenderer = ({
   fontWeight?: string;
   letterSpacing?: string;
   fontFamily?: string;
+  overflowWrap?: 'break-word' | 'normal' | 'initial' | 'inherit'
 }) => {
   return (
     <>
@@ -72,6 +77,7 @@ const RichTextRenderer = ({
               lineHeight={lineHeight}
               letterSpacing={letterSpacing}
               fontFamily={fontFamily}
+              overflowWrap ={overflowWrap}
             >
               {children}
             </Text>
