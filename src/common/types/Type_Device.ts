@@ -23,9 +23,12 @@ interface Device {
     widthPercentage: Contentful.EntryFields.Symbol;
     hidden: Contentful.EntryFields.Boolean;
     separater: Contentful.EntryFields.Boolean;
+    display:Contentful.EntryFields.Symbol;
     justifyContent: Contentful.EntryFields.Symbol;
     direction?: Contentful.EntryFields.Symbol;
     alignItems: Contentful.EntryFields.Symbol;
+    flexWrap: Contentful.EntryFields.Symbol;
+    float:Contentful.EntryFields.Symbol;
     borderRadius: Contentful.EntryFields.Symbol;
     border: Contentful.EntryFields.Symbol;
     boxShadow: Contentful.EntryFields.Symbol;

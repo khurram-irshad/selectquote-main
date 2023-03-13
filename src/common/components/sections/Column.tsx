@@ -35,25 +35,29 @@ const ColumnSection = ({ section }: { section: any }) => {
   };
   return <>
     {isDesktop(screenMode) && (
-      <div className="d-flex" style={{
+      <div style={{
         width: '100%',
         padding: desktop?.fields?.padding,
         margin: desktop?.fields?.margin,
+        display: desktop?.fields?.display ? desktop?.fields?.display : 'flex',
         justifyContent: `${desktop?.fields?.justifyContent}`,
         alignItems: desktop?.fields?.alignItems,
         backgroundColor: `${desktop?.fields?.backgroundColor}`,
         borderRadius: desktop?.fields?.borderRadius,
+        float: desktop?.fields?.float,
       }}>
         <Component key={`${contentTypeId}-${id}`} {...componentProps} />
       </div>
     )}
     {isMobile(screenMode) && (
-      <div className="d-flex" style={{
+      <div style={{
+        display: mobile?.fields?.display ? mobile?.fields?.display : 'flex',
         width: '100%', padding: mobile?.fields?.padding, margin: mobile?.fields?.margin,
         justifyContent: `${mobile?.fields?.justifyContent}`,
         alignItems: mobile?.fields?.alignItems,
         backgroundColor: `${mobile?.fields?.backgroundColor}`,
         borderRadius: mobile?.fields?.borderRadius,
+        float: mobile?.fields?.float,
       }}>
         <Component key={`${contentTypeId}-${id}`} {...componentProps} />
       </div>
