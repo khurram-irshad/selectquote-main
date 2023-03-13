@@ -16,13 +16,15 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
   const { section } = parent;
   const {
     columnPerRow,
+    tabletMode
   } = section.fields;
-  const { screenMode } = useGlobalContext();
+  const { screenMode, isTabView } = useGlobalContext();
   const desktop = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
+  const tablet = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
   return <>
-    {isDesktop(screenMode) && (
+    {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
       <div
         key={`desktop-${item.sys.id}`}
         className={`d-flex`}
@@ -45,7 +47,25 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
         )}
       </div>
     )}
-    {isMobile(screenMode) && (
+    {(tabletMode && isTabView) && (
+      <div
+        key={`tablet-${item.sys.id}`}
+        className={`d-flex`}
+        style={{
+          width: `${tablet?.fields?.widthPercentage}%`,
+          justifyContent: `${tablet?.fields?.justifyContent}`,
+          alignItems: tablet?.fields?.alignItems,
+        }}
+      >
+        {item.sys.contentType?.sys.id ===
+          ComponentContentTypes.MultiColumn ? (
+          <MultiColumnSection section={item} />
+        ) : (
+          <ColumnSection section={item} />
+        )}
+      </div>
+    )}
+    {(isMobile(screenMode) && (!tabletMode || !isTabView)) && (
 
       <div
         key={`mobile-${item.sys.id}`}
@@ -77,15 +97,18 @@ const MultiColumnSection = ({
   const {
     columns,
     backgroundImage,
+    tabletMode
   } = section.fields;
-  const { screenMode } = useGlobalContext();
+  const { screenMode, isTabView } = useGlobalContext();
 
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
+  const tablet = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
+  console.log(tablet?.fields?.widthPercentage)
   return (
     <>
-      {isDesktop(screenMode) && (
+      {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
         <section className="d-flex w-100 h-100" style={{
           padding: desktop?.fields?.padding,
           margin: desktop?.fields?.margin,
@@ -111,8 +134,35 @@ const MultiColumnSection = ({
         </section>
 
       )}
+      {(tabletMode && isTabView) && (
+        <section className="d-flex  h-100" style={{
+          width: `${tablet?.fields?.widthPercentage}% !important`,
+          padding: tablet?.fields?.padding,
+          margin: tablet?.fields?.margin,
+          borderRadius: tablet?.fields?.borderRadius,
+          backgroundPosition: "left center",
+          backgroundColor: `${tablet?.fields?.backgroundColor}`,
+          boxShadow: tablet?.fields?.boxShadow,
+        }}>
+          <div
+            className={`d-flex flex-wrap 
+        ${tablet?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
+        ${tablet?.fields?.separater ? "border-r " : ""}
+            }`}
+            style={{
+              alignItems: tablet?.fields?.alignItems,
+              justifyContent: `${tablet?.fields?.justifyContent}`,
+            }}
+          >
+            {columns.map((item) => (
+              <RenderColumn key={`tablet-col-${item.sys.id}`} parent={{ section }} item={item} />
+            ))}
+          </div>
+        </section>
 
-      {isMobile(screenMode) && (
+      )}
+
+      {(isMobile(screenMode) && (!tabletMode || !isTabView)) && (
         <section className="d-flex w-100" style={{
           padding: mobile?.fields?.padding,
           margin: mobile?.fields?.margin,

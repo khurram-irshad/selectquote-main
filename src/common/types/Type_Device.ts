@@ -3,6 +3,7 @@ import * as Contentful from "contentful";
 export enum DeviceType {
     Desktop = 'Desktop',
     Mobile = 'Mobile',
+    Tablet = 'Tablet',
 }
 interface Device {
     type: Contentful.EntryFields.Symbol;

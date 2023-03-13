@@ -8,6 +8,7 @@ interface MultiColumn {
     fullBackgroundColor: Contentful.EntryFields.Symbol;
     backgroundImage: Contentful.Entry<Image>;
     devices: Contentful.Entry<Device>[];
+    tabletMode: Contentful.EntryFields.Boolean;
 }
 
 export type Type_MultiColumn = Contentful.Entry<MultiColumn>;
