@@ -50,9 +50,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
           const fullBackgroundImage = item?.fields?.fullBackgroundImage;
           const fullWidth = desktop?.fields?.fullWidth;
           const fullWidthMobile = mobile?.fields?.fullWidth;
-
-          console.log(fullBackgroundColor || fullWidth)
-
+            
           return (
             <>
               {isDesktop(screenMode) && (
