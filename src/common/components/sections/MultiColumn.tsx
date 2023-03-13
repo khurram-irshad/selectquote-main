@@ -123,6 +123,7 @@ const MultiColumnSection = ({
           backgroundColor: `${desktop?.fields?.backgroundColor}`,
           boxShadow: desktop?.fields?.boxShadow,
           // display: desktop?.fields?.display ? desktop?.fields?.display : 'flex'
+          maxWidth: desktop?.fields?.maxWidth
         }}>
           <div
             className={`${desktop?.fields?.flexWrap ? 'flex-' + desktop?.fields?.flexWrap : 'flex-wrap'} w-100 

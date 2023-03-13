@@ -5,8 +5,9 @@
   li {
     float: left;
     margin: 0 5px 0 0;
-    width: 190px;
-    height: 56px;
+    width: 12.5vw;
+    height: 40px; 
+    max-width: 192px;
     position: relative;
   }
 
@@ -37,6 +38,7 @@
     z-index: 90;
     text-align: center;
     padding: 15px;
+    margin-top: -10px;
   }
   label:hover {
     background: #ddd;
