@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Type_Hero } from "@common/types";
 import ColumnSection from "./Column";
 import { ComponentContentTypes } from "@common/constants/app.constant";
@@ -27,22 +27,34 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     padding = '0',
   } = section.fields;
   const path = useRouter().asPath;
+  const [screenWidth, setScreenWidth] = useState(0);
 
-  const bgPosition =
+  let bgPosition =
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
+  bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
+
+  const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`: `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
+    useEffect(() => {
+      setScreenWidth(window.innerWidth);
+      function handleResize() {
+        setScreenWidth(window.innerWidth);
+      }
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   return (
     <div className="hero-block">
       <div className="hero-section-desktop ">
         <section
           className={`hero-section ${topSection ? "  hero-section-shadow" : ""
-            } ${!topSection ? 'container' : ''} `}
+            } ${!topSection ? 'container' : ''}`}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
             backgroundImage: backgroundImage
-              ? `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+              ? `${bgImage}`
               : "",
             padding,
           }}
@@ -75,7 +87,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       <div className="hero-section-mobile">
         {!reverseImagePosition && (
           <section
-            className={`hero-section`}
+            className={`hero-section ${path.includes('/faqs') ? ' spacing-top' : ''}`}
             style={{
               // backgroundColor: "#f8f8f8",
               backgroundSize: `${mobileBackgroundSize}`,
