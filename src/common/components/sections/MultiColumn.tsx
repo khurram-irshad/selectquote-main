@@ -111,7 +111,6 @@ const MultiColumnSection = ({
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   const tablet = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
-
   return (
     <>
       {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
