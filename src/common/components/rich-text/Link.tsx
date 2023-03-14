@@ -1,6 +1,8 @@
 import React from "react";
 import RichTextRenderer from "./RichTextRenderer";
 import Link from "next/link";
+import { isValidHttpUrl } from "@common/helpers/helper";
+import { addColour } from ".";
 
 type Props = {
   data: any;
@@ -23,29 +25,19 @@ export const Hyperlink = (props: Props) => {
     },
   });
 
-  const isValidHttpUrl = (string) => {
-    let url;
-    try {
-      url = new URL(string);
-    } catch (_) {
-      return false;
-    }
-    return url.protocol === "http:" || url.protocol === "https:";
-  };
-
   return isValidHttpUrl(href) ? (
     <a
       href={href || "/"}
-      style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}
+      style={{  textDecoration: "none",color: "#07aec7", fontWeight: 700 }}
       target="_blank"
       rel="noopener noreferrer"
     >
-      {linkText}
+      {addColour([props.content[0].value])}
     </a>
   ) : (
     <Link href={href || "/"}>
       <a style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}>
-        {linkText}
+        {addColour([props.content[0].value])}
       </a>
     </Link>
   );

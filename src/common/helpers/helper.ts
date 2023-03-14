@@ -37,3 +37,13 @@ export const isMobile = (screenWidth: ScreenMode) => {
 export const isDesktop = (screenMode: ScreenMode) => {
   return screenMode === ScreenMode.Desktop
 }
+
+export const isValidHttpUrl = (string) => {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
+};
