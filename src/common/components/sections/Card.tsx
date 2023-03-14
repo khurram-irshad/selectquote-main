@@ -7,7 +7,7 @@ interface CardProps {
 }
 
 const Card = ({ item, itemsMargin }: CardProps) => {
-  const { headerImage, content } = item.fields;
+  const { headerImage, content, imageMaxWidth } = item.fields;
 
 
   return (
@@ -15,6 +15,7 @@ const Card = ({ item, itemsMargin }: CardProps) => {
       <div className="card-header">
         <img
           src={headerImage?.fields?.imageFile?.fields?.file?.url ?? ""}
+          style={{maxWidth: imageMaxWidth}}
           alt="newsroom image header"
         />
       </div>

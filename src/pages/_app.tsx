@@ -7,7 +7,7 @@ import {
 } from "@common/services/storage";
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
-import { ComponentContentTypes } from "@constants/app.constant";
+import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 import { GlobalContextProvider } from "src/context/globalContext";
 
 export default function Apps({ Component, pageProps }: AppProps) {
@@ -28,7 +28,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
   const queryParams: any = router.query;
 
   const storeSessionData = (data) => {
-    SessionStorageService.setItem(ComponentContentTypes.SiteSession, data);
+    SessionStorageService.setItem(STORAGE.SITE_SESSION_DATA, data);
     window.dispatchEvent(new Event("storage"));
   };
 
@@ -47,26 +47,25 @@ export default function Apps({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const getData = async () => {
       let sCode = null;
-      let lastParams=(localStorage.getItem('lastQueryParams'))
-      if (lastParams!= 'undefined') {
+      let lastParams = (localStorage.getItem('lastQueryParams'))
+      if (lastParams != 'undefined') {
         lastParams = JSON.parse(lastParams)
       }
       if (lastParams && !queryParams.campaignKey) {
         sCode = await appService.getScode(lastParams);
       }
-      else if (queryParams && queryParams.campaignKey)
-      {
+      else if (queryParams && queryParams.campaignKey) {
         sCode = await appService.getScode(queryParams.campaignKey);
       }
       setStorage(sCode);
     };
 
     const setStorage = (sCode) => {
-      const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
+      const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
       const site_session_id = storageSiteData ? storageSiteData.site_session_id : generateSessionId();
       let site_data_model = {
         site_session_id,
-        site_campaign_phone: ComponentContentTypes.PhoneNumber,
+        site_campaign_phone: DEFAULT_PHONE_NUMBER,
       };
 
       if (sCode) {
@@ -89,7 +88,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
     getData();
   }, [queryParams]);
   useEffect(() => {
-    const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
+    const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
   }, []);
   return (
     <GlobalContextProvider>

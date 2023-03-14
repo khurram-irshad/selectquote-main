@@ -28,15 +28,14 @@ export const ComponentContentTypes = {
   Table: "templateTable",
   ColorText: "templateColorText",
   StaticReviews: "templateStaticReviews",
-  PhoneNumber: "1-855-653-6700",
-  SiteSession: "site_session_data",
+  RocketLawyer: "templateRocketLawyer",
 };
 
-export const DAYS_ARRAY = Array.from(Array(31).keys(), (n) => {
-  return n < 10 ? String(n + 1).padStart(2, "0") : String(n + 1);
-});
+export const DEFAULT_PHONE_NUMBER = "1-855-653-6700";
 
-export const COVERAGE_RANGE = [];
+export const STORAGE = {
+  SITE_SESSION_DATA: 'site_session_data'
+}
 
 export const REGEX = {
   YEAR: /^(19|20)\d{2}$/,

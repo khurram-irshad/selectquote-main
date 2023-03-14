@@ -27,7 +27,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
     {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
       <div
         key={`desktop-${item.sys.id}`}
-        className={`d-flex`}
+        className={`${desktop?.fields?.flexWrap ? desktop?.fields?.flexWrap : 'flex-wrap'}`}
         style={{
           width: `${item.sys.contentType?.sys.id ===
             ComponentContentTypes.MultiColumn &&
@@ -35,8 +35,10 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
             ? 100 / Number(columnPerRow)
             : desktop?.fields?.widthPercentage
             }%`,
+          display: desktop?.fields?.display ? desktop?.fields?.display : 'flex',
           justifyContent: `${desktop?.fields?.justifyContent}`,
           alignItems: desktop?.fields?.alignItems,
+          float: desktop?.fields?.float,
         }}
       >
         {item.sys.contentType?.sys.id ===
@@ -50,11 +52,13 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
     {(tabletMode && isTabView) && (
       <div
         key={`tablet-${item.sys.id}`}
-        className={`d-flex`}
+        className={`${tablet?.fields?.flexWrap ? tablet?.fields?.flexWrap : 'flex-wrap'}`}
         style={{
           width: `${tablet?.fields?.widthPercentage}%`,
+          display: tablet?.fields?.display ? tablet?.fields?.display : 'flex',
           justifyContent: `${tablet?.fields?.justifyContent}`,
           alignItems: tablet?.fields?.alignItems,
+          float: tablet?.fields?.float,
         }}
       >
         {item.sys.contentType?.sys.id ===
@@ -68,8 +72,8 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
     {(isMobile(screenMode) && (!tabletMode || !isTabView)) && (
 
       <div
+        className={`${mobile?.fields?.flexWrap ? mobile?.fields?.flexWrap : 'flex-wrap'}`}
         key={`mobile-${item.sys.id}`}
-        className={`d-flex`}
         style={{
           width: `${item.sys.contentType?.sys.id ===
             ComponentContentTypes.MultiColumn &&
@@ -77,8 +81,10 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
             ? 100 / Number(columnPerRow)
             : mobile?.fields?.widthPercentage
             }%`,
+          display: mobile?.fields?.display ? mobile?.fields?.display : 'flex',
           justifyContent: `${mobile?.fields?.justifyContent}`,
           alignItems: mobile?.fields?.alignItems,
+          float: mobile?.fields?.float,
         }}
       >
         {item.sys.contentType?.sys.id ===
@@ -105,24 +111,26 @@ const MultiColumnSection = ({
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   const tablet = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
- 
   return (
     <>
       {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
-        <section className="d-flex w-100 h-100" style={{
+        <section className="w-100 h-100" style={{
           padding: desktop?.fields?.padding,
           margin: desktop?.fields?.margin,
           borderRadius: desktop?.fields?.borderRadius,
           backgroundPosition: "left center",
           backgroundColor: `${desktop?.fields?.backgroundColor}`,
-          boxShadow: desktop?.fields?.boxShadow
+          boxShadow: desktop?.fields?.boxShadow,
+          // display: desktop?.fields?.display ? desktop?.fields?.display : 'flex'
+          maxWidth: desktop?.fields?.maxWidth
         }}>
           <div
-            className={`d-flex flex-wrap  w-100 
+            className={`${desktop?.fields?.flexWrap ? 'flex-' + desktop?.fields?.flexWrap : 'flex-wrap'} w-100 
         ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
         ${desktop?.fields?.separater ? "border-r " : ""}
             }`}
             style={{
+              display: desktop?.fields?.display ? desktop?.fields?.display : 'flex',
               alignItems: desktop?.fields?.alignItems,
               justifyContent: `${desktop?.fields?.justifyContent}`,
             }}
@@ -135,7 +143,7 @@ const MultiColumnSection = ({
 
       )}
       {(tabletMode && isTabView) && (
-        <section className="d-flex  h-100" style={{
+        <section className="h-100" style={{
           width: `${tablet?.fields?.widthPercentage}% !important`,
           padding: tablet?.fields?.padding,
           margin: tablet?.fields?.margin,
@@ -145,11 +153,12 @@ const MultiColumnSection = ({
           boxShadow: tablet?.fields?.boxShadow,
         }}>
           <div
-            className={`d-flex flex-wrap 
+            className={` flex-wrap 
         ${tablet?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
         ${tablet?.fields?.separater ? "border-r " : ""}
             }`}
             style={{
+              display: tablet?.fields?.display ? tablet?.fields?.display : 'flex',
               alignItems: tablet?.fields?.alignItems,
               justifyContent: `${tablet?.fields?.justifyContent}`,
             }}
@@ -163,7 +172,7 @@ const MultiColumnSection = ({
       )}
 
       {(isMobile(screenMode) && (!tabletMode || !isTabView)) && (
-        <section className="d-flex w-100" style={{
+        <section className="w-100" style={{
           padding: mobile?.fields?.padding,
           margin: mobile?.fields?.margin,
           backgroundColor: `${mobile?.fields?.backgroundColor}`,
@@ -172,10 +181,11 @@ const MultiColumnSection = ({
           boxShadow: mobile?.fields?.boxShadow
         }}>
           <div
-            className={`d-flex flex-wrap w-100 
+            className={`flex-wrap w-100 
             ${mobile?.fields?.separater ? "border-b" : ""}
             ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
             style={{
+              display: mobile?.fields?.display ? mobile?.fields?.display : 'flex',
               justifyContent: `${mobile?.fields?.justifyContent}`,
               alignItems: mobile?.fields?.alignItems,
             }}

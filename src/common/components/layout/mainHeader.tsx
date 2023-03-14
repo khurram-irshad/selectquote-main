@@ -6,7 +6,7 @@ import { NavLink } from "./navLink";
 import {
   SessionStorageService,
 } from "@common/services/storage";
-import { ComponentContentTypes } from "@constants/app.constant";
+import {  DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 
 export default function MainHeader({ header }: { header: Type_Header }) {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   const [childSlides, setChildSlides] = useState([]);
   const [slideNav, setSlideNav] = useState([]);
   const [screenWidth, setScreenWidth] = useState(0);
-  const [phoneNumber, setPhoneNumber] = useState(ComponentContentTypes.PhoneNumber);
+  const [phoneNumber, setPhoneNumber] = useState(DEFAULT_PHONE_NUMBER);
   const [sCode, setScode] = useState('');
   const route = useRouter();
   if (typeof window !== 'undefined') {
@@ -36,7 +36,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   useEffect(() => {
 
     const handleStorageChange = () => {
-      const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
+      const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
       if (storageSiteData) {
         const {
           site_campaign_phone: site_campaign_phone,
@@ -52,7 +52,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
   useEffect(() => {
 
-    const storageSiteData = SessionStorageService.getItem(ComponentContentTypes.SiteSession);
+    const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
     if (storageSiteData) {
       const {
         site_campaign_phone: site_campaign_phone,

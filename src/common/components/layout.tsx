@@ -17,10 +17,7 @@ export default function Layout({
   return (
     <SSRProvider>
       <PageHead page={page} />
-      {navigationOnly && <MainHeader header={header} />}
-      {/* {smallNavbarOnly && <SmallHeader header={header} />}
-      {largeNavbarOnly && <LargeHeader header={header} />} */}
-
+      <MainHeader header={header} />
       {children}
     </SSRProvider>
   );
