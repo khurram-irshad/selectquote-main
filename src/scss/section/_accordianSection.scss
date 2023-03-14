@@ -1,0 +1,354 @@
+.accordian-model {
+  .card-header {
+    border: none;
+    padding-bottom: 25px !important;
+  }
+  .rounded-circle {
+    background-color: #00aec7;
+    justify-content: center;
+    align-items: center;
+  }
+  .faq-container {
+    width: 100%;
+  }
+  .card-body {
+    padding-top: 0px;
+    padding-left: 0px;
+    > :nth-child(2) {
+      font-family: "Montserrat", sans-serif !important;
+      font-weight: 500;
+      line-height: 28.8px;
+    }
+  }
+
+  .card {
+    padding:0px 10%;
+  }
+  
+  #homepage-faq {
+    .faqs-section-desktop{
+      .faq-container {
+        .accordion-card {
+          .card-header {
+            border: none !important;
+            border-radius: 20px !important;
+            border-bottom: none !important;
+          }
+          .card {
+            border-radius: 20px !important;
+            margin-bottom: 10px;
+          }
+          .card-active {
+            transition: border 0.7s linear;
+            border: 2px solid;
+            border-color: #F47B21 !important;
+          }
+          .card-inactive {
+            transition: border 0.7s linear;
+            border-radius: 20px !important;
+            border: none !important;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+          }
+        } 
+      }
+    }
+  }
+  @include mediaQueries (mobile) {
+    #homepage-faq {
+      .faqs-section-mobile{
+        .faq-container {
+          .accordion-card {
+            .card-header {
+              border: none !important;
+              border-radius: 20px !important;
+            }
+            .card {
+              border-radius: 20px !important;
+              margin-bottom: 10px;
+            }
+            .card-active {
+              transition: border 0.7s linear;
+              border: 2px solid;
+              border-color: #F47B21 !important;
+            }
+            .card-inactive {
+              transition: border 0.7s linear;
+              border-radius: 20px !important;
+              border: none !important;
+              box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3)
+            }
+            .header-title {
+              p {
+              font-family: "Montserrat", sans-serif !important;
+              }
+            }
+            p {
+              font-family: "Montserrat", sans-serif !important;
+            }
+          } 
+        }
+      }
+    }
+  }
+  width: 100%;
+  @include mediaQueries(mobile) {
+   
+    .faqs-section-mobile {
+      width: 100%;
+      h2 {
+        font-family: "Helvetica", sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.3em;
+        color: #646464 !important;
+        padding-bottom: 10px;
+        overflow-wrap: break-word;
+      }
+      .accordion-card {
+        .collapsing {
+          transition: height 1.2s ease !important;
+        }
+        .accordion-symbol {
+          // background-color: #3d9305;
+          border: none;
+          color: #ffffff;
+          height: 16px;
+          width: 16.5px;
+        }
+        .card-header {
+          background-color: #ffffff;
+          // padding: 20px;
+        }
+        .card {
+          border-radius: 0px;
+        }
+        .card-active {
+          transition: border 0.7s linear;
+        }
+        .card-inactive {
+          transition: border 0.7s linear;
+          border-bottom: 0.1px #646464;
+        }
+    
+        .header-title {
+          b {
+            background: 0 0;
+            border: none;
+            font-size: inherit;
+            font-weight: inherit;
+            text-align: left;
+            line-height: inherit;
+            padding: inherit;
+            letter-spacing: inherit;
+            color: #333 !important;
+          }
+        }
+        button {
+          font-size: 12px;
+          font-weight: 400;
+          font-style: normal;
+        }
+        .sq-list {
+          margin-left: 25px;
+          list-style-type: disc;
+          padding: 0 0 23px 1em;
+          line-height: 26px;
+          overflow-wrap: break-word;
+          color: #646464;
+        }
+        ol,
+        ul ::marker {
+          list-style: none;
+          color: #646464;
+          font-size: 1em;
+        }
+        li {
+          margin-bottom: 15px;
+        }
+        p {
+          color: #646464;
+        }
+        .faq-sub-title {
+          margin-bottom: 20px;
+          p {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 28.8px;
+          }
+        }
+
+        .faq-title {
+          p {
+            font-family: "Montserrat", sans-serif !important;
+            letter-spacing: 0.25px;
+            font-size: 16px;
+            line-height: 22.4px;
+            color: black;
+            font-weight: 600;
+            box-sizing: border-box;
+            margin-bottom: 0px;
+          }
+          display: flex;
+          justify-content: space-between;
+          font-size: 20px;
+          letter-spacing: 0.25px;
+          cursor: pointer;
+          position: relative;
+          word-wrap: break-word;
+        }
+      }
+      @include mediaQueries(mobile) {
+        h2 {
+          font-size: 30px;
+        }
+        .accordion-card {
+          .card-header {
+            background-color: #ffffff;
+            padding: 20px;
+            padding-left: 0px;
+          }
+          .accordion-symbol {
+            // background-color: #3d9305;
+            border: none;
+            height: 17.5px;
+            width: 17.5px;
+            font-size: 16px;
+          }
+          .header-title {
+            padding-right: 58px;
+          }
+          button {
+            font-style: normal !important;
+            font-weight: 400 !important;
+            font-size: 11px !important;
+          }
+        }
+      }
+      
+    }
+  }
+  .faqs-section-desktop {
+    h2 {
+      font-family: "Helvetica", sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.3em;
+      color: #646464 !important;
+      padding-bottom: 10px;
+      overflow-wrap: break-word;
+    }
+    .accordion-card {
+      .collapsing {
+        transition: height 1.2s ease !important;
+      }
+      .accordion-symbol {
+        // background-color: #3d9305;
+        border: none;
+        height: 18px;
+        width: 16.5px;
+        color: #ffffff;
+        padding: 0 0 0 0;
+      }
+      .card-header {
+        background-color: #ffffff;
+        padding: 20px;
+        border: none !important;
+      }
+      .card {
+        border-radius: 0px;
+      }
+      .card-active {
+        transition: border 0.7s linear;
+      }
+      .card-inactive {
+        transition: border 0.7s linear;
+        border-bottom: 0.1px #646464;
+      }
+  
+      .header-title {
+        b {
+          background: 0 0;
+          border: none;
+          font-size: inherit;
+          font-weight: inherit;
+          text-align: left;
+          line-height: inherit;
+          padding: inherit;
+          letter-spacing: inherit;
+          color: #333 !important;
+        }
+      }
+      button {
+        font-size: 12px;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .sq-list {
+        margin-left: 25px;
+        list-style-type: disc;
+        padding: 0 0 23px 1em;
+        line-height: 26px;
+        overflow-wrap: break-word;
+        color: #646464;
+      }
+      ol,
+      ul ::marker {
+        list-style: none;
+        color: #646464;
+        font-size: 1em;
+      }
+      li {
+        margin-bottom: 15px;
+      }
+      p {
+        color: #646464;
+      font-family: "Montserrat", sans-serif !important;
+      }
+      .faq-title {
+        p {
+          font-size: 20px;
+          color: black;
+          font-weight: 700;
+          box-sizing: border-box;
+          margin-bottom: 0px;
+          font-family:  "Poppins", sans-serif !important;
+        }
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        letter-spacing: 0.25px;
+        cursor: pointer;
+        position: relative;
+        word-wrap: break-word;
+      }
+    }
+    @include mediaQueries(mobile) {
+      h2 {
+        font-size: 30px;
+      }
+      .accordion-card {
+        .card-header {
+          background-color: #ffffff;
+          padding: 20px;
+        }
+        .accordion-symbol {
+          // background-color: #3d9305;
+          border: none;
+          height: 24px;
+        }
+        .header-title {
+          padding-right: 58px;
+        }
+        button {
+          font-style: normal !important;
+          font-weight: 400 !important;
+          font-size: 11px !important;
+        }
+      }
+    }
+    
+  }
+
+}
+

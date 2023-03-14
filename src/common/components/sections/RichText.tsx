@@ -20,7 +20,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
       {isDesktop(screenMode) && (
         <div
           className={`text-${desktop?.fields?.textAlign}`}
-          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width }}
+          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width, display: desktop?.fields?.display }}
         >
           <div
             id={contentId}
@@ -46,7 +46,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
       {isMobile(screenMode) && (
         <div
           className={`text-${mobile?.fields?.textAlign}`}
-          style={{ background: mobile?.fields?.backgroundColor, width: mobile?.fields?.width }}
+          style={{ background: mobile?.fields?.backgroundColor, width: mobile?.fields?.width, display: mobile?.fields?.display }}
         >
           <div
             id={contentId}

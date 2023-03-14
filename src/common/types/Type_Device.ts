@@ -29,6 +29,7 @@ interface Device {
     borderRadius: Contentful.EntryFields.Symbol;
     border: Contentful.EntryFields.Symbol;
     boxShadow: Contentful.EntryFields.Symbol;
+    display: Contentful.EntryFields.Symbol;
 };
 
 export default Device;
