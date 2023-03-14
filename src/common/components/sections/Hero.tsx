@@ -49,7 +49,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       <div className="hero-section-desktop ">
         <section
           className={`hero-section ${topSection ? "  hero-section-shadow" : ""
-            } ${!topSection ? 'container' : ''} `}
+            } ${!topSection ? 'container' : ''}`}
           style={{
             backgroundSize: `${backgroundSize}`,
             backgroundPosition: `${bgPosition}`,
@@ -87,7 +87,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       <div className="hero-section-mobile">
         {!reverseImagePosition && (
           <section
-            className={`hero-section`}
+            className={`hero-section ${path.includes('/faqs') ? ' spacing-top' : ''}`}
             style={{
               // backgroundColor: "#f8f8f8",
               backgroundSize: `${mobileBackgroundSize}`,

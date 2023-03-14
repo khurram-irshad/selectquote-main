@@ -1,6 +1,7 @@
 .hero-block {
   .hero-section-mobile {
     display: none;
+    .spacing-top {padding-top: 300px}
   }
   @include mediaQueries(mobile) {
     .hero-section-desktop {
@@ -16,7 +17,7 @@
     .content-left {
       width: 100%;
     }
-  
+   
 
     @include mediaQueries(mobile) {
       .hero-content > div {
@@ -29,7 +30,6 @@
     }
 
     @include mediaQueries(tab) {
-     
         div{
           .hero-image {height:680px !important}
         }
