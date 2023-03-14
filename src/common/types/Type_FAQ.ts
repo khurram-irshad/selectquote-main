@@ -7,6 +7,7 @@ interface FAQ {
     list: Contentful.Entry<FAQ_ITEM>[];
     devices: Contentful.Entry<Device>[];
     homePage?: Contentful.EntryFields.Boolean;
+    tableAlternate?: Contentful.EntryFields.Boolean;
 }
 
 interface FAQ_ITEM {

@@ -17,7 +17,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
 
     return (
         <>
-            {isDesktop(screenMode) && (
+            {(isDesktop(screenMode) && !desktop?.fields?.hidden) && (
                 <div className=" w-100" style={{ padding: desktop?.fields?.padding, margin: desktop?.fields?.margin }}>
                     <table >
                         {header && (<>
@@ -41,7 +41,7 @@ const TableSection = ({ section }: { section: Type_Table }) => {
                     </table>
                 </div>
             )}
-            {isMobile(screenMode) && (
+            {(isMobile(screenMode) && !mobile?.fields?.hidden) && (
                 <div className=" w-100 overflow-auto" style={{ padding: mobile?.fields?.padding, margin: mobile?.fields?.margin }}>
                     <table>
                         {header && (<>
