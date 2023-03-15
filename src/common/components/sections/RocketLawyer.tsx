@@ -1,4 +1,4 @@
-// import { Type_TrustPilot } from '@common/types/Type_TrustPilot'
+import { Type_TrustPilot } from '@common/types/Type_TrustPilot'
 import React from 'react'
 import SectionTrustPilot from './TrustPilot'
 

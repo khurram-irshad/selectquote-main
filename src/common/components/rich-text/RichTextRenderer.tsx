@@ -37,9 +37,6 @@ const RichTextRenderer = ({
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
           [BLOCKS.PARAGRAPH]: (node, children) => {
-            if ((node.content[0] as {value:string}).value === "") {
-              return <br />;
-            } else {
               return (
                 <p
                   style={{
@@ -55,7 +52,6 @@ const RichTextRenderer = ({
                   {addColour(children as any)}
                 </p>
               );
-            }
         },
           },
         // renderText: (text) =>
