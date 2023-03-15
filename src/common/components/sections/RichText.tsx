@@ -20,7 +20,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
       {isDesktop(screenMode) && (
         <div
           className={`text-${desktop?.fields?.textAlign}`}
-          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width, display: desktop?.fields?.display }}
+          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width, display: desktop?.fields?.display, maxWidth:desktop?.fields?.maxWidth }}
         >
           <div
             id={contentId}

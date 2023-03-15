@@ -36,22 +36,28 @@ const RichTextRenderer = ({
           [INLINES.ASSET_HYPERLINK]: AssetHyperlink,
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
-          [BLOCKS.PARAGRAPH]: (node, children) => (
-            <p
-              style={{
-                fontWeight: `${fontWeight}`,
-                color: `${color}`,
-                fontSize: `${fontSize}`,
-                lineHeight: `${lineHeight}`,
-                letterSpacing: `${letterSpacing}`,
-                fontFamily: `${fontFamily}`,
-                overflowWrap: `${overflowWrap}`
-              }}
-            >
-              {addColour(children as any)}
-            </p>
-          ),
+          [BLOCKS.PARAGRAPH]: (node, children) => {
+            if ((node.content[0] as {value:string}).value === "") {
+              return <br />;
+            } else {
+              return (
+                <p
+                  style={{
+                    fontWeight: `${fontWeight}`,
+                    color: `${color}`,
+                    fontSize: `${fontSize}`,
+                    lineHeight: `${lineHeight}`,
+                    letterSpacing: `${letterSpacing}`,
+                    fontFamily: `${fontFamily}`,
+                    overflowWrap: `${overflowWrap}`
+                  }}
+                >
+                  {addColour(children as any)}
+                </p>
+              );
+            }
         },
+          },
         // renderText: (text) =>
         //   text
         //     .split("\n")
