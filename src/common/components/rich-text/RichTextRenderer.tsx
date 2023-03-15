@@ -54,15 +54,15 @@ const RichTextRenderer = ({
               );
         },
           },
-        // renderText: (text) =>
-        //   text
-        //     .split("\n")
-        //     .flatMap((text, i) => [
-        //       i > 0 && (
-        //         <div key={i.toString()} style={{ paddingBottom: "10px" }}></div>
-        //       ),
-        //       text,
-        //     ]),
+        renderText: (text) =>
+          text
+            .split("\n")
+            .flatMap((text, i) => [
+              i > 0 && (
+                <div key={i.toString()} style={{ paddingBottom: "10px" }}></div>
+              ),
+              text,
+            ]),
       })}
     </>
   );
