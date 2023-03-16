@@ -6,7 +6,7 @@ export const RocketLawyerSection = () => {
     const section = { fields: { type: "Carousel" } } as Type_TrustPilot;
 
     return (
-        <div>
+        <div className='rock-lawyer'>
             <div className='main-copy'>
                 <p className='title top-copy'>Make sure your loved ones are protected with SelectQuote, a trusted partner of Rocket Lawyer.</p>
                 <p>Buying life insurance can seem intimidating, but with the cost of everything on the rise, it’s important to make sure your loved ones are protected financially. And did you know life insurance rates are actually decreasing? In just minutes, we can find the insurance you need at a price you can afford—with some policies less than $1/day.</p>
@@ -82,10 +82,19 @@ export const RocketLawyerSection = () => {
                         <p className='product-title'>Medicare Insurance</p>
                         <p>Find the perfect plan to fill your healthcare needs.</p>
                         <button>Get a Free Quote</button>
+                        <p className='sub-copy'>No obligation to enroll</p>
                     </div>
                 </div>
             </div>
-            
+            <div className='footer-cta'>
+                <div className='copy'>
+                    <p className='title'>We do the shopping. You do the saving.</p>
+                </div>
+                <div className='cta-form'>
+                    <input />
+                    <button className='flat-button'>Get a Free Quote</button>
+                </div>
+            </div>
         </div>
 
     )

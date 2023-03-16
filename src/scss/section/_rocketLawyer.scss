@@ -1,18 +1,21 @@
-.main-copy {
-   
-}
-
 .why-selectquote {
     margin: 100px 0 50px;
     box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     border: 1px solid transparent;
+    @include mediaQueries(mobile) {
+      width: 124%;
+      margin-left: -12%;
+    }
 
     .copy-container {
         padding: 30px;
         .multi-column {
             display: flex;
             flex-direction: row;
+            @include mediaQueries(mobile) {
+                flex-direction: column;
+            }
             div {
                 flex: 33.33%;
                 justify-content: center;
@@ -22,22 +25,28 @@
                     margin-bottom: 24px;
                 }
             }
+            @include mediaQueries(mobile) {
+                div {
+                flex: 100%;
+                }
+            }
+            
         }
     }
 }
 
-.title {
+.rock-lawyer .title {
     font-family: Hevetica, sans-serif;
     font-size: 28px;
     font-weight: 700;
     line-height: 28px;
 }
 
-.top-copy {
+.rock-lawyer .top-copy {
     margin: 54px 0 20px;
 }
 
-.cta-container {
+.rock-lawyer .cta-container {
    background: #00AEC7;
    box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.25);
    border-radius: 0px 0px 30px 30px;
@@ -46,7 +55,7 @@
    align-items: center;
 }
 
-button {
+.rock-lawyer button {
    background: #F47B20;
    border: 1px solid #FFFFFF;
    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2);
@@ -54,14 +63,15 @@ button {
    margin: 20px 0;
    color: #fff;
    padding: 6px 24px;
+   font-weight: 800;
 }
 
-// p {
-//     font-size: 18px;
-//     line-height: 24px;
-//     font-weight: 400;
-//     margin: 0 0 20px;
-// }
+.rock-lawyer p {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0 0 20px;
+}
 
 .trust-pilot {
     margin: 100px 0;
@@ -71,9 +81,17 @@ button {
     margin: 40px 0;
     display: flex;
     flex-direction: row;
+    @include mediaQueries(mobile) {
+        flex-direction: column;
+    }
     div {
         flex: 50%;
         justify-content:flex-start;
+        
+        @include mediaQueries(mobile) {
+            flex: 100%;
+        }
+       
         img {
             margin-bottom: 24px;
         }
@@ -87,5 +105,63 @@ button {
     .medical {
         border-left: 1px solid #C9C9C9;
         padding-left: 80px;
+        margin-top: 0;
+        border-top: 0;
+        @include mediaQueries(mobile) {
+            margin-top: 60px;
+            border-top: 1px solid #C9C9C9;
+            border-left: 0;
+            padding-left: 0;
+            img {
+                margin-top: 60px;
+            }
+        }
+        button {
+            margin: 10px 0;
+        }
+        .sub-copy {
+            font-size: 10px;
+            line-height: 24px;
+            margin-left: 30px;
+        }
+        
+    }
+}
+
+.footer-cta {
+    width: 125%;
+    margin-left: -12.5%;
+    background-color: #00AEC7;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    @include mediaQueries(mobile) { 
+        flex-direction: column;
+        padding: 30px 14px;
+    }
+    .copy {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    p {
+        color: #fff;
+        margin-bottom: 0;
+    }
+    input {
+       padding: 5px;
+       width: 150px;
+       color: #F47B20;
+       @include mediaQueries(mobile) { 
+        padding: 5px;
+       width:50%;
+    }
+    }
+    input:focus{
+        outline: #F47B20;
+    }
+    .flat-button {
+        border-radius: 0;
     }
 }
