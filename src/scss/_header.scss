@@ -330,11 +330,14 @@ header.content-header {
     }
     .close-btn {
       position: absolute;
-      top: 0;
+      top: 30px;
       right: 0;
       width: 24px;
       height: 24px;
       cursor: pointer;
+      @include mediaQueries(mobile) {
+        top: 15px;
+      }
     }
     .inputs-container {
       width: 600px;
