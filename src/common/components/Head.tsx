@@ -38,6 +38,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
   }
 
   const injectedScript = [
+
     {
       element: 'script',
       type: 'text/javascript',
@@ -62,18 +63,15 @@ const PageHead = ({ page }: { page: Type_Page }) => {
 
 
   useEffect(() => {
-    const trustpilot = {
-      element: 'script',
-      type: 'text/javascript',
-      source: "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
-      async: true,
-    };
-
     setTimeout(() => {
-      injectScript(trustpilot)
+      injectScript({
+        element: 'script',
+        type: 'text/javascript',
+        source: "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
+        async: true,
+      },)
     }, 2000);
-
-    injectedScript.every(inject => {
+    injectedScript.forEach(inject => {
       injectScript(inject)
     })
 
@@ -83,9 +81,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     aLink.href =
       "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4/dist/addsearch-search-ui.min.css";
     document.head.appendChild(aLink);
-
   }, [])
-
 
 
   useEffect(() => {
