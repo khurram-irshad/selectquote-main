@@ -15,7 +15,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     logoWithTag,
     bannerText,
     menuItems,
-    primaryButtonText,
   } = header.fields;
 
   const [showSearch, setShowSearch] = useState(false);
@@ -29,9 +28,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   const [phoneNumber, setPhoneNumber] = useState(DEFAULT_PHONE_NUMBER);
   const [sCode, setScode] = useState('');
   const route = useRouter();
-  if (typeof window !== 'undefined') {
-    var pageUrl = document.location.href;
-  }
 
   useEffect(() => {
 
