@@ -10,6 +10,7 @@ import { appService } from "@common/services/app.service";
 import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 import { GlobalContextProvider } from "src/context/globalContext";
 import { generateSessionId } from "@common/helpers/helper";
+import TagManager from "react-gtm-module";
 
 export default function Apps({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -20,6 +21,8 @@ export default function Apps({ Component, pageProps }: AppProps) {
     SessionStorageService.setItem(STORAGE.SITE_SESSION_DATA, data);
     window.dispatchEvent(new Event("storage"));
   };
+
+
 
   // useEffect(() => {
   //   const handleBeforeUnload = (event) => {
@@ -42,7 +45,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
     if (storageSCode && !sCode) {
       response = await appService.getScode(storageSCode);
     } else if (queryParams && sCode) {
-      SessionStorageService.setItem('sCode',sCode)
+      SessionStorageService.setItem('sCode', sCode)
       response = await appService.getScode(sCode);
     }
     const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
@@ -77,8 +80,35 @@ export default function Apps({ Component, pageProps }: AppProps) {
         ...site_data_model,
       });
     }
-
+    bindContainer(site_data_model)
   };
+
+  const bindContainer = (data) => {
+    let pageUrl;
+    if (typeof window !== "undefined") {
+      pageUrl = window.location.href;
+    }
+    const tagManagerPageLoad = {
+      dataLayer: {
+        event: "pageOnload",
+        fullURL: pageUrl,
+        session_id: data?.site_session_id,
+        sCode: data?.site_source_code,
+        campaignCategory: data.site_campaign_category,
+        campaignPartner: data.site_campaign_partner,
+        utm_source: data.utm_source,
+        utm_medium: data.utm_medium,
+      },
+    };
+    TagManager.dataLayer(tagManagerPageLoad);
+  }
+  useEffect(() => {
+    const tagManagerInit = {
+      gtmId: 'GTM-TZKPC7W',
+    };
+    TagManager.initialize(tagManagerInit);
+  }, []);
+
   useEffect(() => {
     getData();
   }, [queryParams]);
