@@ -41,12 +41,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
     {
       element: 'script',
       type: 'text/javascript',
-      source: "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
-      async: true,
-    },
-    {
-      element: 'script',
-      type: 'text/javascript',
       source: "https://cdn.jsdelivr.net/npm/addsearch-js-client@0.4/dist/addsearch-js-client.min.js",
       async: true,
     },
@@ -55,27 +49,34 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       type: 'text/javascript',
       source: "https://cdn.jsdelivr.net/npm/addsearch-search-ui@0.4.8/dist/addsearch-search-ui.min.js",
       async: true,
-    },
-    // {
-    //   element: 'script',
-    //   type: 'text/javascript',
-    //   source: "/addsearch/js/ui.js",
-    //   async: true,
-    // }
+    }
   ]
 
+  const injectScript = (item) => {
+    let createdElement: any = document.createElement(item.element);
+    createdElement.type = item.type;
+    createdElement.src = item.source;
+    createdElement.async = item.async;
+    document.head.appendChild(createdElement)
+  }
 
 
   useEffect(() => {
-   
-      injectedScript.map(inject => {
-        let createdElement: any = document.createElement(inject.element);
-        createdElement.type = inject.type;
-        createdElement.src = inject.source;
-        createdElement.async = inject.async;
-        return document.head.appendChild(createdElement)
-      })
-   
+    const trustpilot = {
+      element: 'script',
+      type: 'text/javascript',
+      source: "//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
+      async: true,
+    };
+
+    setTimeout(() => {
+      injectScript(trustpilot)
+    }, 2000);
+
+    injectedScript.every(inject => {
+      injectScript(inject)
+    })
+
 
     var aLink = document.createElement("link");
     aLink.rel = "stylesheet";
@@ -86,14 +87,15 @@ const PageHead = ({ page }: { page: Type_Page }) => {
   }, [])
 
 
+
   useEffect(() => {
     setTimeout(() => {
-    var aScript = document.createElement("script");
-    aScript.type = "text/javascript";
-    aScript.src =
-      "/addsearch/js/ui.js";
+      var aScript = document.createElement("script");
+      aScript.type = "text/javascript";
+      aScript.src =
+        "/addsearch/js/ui.js";
       document.body.appendChild(aScript);
-    }, 3000);  
+    }, 3000);
   }, []);
 
   return (
