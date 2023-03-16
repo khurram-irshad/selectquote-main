@@ -14,11 +14,6 @@ import { generateSessionId } from "@common/helpers/helper";
 export default function Apps({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
-
-  if (typeof window !== "undefined") {
-    var pageUrl = window.location.href;
-    var baseUrl = window.location.hostname;
-  }
   const queryParams: any = router.query;
 
   const storeSessionData = (data) => {
@@ -26,30 +21,29 @@ export default function Apps({ Component, pageProps }: AppProps) {
     window.dispatchEvent(new Event("storage"));
   };
 
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      if (router.isReady) {
-        const queryParams = router.query;
-        // localStorage.setItem('campaignKey', JSON.stringify(queryParams.campaignKey));
-      }
-    };
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => {
-      // window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [router]);
+  // useEffect(() => {
+  //   const handleBeforeUnload = (event) => {
+  //     if (router.isReady) {
+  //       debugger
+  //       const queryParams = router.query;
+  //       let sCode = queryParams?.campaignKey || queryParams?.sCode;
+  //       SessionStorageService.setItem('sCode', sCode);
+  //     }
+  //   };
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, [router]);
 
   const getData = async () => {
     let response, sCode = queryParams?.campaignKey || queryParams?.sCode;
-
     let storageSCode = SessionStorageService.getItem('sCode')
-
     if (storageSCode && !sCode) {
       response = await appService.getScode(storageSCode);
     } else if (queryParams && sCode) {
       response = await appService.getScode(sCode);
     }
-    debugger
     const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
     const site_session_id = storageSiteData ? storageSiteData.site_session_id : generateSessionId();
 
@@ -88,15 +82,10 @@ export default function Apps({ Component, pageProps }: AppProps) {
     getData();
   }, [queryParams]);
 
-  useEffect(() => {
-    const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
-  }, []);
-
   return (
     <GlobalContextProvider>
       <Component {...pageProps} />
     </GlobalContextProvider>
   )
-
 }
 
