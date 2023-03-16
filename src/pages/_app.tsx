@@ -39,7 +39,6 @@ export default function Apps({ Component, pageProps }: AppProps) {
   const getData = async () => {
     let response, sCode = queryParams?.campaignKey || queryParams?.sCode;
     let storageSCode = SessionStorageService.getItem('sCode')
-    debugger
     if (storageSCode && !sCode) {
       response = await appService.getScode(storageSCode);
     } else if (queryParams && sCode) {
