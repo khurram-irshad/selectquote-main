@@ -154,7 +154,7 @@ $searchWidth: 1100px;
 $searchMaxHeight: 1000px;
 
 #searchfield-container, #autocomplete-container {
-  width: 80%;
+  width: 100%;
 }
 
 .addsearch-search-overlay {
@@ -237,7 +237,7 @@ $searchMaxHeight: 1000px;
 
 /* The container must be positioned relative: */
 .select-wrapper {
-  width: 80%;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: center;
