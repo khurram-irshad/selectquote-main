@@ -31,6 +31,12 @@ export const ComponentContentTypes = {
   RocketLawyer: "templateRocketLawyer",
 };
 
+export const STATIC_SCODE = {
+  LIFE: 'CLMM',
+  MEDICARE: 'RLMED',
+  AUTO_HOME: 'RLSQAH'
+}
+
 export const DEFAULT_PHONE_NUMBER = "1-855-653-6700";
 
 export const STORAGE = {

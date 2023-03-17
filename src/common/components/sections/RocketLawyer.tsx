@@ -1,12 +1,19 @@
+import { STATIC_SCODE } from '@common/constants/app.constant';
 import { isDesktop } from '@common/helpers/helper';
 import { Type_TrustPilot } from '@common/types/Type_TrustPilot'
+import { useRouter } from 'next/router';
 import React from 'react'
 import { useGlobalContext } from 'src/context';
 import SectionTrustPilot from './TrustPilot'
 
+
 export const RocketLawyerSection = () => {
     const section = { fields: { type: "Carousel" } } as Type_TrustPilot;
     const { screenMode } = useGlobalContext();
+    const router = useRouter();
+
+    const queryParams: any = router.query;
+    const sCode = queryParams?.sCode || queryParams?.scode;
 
     const getClass = () => {
         return `${isDesktop(screenMode) ? 'container' : ''}`
@@ -55,12 +62,15 @@ export const RocketLawyerSection = () => {
                     </div>
                 </div>
                 <div className='cta-container'>
-                    <button>Get a Free Quote</button>
+                    <button onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
                 </div>
 
             </div>
-            <div className={`trust-pilot  ${getClass()}`}>
-                <SectionTrustPilot section={section} />
+            <div className={`trust-pilot`}>
+                <div className={` container`}>
+                    <p>SelectQuote Customer Reviews</p>
+                    <SectionTrustPilot section={section} />
+                </div>
             </div>
 
             <div className={`help  container`}>
@@ -76,7 +86,7 @@ export const RocketLawyerSection = () => {
                     />
                         <p className='product-title'>Auto & Home Insurance</p>
                         <p>We’ll work to find the best price available rates in your area.</p>
-                        <button>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://homeandauto.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.AUTO_HOME : ''}`) }}>Get a Free Quote</button>
                     </div>
                     <div className='medical'>
                         <img
@@ -87,7 +97,7 @@ export const RocketLawyerSection = () => {
                         />
                         <p className='product-title'>Medicare Insurance</p>
                         <p>Find the perfect plan to fill your healthcare needs.</p>
-                        <button>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://medicare.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.MEDICARE : ''}`) }}>Get a Free Quote</button>
                         <p className='sub-copy'>No obligation to enroll</p>
                     </div>
                 </div>
@@ -98,7 +108,7 @@ export const RocketLawyerSection = () => {
                 </div>
                 <div className='cta-form'>
                     <input />
-                    <button className='flat-button'>Get a Free Quote</button>
+                    <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
                 </div>
             </div>
         </div>

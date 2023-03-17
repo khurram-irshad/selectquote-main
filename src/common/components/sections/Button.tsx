@@ -1,7 +1,9 @@
+import { STATIC_SCODE } from "@common/constants/app.constant";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 import { Type_Button } from "@common/types/Type_Button";
 import { DeviceType } from "@common/types/Type_Device";
 import useWindowDimensions from "@components/WindowDimension";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "src/context";
 
@@ -11,21 +13,37 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     linkUrl,
     rounded = true,
     devices,
-    scrollToId,
     hoverBackground,
     hoverColor
   } = section.fields;
   const [isFocused, setFocus] = useState(false);
   const { screenMode } = useGlobalContext();
+  const router = useRouter();
 
   const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
+
+  const queryParams: any = router.query;
+  const sCode = queryParams?.sCode || queryParams?.scode;
+
+  let pathname, hrefUrl = linkUrl;
+  if (typeof window !== "undefined") {
+    pathname = window.location.pathname;
+  }
+
+  const isRocketLawyer = () => {
+    return sCode && pathname?.includes('rocket-lawyer')
+  }
+  if (isRocketLawyer()) {
+    hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`
+  }
+
   return (
     <>
       {isDesktop(screenMode) && (
-        <div className="button-container">  
+        <div className="button-container">
           <a
-            className={`action-btn ${rounded ? "btn-border" : ""}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""}`}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             style={{
@@ -36,9 +54,11 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               backgroundColor: isFocused ? hoverBackground : desktop?.fields?.backgroundColor,
               color: isFocused ? hoverColor : desktop?.fields?.textColor,
               borderColor: isFocused ? hoverColor : desktop?.fields?.textColor,
-              boxShadow: desktop?.fields?.boxShadow? desktop?.fields?.boxShadow:'0px 2px 4px 0px rgba(0, 0, 0, 30%)'
+              boxShadow: desktop?.fields?.boxShadow ? desktop?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
-            href={linkUrl}
+            href={hrefUrl}
+            target={isRocketLawyer() ? '_blank' : ''}
+            rel={isRocketLawyer() ? 'noopener noreferrer' : ''}
           >
             {title}
           </a>
@@ -50,7 +70,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
           <a
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
-            className={`action-btn ${rounded ? "btn-border" : ""}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""}`}
             style={{
               fontSize: mobile?.fields?.fontSize,
               padding: mobile?.fields?.padding ? mobile?.fields?.padding : '',
@@ -59,9 +79,11 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               backgroundColor: isFocused ? hoverBackground : mobile?.fields?.backgroundColor,
               color: isFocused ? hoverColor : mobile?.fields?.textColor,
               borderColor: isFocused ? hoverColor : mobile?.fields?.textColor,
-              boxShadow: mobile?.fields?.boxShadow? mobile?.fields?.boxShadow:'0px 2px 4px 0px rgba(0, 0, 0, 30%)'
+              boxShadow: mobile?.fields?.boxShadow ? mobile?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
-            href={linkUrl}
+            href={hrefUrl}
+            target={isRocketLawyer() ? '_blank' : ''}
+            rel={isRocketLawyer() ? 'noopener noreferrer' : ''}
           >
             {title}
           </a>
