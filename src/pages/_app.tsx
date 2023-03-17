@@ -88,7 +88,6 @@ export default function Apps({ Component, pageProps }: AppProps) {
     if (typeof window !== "undefined") {
       pageUrl = window.location.href;
     }
-    // debugger
     const tagManagerPageLoad = {
       dataLayer: {
         event: "pageOnload",
