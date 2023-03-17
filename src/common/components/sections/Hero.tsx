@@ -33,7 +33,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
   bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
   bgPosition = path.includes('leadership') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
-  bgPosition = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `center bottom` : bgPosition;
+  bgPosition = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `center` : bgPosition;
 
   let bgSize = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
   
@@ -95,7 +95,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             style={{
               // backgroundColor: "#f8f8f8",
               backgroundSize: `${bgSize}`,
-              backgroundPosition: "center top",
+              backgroundPosition: `${bgPosition}`,
               backgroundImage:
                 backgroundImageMobile && topSection
                   ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`
