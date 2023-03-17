@@ -88,12 +88,13 @@ export default function Apps({ Component, pageProps }: AppProps) {
     if (typeof window !== "undefined") {
       pageUrl = window.location.href;
     }
+    debugger
     const tagManagerPageLoad = {
       dataLayer: {
         event: "pageOnload",
         fullURL: pageUrl,
         session_id: data?.site_session_id,
-        sCode: data?.site_source_code,
+        sCode: data?.campaign_key,
         campaignCategory: data.site_campaign_category,
         campaignPartner: data.site_campaign_partner,
         utm_source: data.utm_source,
