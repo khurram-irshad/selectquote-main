@@ -61,7 +61,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   // bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
   // bgPosition = path.includes('/faqs') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
 
-  const bgSize = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
+  const bgSize = (path.includes('leadership') || path.includes('customer-review') || path.includes('/newsroom') || path.includes('/careers') || path.includes('contact'))  && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
   const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
   
