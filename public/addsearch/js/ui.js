@@ -19,8 +19,8 @@ var searchResultsTemplate = `
         <div class="hit-top">         
           <div class="highlight">
             <span class="main-image {{document_type}} {{#unless images.main}}noimage{{/unless}}"{{#if images.main}} style="background-image: url(data:image/jpeg;base64,{{images.main_b64}})"{{/if}}>
-              {{#if images.main}}<img src="{{images.main}}" alt="{{title}}" />
-              {{else if style.image_url}}<img src="{{style.image_url}}" alt="{{title}}" />{{/if}}    
+              {{#if images.main}} <a href="{{url}}" data-analytics-click="{{id}}"><img src="{{images.main}}" alt="{{title}}" /></a>
+              {{else if style.image_url}} <a href="{{url}}" data-analytics-click="{{id}}"><img src="{{style.image_url}}" alt="{{title}}" /></a>{{/if}}    
             </span>          
            </div>
           
@@ -30,7 +30,7 @@ var searchResultsTemplate = `
               <a href="{{url}}" data-analytics-click="{{id}}">{{title}}</a>
             </h3>
         <div class="highlight">       
-        <a href="{{url}}" data-analytics-click="{{id}}">{{highlight}}</a>
+        <a href="{{url}}" data-analytics-click="{{id}}">{{{highlight}}}</a>
         </div>               
         </div>
         </div>
