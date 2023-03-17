@@ -29,11 +29,19 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   const path = useRouter().asPath;
   const [screenWidth, setScreenWidth] = useState(0);
 
-  let bgPosition =
-    path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
-  bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
+  
+ // path.includes('/newsroom') ? `50% 50%` : `right 0px ${backgroundPosition}`;
+ let bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : backgroundPosition;
+  bgPosition = path.includes('leadership') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
+  bgPosition = path.includes('/faqs') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
+  bgPosition = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `center` : bgPosition;
 
-  const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`: `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  let bgSize = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
+
+  
+  
+  const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  
   
     useEffect(() => {
       setScreenWidth(window.innerWidth);
@@ -43,7 +51,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }, []);
-
+    console.log(bgPosition)
   return (
     <div className="hero-block">
       <div className="hero-section-desktop ">
@@ -90,8 +98,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             className={`hero-section ${path.includes('/faqs') ? ' spacing-top' : ''}`}
             style={{
               // backgroundColor: "#f8f8f8",
-              backgroundSize: `${mobileBackgroundSize}`,
-              backgroundPosition: "center top",
+              backgroundSize: `${bgSize}`,
+              backgroundPosition: `${bgPosition}`,
               backgroundImage:
                 backgroundImageMobile && topSection
                   ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`
