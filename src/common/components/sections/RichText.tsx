@@ -6,7 +6,7 @@ import React from "react";
 import { useGlobalContext } from "src/context";
 
 const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
-  const { content, devices, contentId } = section.fields;
+  const { content, devices, contentId, scrollTopMargin } = section.fields;
   const { screenMode } = useGlobalContext();
   const desktop = devices?.find(
     (item) => item.fields?.type === DeviceType.Desktop
@@ -28,6 +28,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               width: `${desktop?.fields?.widthPercentage ?? desktop?.fields?.width}`,
               padding: `${desktop?.fields?.padding}`,
               margin: desktop?.fields?.margin,
+              scrollMarginTop: `${scrollTopMargin}`,
             }}
           >
             <RichTextRenderer
@@ -55,6 +56,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
               width: `${mobile?.fields?.widthPercentage ?? mobile?.fields?.width}`,
               padding: `${mobile?.fields?.padding}`,
               margin: mobile?.fields?.margin,
+              scrollMarginTop: `${scrollTopMargin}`,
             }}
           >
             <RichTextRenderer
