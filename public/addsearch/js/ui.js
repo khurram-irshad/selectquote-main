@@ -30,7 +30,7 @@ var searchResultsTemplate = `
               <a href="{{url}}" data-analytics-click="{{id}}">{{title}}</a>
             </h3>
         <div class="highlight">       
-          {{{highlight}}}
+        <a href="{{url}}" data-analytics-click="{{id}}">{{highlight}}</a>
         </div>               
         </div>
         </div>

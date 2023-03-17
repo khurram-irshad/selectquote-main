@@ -8,6 +8,7 @@ type CustomRichText = {
   content?: Contentful.Entry<RichText>;
   devices: Contentful.Entry<Device>[];
   contentId: Contentful.EntryFields.Symbol;
+  scrollTopMargin?: Contentful.EntryFields.Symbol;
 };
 
 export type Type_RichText = Contentful.Entry<RichText>;
