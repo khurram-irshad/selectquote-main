@@ -2,7 +2,7 @@
     .title {
         font-family: "Poppins", sans-serif;
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 800;
         line-height: 28px;
         margin: 54px 0 20px;
     }
@@ -66,7 +66,7 @@
     .title {
         font-family: "Poppins", sans-serif;
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 800;
         line-height: 28px;
         margin: 20px 0;
     }
@@ -117,7 +117,7 @@
 
     p {
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 800;
         font-family: Poppins, sans-serif;
         line-height: 38px;
         margin-bottom: 30px;
@@ -136,7 +136,7 @@
     .title {
         font-family: "Poppins", sans-serif;
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 800;
         line-height: 28px;
         margin: 54px 0 20px;
     }
@@ -227,7 +227,7 @@
     .title {
         font-family: "Poppins", sans-serif;
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 800;
         line-height: 40px;
     }
 
@@ -283,6 +283,7 @@
         padding: 11px 27px;
         border:none;
         box-shadow: none;
+        margin-left: 4px;
     }
 
     @include mediaQueries(mobile) {
