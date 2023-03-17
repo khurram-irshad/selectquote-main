@@ -32,7 +32,11 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   let bgPosition =
     path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
   bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
+  bgPosition = path.includes('leadership') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
+  bgPosition = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `center bottom` : bgPosition;
 
+  let bgSize = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
+  
   const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})`: `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
     useEffect(() => {
@@ -90,7 +94,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             className={`hero-section ${path.includes('/faqs') ? ' spacing-top' : ''}`}
             style={{
               // backgroundColor: "#f8f8f8",
-              backgroundSize: `${mobileBackgroundSize}`,
+              backgroundSize: `${bgSize}`,
               backgroundPosition: "center top",
               backgroundImage:
                 backgroundImageMobile && topSection
