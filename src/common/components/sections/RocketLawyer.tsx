@@ -19,17 +19,17 @@ export const RocketLawyerSection = () => {
         return `${isDesktop(screenMode) ? 'container' : ''}`
     }
     return (
-        <div className='rock-lawyer '>
-            <div className={`container`}>
-                <p className='title top-copy'>Make sure your loved ones are protected with SelectQuote, a trusted partner of Rocket Lawyer.</p>
-                <p>Buying life insurance can seem intimidating, but with the cost of everything on the rise, it’s important to make sure your loved ones are protected financially. And did you know life insurance rates are actually decreasing? In just minutes, we can find the insurance you need at a price you can afford—with some policies less than $1/day.</p>
-                <p>Life insurance can play a significant role in your estate plans, which is why SelectQuote and Rocket Lawyer are working together to make sure you have the right coverage for your needs. Get a free quote today at 1-XXX-XXX-XXXX.
+        <div className='rock-lawyer'>
+            <div className={`container header`}>
+                <p className='title'>Make sure your loved ones are protected with SelectQuote, a trusted partner of Rocket Lawyer.</p>
+                <p className='sub-section'>Buying life insurance can seem intimidating, but with the cost of everything on the rise, it’s important to make sure your loved ones are protected financially. And did you know life insurance rates are actually decreasing? In just minutes, we can find the insurance you need at a price you can afford—with some policies less than $1/day.</p>
+                <p className='sub-section'>Life insurance can play a significant role in your estate plans, which is why SelectQuote and Rocket Lawyer are working together to make sure you have the right coverage for your needs. Get a free quote today at <span className='mobile'>1-XXX-XXX-XXXX</span>.
                 </p>
             </div>
             <div className={`why-selectquote ${getClass()}`}>
                 <div className='copy-container'>
                     <p className='title text-center'>Why SelectQuote?</p>
-                    <p className='text-center'>At SelectQuote, we’re dedicated to helping you find the right coverage with the right carrier at the right price.
+                    <p className='sub-section'>At SelectQuote, we’re dedicated to helping you find the right coverage with the right carrier at the right price.
                     </p>
                     <div className='multi-column'>
                         <div>
@@ -39,7 +39,7 @@ export const RocketLawyerSection = () => {
                                 src="/images/content/piggybank.png"
                                 alt="search-icon"
                             />
-                            <p>Life insurance starting as low as $1/day**</p>
+                            <p className='col'>Life insurance starting as low as $1/day**</p>
                         </div>
                         <div>
                             <img
@@ -48,7 +48,7 @@ export const RocketLawyerSection = () => {
                                 src="/images/content/handheart.png"
                                 alt="search-icon"
                             />
-                            <p>Helped millions of families find the right life insurance for 35+ years</p>
+                            <p className='col'>Helped millions of families find the right life insurance for 35+ years</p>
                         </div>
                         <div>
                             <img
@@ -57,7 +57,7 @@ export const RocketLawyerSection = () => {
                                 src="/images/content/handshake.png"
                                 alt="search-icon"
                             />
-                            <p>Work with some of the nation’s most trusted insurance carriers</p>
+                            <p className='col'>Work with some of the nation’s most trusted insurance carriers</p>
                         </div>
                     </div>
                 </div>
@@ -73,9 +73,9 @@ export const RocketLawyerSection = () => {
                 </div>
             </div>
 
-            <div className={`help  container`}>
+            <div className={`help-container  container`}>
                 <p className='title'>We can help with all your insurance needs.</p>
-                <p>Whether it’s your family, your home or your health, we can help you protect the things in life that matter most.
+                <p className='sub-section'>Whether it’s your family, your home or your health, we can help you protect the things in life that matter most.
                 </p>
                 <div className='help-column'>
                     <div> <img
@@ -107,8 +107,11 @@ export const RocketLawyerSection = () => {
                     <p className='title'>We do the shopping. You do the saving.</p>
                 </div>
                 <div className='cta-form'>
-                    <input />
-                    <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
+                    <div >
+                        <input placeholder='Enter Zip' />
+                        <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
+                    </div>
+                    <p className='mini-text'>No obligation to enroll</p>
                 </div>
             </div>
         </div>
