@@ -22,26 +22,11 @@ export default function Apps({ Component, pageProps }: AppProps) {
     window.dispatchEvent(new Event("storage"));
   };
 
-
-
-  // useEffect(() => {
-  //   const handleBeforeUnload = (event) => {
-  //     if (router.isReady) {
-  //       debugger
-  //       const queryParams = router.query;
-  //       let sCode = queryParams?.campaignKey || queryParams?.sCode;
-  //       SessionStorageService.setItem('sCode', sCode);
-  //     }
-  //   };
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, [router]);
-
   const getData = async () => {
     let response, sCode = queryParams?.campaignKey || queryParams?.sCode;
     let storageSCode = SessionStorageService.getItem('sCode')
+    SessionStorageService.removeItem(STORAGE.SITE_SESSION_DATA)
+  
     if (storageSCode && !sCode) {
       response = await appService.getScode(storageSCode);
     } else if (queryParams && sCode) {
@@ -63,7 +48,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
         campaign_key: response['Campaign Key'],
         campaign_id: response['Campaign ID'],
         campaign_category: response['Category'],
-        campaign_partner: null,
+        campaign_partner: response['Partner'] ? response['Partner'] : null,
         utm_source: null,
         utm_medium: null,
         utm_campaign: null,
