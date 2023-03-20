@@ -15,7 +15,7 @@ const createLinkFromMatches = (matches, data, restProps = {}) => {
   return [...new Set(content)] // get the unique values / avoid ["", ""] - when there are no other parts of text
     .map(text => text === "" ?  // map over the unique values to replace that which was split
       <Link href={URL || "/"}>
-        <a {...restProps} className="hover" style={{ color: `${matches[2]}`, textDecoration: "none", fontWeight: 700 }} >{matches[1]}</a>
+        <a {...restProps} className="hover" target="_blank"  rel="noopener noreferrer" style={{ color: `${matches[2]}`, textDecoration: "none", fontWeight: 700 }} >{matches[1]}</a>
       </Link>  // return the element with the colour
       : text) // or return the text
 }
