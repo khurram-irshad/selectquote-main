@@ -29,6 +29,8 @@ export const ComponentContentTypes = {
   ColorText: "templateColorText",
   StaticReviews: "templateStaticReviews",
   RocketLawyer: "templateRocketLawyer",
+  RocketLawyerHeader: "rocketLawyerHeader",
+  MainHeader: "header",
 };
 
 export const STATIC_SCODE = {
