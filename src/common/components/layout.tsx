@@ -17,7 +17,7 @@ export default function Layout({
   return (
     <SSRProvider>
       <PageHead page={page} />
-      <MainHeader header={header} />
+      {header && (<MainHeader header={header} />)}
       {children}
     </SSRProvider>
   );
