@@ -19,17 +19,28 @@ html {
 }
 
 .partnership-form {
+  width: 70%;
+  margin:0px auto;
   .comapny-located {
     display: flex;
     flex-direction: column;
     width: 50%;
   }
-
+  
   .check-list {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top: 30px;
+    label {
+      width: 200px;
+    }
+    .input-group {
+      margin-left: -100px;
+      input {
+        border-radius: 0px !important;
+      }
+    }
   }
 
   .check-list-other {
@@ -41,7 +52,7 @@ html {
 
   .other-field {
     display: flex;
-    height: 56px;
+    height: 52px;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     justify-content: flex-start;
@@ -496,6 +507,10 @@ p {
 }
 
 .input-group {
+  width: 90%;
+  input {
+    border-radius: 5px !important;
+  }
   input:focus {
     box-shadow: none !important;
   }
