@@ -28,7 +28,53 @@ export const partnershipDetailSchema = yup.object().shape({
     radiooption3: yup.string().required('This field is required'),
     radiooption4: yup.string().required('This field is required'),
     radiooption5: yup.string().required('This field is required'),
-})
+    radiooption6: yup.string().required('This field is required'),
+    insuranceverticals: yup.array()
+    .required('This field is required')
+    .min(1, 'Please select at least one option'),
+    otherinsuranceverticals: yup.string().when('insuranceverticals', {
+        is: (values) => values&&values.includes('Auto'),
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+      }),
+    leadtype: yup.array()
+    .required('This field is required')
+    .min(1, 'Please select at least one option'),
+    otherleadtype: yup.string().when('leadtype', {
+        is: (values) => values&&values.includes('Auto'),
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+    }),
+    primarysources: yup.array()
+    .required('This field is required')
+    .min(1, 'Please select at least one option'),
+    otherprimarysources: yup.string().when('primarysources', {
+        is: (values) => values&&values.includes('Auto'),
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+    }),
+    others: yup.string().when("radiooption1", {
+        is: "Others",
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+    }),
+    others1: yup.string().when("radiooption2", {
+        is: "Others1",
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+    }),
+    others2: yup.string().when("radiooption6", {
+        is: "Others2",
+        then: yup.string().required('This field is required'),
+        otherwise: yup.string()
+    }),
+    // checkboxinput: yup.string().when("radiooption6", {
+    //     is: "checkboxinput",
+    //     then: yup.string().required('This field is required'),
+    //     otherwise: yup.string()
+    // }),
+});
+
 export const foundationSchema = yup.object().shape({
     firstName: yup.string().required('Please enter your first name'),
     lastName: yup.string().required('Please enter your last name.'),

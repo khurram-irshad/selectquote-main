@@ -138,7 +138,7 @@ const PartnershipDetail = () => {
                                         <input type="radio" onChange={onChange} value="1-25" name="radioOption" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>1-25</label>
                                     </div>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute", marginTop:'42px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -192,9 +192,9 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Yes" name="radioOption1" />
+                                        <input type="radio" checked={selectedRadio === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Yes" name="radioOption1" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'130px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -204,7 +204,7 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="No" name="radioOption1" />
+                                        <input type="radio" checked={selectedRadio === "No"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="No" name="radioOption2" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
                                     </>)}
                                 />
@@ -212,7 +212,20 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
-                        <span className="other-button">Others</span>
+                        {/* <span className="other-button" style={{backgroundColor: selectedRadio==='others'&&'#00aec7', color:selectedRadio==='others'&&'white'}} onClick={()=>setSelectedRadio('others')}>Others</span> */}
+                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                            <li className="radio-list">
+                                <Controller
+                                    name="radiooption1"
+                                    control={control}
+                                    render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
+                                        <>
+                                            <input type="radio" checked={selectedRadio === "Others"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Others" name="radioOptionOther" />
+                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                        </>)}
+                                    />
+                                </li>
+                        </ul>
                         <UseFormTextField
                             placeholder="Enter text here"
                             control={control}
@@ -222,7 +235,7 @@ const PartnershipDetail = () => {
                             width="101.2%"
                             height="50px"
                             defaultValue=""
-                            disabled={selectedRadio !== undefined}/>
+                            disabled={selectedRadio !== "Others"}/>
                     </div>
                 </div>
                 <div className="row top-space">
@@ -237,9 +250,9 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Yes" name="radioOption2" />
+                                        <input type="radio" checked={selectedRadio1 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Yes" name="radioOption2" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'130px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -249,7 +262,7 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="No" name="radioOption2" />
+                                        <input type="radio" checked={selectedRadio1 === "No"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="No" name="radioOption2" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
                                     </>)}
                                 />
@@ -257,7 +270,20 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
-                        <span className="other-button">Others</span>
+                        {/* <span className="other-button">Others</span> */}
+                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                            <li className="radio-list">
+                                <Controller
+                                    name="radiooption2"
+                                    control={control}
+                                    render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
+                                        <>
+                                            <input type="radio" checked={selectedRadio1 === "Others1"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Others1" name="radioOptionOther" />
+                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                        </>)}
+                                    />
+                                </li>
+                        </ul>
                         <UseFormTextField
                             placeholder="Enter text here"
                             control={control}
@@ -266,7 +292,7 @@ const PartnershipDetail = () => {
                             name = "others1"
                             width="101.2%"
                             defaultValue=""
-                            disabled={selectedRadio1 !== undefined}/>
+                            disabled={selectedRadio1 !== 'Others1'}/>
                     </div>
                 </div>
                 <div className="row top-space">
@@ -275,7 +301,8 @@ const PartnershipDetail = () => {
                     </label>
                     <div className="checkbox-list">
                         <div className="check-list">
-                        <label htmlFor="checkbox1" style={{ color: "#646464" , display: "flex" , alignItems: "center" }}><Controller
+                        <label htmlFor="checkbox1" style={{ color: "#646464" , display: "flex" , alignItems: "center" }}>
+                        <Controller
                         control={control}
                         name="insuranceverticals"
                         render={({ field , fieldState: { error, isDirty }}) => (
@@ -298,7 +325,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />
-                            {error && <p style={{ color: "red", position: "relative" , bottom: "60%" }}>Please select an option</p>}
+                            {error && <p style={{ color: "red", position: "absolute" , marginTop:'210px' }}>Please select an option</p>}
 
                             </>
                         )}
@@ -352,7 +379,7 @@ const PartnershipDetail = () => {
                         )}
                         />
                         </div>
-                        <div className="check-list" style={{ width: "55.5%" }}>
+                        <div className="check-list">
                         <Controller
                         control={control}
                         name="insuranceverticals"
@@ -408,7 +435,7 @@ const PartnershipDetail = () => {
                         name="insuranceverticals"
                         render={({ field, formState }) => (
                             <>
-                                <label style={{width: "10%"}}>
+                                <label>
                                 <input
                                     {...field}
                                     type="checkbox"
@@ -425,8 +452,10 @@ const PartnershipDetail = () => {
                                     }
                                     field.onChange(checkedValues);
                                     }}
-                                />Others</label>
-                                <UseFormTextField control={control} name="checkboxinput" className="other-line-input" />
+                                />
+                                Other</label>
+                                
+                                <UseFormTextField control={control} name="otherinsuranceverticals" className="other-line-input" />
                             </>
                         )}
                         
@@ -446,11 +475,12 @@ const PartnershipDetail = () => {
                     </label>
                     <div className="checkbox-list">
                         <div className="check-list">
+                            <label>
                         <Controller
                         control={control}
                         name="leadtype"
-                        render={({ field, formState }) => (
-                            <label>
+                        render={({ field, fieldState: { error, isDirty } }) => (
+                            <>
                             <input
                                 {...field}
                                 type="checkbox"
@@ -467,9 +497,14 @@ const PartnershipDetail = () => {
                                 }
                                 field.onChange(checkedValues);
                                 }}
-                            />Transfers</label>
+                            />Transfers
+                            {error && <p style={{ color: "red", position: "absolute" }}>Please select an option</p>}
+                            </>
+                            
                         )}
+                        
                         />
+                        </label>
                         <Controller
                         control={control}
                         name="leadtype"
@@ -547,10 +582,10 @@ const PartnershipDetail = () => {
                         <div className="check-list">
                         <Controller
                         control={control}
-                        name="insuranceverticals"
+                        name="leadtype"
                         render={({ field, formState }) => (
                             <>
-                                <label style={{width: "10%"}}>
+                                <label>
                                 <input
                                     {...field}
                                     type="checkbox"
@@ -558,7 +593,7 @@ const PartnershipDetail = () => {
                                     style={{ width: "30px", height: "40px", position: "relative", 
                                     display: "inline-block", verticalAlign: "middle", marginRight: "10px", }}
                                     onChange={(e) => {
-                                    const checkedValues = getValues()["insuranceverticals"] || [];
+                                    const checkedValues = getValues()["leadtype"] || [];
                                     const valueIndex = checkedValues?.indexOf(4);
                                     if (e.target.checked) {
                                         checkedValues.push("Auto");
@@ -567,8 +602,8 @@ const PartnershipDetail = () => {
                                     }
                                     field.onChange(checkedValues);
                                     }}
-                                />Others</label>
-                                <UseFormTextField control={control} name="checkboxinput1" className="other-line-input" />
+                                />Other</label>
+                                <UseFormTextField control={control} name="otherleadtype" className="other-line-input" />
                             </>
                         )}
                         
@@ -582,11 +617,12 @@ const PartnershipDetail = () => {
                     </label>
                     <div className="checkbox-list">
                         <div className="check-list">
+                            <label>
                         <Controller
                         control={control}
                         name="primarysources"
-                        render={({ field, formState }) => (
-                            <label>
+                        render={({ field, fieldState: { error, isDirty } }) => (
+                            <>
                             <input
                                 {...field}
                                 type="checkbox"
@@ -603,9 +639,12 @@ const PartnershipDetail = () => {
                                 }
                                 field.onChange(checkedValues);
                                 }}
-                            />Websites</label>
-                        )}
-                        />
+                            />
+                            {error && <p style={{ color: "red", position: "absolute" , marginTop:'68px' }}>Please select an option</p>}
+                            </>
+                            )}
+                            />Websites
+                            </label>
                         <Controller
                         control={control}
                         name="primarysources"
@@ -679,7 +718,7 @@ const PartnershipDetail = () => {
                         )}
                         />
                         </div>
-                        <div className="check-list" style={{ width: "38.8%" }}>
+                        <div className="check-list">
                         <Controller
                         control={control}
                         name="primarysources"
@@ -732,10 +771,10 @@ const PartnershipDetail = () => {
                         <div className="check-list">
                         <Controller
                         control={control}
-                        name="insuranceverticals"
+                        name="primarysources"
                         render={({ field, formState }) => (
                             <>
-                                <label style={{width: "10%"}}>
+                                <label>
                                 <input
                                     {...field}
                                     type="checkbox"
@@ -743,7 +782,7 @@ const PartnershipDetail = () => {
                                     style={{ width: "30px", height: "40px", position: "relative", 
                                     display: "inline-block", verticalAlign: "middle", marginRight: "10px", }}
                                     onChange={(e) => {
-                                    const checkedValues = getValues()["insuranceverticals"] || [];
+                                    const checkedValues = getValues()["primarysources"] || [];
                                     const valueIndex = checkedValues?.indexOf(4);
                                     if (e.target.checked) {
                                         checkedValues.push("Auto");
@@ -752,8 +791,8 @@ const PartnershipDetail = () => {
                                     }
                                     field.onChange(checkedValues);
                                     }}
-                                />Others</label>
-                                <UseFormTextField control={control} name="checkboxinput2" className="other-line-input" />
+                                />Other</label>
+                                <UseFormTextField control={control} name="otherprimarysources" className="other-line-input" />
                             </>
                         )}
                         />
@@ -790,7 +829,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Owned & Operated" name="radioOption3" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Owned & Operated</label>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
                                         
                                     </>)}
                                 />
@@ -823,7 +862,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption4" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -845,7 +884,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="maybe" name="radioOption4" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>maybe</label>
+                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Maybe</label>
                                     </>)}
                                 />
                             </li>
@@ -874,7 +913,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption5" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "relative" , bottom: "55%" }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -897,7 +936,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="maybe" name="radioOption5" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>maybe</label>
+                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Maybe</label>
                                     </>)}
                                 />
                             </li>
@@ -949,8 +988,9 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Yes" name="radioOption6" />
+                                        <input type="radio" checked={selectedRadio2 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Yes" name="radioOption6" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
+                                        {error && <span style={{ color: "red", position: "absolute", marginTop:'130px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -960,7 +1000,7 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="No" name="radioOption6" />
+                                        <input type="radio" checked={selectedRadio2 === "No"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="No" name="radioOption6" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
                                     </>)}
                                 />
@@ -971,7 +1011,7 @@ const PartnershipDetail = () => {
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
-                                        <input type="radio" onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="N/A" name="radioOption6" />
+                                        <input type="radio" checked={selectedRadio2 === "N/A"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="N/A" name="radioOption6" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>N/A</label>
                                     </>)}
                                 />
@@ -979,16 +1019,29 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
-                        <span className="other-button">Others</span>
+                        {/* <span className="other-button">Others</span> */}
+                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                            <li className="radio-list">
+                                <Controller
+                                    name="radiooption6"
+                                    control={control}
+                                    render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
+                                        <>
+                                            <input type="radio" checked={selectedRadio2 === "Others2"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Others2" name="radioOptionOther" />
+                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                        </>)}
+                                    />
+                                </li>
+                        </ul>
                         <UseFormTextField
                             placeholder="Enter text here"
                             control={control}
                             border= "none"
                             outline= "none" 
-                            name = "others3"
+                            name = "others2"
                             width="101.2%"
                             defaultValue=""
-                            disabled={selectedRadio2 !== undefined}/>
+                            disabled={selectedRadio2 !== 'Others2'}/>
                     </div>
                 </div>
 
