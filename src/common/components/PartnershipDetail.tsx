@@ -12,6 +12,8 @@ import { FileUploader } from "react-drag-drop-files";
 import { useRouter } from 'next/router';
 import { StorageService } from "@common/services/storage";
 import { FILE_TYPES } from "@common/constants/app.constant";
+import { isDesktop, isMobile } from "@common/helpers/helper";
+import { useGlobalContext } from "src/context";
 const PartnershipDetail = () => {
     const [isEmailSentFund, setIsEmailSentFund] = useState(false);
     const [imagePath, setImagePath] = useState("");
@@ -21,12 +23,14 @@ const PartnershipDetail = () => {
     const [selectedRadio1, setSelectedRadio1] = useState(undefined);
     const [selectedRadio2, setSelectedRadio2] = useState(undefined);
     const router = useRouter();
-    useEffect(() => {
+    const { screenMode } = useGlobalContext();
+  useEffect(() => {
         if (!StorageService.getItem('partnerShipModel')?.firstName) {
           // Redirect to the main page
           router.push('/partnerships-intro');
         }
-      }, []);
+        console.log(selectedRadio2, 'radio')
+      }, [selectedRadio2]);
   
     const { control, handleSubmit, reset , getValues } = useForm({
       resolver: yupResolver(partnershipDetailSchema),
@@ -100,7 +104,7 @@ const PartnershipDetail = () => {
     };
 
     return (
-        <div>
+        <div className="partnership-form-detail">
             <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                 
             {isEmailSentFund ? (
@@ -125,7 +129,7 @@ const PartnershipDetail = () => {
                 <div className="row top-space">
                     <div className="col">
                         <label className="form-label" style={{ color: "#646446"}}>
-                            <b>How  many employees does your company have?*</b>
+                            <b>How many employees does your company have?*</b>
                         </label>
                         <ul className="custom-radio">
                             <li className="radio-list">
@@ -138,7 +142,7 @@ const PartnershipDetail = () => {
                                         <input type="radio" onChange={onChange} value="1-25" name="radioOption" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>1-25</label>
                                     </div>
-                                        {error && <span style={{ color: "red", position: "absolute", marginTop:'42px'}}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute", marginTop:isDesktop(screenMode)?'42px':'100px', width:'250px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -194,7 +198,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" checked={selectedRadio === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Yes" name="radioOption1" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'130px' }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'40px',  width:'250px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -252,7 +256,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" checked={selectedRadio1 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Yes" name="radioOption2" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'130px' }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'40px',  width:'250px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -278,7 +282,7 @@ const PartnershipDetail = () => {
                                     control={control}
                                     render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                         <>
-                                            <input type="radio" checked={selectedRadio1 === "Others1"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Others1" name="radioOptionOther" />
+                                            <input type="radio" checked={selectedRadio1 === "Others1"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Others1" name="radioOptionOther2" />
                                             <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
                                         </>)}
                                     />
@@ -325,7 +329,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />
-                            {error && <p style={{ color: "red", position: "absolute" , marginTop:'210px' }}>Please select an option</p>}
+                            {error && <p style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'210px':'460px' }}>Please select an option</p>}
 
                             </>
                         )}
@@ -455,7 +459,7 @@ const PartnershipDetail = () => {
                                 />
                                 Other</label>
                                 
-                                <UseFormTextField control={control} name="otherinsuranceverticals" className="other-line-input" />
+                                <UseFormTextField control={control} name="checkboxinput" className="other-line-input" />
                             </>
                         )}
                         
@@ -498,7 +502,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />Transfers
-                            {error && <p style={{ color: "red", position: "absolute" }}>Please select an option</p>}
+                            {error && <p style={{ color: "red", position: "absolute", marginTop:!isDesktop(screenMode)&&'160px' }}>Please select an option</p>}
                             </>
                             
                         )}
@@ -603,7 +607,7 @@ const PartnershipDetail = () => {
                                     field.onChange(checkedValues);
                                     }}
                                 />Other</label>
-                                <UseFormTextField control={control} name="otherleadtype" className="other-line-input" />
+                                <UseFormTextField control={control} name="checkboxinput1" className="other-line-input" />
                             </>
                         )}
                         
@@ -640,7 +644,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />
-                            {error && <p style={{ color: "red", position: "absolute" , marginTop:'68px' }}>Please select an option</p>}
+                            {error && <p style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'68px':'240px' }}>Please select an option</p>}
                             </>
                             )}
                             />Websites
@@ -792,27 +796,27 @@ const PartnershipDetail = () => {
                                     field.onChange(checkedValues);
                                     }}
                                 />Other</label>
-                                <UseFormTextField control={control} name="otherprimarysources" className="other-line-input" />
+                                <UseFormTextField control={control} name="checkboxinput2" className="other-line-input" />
                             </>
                         )}
                         />
                         </div>
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What is your daily average volume by insurance vertical and lead type and how does this vary by season?*</b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="volume"  placeholder="Volume "  />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="volume"  placeholder="Volume "  />
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Do you work with a Call Center? Is this an owned and operated call center? Where is it located? Is the Customer data stored in the United States?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="canswer" placeholder="Your answer " />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="canswer" placeholder="Your answer " />
                     </div>
                 </div>
                 <div className="row" style={{marginTop: "100px"}}>
@@ -820,8 +824,8 @@ const PartnershipDetail = () => {
                         <label className="form-label" style={{ color: "#646446"}}>
                             <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
                         </label>
-                        <ul className="custom-radio">
-                            <li style={{ marginBottom: "10px" }}>
+                        <ul className="custom-radio simple-radio">
+                            <li style={{ marginBottom: "10px", width: isDesktop(screenMode)? '50%': '100%' }}>
                             <Controller
                                 name="radiooption3"
                                 control={control}
@@ -829,7 +833,7 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Owned & Operated" name="radioOption3" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Owned & Operated</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'140px', width:'250px' }}>Please select an option</span>}
                                         
                                     </>)}
                                 />
@@ -853,8 +857,8 @@ const PartnershipDetail = () => {
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Can you make changes to your sources?*</b>
                         </label>
-                        <ul className="custom-radio">
-                            <li style={{ marginBottom: "10px" }}>
+                        <ul className="custom-radio simple-radio">
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption4"
                                 control={control}
@@ -862,11 +866,11 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption4" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'210px', width:'250px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "10px" }}>
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption4"
                                 control={control}
@@ -891,12 +895,12 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What is your general pricing range by lead type?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="lanswer" placeholder="Your answer " />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="lanswer" placeholder="Your answer " />
                     </div>
                 </div>
                 <div className="row top-space">
@@ -904,8 +908,8 @@ const PartnershipDetail = () => {
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Can you implement an API key  for data posting?*</b>
                         </label>
-                        <ul className="custom-radio">
-                            <li style={{ marginBottom: "10px" }}>
+                        <ul className="custom-radio simple-radio">
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption5"
                                 control={control}
@@ -913,11 +917,11 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption5" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'42px' }}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'210px', width:'250px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "10px" }}>
+                            <li style={{ marginBottom: "5px" }}>
                                 <input type="radio" id="No" name="radio-option" />
                                 <Controller
                                 name="radiooption5"
@@ -943,37 +947,37 @@ const PartnershipDetail = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>What call routing system/softwre(s) do you currently use?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="sanswer"  placeholder="Your answer "  />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="sanswer"  placeholder="Your answer "  />
                     </div>
                 </div>
-                <div className="row" style={{marginTop: "100px"}}>
+                <div className="row large-input" style={{marginTop: "100px"}}>
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Are you able to filter calls by age/geographical area/states/zip codes?* </b> (List all that apply)
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="ganswer"  placeholder="Your answer " />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="ganswer"  placeholder="Your answer " />
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
                         <b>Are you able to send a specified amount of calls by day and/or hour?* </b>(i.e if we give you a maximum number
                         of calls per day of the week/set schedule, etc.)
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="danswer"  placeholder="Your answer "  />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="danswer"  placeholder="Your answer "  />
                     </div>
                 </div>
-                <div className="row top-space">
+                <div className="row top-space large-input">
                     <label className="form-label" style={{ color: "#646446", marginBottom: "45px" }}>
                         <b>Is the majority of your traffic U65 or 065, if both what is the split between both?* </b>
                     </label>
                     <div className="col">
-                        <UseFormTextField control={control} name="uanswer"  placeholder="Your answer "  />
+                        <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="uanswer"  placeholder="Your answer "  />
                     </div>
                 </div>
                 <div className="row top-space">
@@ -981,8 +985,8 @@ const PartnershipDetail = () => {
                         <label className="form-label" style={{ color: "#646446" }}>
                             <b>Do you use jornaya or Trusted Form?*</b>
                         </label>
-                        <ul className="custom-radio">
-                            <li style={{ marginBottom: "10px" }}>
+                        <ul className="custom-radio simple-radio">
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption6"
                                 control={control}
@@ -990,11 +994,11 @@ const PartnershipDetail = () => {
                                     <>
                                         <input type="radio" checked={selectedRadio2 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Yes" name="radioOption6" />
                                         <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute", marginTop:'130px'}}>Please select an option</span>}
+                                        {error && <span style={{ color: "red", position: "absolute", marginTop:isDesktop(screenMode)?'40px':'205px', width:'250px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "10px" }}>
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption6"
                                 control={control}
@@ -1005,7 +1009,7 @@ const PartnershipDetail = () => {
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "10px" }}>
+                            <li style={{ marginBottom: "5px" }}>
                             <Controller
                                 name="radiooption6"
                                 control={control}
@@ -1027,7 +1031,7 @@ const PartnershipDetail = () => {
                                     control={control}
                                     render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                         <>
-                                            <input type="radio" checked={selectedRadio2 === "Others2"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Others2" name="radioOptionOther" />
+                                            <input type="radio" checked={selectedRadio2 === "Others2"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Others2" name="radioOptionOther3" />
                                             <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
                                         </>)}
                                     />
@@ -1038,7 +1042,7 @@ const PartnershipDetail = () => {
                             control={control}
                             border= "none"
                             outline= "none" 
-                            name = "others2"
+                            name = "others3"
                             width="101.2%"
                             defaultValue=""
                             disabled={selectedRadio2 !== 'Others2'}/>
