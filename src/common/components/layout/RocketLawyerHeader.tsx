@@ -59,7 +59,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
     )}
     {isMobile(screenMode) && (
       <>
-        <div className="container wp-container main-mobile-nav d-flex">
+        <div className="container wp-container main-mobile-nav d-flex justify-content-center">
           <Link href={"/"}>
             <div className='right-border-mobile'>
               <a>
