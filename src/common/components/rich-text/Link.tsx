@@ -32,12 +32,14 @@ export const Hyperlink = (props: Props) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      {addColour([props.content[0].value])}
+      {/* {addColour([props.content[0].value])} */}
+      {props.content[0].value}
     </a>
   ) : (
     <Link href={href || "/"}>
       <a style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}>
-        {addColour([props.content[0].value])}
+        {/* {addColour([props.content[0].value])} */}
+        {props.content[0].value}
       </a>
     </Link>
   );
