@@ -32,7 +32,7 @@ export const partnershipDetailSchema = yup.object().shape({
     insuranceverticals: yup.array()
     .required('This field is required')
     .min(1, 'Please select at least one option'),
-    otherinsuranceverticals: yup.string().when('insuranceverticals', {
+    checkboxinput: yup.string().when('insuranceverticals', {
         is: (values) => values&&values.includes('Auto'),
         then: yup.string().required('This field is required'),
         otherwise: yup.string()
@@ -40,7 +40,7 @@ export const partnershipDetailSchema = yup.object().shape({
     leadtype: yup.array()
     .required('This field is required')
     .min(1, 'Please select at least one option'),
-    otherleadtype: yup.string().when('leadtype', {
+    checkboxinput1: yup.string().when('leadtype', {
         is: (values) => values&&values.includes('Auto'),
         then: yup.string().required('This field is required'),
         otherwise: yup.string()
@@ -48,7 +48,7 @@ export const partnershipDetailSchema = yup.object().shape({
     primarysources: yup.array()
     .required('This field is required')
     .min(1, 'Please select at least one option'),
-    otherprimarysources: yup.string().when('primarysources', {
+    checkboxinput2: yup.string().when('primarysources', {
         is: (values) => values&&values.includes('Auto'),
         then: yup.string().required('This field is required'),
         otherwise: yup.string()
@@ -63,7 +63,7 @@ export const partnershipDetailSchema = yup.object().shape({
         then: yup.string().required('This field is required'),
         otherwise: yup.string()
     }),
-    others2: yup.string().when("radiooption6", {
+    others3: yup.string().when("radiooption6", {
         is: "Others2",
         then: yup.string().required('This field is required'),
         otherwise: yup.string()
