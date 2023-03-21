@@ -1,0 +1,55 @@
+.partnership-form-detail {
+    .grey {
+        color: #646464
+    }
+    .mb-45 {
+        margin-bottom: 45px;
+    }
+    .mb-5 {
+        margin-bottom: 5px !important;
+    }
+    .mb-15 {
+        margin-bottom: 15px;
+    }
+    .mt-10 {
+        margin-top: 10px;
+    }
+    .mt-40 {
+        margin-top: 40px;
+    }
+    .mt-100 {
+        margin-top: 100px;
+    }
+    .radius-30 {
+        border-radius: 30px;
+    }
+    .relative {
+        position:relative
+    }
+    .left-10 {
+        left: 10px
+    }
+    span:not(#fileupload span) {
+        color: red;
+        position: absolute;
+        width: 250px;
+    }
+    .checkbox-list {
+        input[type=checkbox] {
+            width: 30px;
+            height: 40px;
+            position:relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px
+        }
+    }
+}
+
+.partnership-form {
+    .submit-button {
+        color: #ffff;
+        background-color: rgb(244, 123, 32);
+        width: 15%;
+    }
+}

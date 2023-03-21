@@ -65,11 +65,6 @@ const PartnershipIntro = () => {
                         <button
                             className="action-btn btn-border submit-button"
                             type="submit"
-                            style={{
-                                color: "#ffff",
-                                backgroundColor: "rgb(244, 123, 32)",
-                                width: "15%"
-                            }}
                         >
                             Continue
                         </button>

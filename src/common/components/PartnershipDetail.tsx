@@ -108,7 +108,7 @@ const PartnershipDetail = () => {
             <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                 
             {isEmailSentFund ? (
-              <p style={{ color: "#646464" }}>
+              <p className="grey">
                 Thank you for sahring you interest in partnering with
                 SelectQuote. A member of our team will be in touch shortly.
               </p>
@@ -116,7 +116,7 @@ const PartnershipDetail = () => {
             <>
 
                 <div className="row mt-4">
-                    <label className="form-label" style={{ color: "#646446", marginBottom: "45px" }}>
+                    <label className="form-label grey mb-45">
                         <b>Where is this company located?*</b>
                     </label>
                     <div className="comapny-located">
@@ -128,7 +128,7 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446"}}>
+                        <label className="form-label grey">
                             <b>How many employees does your company have?*</b>
                         </label>
                         <ul className="custom-radio">
@@ -140,9 +140,9 @@ const PartnershipDetail = () => {
                                     <>
                                     <div>
                                         <input type="radio" onChange={onChange} value="1-25" name="radioOption" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>1-25</label>
+                                        <label className="grey radius-30">1-25</label>
                                     </div>
-                                        {error && <span style={{ color: "red", position: "absolute", marginTop:isDesktop(screenMode)?'42px':'100px', width:'250px'}}>Please select an option</span>}
+                                        {error && <span style={{ marginTop:isDesktop(screenMode)?'42px':'100px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -154,7 +154,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="26-50" name="radioOption" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>26-50</label>
+                                        <label className="grey radius-30">26-50</label>
                                     </>)}
                                 />
                             </li>
@@ -165,7 +165,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="51-100" name="radioOption" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>51-100</label>
+                                        <label className="grey radius-30">51-100</label>
                                     </>)}
                                 />
                             </li>
@@ -176,7 +176,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="100 or more" name="radioOption" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>100 or more</label>
+                                        <label className="grey radius-30">100 or more</label>
                                     </>)}
                                 />
                             </li>
@@ -186,7 +186,7 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label grey">
                             <b>Does your company have insurance coverage?*</b>
                         </label>
                         <ul className="custom-radio">
@@ -197,8 +197,8 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Yes" name="radioOption1" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'40px',  width:'250px' }}>Please select an option</span>}
+                                        <label className="grey radius-30">Yes</label>
+                                        {error && <span className="mt-40" style={{marginTop: !isDesktop(screenMode)&&'40px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -209,15 +209,14 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio === "No"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="No" name="radioOption2" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
+                                        <label className="grey radius-30">No</label>
                                     </>)}
                                 />
                             </li>
                         </ul>
                     </div>
                     <div className="mt-4 other-field">
-                        {/* <span className="other-button" style={{backgroundColor: selectedRadio==='others'&&'#00aec7', color:selectedRadio==='others'&&'white'}} onClick={()=>setSelectedRadio('others')}>Others</span> */}
-                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                        <ul className="custom-radio mt-10">
                             <li className="radio-list">
                                 <Controller
                                     name="radiooption1"
@@ -225,7 +224,7 @@ const PartnershipDetail = () => {
                                     render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                         <>
                                             <input type="radio" checked={selectedRadio === "Others"} onChange={(e) => {onChange(e);setSelectedRadio(e.target.value);}} value="Others" name="radioOptionOther" />
-                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                            <label className="grey radius-30">Other</label>
                                         </>)}
                                     />
                                 </li>
@@ -244,7 +243,7 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label grey">
                             <b>Can your company provide an Acord Certificate?*</b> (General Liability, Erros & Omissions, and/ or Cyber Protection)
                         </label>
                         <ul className="custom-radio">
@@ -255,8 +254,8 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio1 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Yes" name="radioOption2" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:'40px',  width:'250px' }}>Please select an option</span>}
+                                        <label className="grey radius-30">Yes</label>
+                                        {error && <span className="mt-40" style={{marginTop: !isDesktop(screenMode)&&'40px'}}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
@@ -267,7 +266,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio1 === "No"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="No" name="radioOption2" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
+                                        <label className="grey radius-30">No</label>
                                     </>)}
                                 />
                             </li>
@@ -275,7 +274,7 @@ const PartnershipDetail = () => {
                     </div>
                     <div className="mt-4 other-field">
                         {/* <span className="other-button">Others</span> */}
-                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                        <ul className="custom-radio mt-10">
                             <li className="radio-list">
                                 <Controller
                                     name="radiooption2"
@@ -283,7 +282,7 @@ const PartnershipDetail = () => {
                                     render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                         <>
                                             <input type="radio" checked={selectedRadio1 === "Others1"} onChange={(e) => {onChange(e);setSelectedRadio1(e.target.value);}} value="Others1" name="radioOptionOther2" />
-                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                            <label className="grey radius-30">Other</label>
                                         </>)}
                                     />
                                 </li>
@@ -300,12 +299,12 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                    <label className="form-label grey">
                         <b>What insurance verticals are you selling call/leads in?*</b> (Select all that apply)
                     </label>
-                    <div className="checkbox-list">
+                    <div className="checkbox-list relative">
                         <div className="check-list">
-                        <label htmlFor="checkbox1" style={{ color: "#646464" , display: "flex" , alignItems: "center" }}>
+                        <label htmlFor="checkbox1">
                         <Controller
                         control={control}
                         name="insuranceverticals"
@@ -316,8 +315,6 @@ const PartnershipDetail = () => {
                                 type="checkbox"
                                 value="Medicare"
                                 name= "insuranceverticals"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["insuranceverticals"] || [];
                                 const valueIndex = checkedValues?.indexOf(0);
@@ -329,7 +326,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />
-                            {error && <p style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'210px':'460px' }}>Please select an option</p>}
+                            {error && <span className="left-10" style={{marginTop:isDesktop(screenMode)?'180px':'240px' }}>Please select an option</span>}
 
                             </>
                         )}
@@ -343,8 +340,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="FE"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["insuranceverticals"] || [];
                                 const valueIndex = checkedValues?.indexOf(1);
@@ -367,8 +362,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Term"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["insuranceverticals"] || [];
                                 const valueIndex = checkedValues?.indexOf(2);
@@ -393,8 +386,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Home"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["insuranceverticals"] || [];
                                 const valueIndex = checkedValues?.indexOf(3);
@@ -417,8 +408,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Auto"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["insuranceverticals"] || [];
                                 const valueIndex = checkedValues?.indexOf(4);
@@ -444,8 +433,6 @@ const PartnershipDetail = () => {
                                     {...field}
                                     type="checkbox"
                                     value=""
-                                    style={{ width: "30px", height: "40px", position: "relative", 
-                                    display: "inline-block", verticalAlign: "middle", marginRight: "10px", }}
                                     onChange={(e) => {
                                     const checkedValues = getValues()["insuranceverticals"] || [];
                                     const valueIndex = checkedValues?.indexOf(4);
@@ -466,18 +453,13 @@ const PartnershipDetail = () => {
                         />
                         </div>
                         
-
-                        {/* <div className="check-list-other">
-                            <label htmlFor="checkbox" style={{ color: "#646464" }}><input type="checkbox"  name="checkboxinput" defaultValue="" style={{ width: "30px", height: "40px", position: "relative", display: "inline-block", verticalAlign: "middle", marginRight: "10px" }} />Other</label>
-                            <input type="text" id="line-input" name="line-input" className="other-line-input" style={{ border: "none", borderBottom: "1px solid #646464", outline: "none", background: "transparent", marginBottom: "13px", marginLeft: "5px", color: "#646464" }}></input>
-                        </div> */}
                     </div>
                 </div>
                 <div className="row top-space">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                    <label className="form-label grey">
                         <b>What lead type(s) do you currently offer?*</b>
                     </label>
-                    <div className="checkbox-list">
+                    <div className="checkbox-list relative">
                         <div className="check-list">
                             <label>
                         <Controller
@@ -489,8 +471,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Transfers"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["leadtype"] || [];
                                 const valueIndex = checkedValues?.indexOf(0);
@@ -502,7 +482,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />Transfers
-                            {error && <p style={{ color: "red", position: "absolute", marginTop:!isDesktop(screenMode)&&'160px' }}>Please select an option</p>}
+                            {error && <span className="left-10" style={{ marginTop:isDesktop(screenMode)?"110px":'200px' }}>Please select an option</span>}
                             </>
                             
                         )}
@@ -518,8 +498,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Inbounds"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["leadtype"] || [];
                                 const valueIndex = checkedValues?.indexOf(1);
@@ -543,8 +521,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Data"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["leadtype"] || [];
                                 const valueIndex = checkedValues?.indexOf(2);
@@ -567,8 +543,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Clicks"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["leadtype"] || [];
                                 const valueIndex = checkedValues?.indexOf(3);
@@ -594,8 +568,6 @@ const PartnershipDetail = () => {
                                     {...field}
                                     type="checkbox"
                                     value=""
-                                    style={{ width: "30px", height: "40px", position: "relative", 
-                                    display: "inline-block", verticalAlign: "middle", marginRight: "10px", }}
                                     onChange={(e) => {
                                     const checkedValues = getValues()["leadtype"] || [];
                                     const valueIndex = checkedValues?.indexOf(4);
@@ -616,10 +588,10 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space">
-                    <label className="form-label" style={{ color: "#646446" }}>
+                    <label className="form-label grey">
                         <b>What are the primary sources of these leads?*</b>
                     </label>
-                    <div className="checkbox-list">
+                    <div className="checkbox-list relative">
                         <div className="check-list">
                             <label>
                         <Controller
@@ -631,8 +603,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Websites"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(0);
@@ -644,7 +614,7 @@ const PartnershipDetail = () => {
                                 field.onChange(checkedValues);
                                 }}
                             />
-                            {error && <p style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'68px':'240px' }}>Please select an option</p>}
+                            {error && <span className="left-10" style={{ marginTop:isDesktop(screenMode)?'180px':'280px' }}>Please select an option</span>}
                             </>
                             )}
                             />Websites
@@ -658,8 +628,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Tv"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(1);
@@ -682,8 +650,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Radio"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(2);
@@ -706,8 +672,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Direct Mail"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(3);
@@ -732,8 +696,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Social"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(4);
@@ -756,8 +718,6 @@ const PartnershipDetail = () => {
                                 {...field}
                                 type="checkbox"
                                 value="Data"
-                                style={{ width: "30px", height: "40px", position: "relative", 
-                                display: "inline-block", verticalAlign: "middle", marginRight: "10px" }}
                                 onChange={(e) => {
                                 const checkedValues = getValues()["primarysources"] || [];
                                 const valueIndex = checkedValues?.indexOf(5);
@@ -783,8 +743,6 @@ const PartnershipDetail = () => {
                                     {...field}
                                     type="checkbox"
                                     value=""
-                                    style={{ width: "30px", height: "40px", position: "relative", 
-                                    display: "inline-block", verticalAlign: "middle", marginRight: "10px", }}
                                     onChange={(e) => {
                                     const checkedValues = getValues()["primarysources"] || [];
                                     const valueIndex = checkedValues?.indexOf(4);
@@ -804,7 +762,7 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                    <label className="form-label grey mb-45">
                         <b>What is your daily average volume by insurance vertical and lead type and how does this vary by season?*</b>
                     </label>
                     <div className="col">
@@ -812,28 +770,28 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                    <label className="form-label grey mb-45">
                         <b>Do you work with a Call Center? Is this an owned and operated call center? Where is it located? Is the Customer data stored in the United States?* </b>
                     </label>
                     <div className="col">
                         <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="canswer" placeholder="Your answer " />
                     </div>
                 </div>
-                <div className="row" style={{marginTop: "100px"}}>
+                <div className="row mt-100">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446"}}>
+                        <label className="form-label grey">
                             <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
-                            <li style={{ marginBottom: "10px", width: isDesktop(screenMode)? '50%': '100%' }}>
+                            <li className="mb-5" style={{ width: isDesktop(screenMode)? '50%': '100%' }}>
                             <Controller
                                 name="radiooption3"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="Owned & Operated" name="radioOption3" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Owned & Operated</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'140px', width:'250px' }}>Please select an option</span>}
+                                        <label className="grey radius-30">Owned & Operated</label>
+                                        {error && <span style={{ marginTop:isDesktop(screenMode)?'42px':'140px' }}>Please select an option</span>}
                                         
                                     </>)}
                                 />
@@ -845,7 +803,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="3rd Party" defaultValue="" name="radioOption3" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>3rd Party</label>
+                                        <label className="grey radius-30">3rd Party</label>
                                     </>)}
                                 />
                             </li>
@@ -854,30 +812,30 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label grey">
                             <b>Can you make changes to your sources?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption4"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption4" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'210px', width:'250px' }}>Please select an option</span>}
+                                        <label className="grey radius-30">Yes</label>
+                                        {error && <span style={{  marginTop:isDesktop(screenMode)?'42px':'210px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption4"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="No" name="radioOption4" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
+                                        <label className="grey radius-30">No</label>
                                     </>)}
                                 />
                             </li>
@@ -888,7 +846,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="maybe" name="radioOption4" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Maybe</label>
+                                        <label className="grey radius-30">Maybe</label>
                                     </>)}
                                 />
                             </li>
@@ -896,7 +854,7 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                    <label className="form-label grey mb-45">
                         <b>What is your general pricing range by lead type?* </b>
                     </label>
                     <div className="col">
@@ -905,23 +863,23 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label grey">
                             <b>Can you implement an API key  for data posting?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption5"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="Yes" name="radioOption5" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute" , marginTop:isDesktop(screenMode)?'42px':'210px', width:'250px' }}>Please select an option</span>}
+                                        <label className="grey radius-30">Yes</label>
+                                        {error && <span style={{ marginTop:isDesktop(screenMode)?'42px':'210px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                                 <input type="radio" id="No" name="radio-option" />
                                 <Controller
                                 name="radiooption5"
@@ -929,7 +887,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="No" name="radioOption5" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
+                                        <label className="grey radius-30">No</label>
                                     </>)}
                                 />
                             </li>
@@ -940,7 +898,7 @@ const PartnershipDetail = () => {
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" onChange={onChange} value="maybe" name="radioOption5" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Maybe</label>
+                                        <label className="grey radius-30">Maybe</label>
                                     </>)}
                                 />
                             </li>
@@ -948,15 +906,15 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                    <label className="form-label grey mb-45">
                         <b>What call routing system/softwre(s) do you currently use?* </b>
                     </label>
                     <div className="col">
                         <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="sanswer"  placeholder="Your answer "  />
                     </div>
                 </div>
-                <div className="row large-input" style={{marginTop: "100px"}}>
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                <div className="row large-input mt-100">
+                    <label className="form-label grey mb-45" >
                         <b>Are you able to filter calls by age/geographical area/states/zip codes?* </b> (List all that apply)
                     </label>
                     <div className="col">
@@ -964,7 +922,7 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446" , marginBottom: "45px"}}>
+                    <label className="form-label grey mb-45">
                         <b>Are you able to send a specified amount of calls by day and/or hour?* </b>(i.e if we give you a maximum number
                         of calls per day of the week/set schedule, etc.)
                     </label>
@@ -973,7 +931,7 @@ const PartnershipDetail = () => {
                     </div>
                 </div>
                 <div className="row top-space large-input">
-                    <label className="form-label" style={{ color: "#646446", marginBottom: "45px" }}>
+                    <label className="form-label grey mb-45">
                         <b>Is the majority of your traffic U65 or 065, if both what is the split between both?* </b>
                     </label>
                     <div className="col">
@@ -982,41 +940,41 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label className="form-label" style={{ color: "#646446" }}>
+                        <label className="form-label grey">
                             <b>Do you use jornaya or Trusted Form?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption6"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio2 === "Yes"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Yes" name="radioOption6" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>Yes</label>
-                                        {error && <span style={{ color: "red", position: "absolute", marginTop:isDesktop(screenMode)?'40px':'205px', width:'250px'}}>Please select an option</span>}
+                                        <label className="grey radius-30">Yes</label>
+                                        {error && <span style={{  marginTop:isDesktop(screenMode)?'40px':'205px' }}>Please select an option</span>}
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption6"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio2 === "No"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="No" name="radioOption6" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>No</label>
+                                        <label className="grey radius-30">No</label>
                                     </>)}
                                 />
                             </li>
-                            <li style={{ marginBottom: "5px" }}>
+                            <li className="mb-5">
                             <Controller
                                 name="radiooption6"
                                 control={control}
                                 render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                     <>
                                         <input type="radio" checked={selectedRadio2 === "N/A"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="N/A" name="radioOption6" />
-                                        <label style={{ color: "#646446", borderRadius: "30px" }}>N/A</label>
+                                        <label className="grey radius-30">N/A</label>
                                     </>)}
                                 />
                             </li>
@@ -1024,7 +982,7 @@ const PartnershipDetail = () => {
                     </div>
                     <div className="mt-4 other-field">
                         {/* <span className="other-button">Others</span> */}
-                        <ul className="custom-radio" style={{marginTop:'10px'}}>
+                        <ul className="custom-radio mt-10">
                             <li className="radio-list">
                                 <Controller
                                     name="radiooption6"
@@ -1032,7 +990,7 @@ const PartnershipDetail = () => {
                                     render={({ field: { onChange, value }, fieldState: { error, isDirty } }) => (
                                         <>
                                             <input type="radio" checked={selectedRadio2 === "Others2"} onChange={(e) => {onChange(e);setSelectedRadio2(e.target.value);}} value="Others2" name="radioOptionOther3" />
-                                            <label style={{ color: "#646446", borderRadius: "30px" }}>Other</label>
+                                            <label className="grey radius-30">Other</label>
                                         </>)}
                                     />
                                 </li>
@@ -1051,7 +1009,7 @@ const PartnershipDetail = () => {
 
                 <div className="row top-space">
                     <div className="col">
-                        <label style={{ marginBottom: "15px", color: "#646464" }}><b>Additional Comments</b></label>
+                        <label className="grey mb-15"><b>Additional Comments</b></label>
                         <UseFormTextField
                             control={control}
                             type="textarea"
@@ -1064,10 +1022,10 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space">
                     <div className="col">
-                        <label style={{ color: "#646464" }}>Add Attachments</label>
+                        <label className="grey">Add Attachments</label>
                         <div id="fileupload">
                             <FileUploader handleChange={uploadFile}  types={FILE_TYPES} multiple="false"
-                                label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} style={{ whiteSpace: 'pre-line' }} />
+                                label={`Drop a file here or click to upload\nMaximum upload size: 1.5MB`} maxSize={1500000} />
                             {uploadedFileName && <p>{uploadedFileName}</p>}
                         </div>
                     </div>
@@ -1077,11 +1035,6 @@ const PartnershipDetail = () => {
                         className="action-btn btn-border submit-button"
                         type="submit"
                         onClick= {()=>(handleSubmit(onSubmit))}
-                        style={{
-                            color: "#ffff",
-                            backgroundColor: "rgb(244, 123, 32)",
-                            width: "15%"
-                        }}
                         disabled={isUploading}
                     >
                         submit
