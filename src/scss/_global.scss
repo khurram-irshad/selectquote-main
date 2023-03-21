@@ -18,9 +18,11 @@ html {
   scroll-behavior: smooth;
 }
 
-.partnership-form {
+.partnership-form-detail {
   width: 70%;
   margin:0px auto;
+}
+.partnership-form {
   .comapny-located {
     display: flex;
     flex-direction: column;
@@ -62,6 +64,9 @@ html {
     border-top-right-radius: 10px;
     margin-left: 10px;
     width: 98%;
+    .input-group {
+      flex-direction: row !important;
+    }
   }
 
   .other-button {
@@ -196,12 +201,99 @@ html {
     margin-bottom: 10px !important;
   }
 
+  .partnership-form-detail {
+    width: 100%;
+  }
+
   .partnership-form {
+    .intro-fields {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 20px;
+      :nth-child(2) {
+        margin-top: 20px;
+      }
+      .input-group {
+        width: 100%;
+      }
+    }
+    .custom-radio {
+      :nth-child(3), :nth-child(4) {
+        margin-top: 10px;
+      }
+    }
+    .other-field {
+      .input-group {
+        width: 50%;
+        small {
+          position: absolute;
+          top: 50px;
+        }
+      }
+      .custom-radio {
+        width: 47%;
+        .radio-list {
+          width: 100% !important;
+        }
+      }
+    }
+    
+    .comapny-located {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+    
+    .check-list {
+      display: flex !important;
+      flex-direction: row !important;
+      // justify-content: space-between;
+      margin-top: 30px;
+      label {
+        width: 200px;
+      }
+      .input-group {
+        margin-left: -100px;
+        input {
+          border-radius: 0px !important;
+        }
+      }
+    }
+
     .check-list {
       display: flex;
       flex-direction: column !important;
       justify-content: space-between;
       margin-top: 0px !important;
+    }
+
+    .checkbox-list {
+      :last-child{
+        flex-direction: row !important;
+      }
+      .input-group {
+        margin-left: -60px;
+      }
+    }
+
+    .simple-radio {
+      display: flex;
+      flex-direction: column;
+      :nth-child(2) {
+        margin-top: 5px;
+      }
+      li {
+        width: 100%;
+        height: 60px;
+        max-width: unset !important;
+      }
+    }
+
+    .large-input {
+        textarea {
+          height:150px !important;
+        }
     }
 
     .check-list-other {
@@ -213,7 +305,7 @@ html {
 
     .other-field {
       display: flex;
-      height: 40px;
+      // height: 52px;
       border-top-left-radius: 30px;
       border-bottom-left-radius: 30px;
       justify-content: flex-start;
