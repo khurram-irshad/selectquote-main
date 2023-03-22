@@ -7,7 +7,7 @@ import {
 } from "@common/services/storage";
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
-import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
+import { DEFAULT_PHONE_NUMBER, MAIN_SCODE, STORAGE } from "@constants/app.constant";
 import { GlobalContextProvider } from "src/context/globalContext";
 import { generateSessionId } from "@common/helpers/helper";
 import TagManager from "react-gtm-module";
@@ -21,6 +21,12 @@ export default function Apps({ Component, pageProps }: AppProps) {
     SessionStorageService.setItem(STORAGE.SITE_SESSION_DATA, data);
     window.dispatchEvent(new Event("storage"));
   };
+
+
+  const verifySiteId = (siteId: Array<string>) => {
+    const response = siteId?.find(x => (x === MAIN_SCODE.BSQ || x === MAIN_SCODE.LSQ))
+    return response;
+  }
 
   const getData = async () => {
     let response, sCode = queryParams?.campaignKey || queryParams?.sCode;
@@ -42,7 +48,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
       site_campaign_phone: DEFAULT_PHONE_NUMBER,
     };
 
-    if (response) {
+    if (response && verifySiteId(response['Site ID'])) {
       site_data_model = {
         ...site_data_model,
         site_campaign_phone: response["Phone Number"],

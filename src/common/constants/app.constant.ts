@@ -39,6 +39,11 @@ export const STATIC_SCODE = {
   AUTO_HOME: 'RLSQAH'
 }
 
+export const MAIN_SCODE = {
+  BSQ: 'BSQ',
+  LSQ: 'LSQ'
+}
+
 export const DEFAULT_PHONE_NUMBER = "1-855-653-6700";
 
 export const STORAGE = {
