@@ -49,7 +49,8 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
 
 
   const bgSize = (path.includes('leadership') || path.includes('customer-review') || path.includes('/newsroom') || path.includes('/careers') || path.includes('contact'))  && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
-  const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  let bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  bgImage = path.includes('rocket-lawyer') && screenWidth >= 1700 && screenWidth <= 2000 ? `linear-gradient(90deg,${gradientStartingColor} 58%,${gradientEndColor} 62%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
   
     useEffect(() => {
