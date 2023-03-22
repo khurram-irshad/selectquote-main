@@ -38,7 +38,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     bgPosition = `right -150px ${backgroundPosition}`
   } else if ((path.includes('faqs') || path.includes('leadership')) && screenWidth >= 1024 && screenWidth <= 1280) {
     bgPosition = `70% 0px`
-  } else if (path.includes('/leadership') && screenWidth >= 580 && screenWidth <= 980) {
+  } else if (path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980) {
     bgPosition = `center`
   } else if (path.includes('tv-commercial') && screenWidth >= 1024 && screenWidth <= 1280) {
     bgPosition = '300%'
@@ -46,10 +46,12 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     bgPosition = `right 0px  ${backgroundPosition}`
   }
 
+  let bgSize = (path.includes('leadership') || path.includes('customer-review') || path.includes('/newsroom') || path.includes('/careers') || path.includes('contact')) && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
+  bgSize = path.includes('leadership') && screenWidth >= 752 && screenWidth <= 767 ? 'contain' : bgSize
+  let bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  bgImage = path.includes('rocket-lawyer') && screenWidth >= 1700 && screenWidth <= 2000 ? `linear-gradient(90deg,${gradientStartingColor} 58%,${gradientEndColor} 62%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
 
-
-  const bgSize = (path.includes('leadership') || path.includes('customer-review') || path.includes('/newsroom') || path.includes('/careers') || path.includes('contact'))  && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
-  const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
+  let bgPositionMobile = (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980) ? 'right 0px bottom 0px' : 'center top'
   
   
     useEffect(() => {
@@ -108,7 +110,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             style={{
               // backgroundColor: "#f8f8f8",
               backgroundSize: `${bgSize}`,
-              backgroundPosition: `center top`,
+              backgroundPosition: bgPositionMobile,
               backgroundImage:
                 backgroundImageMobile && topSection
                   ? `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`

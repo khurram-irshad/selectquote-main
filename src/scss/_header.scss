@@ -197,6 +197,7 @@ header.content-header {
         color: $gray-500;
         font-size: 14px;
         transition: color 0.25s ease-in-out;
+        line-height: 30px;
 
         &::after {
           font-family: "ETmodules";
@@ -214,7 +215,7 @@ header.content-header {
       .dropdown-content {
         display: none;
         position: absolute;
-        top: 22px;
+        top: 30px;
         left: 0;
         background-color: $secondary;
         width: 200px;
