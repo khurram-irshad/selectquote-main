@@ -24,7 +24,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
   const tablet = item?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
   return <>
-    {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
+    {(isDesktop(screenMode) && (!tabletMode || !isTabView) && !desktop?.fields?.hidden) && (
       <div
         key={`desktop-${item.sys.id}`}
         className={`${desktop?.fields?.flexWrap ? desktop?.fields?.flexWrap : 'flex-wrap'}`}
@@ -69,7 +69,7 @@ const RenderColumn = ({ parent, item }: { parent: MultiColumnSectionProps, item:
         )}
       </div>
     )}
-    {(isMobile(screenMode) && (!tabletMode || !isTabView)) && (
+    {(isMobile(screenMode) && (!tabletMode || !isTabView) && !mobile?.fields?.hidden) && (
 
       <div
         className={`${mobile?.fields?.flexWrap ? mobile?.fields?.flexWrap : 'flex-wrap'}`}

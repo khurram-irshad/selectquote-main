@@ -89,6 +89,9 @@
           color: #ffffff;
           height: 16px;
           width: 16.5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         .card-header {
           background-color: #ffffff;
@@ -179,6 +182,9 @@
             height: 17.5px;
             width: 17.5px;
             font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .header-title {
             padding-right: 58px;
@@ -210,10 +216,13 @@
       .accordion-symbol {
         // background-color: #3d9305;
         border: none;
-        height: 18px;
+        height: 17px;
         width: 16.5px;
         color: #ffffff;
         padding: 0 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .card-header {
         background-color: #ffffff;

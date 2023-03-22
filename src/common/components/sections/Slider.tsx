@@ -4,7 +4,7 @@ import { DeviceType } from "@common/types/Type_Device";
 import { Type_Slider } from "@common/types/Type_Slider";
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   autoplay: true,
   speed: 500,
@@ -103,7 +103,7 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
         className={`company-section ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
       >
         <div
-          className="bottom wp-container-mobile-block"
+          className="wp-container-mobile-block"
           style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}
         >
           <Slider className="companies-slider" {...settings}>
