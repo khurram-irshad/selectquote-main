@@ -23,6 +23,8 @@ class WebDocument extends Document {
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
           ></noscript>
+          <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
           <Main />
           <NextScript />
         </body>
