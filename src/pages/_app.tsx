@@ -27,18 +27,13 @@ export default function Apps({ Component, pageProps }: AppProps) {
     let storageSCode = SessionStorageService.getItem('sCode')
     SessionStorageService.removeItem(STORAGE.SITE_SESSION_DATA)
 
-    if (storageSCode && !sCode) {
-      console.log('--------First Condition-----------')
-      console.log(storageSCode, sCode)
-      response = await appService.getScode(storageSCode);
-      console.log(response)
-    } else if (queryParams && sCode) {
-      console.log('--------2nd Condition-----------')
-      console.log(storageSCode, sCode, queryParams)
+    if (sCode) {
       SessionStorageService.setItem('sCode', sCode)
       response = await appService.getScode(sCode);
-      console.log(response)
+    } else if (storageSCode) {
+      response = await appService.getScode(storageSCode);
     }
+
     const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
     const site_session_id = storageSiteData ? storageSiteData.site_session_id : generateSessionId();
 
