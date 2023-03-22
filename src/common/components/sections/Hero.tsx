@@ -30,36 +30,23 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   const [screenWidth, setScreenWidth] = useState(0);
 
   
-  // let bgPosition = path.includes('/newsroom') ? `50% 50%` : `right 0px ${backgroundPosition}`;
-  // bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : backgroundPosition;
-  // bgPosition = path.includes('leadership') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
-  // bgPosition = path.includes('/faqs') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
-  // bgPosition = path.includes('leadership') && screenWidth >= 580 && screenWidth <= 980 ? `center` : bgPosition;
-
   let bgPosition = ``
-    //path === "/newsroom" ? `50% 50%` : `right 0px ${backgroundPosition}`;
   
   if (path === "/newsroom") {
     bgPosition = `50% 50%`
-    console.log('news')
   } else if (path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280) {
     bgPosition = `right -150px ${backgroundPosition}`
-    console.log('customer')
   } else if ((path.includes('faqs') || path.includes('leadership')) && screenWidth >= 1024 && screenWidth <= 1280) {
     bgPosition = `70% 0px`
-    console.log('faqs')
   } else if (path.includes('/leadership') && screenWidth >= 580 && screenWidth <= 980) {
     bgPosition = `center`
-    console.log('leader')
-  } else { 
-    console.log('default')
+  } else if (path.includes('tv-commercial') && screenWidth >= 1024 && screenWidth <= 1280) {
+    bgPosition = '300%'
+  } else {
     bgPosition = `right 0px  ${backgroundPosition}`
   }
 
-  
-  // console.log(bgPosition)
-  // bgPosition = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `right -150px ${backgroundPosition}` : bgPosition;
-  // bgPosition = path.includes('/faqs') && screenWidth >= 1024 && screenWidth <= 1280 ? `70% 0px !important` : bgPosition;
+
 
   const bgSize = (path.includes('leadership') || path.includes('customer-review') || path.includes('/newsroom') || path.includes('/careers') || path.includes('contact'))  && screenWidth >= 580 && screenWidth <= 980 ? `cover` : mobileBackgroundSize;
   const bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
