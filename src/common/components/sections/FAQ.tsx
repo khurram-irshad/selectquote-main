@@ -18,7 +18,12 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
   const renderAccodionButton = (eventKey: string) => {
     return (
       <>
-          {isCardActive(eventKey) ? <img height="27.5px" width="27.5px" src="/images/content/minus-icon.svg" /> : <img height="27.5px" width="27.5px" src="/images/content/plus-icon.svg" />}
+        <button className="rounded-circle accordion-symbol wp-container-desktop" style={{background: isCardActive(eventKey) ? desktop?.fields?.textColor : desktop?.fields?.textColor }}>
+          {isCardActive(eventKey) ? "-" : "+"}
+        </button>
+        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{background: isCardActive(eventKey) ? mobile?.fields?.textColor : desktop?.fields?.textColor}}>
+          {isCardActive(eventKey) ? "-" : "+"}
+        </button>
       </>
     );
   };
