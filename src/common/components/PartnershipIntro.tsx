@@ -50,6 +50,7 @@ const PartnershipIntro = () => {
                         </div>
                         <div className="col">
                             <MyInputMask
+                                className='phone-field'
                                 control={control}
                                 defaultValue={""}
                                 name="phoneNumber"
