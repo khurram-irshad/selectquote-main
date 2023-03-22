@@ -43,7 +43,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
       {isDesktop(screenMode) && (
         <div className="button-container">
           <a
-            className={`pointer action-btn ${rounded ? "btn-border" : ""}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""} text-${mobile?.fields?.textAlign}`}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             style={{
@@ -70,7 +70,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
           <a
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
-            className={`pointer action-btn ${rounded ? "btn-border" : ""}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""} text-${mobile?.fields?.textAlign}`}
             style={{
               fontSize: mobile?.fields?.fontSize,
               padding: mobile?.fields?.padding ? mobile?.fields?.padding : '',

@@ -643,3 +643,91 @@ p {
   padding-left: 10px !important;
   padding-right: 30% !important;
 }
+.rocket-section-nav {
+  margin: 0;
+  justify-content: center;
+  list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.rocket-logo {
+  margin-top: 10px !important;
+}
+.rocket-number {
+  text-decoration: none;
+  color: #A01616;
+  display: block;
+  font-size: 16px;
+  line-height: 35px;
+  letter-spacing: 0.69px;
+  font-weight: 700;
+  font-family: Helvetica;
+}
+.rocket-phone {
+  flex-direction: column;
+}
+.rocket-secondery-number {
+  margin-left: 35px;
+  text-decoration: none;
+  color: #646464;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.47px;
+
+}
+.right-border {
+  border-right: 1px solid #D6D6D6;
+  padding-right: 20px;
+  margin-top: 10px;
+  display: flex;
+}
+.phone-number-container {
+  margin-left: 20px;
+  height: 10px;
+}
+.rocket-logo-link {
+  margin-top: 8px;
+}
+.right-border-mobile {
+  border-right: 1px solid #D6D6D6;
+  padding-right: 20px;
+  margin-top: 10px;
+  display: flex;
+  height: 30px;
+}
+.rocket-mobile-logo {
+  margin-top: 11px;
+}
+.rocket-content-banner {
+  background-color: #A01616;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.rocket-number-mobile {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 5px;
+  font-family: Helvetica;
+  line-height: 33px;
+  letter-spacing: 1.03px;
+}
+.phone-number-mobile-container {
+  margin-top: 15px;
+  height : 15px
+}
+.rocket-secondery-number-mobile {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 24px;
+  letter-spacing: 0.47px;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10px;
+  padding-right: 41px;
+}
+
