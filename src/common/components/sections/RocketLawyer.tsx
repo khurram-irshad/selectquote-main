@@ -66,7 +66,7 @@ export const RocketLawyerSection = () => {
                 </div>
 
             </div>
-            <div className={`trust-pilot`}>
+            <div className={`trust-pilot-box`}>
                 <div className={` container`}>
                     <p>SelectQuote Customer Reviews</p>
                     <SectionTrustPilot section={section} />

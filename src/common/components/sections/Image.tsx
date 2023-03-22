@@ -6,7 +6,7 @@ import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 
 const ImageSection = ({ section }: { section: Type_Image }) => {
-  const { imageFile, imageName, externalLink } = section.fields;
+  const { imageFile, imageName, externalLink, quality } = section.fields;
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
@@ -17,6 +17,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
       {isDesktop(screenMode) && (
         <div>
           <Image
+            quality={quality ? quality : 75}
             style={{ borderRadius: desktop?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
             width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
@@ -28,6 +29,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
       {isMobile(screenMode) && (
         <div style={{ justifyContent: mobile?.fields?.justifyContent, alignItems: mobile?.fields?.alignItems }}>
           <Image
+            quality={quality ? quality : 75}
             src={`https:${imageFile?.fields?.file?.url}`}
             width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
             height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
