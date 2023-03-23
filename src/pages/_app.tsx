@@ -72,6 +72,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
         ...site_data_model,
       });
     }
+    debugger
     bindContainer(site_data_model)
   };
 
@@ -86,8 +87,8 @@ export default function Apps({ Component, pageProps }: AppProps) {
         fullURL: pageUrl,
         session_id: data?.site_session_id,
         sCode: data?.campaign_key,
-        campaignCategory: data.site_campaign_category,
-        campaignPartner: data.site_campaign_partner,
+        campaignCategory: data.campaign_category,
+        campaignPartner: data.campaign_partner,
         utm_source: data.utm_source,
         utm_medium: data.utm_medium,
       },
