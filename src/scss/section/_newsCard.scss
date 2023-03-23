@@ -1,7 +1,7 @@
 .newsroom-card {
   margin-bottom: 5.5%;
   border: 1px solid $gray-600;
-  max-height: 420px;
+  max-height: fit-content;
   width: 29.6%;
    @include mediaQueries(mobile) {
     width: 100%;
