@@ -17,8 +17,9 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
   );
   
   const loc = document.location;
- 
-  if ("pushState" in history && loc.pathname.includes(`life-insurance-agent-review-panel`)) {
+  let count = 0;
+  if ("pushState" in history && loc.pathname.includes(`life-insurance-agent-review-panel`) && count===0) {
+    count =+ 1
     history.pushState("", document.title, loc.pathname + loc.search);
   }
 
