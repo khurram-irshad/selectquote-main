@@ -51,9 +51,12 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   let bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   bgImage = path.includes('rocket-lawyer') && screenWidth >= 1750 && screenWidth <= 2000 ? `linear-gradient(90deg,${gradientStartingColor} 58%,${gradientEndColor} 62%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
-  let bgImageMobile = backgroundImageMobile && topSection && (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980  ? `linear-gradient(0deg,${gradientStartingColor} 37%,${gradientEndColor} 44%), url(https:${ backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
+  let bgImageMobile = backgroundImageMobile && topSection && (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980 ? `linear-gradient(0deg,${gradientStartingColor} 37%,${gradientEndColor} 44%), url(https:${backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
+  bgImageMobile = backgroundImageMobile && topSection && (path.includes('about') && screenWidth >= 580 && screenWidth <= 809  ? `linear-gradient(0deg,${gradientStartingColor} 33%,${gradientEndColor} 47%), url(https:${ backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
+  
   let bgPositionMobile = (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980) ? 'center' : 'center top'
   
+  let mobilePaddingContent = topSection && backgroundImageMobile ? (path.includes('about') && screenWidth >= 580 && screenWidth <= 809 ? '400px' :  mobileContentPaddingTop) : 0
   
     useEffect(() => {
       setScreenWidth(window.innerWidth);
@@ -118,10 +121,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
             <div
               className={"hero-content d-flex align-items-center"}
               style={{
-                paddingTop:
-                  topSection && backgroundImageMobile
-                    ? mobileContentPaddingTop
-                    : "0",
+                paddingTop: mobilePaddingContent,
               }}
             >
               <div style={{ padding: topSection ? "40px 0" : "0 0 40px 0" }}>
