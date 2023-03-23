@@ -65,7 +65,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     const { linkUrl, linkText, hyperlink, childItems } = linkData.fields;
 
     return !childItems?.length ? (
-      <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer">
+      <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer" onClick={()=>setShowSearch(false)}>
         {linkText}
       </a>
     ) : (
@@ -87,6 +87,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
             target="_self"
             href={`${linkUrl}`}
             rel="noopener noreferrer"
+            onClick={()=>setShowSearch(false)}
           >
             {linkText}
           </a>
@@ -97,7 +98,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (!parent) {
       return (
         <div>
-          <Link className="basicbtn" href={linkUrl} target="_self">
+          <Link className="basicbtn" href={linkUrl} target="_self" onClick={()=>setShowSearch(false)}>
             <a target="_self">{linkText}</a>
           </Link>
         </div>
@@ -131,6 +132,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           href={`${linkUrl}`}
           rel="noopener noreferrer"
           key={key}
+          onClick={()=>setShowSearch(false)}
         >
           <div className="anchor-wrap">{linkText}</div>
         </a>
@@ -139,7 +141,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
     if (!parent) {
       return (
-        <Link href={linkUrl} key={key} target="_self">
+        <Link href={linkUrl} key={key} target="_self" onClick={()=>setShowSearch(false)}>
           <a target="_self">
             <div className="anchor-wrap">{linkText}</div>
           </a>

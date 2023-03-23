@@ -177,6 +177,7 @@ header.content-header {
         position: relative;
         white-space: nowrap;
         margin: 0;
+        z-index: 100;
 
         &:hover {
           > a {
