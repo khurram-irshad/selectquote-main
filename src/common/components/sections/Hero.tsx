@@ -42,7 +42,9 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     bgPosition = `center`
   } else if (path.includes('tv-commercial') && screenWidth >= 1024 && screenWidth <= 1280) {
     bgPosition = '300%'
-  } else {
+  } else if (path === '/') { 
+    bgPosition = 'right'
+  } else{
     bgPosition = `right 0px  ${backgroundPosition}`
   }
 
