@@ -51,7 +51,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   let bgImage = path.includes('customer-reviews') && screenWidth >= 1024 && screenWidth <= 1280 ? `linear-gradient(90deg,${gradientStartingColor} 33%,${gradientEndColor} 36%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   bgImage = path.includes('rocket-lawyer') && screenWidth >= 1750 && screenWidth <= 2000 ? `linear-gradient(90deg,${gradientStartingColor} 58%,${gradientEndColor} 62%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
 
-  let bgPositionMobile = (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980) ? 'right 0px bottom 0px' : 'center top'
+  let bgPositionMobile = (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980) ? 'center' : 'center top'
   
   
     useEffect(() => {
