@@ -52,11 +52,11 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
   bgImage = path.includes('rocket-lawyer') && screenWidth >= 1750 && screenWidth <= 2000 ? `linear-gradient(90deg,${gradientStartingColor} 58%,${gradientEndColor} 62%), url(https:${backgroundImage.fields.imageFile.fields.file.url})` : `linear-gradient(90deg,${gradientStartingColor} ${gradientStartingPercentage},${gradientEndColor} ${gradientEndPercentage}), url(https:${backgroundImage.fields.imageFile.fields.file.url})`
   
   let bgImageMobile = backgroundImageMobile && topSection && (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980 ? `linear-gradient(0deg,${gradientStartingColor} 37%,${gradientEndColor} 44%), url(https:${backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
-  bgImageMobile = backgroundImageMobile && topSection && (path.includes('about') && screenWidth >= 580 && screenWidth <= 809  ? `linear-gradient(0deg,${gradientStartingColor} 33%,${gradientEndColor} 47%), url(https:${ backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
+  bgImageMobile = backgroundImageMobile && topSection && (path.includes('about') && screenWidth >= 580 && screenWidth <= 980  ? `linear-gradient(0deg,${gradientStartingColor} 33%,${gradientEndColor} 47%), url(https:${ backgroundImageMobile.fields.imageFile.fields.file?.url})` : `linear-gradient(0deg,${gradientStartingColor} ${mobileGradientStartingPercent},${gradientEndColor} ${mobileGradientEndPercent}), url(https:${backgroundImageMobile.fields.imageFile.fields.file.url})`)
   
   let bgPositionMobile = (path.includes('leadership') && screenWidth >= 768 && screenWidth <= 980) ? 'center' : 'center top'
   
-  let mobilePaddingContent = topSection && backgroundImageMobile ? (path.includes('about') && screenWidth >= 580 && screenWidth <= 809 ? '400px' :  mobileContentPaddingTop) : 0
+  let mobilePaddingContent = topSection && backgroundImageMobile ? (path.includes('about') && screenWidth >= 580 && screenWidth <= 980 ? '400px' :  mobileContentPaddingTop) : 0
   
     useEffect(() => {
       setScreenWidth(window.innerWidth);
