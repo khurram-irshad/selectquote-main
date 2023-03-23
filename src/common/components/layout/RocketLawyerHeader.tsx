@@ -42,6 +42,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
           <div className="phone d-flex align-items-center justify-content-center rocket-phone">
             <div className="phone-icon d-flex align-items-center phone-number-container">
                 <img
+                  className='rocket-tel-icon'
                   src={"/images/homepage/rocket-tel-icon.svg"}
                   width={15}
                   height={20}
