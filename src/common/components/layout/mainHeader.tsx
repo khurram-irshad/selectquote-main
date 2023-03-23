@@ -98,8 +98,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (!parent) {
       return (
         <div>
-          <Link className="basicbtn" href={linkUrl} target="_self" onClick={()=>setShowSearch(false)}>
-            <a target="_self">{linkText}</a>
+          <Link className="basicbtn" href={linkUrl} target="_self" >
+            <a target="_self" onClick={()=>setShowSearch(false)}>{linkText}</a>
           </Link>
         </div>
       );
@@ -141,8 +141,8 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
     if (!parent) {
       return (
-        <Link href={linkUrl} key={key} target="_self" onClick={()=>setShowSearch(false)}>
-          <a target="_self">
+        <Link href={linkUrl} key={key} target="_self">
+          <a target="_self" onClick={()=>setShowSearch(false)}>
             <div className="anchor-wrap">{linkText}</div>
           </a>
         </Link>
