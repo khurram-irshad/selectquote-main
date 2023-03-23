@@ -16,7 +16,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     (item) => item.fields?.type === DeviceType.Mobile
   );
   
-  const loc = window.location;
+  const loc = document.location;
  
   if ("pushState" in history && loc.pathname.includes(`life-insurance-agent-review-panel`)) {
     history.pushState("", document.title, loc.pathname + loc.search);
