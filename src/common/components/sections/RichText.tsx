@@ -2,8 +2,6 @@ import { isDesktop, isMobile } from "@common/helpers/helper";
 import { Type_RichTextCustom } from "@common/types";
 import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
-import Router, { useRouter } from "next/router";
-import React, { useEffect, useMemo } from "react";
 import { useGlobalContext } from "src/context";
 
 const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
@@ -15,13 +13,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
   const mobile = devices?.find(
     (item) => item.fields?.type === DeviceType.Mobile
   );
-  
-  const loc = document.location;
-  let count = 0;
-  if ("pushState" in history && loc.pathname.includes(`life-insurance-agent-review-panel`) && count===0) {
-    count =+ 1
-    history.pushState("", document.title, loc.pathname + loc.search);
-  }
+
 
   return (
     <>
