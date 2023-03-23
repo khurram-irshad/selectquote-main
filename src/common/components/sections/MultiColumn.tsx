@@ -6,7 +6,7 @@ import { ComponentContentTypes } from "@common/constants/app.constant";
 import { DeviceType } from "@common/types/Type_Device";
 import { Direction } from "@common/enums/direction";
 import { useGlobalContext } from "src/context";
-import { isDesktop, isMobile } from "@common/helpers/helper";
+import { getDirection, isDesktop, isMobile } from "@common/helpers/helper";
 
 interface MultiColumnSectionProps {
   section: Type_MultiColumn;
@@ -111,6 +111,7 @@ const MultiColumnSection = ({
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   const tablet = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Tablet);
 
+
   return (
     <>
       {(isDesktop(screenMode) && (!tabletMode || !isTabView)) && (
@@ -121,12 +122,11 @@ const MultiColumnSection = ({
           backgroundPosition: "left center",
           backgroundColor: `${desktop?.fields?.backgroundColor}`,
           boxShadow: desktop?.fields?.boxShadow,
-          // display: desktop?.fields?.display ? desktop?.fields?.display : 'flex'
           maxWidth: desktop?.fields?.maxWidth
         }}>
           <div
             className={`${desktop?.fields?.flexWrap ? 'flex-' + desktop?.fields?.flexWrap : 'flex-wrap'} w-100 
-        ${desktop?.fields?.direction == Direction.Horizontal ? "flex-row" : "flex-column"}
+        ${getDirection(desktop?.fields?.direction)}
         ${desktop?.fields?.separater ? "border-r " : ""}
             }`}
             style={{
@@ -183,7 +183,7 @@ const MultiColumnSection = ({
           <div
             className={`flex-wrap w-100 
             ${mobile?.fields?.separater ? "border-b" : ""}
-            ${mobile?.fields?.direction === Direction.Horizontal ? "flex-row" : "flex-column"}`}
+            ${getDirection(mobile?.fields?.direction)}`}
             style={{
               display: mobile?.fields?.display ? mobile?.fields?.display : 'flex',
               justifyContent: `${mobile?.fields?.justifyContent}`,

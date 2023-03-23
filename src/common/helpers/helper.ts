@@ -1,3 +1,4 @@
+import { Direction } from '@common/enums/direction';
 import { ScreenMode } from '@common/enums/Mode';
 import stringify from 'fast-safe-stringify';
 
@@ -57,3 +58,16 @@ export const generateSessionId = () => {
   });
   return sessionID;
 };
+
+export const getDirection = (direction) => {
+  switch (direction) {
+    case Direction.Vertical:
+      return 'flex-column'
+    case Direction.VerticalReverse:
+      return 'flex-column-reverse'
+    case Direction.Horizontal:
+      return 'flex-row'
+    case Direction.HorizontalReverse:
+      return 'flex-row-reverse'
+  }
+}
