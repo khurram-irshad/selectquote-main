@@ -264,7 +264,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           <ul className="main-nav d-flex">
             <li>
               <Link href={"/"}>
-                <a>
+                <a onClick={()=>setShowSearch(false)}>
                   <img
                     src={logo?.fields?.imageFile?.fields?.file?.url}
                     width={190}
