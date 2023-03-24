@@ -49,8 +49,8 @@ const RichTextRenderer = ({
                     overflowWrap: `${overflowWrap}`
                   }}
                 >
-                  {/* {addColour(children as any)} */}
-                  {children}
+                  {addColour(children as any)}
+                  {/* {children} */}
                 </p>
               );
         },
