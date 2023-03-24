@@ -31,6 +31,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
           <Image
             quality={quality ? quality : 75}
             src={`https:${imageFile?.fields?.file?.url}`}
+            style={{ borderRadius: mobile?.fields?.borderRadius }}
             width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
             height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
             alt={imageName || imageFile?.fields?.title}
