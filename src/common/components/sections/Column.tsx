@@ -15,6 +15,7 @@ import { DeviceType } from '@common/types/Type_Device';
 import SectionTrustPilot from './TrustPilot';
 import { isDesktop, isMobile } from '@common/helpers/helper';
 import { useGlobalContext } from 'src/context';
+import InlineContentSection from './InlineContent';
 
 const ColumnSection = ({ section }: { section: any }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
@@ -79,4 +80,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.Video]: VideoSection,
   [ComponentContentTypes.Table]: TableSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
+  [ComponentContentTypes.InlineContent]: InlineContentSection,
 };

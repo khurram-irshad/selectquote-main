@@ -21,7 +21,7 @@
   }
 
   .card-body {
-    p,
+    span,
     h3 {
       color: #646464;
     }
@@ -48,7 +48,7 @@
       display: block !important;
     }
     .card-body {
-      p {
+      span {
         font-family: "Montserrat", sans-serif !important
 
       }
@@ -84,7 +84,7 @@
   }
   
   div.card-body {
-    p {
+    span {
       font-family: "Montserrat", sans-serif;
       line-height: 28.8px;
       font-weight: 300;
@@ -107,9 +107,9 @@
   }
 
   div.card-body-p-override {
-    p {
-      margin-bottom: 1rem;
-      margin-top: 1rem;
+    span {
+      margin-bottom: 10px;
+      margin-top: 10px;
       font-family: "Montserrat", sans-serif !important;
     }
   }

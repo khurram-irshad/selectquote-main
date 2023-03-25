@@ -20,25 +20,29 @@ html {
 
 .partnership-form-detail {
   width: 70%;
-  margin:0px auto;
+  margin: 0px auto;
 }
+
 .partnership-form {
   .comapny-located {
     display: flex;
     flex-direction: column;
     width: 50%;
   }
-  
+
   .check-list {
     display: flex !important;
     flex-direction: row !important;
     // justify-content: space-between;
     margin-top: 30px;
+
     label {
       width: 200px;
     }
+
     .input-group {
       margin-left: -100px;
+
       input {
         border-radius: 0px !important;
       }
@@ -64,6 +68,7 @@ html {
     border-top-right-radius: 10px;
     margin-left: 10px;
     width: 98%;
+
     .input-group {
       flex-direction: row !important;
     }
@@ -149,7 +154,7 @@ html {
     border-color: #979797 !important;
     border-style: solid none solid solid !important;
 
-    p {
+    span {
       margin-bottom: 0rem;
     }
   }
@@ -160,7 +165,7 @@ html {
     padding: 9px 24px;
     border-right: 1px solid #979797;
 
-    p {
+    span {
       font-family: "Montserrat", sans-serif !important;
     }
   }
@@ -172,7 +177,7 @@ html {
     padding: 9px 24px;
     font-weight: 400;
 
-    p {
+    span {
       font-family: "Montserrat", sans-serif !important;
     }
   }
@@ -211,50 +216,62 @@ html {
       flex-direction: column;
       width: 100%;
       margin-bottom: 20px;
+
       :nth-child(2) {
         margin-top: 20px;
       }
+
       .input-group {
         width: 100%;
       }
     }
+
     .custom-radio {
-      :nth-child(3), :nth-child(4) {
+
+      :nth-child(3),
+      :nth-child(4) {
         margin-top: 10px;
       }
     }
+
     .other-field {
       .input-group {
         width: 50%;
+
         small {
           position: absolute;
           top: 50px;
         }
       }
+
       .custom-radio {
         width: 47%;
+
         .radio-list {
           width: 100% !important;
         }
       }
     }
-    
+
     .comapny-located {
       display: flex;
       flex-direction: column;
       width: 50%;
     }
-    
+
     .check-list {
       display: flex !important;
       flex-direction: row !important;
       // justify-content: space-between;
       margin-top: 30px;
+
       label {
         width: 200px;
       }
+
       .input-group {
         margin-left: -100px;
+
         input {
           border-radius: 0px !important;
         }
@@ -269,9 +286,10 @@ html {
     }
 
     .checkbox-list {
-      :last-child{
+      :last-child {
         flex-direction: row !important;
       }
+
       .input-group {
         margin-left: -60px;
       }
@@ -280,9 +298,11 @@ html {
     .simple-radio {
       display: flex;
       flex-direction: column;
+
       :nth-child(2) {
         margin-top: 5px;
       }
+
       li {
         width: 100%;
         height: 60px;
@@ -291,9 +311,9 @@ html {
     }
 
     .large-input {
-        textarea {
-          height:150px !important;
-        }
+      textarea {
+        height: 150px !important;
+      }
     }
 
     .check-list-other {
@@ -449,9 +469,10 @@ html {
     color: #646464;
   }
 
-  .pointer{
+  .pointer {
     cursor: pointer;
   }
+
   .text {
     font-family: "Poppins", sans-serif;
   }
@@ -599,10 +620,12 @@ p {
 }
 
 .input-group {
+
   // width: 90%;
   input {
     border-radius: 5px !important;
   }
+
   input:focus {
     box-shadow: none !important;
   }
@@ -643,6 +666,7 @@ p {
   padding-left: 10px !important;
   padding-right: 30% !important;
 }
+
 .rocket-section-nav {
   margin: 0;
   justify-content: center;
@@ -651,9 +675,11 @@ p {
   margin-bottom: 10px;
   display: flex;
 }
+
 .rocket-logo {
   margin-top: 10px !important;
 }
+
 .rocket-number {
   text-decoration: none;
   color: #A01616;
@@ -664,9 +690,11 @@ p {
   font-weight: 700;
   font-family: Helvetica;
 }
+
 .rocket-phone {
   flex-direction: column;
 }
+
 .rocket-secondery-number {
   margin-left: 35px;
   text-decoration: none;
@@ -677,19 +705,23 @@ p {
   letter-spacing: 0.47px;
 
 }
+
 .right-border {
   border-right: 1px solid #D6D6D6;
   padding-right: 20px;
   margin-top: 10px;
   display: flex;
 }
+
 .phone-number-container {
   margin-left: 20px;
   height: 10px;
 }
+
 .rocket-logo-link {
   margin-top: 8px;
 }
+
 .right-border-mobile {
   border-right: 1px solid #D6D6D6;
   padding-right: 20px;
@@ -697,14 +729,17 @@ p {
   display: flex;
   height: 30px;
 }
+
 .rocket-mobile-logo {
   margin-top: 11px;
 }
+
 .rocket-content-banner {
   background-color: #A01616;
   flex-direction: column;
   margin-top: 15px;
 }
+
 .rocket-number-mobile {
   color: white;
   text-decoration: none;
@@ -715,10 +750,12 @@ p {
   line-height: 33px;
   letter-spacing: 1.03px;
 }
+
 .phone-number-mobile-container {
   margin-top: 15px;
-  height : 15px
+  height: 15px
 }
+
 .rocket-secondery-number-mobile {
   font-family: Helvetica;
   font-weight: 400;
@@ -730,7 +767,9 @@ p {
   margin-bottom: 10px;
   padding-right: 41px;
 }
+
 .rocket-tel-icon {
   animation: vibrate 1.5s infinite linear;
 }
+
 

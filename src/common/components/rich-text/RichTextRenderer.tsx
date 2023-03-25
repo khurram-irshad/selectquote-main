@@ -3,29 +3,19 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import { Hyperlink } from "./Link";
 import { EmbeddedAsset } from "./EmbeddedAsset";
-import { addColour } from '.'
+import Device from "@common/types/Type_Device";
 
 const PlainHyperlink = (props: any) => <Hyperlink {...props} type="PlainLink" /> as any;
 const AssetHyperlink = (props: any) => <Hyperlink {...props} type="AssetLink" /> as any;
 
+
+
 const RichTextRenderer = ({
   text,
-  color,
-  lineHeight,
-  fontSize,
-  fontWeight,
-  letterSpacing,
-  fontFamily,
-  overflowWrap
+  device
 }: {
   text: any;
-  color?: string;
-  lineHeight?: string;
-  fontSize?: string;
-  fontWeight?: string;
-  letterSpacing?: string;
-  fontFamily?: string;
-  overflowWrap?: 'break-word' | 'normal' | 'initial' | 'inherit'
+  device?: Device
 }) => {
 
   return (
@@ -37,23 +27,25 @@ const RichTextRenderer = ({
           [INLINES.ENTRY_HYPERLINK]: () => null, // Ignore entry hyperlink
           [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
           [BLOCKS.PARAGRAPH]: (node, children) => {
-              return (
-                <p
-                  style={{
-                    fontWeight: `${fontWeight}`,
-                    color: `${color}`,
-                    fontSize: `${fontSize}`,
-                    lineHeight: `${lineHeight}`,
-                    letterSpacing: `${letterSpacing}`,
-                    fontFamily: `${fontFamily}`,
-                    overflowWrap: `${overflowWrap}`
-                  }}
-                >
-                  {children}
-                </p>
-              );
-        },
+            return (
+              <span
+                style={{
+                  fontWeight: `${device?.fontWeight}`,
+                  color: `${device?.textColor}`,
+                  fontSize: `${device?.fontSize}`,
+                  lineHeight: `${device?.lineHeight}`,
+                  letterSpacing: `${device?.letterSpacing}`,
+                  fontFamily: `${device?.fontFamily}`,
+                  overflowWrap: `${device?.overflowWrap}`,
+                  background: device?.backgroundColor,
+                
+                }}
+              >
+                {children}
+              </span>
+            );
           },
+        },
         renderText: (text) =>
           text
             .split("\n")

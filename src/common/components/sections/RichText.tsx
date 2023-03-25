@@ -4,6 +4,8 @@ import { DeviceType } from "@common/types/Type_Device";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 import { useGlobalContext } from "src/context";
 
+type TextAlign = 'start' | 'end' | 'left' | 'right' | 'center';
+
 const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
   const { content, devices, contentId, scrollTopMargin } = section.fields;
   const { screenMode } = useGlobalContext();
@@ -14,62 +16,42 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     (item) => item.fields?.type === DeviceType.Mobile
   );
 
-
   return (
     <>
       {isDesktop(screenMode) && (
-        <div
-          className={`text-${desktop?.fields?.textAlign}`}
-          style={{ background: desktop?.fields?.backgroundColor, width: desktop?.fields?.width, display: desktop?.fields?.display, maxWidth:desktop?.fields?.maxWidth }}
-        >
-          <div
-            id={contentId}
-            style={{
-              width: `${desktop?.fields?.widthPercentage ?? desktop?.fields?.width}`,
-              padding: `${desktop?.fields?.padding}`,
-              margin: desktop?.fields?.margin,
-              scrollMarginTop: `${scrollTopMargin}`,
-            }}
-          >
-            <RichTextRenderer
-              text={content}
-              color={desktop?.fields?.textColor}
-              fontWeight={`${desktop?.fields?.fontWeight}`}
-              lineHeight={`${desktop?.fields?.lineHeight}`}
-              fontSize={`${desktop?.fields?.fontSize}`}
-              fontFamily={`${desktop?.fields?.fontFamily}`}
-              letterSpacing={desktop?.fields?.letterSpacing}
-              overflowWrap={desktop?.fields?.overflowWrap}
-            />
-          </div>
-        </div>
+        <span
+
+          style={{
+            padding: `${desktop?.fields?.padding}`,
+            margin: `${desktop?.fields?.margin}`,
+            width: `${desktop?.fields?.width}`,
+            textAlign: `${desktop?.fields?.textAlign as TextAlign}`,
+            display: desktop?.fields?.display ? desktop?.fields?.display : 'inline-block',
+            scrollMarginTop: `${scrollTopMargin}`,
+            maxWidth: desktop?.fields?.maxWidth
+          }}>
+          <RichTextRenderer
+            text={content}
+            device={desktop?.fields}
+          />
+        </span>
       )}
 
       {isMobile(screenMode) && (
-        <div
-          className={`text-${mobile?.fields?.textAlign}`}
-          style={{ background: mobile?.fields?.backgroundColor, width: mobile?.fields?.width, display: mobile?.fields?.display }}
-        >
-          <div
-            id={contentId}
-            style={{
-              width: `${mobile?.fields?.widthPercentage ?? mobile?.fields?.width}`,
-              padding: `${mobile?.fields?.padding}`,
-              margin: mobile?.fields?.margin,
-              scrollMarginTop: `${scrollTopMargin}`,
-            }}
-          >
-            <RichTextRenderer
-              text={content}
-              color={mobile?.fields?.textColor}
-              fontWeight={`${mobile?.fields?.fontWeight}`}
-              lineHeight={`${mobile?.fields?.lineHeight}`}
-              fontSize={`${mobile?.fields?.fontSize}`}
-              fontFamily={`${mobile?.fields?.fontFamily}`}
-              letterSpacing={mobile?.fields?.letterSpacing}
-            />
-          </div>
-        </div>
+        <span style={{
+          padding: `${mobile?.fields?.padding}`,
+          margin: `${mobile?.fields?.margin}`,
+          textAlign: `${mobile?.fields?.textAlign as TextAlign}`,
+          width: `${mobile?.fields?.width}`,
+          display: mobile?.fields?.display ? mobile?.fields?.display : 'inline-block',
+          scrollMarginTop: `${scrollTopMargin}`,
+          maxWidth: mobile?.fields?.maxWidth
+        }}>
+          <RichTextRenderer
+            text={content}
+            device={mobile?.fields}
+          />
+        </span>
       )}
     </>
   );

@@ -31,6 +31,7 @@ export const ComponentContentTypes = {
   RocketLawyer: "templateRocketLawyer",
   RocketLawyerHeader: "rocketLawyerHeader",
   MainHeader: "header",
+  InlineContent: "templateInlineContent",
 };
 
 export const STATIC_SCODE = {
