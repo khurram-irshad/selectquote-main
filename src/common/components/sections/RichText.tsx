@@ -20,7 +20,7 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
     <>
       {isDesktop(screenMode) && (
         <span
-
+          id={contentId}
           style={{
             padding: `${desktop?.fields?.padding}`,
             margin: `${desktop?.fields?.margin}`,
