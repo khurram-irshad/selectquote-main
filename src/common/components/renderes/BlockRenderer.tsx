@@ -19,7 +19,6 @@ import GallerySection from "@components/sections/Gallery";
 import FundingFormSection from "@components/sections/FundingForm";
 import DividerSection from "@components/sections/Divider";
 import TableSection from "@components/sections/Table";
-import ColorTextSection from "@components/sections/ColorText";
 import { DeviceType } from "@common/types/Type_Device";
 import SectionTrustPilot from "@components/sections/TrustPilot";
 import StaticReviewsSection from "@components/sections/StaticReviews";
@@ -142,7 +141,6 @@ const ContentTypeMap = {
   [ComponentContentTypes.FundingForm]: FundingFormSection,
   [ComponentContentTypes.Divider]: DividerSection,
   [ComponentContentTypes.Table]: TableSection,
-  [ComponentContentTypes.ColorText]: ColorTextSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
   [ComponentContentTypes.StaticReviews]: StaticReviewsSection,
   [ComponentContentTypes.RocketLawyer]: RocketLawyerSection,
