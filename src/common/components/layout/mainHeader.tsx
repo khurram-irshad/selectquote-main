@@ -312,7 +312,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           <>
             <div className="container wp-container main-mobile-nav">
               <Link href={"/"}>
-                <a>
+                <a onClick={()=>setShowSearch(false)}>
                   <img
                     className="logo"
                     src={logoWithTag?.fields?.imageFile?.fields?.file?.url}
