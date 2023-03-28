@@ -10,7 +10,9 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
   // const mobile = devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   useEffect(() => {
     var trustbox = document.getElementById("trustbox");
-    window["Trustpilot"].loadFromElement(trustbox, true);
+    if (trustbox) {
+      window["Trustpilot"].loadFromElement(trustbox, true);
+    }
 
   }, [])
 
