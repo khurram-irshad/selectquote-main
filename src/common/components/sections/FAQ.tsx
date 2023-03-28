@@ -21,7 +21,7 @@ const FAQSection = ({ section }: { section: Type_FAQ }) => {
         <button className="rounded-circle accordion-symbol wp-container-desktop" style={{background: isCardActive(eventKey) ? desktop?.fields?.textColor : desktop?.fields?.textColor }}>
           {isCardActive(eventKey) ? "-" : "+"}
         </button>
-        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{background: isCardActive(eventKey) ? mobile?.fields?.textColor : desktop?.fields?.textColor}}>
+        <button className="rounded-circle accordion-symbol wp-container-mobile" style={{background: isCardActive(eventKey) ? mobile?.fields?.textColor : mobile?.fields?.textColor}}>
           {isCardActive(eventKey) ? "-" : "+"}
         </button>
       </>
