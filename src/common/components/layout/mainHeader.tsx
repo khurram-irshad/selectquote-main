@@ -59,6 +59,17 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     }
   }, [route.query.slug]);
 
+  useEffect(() => { 
+      window.onpageshow = function (event) {
+        if (window.location.href.includes('search')) {
+          setShowSearch(true) 
+          if (event.persisted) {
+            window.location.reload();
+          }
+        }
+      };
+},[])
+
   const path = router.asPath;
 
   const renderMainLink = (linkData: any) => {
