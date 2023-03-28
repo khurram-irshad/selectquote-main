@@ -6,6 +6,7 @@ import Hyperlink from "./Hyperlink";
 import { DeviceType } from "@common/types/Type_Device";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 import { useGlobalContext } from "src/context";
+import ImageSection from "./Image";
 
 const InlineContentSection = ({ section }: { section: Type_InlineContent }) => {
     const { content, devices } = section.fields;
@@ -83,5 +84,6 @@ export default InlineContentSection;
 const ContentTypeMap = {
     [ComponentContentTypes.Hyperlink]: Hyperlink,
     [ComponentContentTypes.RichTextContent]: RichTextSection,
+    [ComponentContentTypes.Image]: ImageSection,
 };
 
