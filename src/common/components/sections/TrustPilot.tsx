@@ -9,10 +9,12 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
   // const desktop = devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   // const mobile = devices?.find(item => item?.fields?.type === DeviceType.Mobile);
   useEffect(() => {
-    var trustbox = document.getElementById("trustbox");
-    if (trustbox) {
-      window["Trustpilot"].loadFromElement(trustbox, true);
-    }
+    setTimeout(() => {
+      var trustbox = document.getElementById("trustbox");
+      if (trustbox) {
+        window["Trustpilot"].loadFromElement(trustbox, true);
+      }
+    }, 1500);
 
   }, [])
 
