@@ -11,10 +11,10 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
   useEffect(() => {
     setTimeout(() => {
       var trustbox = document.getElementById("trustbox");
-      if (trustbox) {
+      if (trustbox && window["Trustpilot"]) {
         window["Trustpilot"].loadFromElement(trustbox, true);
       }
-    }, 1500);
+    }, 2000);
 
   }, [])
 
