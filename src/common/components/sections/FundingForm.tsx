@@ -291,7 +291,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                   <label className="form-label">First Name <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='firstName' width= "100%"/>
                 </div>
-                <div className="row">
+                <div className="row mt-4">
                   <label className="form-label">Last Name <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='lastName' width= "100%"/>
                 </div>
@@ -301,7 +301,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
                   <label className="form-label">Email <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='email' width= "100%"/>
                 </div>
-                <div className="row">
+                <div className="row mt-4">
                   <label className="form-label">Phone Number <span className="asterick-color">*</span></label>
                   <UseFormTextField placeholder="" control={control} name='phoneNumber' width= "100%"/>
                 </div>
@@ -342,7 +342,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
               </div>
               <div className="row mt-4">
                 <p>Please provide a brief description of your proposal, including:</p>
-                <div className="row">
+                <div className="row mt-5">
                   <ul>
                     <li>Problem or need which you seek to address</li>
                     <li>Purpose, objectives, and key anticipated outcomes</li>
@@ -434,7 +434,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
 
               <div className="row mt-4">
                 <label className="form-label">Please attach the following:</label>
-                <div className="row">
+                <div className="row mt-4">
                   <ul>
                     <li>Cash flow statement</li>
                     <li>Audited financial statements</li>

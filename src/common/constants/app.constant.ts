@@ -26,7 +26,6 @@ export const ComponentContentTypes = {
   Gallery: "templateGallery",
   Video: "templateVideo",
   Table: "templateTable",
-  ColorText: "templateColorText",
   StaticReviews: "templateStaticReviews",
   RocketLawyer: "templateRocketLawyer",
   RocketLawyerHeader: "rocketLawyerHeader",
