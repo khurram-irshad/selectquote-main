@@ -83,7 +83,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       aScript.src =
         "/addsearch/js/ui.js";
       document.body.appendChild(aScript);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (
