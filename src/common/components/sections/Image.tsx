@@ -15,28 +15,24 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const renderImage = () => {
     return <>
       {isDesktop(screenMode) && (
-        <div>
-          <Image
-            quality={quality ? quality : 75}
-            style={{ borderRadius: desktop?.fields?.borderRadius }}
-            src={`https:${imageFile?.fields?.file?.url}`}
-            width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
-            height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
-            alt={imageName || imageFile?.fields?.title}
-          />
-        </div>
+        <Image
+          quality={quality ? quality : 75}
+          style={{ borderRadius: desktop?.fields?.borderRadius,margin: desktop?.fields?.margin }}
+          src={`https:${imageFile?.fields?.file?.url}`}
+          width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
+          height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
+          alt={imageName || imageFile?.fields?.title}
+        />
       )}
       {isMobile(screenMode) && (
-        <div style={{ justifyContent: mobile?.fields?.justifyContent, alignItems: mobile?.fields?.alignItems }}>
-          <Image
-            quality={quality ? quality : 75}
-            src={`https:${imageFile?.fields?.file?.url}`}
-            style={{ borderRadius: mobile?.fields?.borderRadius }}
-            width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
-            height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
-            alt={imageName || imageFile?.fields?.title}
-          />
-        </div>
+        <Image
+          quality={quality ? quality : 75}
+          src={`https:${imageFile?.fields?.file?.url}`}
+          style={{ borderRadius: mobile?.fields?.borderRadius,margin: mobile?.fields?.margin }}
+          width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
+          height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
+          alt={imageName || imageFile?.fields?.title}
+        />
       )}
     </>
   }

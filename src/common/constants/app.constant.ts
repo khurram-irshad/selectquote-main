@@ -5,7 +5,6 @@ export const PageContentTypes = {
 
 export const ComponentContentTypes = {
   Hero: "templateHeroSection",
-  AgentReview: "templateAgentReview",
   FAQ: "faqItem",
   SliderSection: "templateSlider",
   MultiColumn: "templateMultiColumn",

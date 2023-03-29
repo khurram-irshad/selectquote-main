@@ -6,7 +6,6 @@ import SliderSection from "@components/sections/Slider";
 import FAQSection from "@components/sections/FAQ";
 import MultiColumnSection from "@components/sections/MultiColumn";
 import { Type_Page } from "@common/types";
-import AgentReviewSection from "@components/sections/AgentReview";
 import Hyperlink from "@components/sections/Hyperlink";
 import ImageSection from "@components/sections/Image";
 import RichTextContentSection from "@components/sections/RichText";
@@ -125,7 +124,6 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
 
 const ContentTypeMap = {
   [ComponentContentTypes.Hero]: HeroSection,
-  [ComponentContentTypes.AgentReview]: AgentReviewSection,
   [ComponentContentTypes.SliderSection]: SliderSection,
   [ComponentContentTypes.FAQ]: FAQSection,
   [ComponentContentTypes.MultiColumn]: MultiColumnSection,

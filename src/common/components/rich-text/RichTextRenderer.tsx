@@ -8,8 +8,6 @@ import Device from "@common/types/Type_Device";
 const PlainHyperlink = (props: any) => <Hyperlink {...props} type="PlainLink" /> as any;
 const AssetHyperlink = (props: any) => <Hyperlink {...props} type="AssetLink" /> as any;
 
-
-
 const RichTextRenderer = ({
   text,
   device

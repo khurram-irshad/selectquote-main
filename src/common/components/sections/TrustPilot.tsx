@@ -1,13 +1,22 @@
 import { TrustPilotType } from "@common/enums/TrustPilotType";
 import { DeviceType } from "@common/types/Type_Device";
 import { Type_TrustPilot } from "@common/types/Type_TrustPilot";
-import React from "react";
+import React, { useEffect } from "react";
 
 const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
   const { type, devices } = section.fields;
 
   // const desktop = devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   // const mobile = devices?.find(item => item?.fields?.type === DeviceType.Mobile);
+  useEffect(() => {
+    setTimeout(() => {
+      var trustbox = document.getElementById("trustbox");
+      if (trustbox && window["Trustpilot"]) {
+        window["Trustpilot"].loadFromElement(trustbox, true);
+      }
+    }, 2000);
+
+  }, [])
 
   const getSectionByType = () => {
     switch (type) {
@@ -33,7 +42,7 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
           </a>
         </div>
       case TrustPilotType.Grid:
-        return <div className="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="5400958400006400057a03de" data-style-height="500px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en">
+        return <div id="trustbox" className="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="5400958400006400057a03de" data-style-height="500px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en">
           <a href="https://www.trustpilot.com/review/selectquote.com" target="_blank" rel="noopener">Loading Trustpilot...</a>
         </div>
     }
