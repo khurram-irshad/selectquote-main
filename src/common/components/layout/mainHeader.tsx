@@ -60,8 +60,9 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   useEffect(() => { 
       window.onpageshow = function (event) {
         if (window.location.href.includes('search')) {
+          const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
           setShowSearch(true) 
-          if (event.persisted) {
+          if (event.persisted && isSafari) {
             window.location.reload();
           }
         }
