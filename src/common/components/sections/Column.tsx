@@ -16,6 +16,7 @@ import SectionTrustPilot from './TrustPilot';
 import { isDesktop, isMobile } from '@common/helpers/helper';
 import { useGlobalContext } from 'src/context';
 import InlineContentSection from './InlineContent';
+import SliderSection from './Slider';
 
 const ColumnSection = ({ section }: { section: any }) => {
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
@@ -81,4 +82,5 @@ const ContentTypeMap = {
   [ComponentContentTypes.Table]: TableSection,
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
   [ComponentContentTypes.InlineContent]: InlineContentSection,
+  [ComponentContentTypes.SliderSection]: SliderSection,
 };
