@@ -413,16 +413,6 @@ html {
     .richtext-render-desktop {
       display: none !important;
     }
-
-    .multi-column-section {
-      .multi-column-desktop {
-        display: none;
-      }
-
-      .multi-column-mobile {
-        display: unset;
-      }
-    }
   }
 
   .richtext-render-mobile {

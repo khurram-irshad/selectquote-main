@@ -1,5 +1,5 @@
 import { Type_RocketLayerHeader } from '@common/types/Type_RocketLayerHeader'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Link from "next/link";
 import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from '@common/helpers/helper';

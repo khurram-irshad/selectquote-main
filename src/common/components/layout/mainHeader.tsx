@@ -19,8 +19,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("all");
   const [slides, setSlides] = useState([]);
   const [childSlides, setChildSlides] = useState([]);
   const [slideNav, setSlideNav] = useState([]);

@@ -2,7 +2,6 @@ import React from "react";
 import RichTextRenderer from "./RichTextRenderer";
 import Link from "next/link";
 import { isValidHttpUrl } from "@common/helpers/helper";
-import { addColour } from ".";
 
 type Props = {
   data: any;

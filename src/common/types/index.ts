@@ -1,6 +1,5 @@
 export { type Type_Page } from './Type_Page';
 export type { Type_MultiColumn } from './Type_MultiColumn';
-export type { Type_AgentReview } from './Type_AgentReview';
 export type { Type_Slider } from './Type_Slider';
 export type { Type_FAQ } from './Type_FAQ';
 export type { Type_Hero } from './Type_Hero';
