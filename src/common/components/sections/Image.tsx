@@ -6,7 +6,7 @@ import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 
 const ImageSection = ({ section }: { section: Type_Image }) => {
-  const { imageFile, imageName, externalLink, fill, quality,link } = section.fields;
+  const { imageFile, imageName, externalLink, fill, quality, link } = section.fields;
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
@@ -22,7 +22,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             style={{ borderRadius: desktop?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
             fill
-            className={'image'}
+            className={'image h-unset'}
             alt={imageName || imageFile?.fields?.title}
           />) : (<Image
             quality={100}
@@ -30,21 +30,29 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             src={`https:${imageFile?.fields?.file?.url}`}
             width={Number(width)}
             height={Number(height)}
-            className={'image'}
+            className={'image '}
             alt={imageName || imageFile?.fields?.title}
           />)}
         </span>
       )}
       {isMobile(screenMode) && (
-        <span className={'image-container'}>
-          <Image
+        <span className={'image-container'} style={{ width: mobile?.fields?.width }}>
+          {fill ? (<Image
             quality={100}
-            style={{ borderRadius: desktop?.fields?.borderRadius }}
+            style={{ borderRadius: mobile?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
             fill
-            className={'image'}
+            className={'image h-unset'}
             alt={imageName || imageFile?.fields?.title}
-          />
+          />) : (<Image
+            quality={100}
+            style={{ borderRadius: mobile?.fields?.borderRadius }}
+            src={`https:${imageFile?.fields?.file?.url}`}
+            width={Number(width)}
+            height={Number(height)}
+            className={'image '}
+            alt={imageName || imageFile?.fields?.title}
+          />)}
         </span>
       )}
     </>
