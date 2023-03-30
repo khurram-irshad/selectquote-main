@@ -35,10 +35,11 @@ export const ComponentContentTypes = {
 export const STATIC_SCODE = {
   LIFE: 'CLMM',
   MEDICARE: 'RLMED',
-  AUTO_HOME: 'RLSQAH'
+  AUTO_HOME: 'RLSQAH',
 }
 
 export const MAIN_SCODE = {
+  DEFAULT: 'UCMS',
   BSQ: 'BSQ',
   LSQ: 'LSQ'
 }

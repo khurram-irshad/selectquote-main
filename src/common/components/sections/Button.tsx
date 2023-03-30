@@ -4,7 +4,7 @@ import { Type_Button } from "@common/types/Type_Button";
 import { DeviceType } from "@common/types/Type_Device";
 import useWindowDimensions from "@components/WindowDimension";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useGlobalContext } from "src/context";
 
 const ButtonSection = ({ section }: { section: Type_Button }) => {
@@ -23,16 +23,13 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
   const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
 
-  const queryParams: any = router.query;
-  const sCode = queryParams?.sCode || queryParams?.scode;
-
   let pathname, hrefUrl = linkUrl;
   if (typeof window !== "undefined") {
     pathname = window.location.pathname;
   }
 
   const isRocketLawyer = () => {
-    return sCode && pathname?.includes('rocket-lawyer')
+    return pathname?.includes('rocket-lawyer')
   }
   if (isRocketLawyer()) {
     hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`

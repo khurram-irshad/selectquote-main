@@ -7,7 +7,7 @@ import {
 } from "@common/services/storage";
 import { useRouter } from "next/router";
 import { appService } from "@common/services/app.service";
-import { DEFAULT_PHONE_NUMBER, MAIN_SCODE, STORAGE } from "@constants/app.constant";
+import { DEFAULT_PHONE_NUMBER, MAIN_SCODE, STATIC_SCODE, STORAGE } from "@constants/app.constant";
 import { GlobalContextProvider } from "src/context/globalContext";
 import { generateSessionId } from "@common/helpers/helper";
 import TagManager from "react-gtm-module";
@@ -32,12 +32,13 @@ export default function Apps({ Component, pageProps }: AppProps) {
     let response, sCode = queryParams?.campaignKey || queryParams?.sCode;
     let storageSCode = SessionStorageService.getItem('sCode')
     SessionStorageService.removeItem(STORAGE.SITE_SESSION_DATA)
-
     if (sCode) {
       SessionStorageService.setItem('sCode', sCode)
       response = await appService.getScode(sCode);
     } else if (storageSCode) {
       response = await appService.getScode(storageSCode);
+    } else {
+      response = await appService.getScode(MAIN_SCODE.DEFAULT);
     }
 
     const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);

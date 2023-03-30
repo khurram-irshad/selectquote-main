@@ -62,7 +62,7 @@ export const RocketLawyerSection = () => {
                     </div>
                 </div>
                 <div className='cta-container'>
-                    <button onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
+                    <button onClick={() => { window.open(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`) }}>Get a Free Quote</button>
                 </div>
 
             </div>
@@ -86,7 +86,7 @@ export const RocketLawyerSection = () => {
                     />
                         <p className='product-title'>Auto & Home Insurance</p>
                         <p>We’ll work to find the best price available rates in your area.</p>
-                        <button onClick={() => { window.open(`https://homeandauto.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.AUTO_HOME : ''}`) }}>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://homeandauto.selectquote.com/quote-form?sCode=${STATIC_SCODE.AUTO_HOME}`) }}>Get a Free Quote</button>
                     </div>
                     <div className='medical'>
                         <img
@@ -97,7 +97,7 @@ export const RocketLawyerSection = () => {
                         />
                         <p className='product-title'>Medicare Insurance</p>
                         <p>Find the perfect plan to fill your healthcare needs.</p>
-                        <button onClick={() => { window.open(`https://medicare.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.MEDICARE : ''}`) }}>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://medicare.selectquote.com/quote-form?sCode=${STATIC_SCODE.MEDICARE}`) }}>Get a Free Quote</button>
                         <p className='sub-copy'>No obligation to enroll</p>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ export const RocketLawyerSection = () => {
                 <div className='cta-form'>
                     <div >
                         <input placeholder='Enter Zip' />
-                        <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form/${sCode ? '?sCode=' + STATIC_SCODE.LIFE : ''}`) }}>Get a Free Quote</button>
+                        <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`) }}>Get a Free Quote</button>
                     </div>
                     <p className='mini-text'>No obligation to enroll</p>
                 </div>
