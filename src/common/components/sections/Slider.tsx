@@ -63,13 +63,13 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
   return (
     <>
       {isDesktop(screenMode) && (<section
-        className={`company-section ${desktop?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
+        className={`company-section }`}
         style={{ margin: desktop?.fields?.margin }}
       >
         <div
           style={{ backgroundColor: desktop?.fields?.backgroundColor, padding: desktop?.fields?.padding }}
         >
-            <div className="companies d-flex align-items-center justify-content-around">
+            <div className="companies d-flex align-items-center justify-content-between">
               {images.map((image) => (
                 <div
                   className="company d-flex align-items-center justify-content-center"
@@ -91,7 +91,7 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
       {isMobile(screenMode) && (
         <section
           style={{ margin: mobile?.fields?.margin }}
-          className={`company-section ${mobile?.fields?.fullWidth ? "container-fluid px-0" : ""}`}
+          className={`company-section `}
         >
           <div
             style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}

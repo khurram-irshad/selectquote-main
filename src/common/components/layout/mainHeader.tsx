@@ -277,7 +277,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 <a onClick={()=>setShowSearch(false)}>
                   <img
                     src={logo?.fields?.imageFile?.fields?.file?.url}
-                    width={190}
+                    width={210}
                     alt={logo?.fields?.imageName || "logo"}
                   />
                 </a>

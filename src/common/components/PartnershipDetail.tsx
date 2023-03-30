@@ -120,10 +120,10 @@ const PartnershipDetail = () => {
                         <b>Where is this company located?*</b>
                     </label>
                     <div className="comapny-located">
-                        <UseFormTextField control={control} name="city"  placeholder="city " />
+                        <UseFormTextField control={control} name="city"  placeholder="City " />
                     </div>
                     <div className="comapny-located">
-                        <UseFormTextField control={control} name="state"  placeholder="state " />
+                        <UseFormTextField control={control} name="state"  placeholder="State " />
                     </div>
                 </div>
                 <div className="row top-space">
@@ -638,7 +638,7 @@ const PartnershipDetail = () => {
                                 }
                                 field.onChange(checkedValues);
                                 }}
-                            />Tv</label>
+                            />TV</label>
                         )}
                         />
                             <Controller
@@ -686,7 +686,7 @@ const PartnershipDetail = () => {
                         )}
                         />
                         </div>
-                        <div className="check-list">
+                        <div className="check-list primary-leads">
                         <Controller
                         control={control}
                         name="primarysources"
@@ -780,7 +780,7 @@ const PartnershipDetail = () => {
                 <div className="row mt-100">
                     <div className="col">
                         <label className="form-label grey">
-                            <b>Are the majority of your sources (sites,ads, etc.) owned and operated or 3rd party?*</b>
+                            <b>Are the majority of your sources (sites, ads, etc.) owned and operated or 3rd party?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
                             <li className="mb-5" style={{ width: isDesktop(screenMode)? '50%': '100%' }}>
@@ -907,7 +907,7 @@ const PartnershipDetail = () => {
                 </div>
                 <div className="row top-space large-input">
                     <label className="form-label grey mb-45">
-                        <b>What call routing system/softwre(s) do you currently use?* </b>
+                        <b>What call routing system/software(s) do you currently use?* </b>
                     </label>
                     <div className="col">
                         <UseFormTextField control={control} type={isDesktop(screenMode)?'text':'textarea'} name="sanswer"  placeholder="Your answer "  />
@@ -941,7 +941,7 @@ const PartnershipDetail = () => {
                 <div className="row top-space">
                     <div className="col">
                         <label className="form-label grey">
-                            <b>Do you use jornaya or Trusted Form?*</b>
+                            <b>Do you use Jornaya or Trusted Form?*</b>
                         </label>
                         <ul className="custom-radio simple-radio">
                             <li className="mb-5">
@@ -1037,7 +1037,7 @@ const PartnershipDetail = () => {
                         onClick= {()=>(handleSubmit(onSubmit))}
                         disabled={isUploading}
                     >
-                        submit
+                        Submit
                     </button>
                 </div>
             </>
