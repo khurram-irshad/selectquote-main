@@ -277,7 +277,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
                 <a onClick={()=>setShowSearch(false)}>
                   <img
                     src={logo?.fields?.imageFile?.fields?.file?.url}
-                    width={190}
+                    width={210}
                     alt={logo?.fields?.imageName || "logo"}
                   />
                 </a>
@@ -301,7 +301,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
               />
             </li>
             <li>
-              <a className="free-quote-btn" href="https://life.selectquote.com/quote-form/?pass_sid=23ystg-11k9-wfbwno&pass_cid=NBn4QLCUpqPMUz3IoYSn&pass_channel=B-DE&pass_sid=23ystg-11k9-wfbwno&pass_cid=NBn4QLCUpqPMUz3IoYSn&pass_channel=B-DE">
+              <a className="free-quote-btn" href="https://www.selectquote.com/quotes/">
                 Get a Quote
               </a>
             </li>
