@@ -773,11 +773,13 @@ p {
 
 .image-container {
 position: relative;
-  width: 100%;
 
   .image {
     object-fit: contain;
     position: relative !important;
+  }
+  .h-unset{
     height: unset !important;
+
   }
 }
