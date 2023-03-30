@@ -6,44 +6,57 @@ import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 
 const ImageSection = ({ section }: { section: Type_Image }) => {
-  const { imageFile, imageName, externalLink, quality } = section.fields;
+  const { imageFile, imageName, externalLink, fill, quality,link } = section.fields;
   const desktop = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Desktop);
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
   const { screenMode } = useGlobalContext();
-
+  const width: any = desktop?.fields?.width ? desktop.fields.width.replace('px', '') : imageFile?.fields?.file?.details?.image?.width;
+  const height: any = desktop?.fields?.height ? desktop.fields.height.replace('px', '') : imageFile?.fields?.file?.details?.image?.height;
   const renderImage = () => {
     return <>
       {isDesktop(screenMode) && (
-        <Image
-          quality={quality ? quality : 75}
-          style={{ borderRadius: desktop?.fields?.borderRadius,margin: desktop?.fields?.margin }}
-          src={`https:${imageFile?.fields?.file?.url}`}
-          width={desktop?.fields?.width ? desktop.fields.width : imageFile?.fields?.file?.details?.image?.width}
-          height={desktop?.fields?.height ? desktop.fields.height : imageFile?.fields?.file?.details?.image?.height}
-          alt={imageName || imageFile?.fields?.title}
-        />
+        <span className={'image-container'}>
+          {fill ? (<Image
+            quality={100}
+            style={{ borderRadius: desktop?.fields?.borderRadius }}
+            src={`https:${imageFile?.fields?.file?.url}`}
+            fill
+            className={'image'}
+            alt={imageName || imageFile?.fields?.title}
+          />) : (<Image
+            quality={100}
+            style={{ borderRadius: desktop?.fields?.borderRadius }}
+            src={`https:${imageFile?.fields?.file?.url}`}
+            width={Number(width)}
+            height={Number(height)}
+            className={'image'}
+            alt={imageName || imageFile?.fields?.title}
+          />)}
+        </span>
       )}
       {isMobile(screenMode) && (
-        <Image
-          quality={quality ? quality : 75}
-          src={`https:${imageFile?.fields?.file?.url}`}
-          style={{ borderRadius: mobile?.fields?.borderRadius,margin: mobile?.fields?.margin }}
-          width={mobile?.fields?.width ? mobile?.fields?.width : imageFile?.fields?.file?.details?.image?.width}
-          height={mobile?.fields?.height ? mobile?.fields?.height : imageFile?.fields?.file?.details?.image?.height}
-          alt={imageName || imageFile?.fields?.title}
-        />
+        <span className={'image-container'}>
+          <Image
+            quality={100}
+            style={{ borderRadius: desktop?.fields?.borderRadius }}
+            src={`https:${imageFile?.fields?.file?.url}`}
+            fill
+            className={'image'}
+            alt={imageName || imageFile?.fields?.title}
+          />
+        </span>
       )}
     </>
   }
 
   return (
     <>
-      {section.fields?.link ? (
+      {link ? (
         <a
-          rel={section.fields?.externalLink ? "noopener noreferrer" : ''}
-          target={section.fields?.externalLink ? "_blank" : ''}
-          href={`${section.fields?.link}`}
+          rel={externalLink ? "noopener noreferrer" : ''}
+          target={externalLink ? "_blank" : ''}
+          href={`${link}`}
         >
           {renderImage()}
         </a>
