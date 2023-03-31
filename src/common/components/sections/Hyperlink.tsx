@@ -28,7 +28,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
       href={section.fields.linkUrl || "/"}
       className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
       style={{
-        textDecoration: !underline ? "none" : '',
+        textDecoration: !underline ? "none" : 'underline',
         color: section.fields.color,
         fontSize: section.fields.fontSize,
         fontWeight: section.fields.fontWeight,
@@ -43,7 +43,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
         className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
         style={{
           color: section.fields?.color,
-          textDecoration: !underline ? "none" : '',
+          textDecoration: !underline ? "none" : 'underline',
           fontSize: section.fields.fontSize,
           fontWeight: section.fields.fontWeight,
         }}
