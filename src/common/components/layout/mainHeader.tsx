@@ -69,15 +69,6 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     }  
   }, [])
 
-
-  useEffect(() => { 
-    window.onpageshow = function () {
-      window && window.location.hash ? window.location.hash : null
-    }
-  }, [])  
-  
- 
-
   const path = router.asPath;
 
   const renderMainLink = (linkData: any) => {
