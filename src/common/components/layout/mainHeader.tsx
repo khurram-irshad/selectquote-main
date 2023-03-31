@@ -69,6 +69,17 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     }  
   }, [])
 
+  useEffect(() => { 
+    window.onpageshow = () => {
+      if (window.location.href.includes('page_anchor=')) {
+        const el = document.getElementById("JonReinemann")
+        el.scrollIntoView({
+          behavior: 'smooth',
+        })
+      }
+    }  
+  }, [])
+
   const path = router.asPath;
 
   const renderMainLink = (linkData: any) => {
