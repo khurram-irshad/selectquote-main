@@ -22,7 +22,7 @@ function NavLink({ href, exact, children, ...props }) {
   }
 
   return (
-    <Link href={href} target="_self">
+    <Link href={href} target="_self" legacyBehavior>
       <a target="_self" {...props}>
         {children}
       </a>

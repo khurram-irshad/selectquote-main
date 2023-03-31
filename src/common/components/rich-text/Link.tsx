@@ -13,7 +13,7 @@ export const Hyperlink = (props: Props) => {
       ? props.data.target.fields.file.url
       : props.data.uri;
 
-  return <Link href={href || "/"}>
+  return <Link href={href || "/"} legacyBehavior>
     <a style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}>
       {props.content[0].value}
     </a>

@@ -58,16 +58,16 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   }, [route.query.slug]);
 
   useEffect(() => { 
-      window.onpageshow = function (event) {
-        if (window.location.href.includes('search')) {
-          const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-          setShowSearch(true) 
-          if (event.persisted && isSafari) {
-            window.location.reload();
-          }
+    window.onpageshow = function (event) {
+      if (window.location.href.includes('search')) {
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        setShowSearch(true)
+        if (event.persisted && isSafari) {
+          window.location.reload();
         }
-      };
-},[])
+      }
+    }  
+  }, [])
 
   const path = router.asPath;
 
@@ -108,7 +108,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (!parent) {
       return (
         <div>
-          <Link className="basicbtn" href={linkUrl} target="_self" >
+          <Link className="basicbtn" href={linkUrl} target="_self" legacyBehavior>
             <a target="_self" onClick={()=>setShowSearch(false)}>{linkText}</a>
           </Link>
         </div>
@@ -151,7 +151,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
     if (!parent) {
       return (
-        <Link href={linkUrl} key={key} target="_self">
+        <Link href={linkUrl} key={key} target="_self" legacyBehavior>
           <a target="_self" onClick={()=>setShowSearch(false)}>
             <div className="anchor-wrap">{linkText}</div>
           </a>
@@ -273,7 +273,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {screenWidth > 0 && screenWidth > 1023 && (
           <ul className="main-nav d-flex">
             <li>
-              <Link href={"/"}>
+              <Link href={"/"} legacyBehavior>
                 <a onClick={()=>setShowSearch(false)}>
                   <img
                     src={logo?.fields?.imageFile?.fields?.file?.url}
@@ -310,7 +310,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {screenWidth > 0 && screenWidth < 1024 && (
           <>
             <div className="container wp-container main-mobile-nav">
-              <Link href={"/"}>
+              <Link href={"/"} legacyBehavior>
                 <a onClick={()=>setShowSearch(false)}>
                   <img
                     className="logo"

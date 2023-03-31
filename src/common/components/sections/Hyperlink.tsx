@@ -5,7 +5,7 @@ import Link from "next/link";
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   const { type, underline, externalLink } = section.fields;
 
-  return <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} >
+  return <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} legacyBehavior>
     <a
       className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
       target={externalLink ? '_blank' : ''}
