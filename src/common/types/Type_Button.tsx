@@ -9,6 +9,7 @@ interface Button {
     devices: Contentful.Entry<Device>[];
     hoverBackground: Contentful.EntryFields.Symbol;
     hoverColor: Contentful.EntryFields.Symbol;
+    externalLink: Contentful.EntryFields.Boolean;
 }
 
 export type Type_Button = Contentful.Entry<Button>;
