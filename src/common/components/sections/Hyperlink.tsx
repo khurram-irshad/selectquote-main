@@ -43,7 +43,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
         className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
         style={{
           color: section.fields?.color,
-          textDecoration: !underline ? "none" : '',
+          textDecoration: !underline ? "none" : 'underline',
           fontSize: section.fields.fontSize,
           fontWeight: section.fields.fontWeight,
         }}
