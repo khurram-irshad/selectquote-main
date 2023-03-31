@@ -4,7 +4,7 @@ import { Type_Button } from "@common/types/Type_Button";
 import { DeviceType } from "@common/types/Type_Device";
 import useWindowDimensions from "@components/WindowDimension";
 import { useRouter } from "next/router";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "src/context";
 
 const ButtonSection = ({ section }: { section: Type_Button }) => {
@@ -14,7 +14,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     rounded = true,
     devices,
     hoverBackground,
-    hoverColor
+    hoverColor,
+    externalLink
   } = section.fields;
   const [isFocused, setFocus] = useState(false);
   const { screenMode } = useGlobalContext();
@@ -54,8 +55,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               boxShadow: desktop?.fields?.boxShadow ? desktop?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
             href={hrefUrl}
-            target={isRocketLawyer() ? '_blank' : ''}
-            rel={isRocketLawyer() ? 'noopener noreferrer' : ''}
+            target={externalLink ? '_blank' : ''}
+            rel={externalLink ? 'noopener noreferrer' : ''}
           >
             {title}
           </a>
@@ -79,8 +80,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
               boxShadow: mobile?.fields?.boxShadow ? mobile?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
             }}
             href={hrefUrl}
-            target={isRocketLawyer() ? '_blank' : ''}
-            rel={isRocketLawyer() ? 'noopener noreferrer' : ''}
+            target={externalLink ? '_blank' : ''}
+            rel={externalLink ? 'noopener noreferrer' : ''}
           >
             {title}
           </a>
