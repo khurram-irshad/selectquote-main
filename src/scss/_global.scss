@@ -765,3 +765,21 @@ p {
 }
 
 
+// img {
+//   min-height: auto !important;
+//   max-height: none !important;
+//   height: auto !important;
+// }
+
+.image-container {
+position: relative;
+
+  .image {
+    object-fit: contain;
+    position: relative !important;
+  }
+  .h-unset{
+    height: unset !important;
+
+  }
+}

@@ -7,6 +7,7 @@ export interface Image {
   link?: Contentful.EntryFields.Symbol;
   externalLink: Contentful.EntryFields.Symbol;
   quality: Contentful.EntryFields.Symbol;
+  fill: Contentful.EntryFields.Boolean;
   devices: Contentful.Entry<Device>[];
 }
 
