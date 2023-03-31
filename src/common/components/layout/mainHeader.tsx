@@ -58,16 +58,25 @@ export default function MainHeader({ header }: { header: Type_Header }) {
   }, [route.query.slug]);
 
   useEffect(() => { 
-      window.onpageshow = function (event) {
-        if (window.location.href.includes('search')) {
-          const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-          setShowSearch(true) 
-          if (event.persisted && isSafari) {
-            window.location.reload();
-          }
+    window.onpageshow = function (event) {
+      if (window.location.href.includes('search')) {
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        setShowSearch(true)
+        if (event.persisted && isSafari) {
+          window.location.reload();
         }
-      };
-},[])
+      }
+    }  
+  }, [])
+
+
+  useEffect(() => { 
+    window.onpageshow = function () {
+      window && window.location.hash ? window.location.hash : null
+    }
+  }, [])  
+  
+ 
 
   const path = router.asPath;
 
