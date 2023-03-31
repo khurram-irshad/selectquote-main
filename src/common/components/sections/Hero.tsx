@@ -118,7 +118,11 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     const heroContent = document.getElementById("heroContent");
     hero.classList.remove("container");
     heroContent.classList.add("container");
-    if (screenWidth >= 1620 && path.includes("auto-and-home-insurance")) {
+    if (
+      screenWidth >= 1620 &&
+      (path.includes("auto-and-home-insurance") ||
+        path.includes("auto-and-home-insurance/car-insurance"))
+    ) {
       hero.classList.add("container");
       hero.classList.remove("hero-section-shadow");
       heroContent.classList.remove("container");
