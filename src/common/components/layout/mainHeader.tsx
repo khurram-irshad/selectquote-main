@@ -301,7 +301,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
               />
             </li>
             <li>
-              <a className="free-quote-btn" href="https://www.selectquote.com/quotes/">
+              <a className="free-quote-btn" href="/quotes">
                 Get a Quote
               </a>
             </li>
