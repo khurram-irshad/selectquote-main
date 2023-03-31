@@ -38,7 +38,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
       {section.fields.title}
     </a>
   ) : (
-    <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")}>
+    <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} legacyBehavior>
       <a
         className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
         style={{

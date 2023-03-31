@@ -17,7 +17,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
       {isDesktop(screenMode) && (
         <ul className="main-nav d-flex rocket-section-nav">
           <li className='right-border'>
-            <Link href={"/"}>
+            <Link href={"/"} legacyBehavior>
               <a>
                 <img
                   src={header?.fields?.appLogo?.fields?.imageFile?.fields?.file?.url}
@@ -29,7 +29,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
             
           </li>
           <li className="rocket-logo right-border">
-            <Link href={"/"}>
+            <Link href={"/"} legacyBehavior>
               <a className='rocket-logo-link'>
                 <img
                   src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}
@@ -61,7 +61,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
     {isMobile(screenMode) && (
       <>
         <div className="container wp-container main-mobile-nav d-flex justify-content-center">
-          <Link href={"/"}>
+          <Link href={"/"} legacyBehavior>
             <div className='right-border-mobile'>
               <a>
                 <img
@@ -72,7 +72,7 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
               </a>
             </div>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} legacyBehavior>
             <a className='rocket-mobile-logo'>
               <img
                 src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}

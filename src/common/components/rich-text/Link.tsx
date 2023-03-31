@@ -35,7 +35,7 @@ export const Hyperlink = (props: Props) => {
       {props.content[0].value}
     </a>
   ) : (
-    <Link href={href || "/"}>
+    <Link href={href || "/"} legacyBehavior>
       <a style={{ color: "#07aec7", textDecoration: "none", fontWeight: 700 }}>
         {/* {addColour([props.content[0].value])} */}
         {props.content[0].value}
