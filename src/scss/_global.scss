@@ -45,6 +45,7 @@ html {
 
       input {
         border-radius: 0px !important;
+        padding-top: 30px;
       }
     }
   }
@@ -68,6 +69,7 @@ html {
     border-top-right-radius: 10px;
     margin-left: 10px;
     width: 98%;
+    padding-right: 0;
 
     .input-group {
       flex-direction: row !important;
@@ -236,7 +238,7 @@ html {
 
     .other-field {
       .input-group {
-        width: 50%;
+        width: 100%;
 
         small {
           position: absolute;
@@ -245,10 +247,10 @@ html {
       }
 
       .custom-radio {
-        width: 47%;
+        width: 280px;
 
         .radio-list {
-          width: 100% !important;
+          width: 280px !important;
         }
       }
     }

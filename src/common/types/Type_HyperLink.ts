@@ -13,6 +13,7 @@ interface HyperLink {
     hoverBackground: Contentful.EntryFields.Symbol;
     hoverColor: Contentful.EntryFields.Symbol;
     underline: Contentful.EntryFields.Boolean;
+    externalLink: Contentful.EntryFields.Boolean;
 }
 
 export type Type_HyperLink = Contentful.Entry<HyperLink>;
