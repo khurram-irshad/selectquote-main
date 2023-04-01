@@ -11,8 +11,12 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const mobile = section?.fields?.devices?.find(item => item?.fields?.type === DeviceType.Mobile);
 
   const { screenMode } = useGlobalContext();
-  const width: any = desktop?.fields?.width ? desktop.fields.width.replace('px', '') : imageFile?.fields?.file?.details?.image?.width;
-  const height: any = desktop?.fields?.height ? desktop.fields.height.replace('px', '') : imageFile?.fields?.file?.details?.image?.height;
+  const widthDesktop: any = desktop?.fields?.width ? desktop.fields.width.replace('px', '') : imageFile?.fields?.file?.details?.image?.width;
+  const heightDesktop: any = desktop?.fields?.height ? desktop.fields.height.replace('px', '') : imageFile?.fields?.file?.details?.image?.height;
+  
+  const widthMobile: any = mobile?.fields?.width ? mobile.fields.width.replace('px', '') : imageFile?.fields?.file?.details?.image?.width;
+  const heightMobile: any = mobile?.fields?.height ? mobile.fields.height.replace('px', '') : imageFile?.fields?.file?.details?.image?.height;
+  
   const renderImage = () => {
     return <>
       {isDesktop(screenMode) && (
@@ -28,15 +32,15 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             quality={100}
             style={{ borderRadius: desktop?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
-            width={Number(width)}
-            height={Number(height)}
+            width={Number(widthDesktop)}
+            height={Number(heightDesktop)}
             className={'image '}
             alt={imageName || imageFile?.fields?.title}
           />)}
         </span>
       )}
       {isMobile(screenMode) && (
-        <span className={'image-container'} style={{ width: mobile?.fields?.width }}>
+        <span className={'image-container'} style={{width:mobile?.fields.widthPercentage+'%'}}>
           {fill ? (<Image
             quality={100}
             style={{ borderRadius: mobile?.fields?.borderRadius }}
@@ -48,8 +52,8 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             quality={100}
             style={{ borderRadius: mobile?.fields?.borderRadius }}
             src={`https:${imageFile?.fields?.file?.url}`}
-            width={Number(width)}
-            height={Number(height)}
+            width={Number(widthMobile)}
+            height={Number(heightMobile)}
             className={'image '}
             alt={imageName || imageFile?.fields?.title}
           />)}
