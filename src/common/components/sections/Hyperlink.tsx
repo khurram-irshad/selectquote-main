@@ -1,6 +1,6 @@
 import { Type_HyperLink } from "@common/types/Type_HyperLink";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   const { type, underline, externalLink } = section.fields;
@@ -18,7 +18,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
     currentIndex = superscriptIndex + 1;
   }
   
-  return <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} legacyBehavior>
+  return <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} legacyBehavior scroll={false}>
     <a
       className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
       target={externalLink ? '_blank' : ''}
@@ -32,7 +32,6 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
     >
        <span dangerouslySetInnerHTML={{ __html: titleWithSuperscript }} />
     </a>
-  </Link>
-};
+</Link>
 
 export default Hyperlink;
