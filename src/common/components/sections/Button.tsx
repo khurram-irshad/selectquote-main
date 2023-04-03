@@ -41,8 +41,6 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`;
   }
 
-  console.log(hrefUrl);
-
   if (hrefUrl?.includes("scroll-to-view#")) {
     hrefUrl = "#";
   }
