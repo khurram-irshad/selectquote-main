@@ -1,8 +1,13 @@
 import { Type_RocketLayerHeader } from '@common/types/Type_RocketLayerHeader'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link";
 import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from '@common/helpers/helper';
+import { useRouter } from "next/router";
+import {
+  SessionStorageService,
+} from "@common/services/storage";
+import {  DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 
 const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
   const { screenMode } = useGlobalContext();
@@ -10,7 +15,40 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
     primaryNumber,
     secondaryNumber
   } = header.fields;
-  
+  const [phoneNumber, setPhoneNumber] = useState(DEFAULT_PHONE_NUMBER);
+  const [sCode, setScode] = useState('');
+  const route = useRouter();
+
+  useEffect(() => {
+
+    const handleStorageChange = () => {
+      const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
+      if (storageSiteData) {
+        const {
+          site_campaign_phone: site_campaign_phone,
+        } = storageSiteData
+        setPhoneNumber(site_campaign_phone);
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
+
+    const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
+    if (storageSiteData) {
+      const {
+        site_campaign_phone: site_campaign_phone,
+        site_source_code: site_source_code,
+      } = storageSiteData
+      setPhoneNumber(site_campaign_phone);
+      setScode(site_source_code);
+    }
+  }, [route.query.slug]);
+
   return (
     <div>
       <div className="content-main-navbar">
@@ -48,8 +86,8 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
                   height={20}
                   alt="phone"
                 />
-                <a className="rocket-number" href={`tel:${primaryNumber}`}>
-                  {primaryNumber}
+                <a className="rocket-number" href={`tel:${phoneNumber}`}>
+                  {phoneNumber}
                 </a>
             </div>
               <a className="rocket-secondery-number" href={`tel:${secondaryNumber}`}>
