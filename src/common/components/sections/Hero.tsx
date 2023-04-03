@@ -114,6 +114,7 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       : 0;
 
   useEffect(() => {
+    console.log(path);
     const hero = document.getElementById("heroSection");
     const heroContent = document.getElementById("heroContent");
     hero.classList.remove("container");
@@ -121,7 +122,9 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
     if (
       screenWidth >= 1620 &&
       (path.includes("auto-and-home-insurance") ||
-        path.includes("auto-and-home-insurance/car-insurance"))
+        path.includes("auto-and-home-insurance/car-insurance") ||
+        path === "/" ||
+        path.includes("?search="))
     ) {
       hero.classList.add("container");
       hero.classList.remove("hero-section-shadow");
