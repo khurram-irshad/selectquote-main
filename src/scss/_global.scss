@@ -91,7 +91,6 @@ html {
   .submit-button {
     color: #ffff;
     background-color: rgb(244, 123, 32);
-    width: 15%
   }
 
   .other-line-input {
@@ -247,10 +246,11 @@ html {
       }
 
       .custom-radio {
-        width: 280px;
+        width: 85%;
+        max-width: 200px;
 
         .radio-list {
-          width: 280px !important;
+          width: 100% !important;
         }
       }
     }
@@ -352,7 +352,6 @@ html {
     .submit-button {
       color: #ffff;
       background-color: rgb(244, 123, 32);
-      width: 40% !important
     }
 
     .other-line-input {
