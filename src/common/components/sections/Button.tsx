@@ -41,18 +41,22 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`;
   }
 
-  if (hrefUrl.includes("scroll-to-view#")) {
+  console.log(hrefUrl);
+
+  if (hrefUrl?.includes("scroll-to-view#")) {
     hrefUrl = "#";
   }
 
   const scrollIntoId = () => {
     setTimeout(() => {
-      const targetId = linkUrl.replace(/.*\#/, "");
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({
-          behavior: "smooth",
-        });
+      if (linkUrl) {
+        const targetId = linkUrl.replace(/.*\#/, "");
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
       }
     }, 500);
   };
