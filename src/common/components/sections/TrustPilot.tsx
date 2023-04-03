@@ -31,7 +31,7 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
         data-review-languages="en"
       >
         <a
-          href="https://www.trustpilot.com/review/selectquote.com?utm_medium=trustbox&utm_source=Slider"
+          href="https://www.trustpilot.com/review/selectquote.com"
           target="_blank"
           rel="noopener"
         >
@@ -45,15 +45,15 @@ const SectionTrustPilot = ({ section }: { section: Type_TrustPilot }) => {
         className="trustpilot-widget"
         data-locale="en-US"
         data-template-id="54ad5defc6454f065c28af8b"
-        data-businessunit-id="5400958400006400057a03de"
+        data-businessunit-id="5519c5390000ff00057e6498"
         data-style-height="240px"
         data-style-width="100%"
         data-theme="light"
-        data-stars="4,5"
+        data-stars="1,2,3,4,5"
         data-review-languages="en"
       >
         <a
-          href="https://widget.trustpilot.com/trustboxes/54ad5defc6454f065c28af8b/index.html?templateId=54ad5defc6454f065c28af8b&businessunitId=5519c5390000ff00057e6498#locale=en-US&styleHeight=240px&styleWidth=100%25&theme=light&stars=1%2C2%2C3%2C4%2C5&reviewLanguages=en"
+          href="https://widget.trustpilot.com/trustboxes/54ad5defc6454f065c28af8b/index.html"
           target="_blank"
           rel="noopener"
         >
