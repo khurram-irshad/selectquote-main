@@ -2,8 +2,11 @@
     .grey {
         color: #646464
     }
-    .mb-45 {
-        margin-bottom: 45px;
+    .mb-0 {
+        margin-bottom: 0px;
+    }
+    .mb-30 {
+        margin-bottom: 30px;
     }
     .mb-5 {
         margin-bottom: 5px !important;
@@ -11,11 +14,17 @@
     .mb-15 {
         margin-bottom: 15px;
     }
+    .mb-35 {
+        margin-bottom: 35px;
+    }
     .mt-10 {
         margin-top: 10px;
     }
     .mt-40 {
         margin-top: 40px;
+    }
+    .mt-55 {
+        margin-top: 55px;
     }
     .mt-100 {
         margin-top: 100px;
@@ -53,8 +62,8 @@
     .submit-button {
         color: #ffff;
         background-color: rgb(244, 123, 32);
-        width: 15%;
         padding: .3em 19px;
+        width: 170px;
     }
     // .phone-field {
     //     max-width: 90%;
