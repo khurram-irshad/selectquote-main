@@ -38,6 +38,7 @@ export default function Apps({ Component, pageProps }: AppProps) {
     } else if (storageSCode) {
       response = await appService.getScode(storageSCode);
     } else {
+      SessionStorageService.setItem('sCode', MAIN_SCODE.DEFAULT)
       response = await appService.getScode(MAIN_SCODE.DEFAULT);
     }
 
