@@ -31,7 +31,10 @@ export const ComponentContentTypes = {
   MainHeader: "header",
   InlineContent: "templateInlineContent",
 };
-
+export const BUSINESS_TYPE = {
+  LIFE: 'Life',
+  AUTO_REVIEWS: 'Auto Reviews'
+}
 export const STATIC_SCODE = {
   LIFE: 'CLMM',
   MEDICARE: 'RLMED',
