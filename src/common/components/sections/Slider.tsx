@@ -8,17 +8,19 @@ import { useGlobalContext } from "src/context";
 const settings = {
   dots: false,
   infinite: true,
-  autoplay: true,
-  speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
+  autoplay: true,
+  speed: 4000,
+  autoplaySpeed: 1000,
+  cssEase: "linear",
   arrows: false,
   responsive: [
     {
-      breakpoint: 767,
+      breakpoint: 980,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
       },
     },
   ],
@@ -27,10 +29,12 @@ const settings = {
 const SliderSection = ({ section }: { section: Type_Slider }) => {
   const {
     images,
-    devices
+    devices,
+    dots,
+    infinite, speed, slideToShow, autoplay
   } = section.fields;
   const { screenMode } = useGlobalContext();
-
+  console.log(section.fields, '-------section.fields')
   const desktop = devices?.find(item => item.fields?.type === DeviceType.Desktop);
   const mobile = devices?.find(item => item.fields?.type === DeviceType.Mobile);
 
@@ -63,28 +67,19 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
   return (
     <>
       {isDesktop(screenMode) && (<section
-        className={`company-section }`}
         style={{ margin: desktop?.fields?.margin }}
+        className={`company-section `}
       >
         <div
           style={{ backgroundColor: desktop?.fields?.backgroundColor, padding: desktop?.fields?.padding }}
         >
-            <div className="companies d-flex align-items-center justify-content-between">
-              {images.map((image) => (
-                <div
-                  className="company d-flex align-items-center justify-content-center"
-                  key={image.sys.id}
-                >
-                  {image.fields?.link ? (
-                    <a href={`${image.fields?.link}`}
-                    > {renderImage(image)}</a>
-
-                  ) : (
-                    renderImage(image)
-                  )}
-                </div>
-              ))}
-            </div>
+          <Slider className="companies-slider" {...settings} dots={dots} slidesToShow={slideToShow} infinite={infinite} speed={speed} autoplay={autoplay}>
+            {images.map((image) => (
+              <div className="company position-relative" key={image.sys.id}>
+                {renderImage(image)}
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
       )}
@@ -96,7 +91,7 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
           <div
             style={{ backgroundColor: mobile?.fields?.backgroundColor, padding: mobile?.fields?.padding }}
           >
-            <Slider className="companies-slider" {...settings}>
+            <Slider className="companies-slider" {...settings} dots={dots} slidesToShow={slideToShow} infinite={infinite} speed={speed} autoplay={autoplay}>
               {images.map((image) => (
                 <div className="company position-relative" key={image.sys.id}>
                   {renderImage(image)}
