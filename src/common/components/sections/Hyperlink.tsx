@@ -4,7 +4,20 @@ import Link from "next/link";
 
 const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   const { type, underline, externalLink } = section.fields;
-
+  const title = section.fields.title;
+  let titleWithSuperscript = '';
+  let currentIndex = 0;
+  while (true) {
+    const superscriptIndex = title.indexOf('®', currentIndex);
+    if (superscriptIndex === -1) {
+      titleWithSuperscript += title.substring(currentIndex);
+      break;
+    }
+    titleWithSuperscript += title.substring(currentIndex, superscriptIndex);
+    titleWithSuperscript += `<sup>®</sup>`;
+    currentIndex = superscriptIndex + 1;
+  }
+  
   return <Link href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")} legacyBehavior>
     <a
       className={type === 'Button' ? 'link-button hyperlink' : 'hyperlink'}
@@ -17,7 +30,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
         fontWeight: section.fields.fontWeight,
       }}
     >
-      {section.fields.title}
+       <span dangerouslySetInnerHTML={{ __html: titleWithSuperscript }} />
     </a>
   </Link>
 };
