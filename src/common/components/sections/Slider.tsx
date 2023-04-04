@@ -76,7 +76,17 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
           <Slider className="companies-slider" {...settings} dots={dots} slidesToShow={slideToShow} infinite={infinite} speed={speed} autoplay={autoplay}>
             {images.map((image) => (
               <div className="company position-relative" key={image.sys.id}>
-                {renderImage(image)}
+                {image?.fields?.link ? (
+                  <a
+                    rel={image?.fields?.externalLink ? "noopener noreferrer" : ''}
+                    target={image?.fields?.externalLink ? "_blank" : ''}
+                    href={`${image?.fields?.link}`}
+                  >
+                    {renderImage(image)}
+                  </a>
+                ) : (
+                  renderImage(image)
+                )}
               </div>
             ))}
           </Slider>
@@ -94,7 +104,17 @@ const SliderSection = ({ section }: { section: Type_Slider }) => {
             <Slider className="companies-slider" {...settings} dots={dots} slidesToShow={slideToShow} infinite={infinite} speed={speed} autoplay={autoplay}>
               {images.map((image) => (
                 <div className="company position-relative" key={image.sys.id}>
-                  {renderImage(image)}
+                  {image?.fields?.link ? (
+                    <a
+                      rel={image?.fields?.externalLink ? "noopener noreferrer" : ''}
+                      target={image?.fields?.externalLink ? "_blank" : ''}
+                      href={`${image?.fields?.link}`}
+                    >
+                      {renderImage(image)}
+                    </a>
+                  ) : (
+                    renderImage(image)
+                  )}
                 </div>
               ))}
             </Slider>
