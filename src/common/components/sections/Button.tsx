@@ -15,48 +15,78 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     devices,
     hoverBackground,
     hoverColor,
-    externalLink
+    externalLink,
   } = section.fields;
   const [isFocused, setFocus] = useState(false);
   const { screenMode } = useGlobalContext();
   const router = useRouter();
 
-  const desktop = devices?.find(item => item.fields.type === DeviceType.Desktop);
-  const mobile = devices?.find(item => item.fields.type === DeviceType.Mobile);
+  const desktop = devices?.find(
+    (item) => item.fields.type === DeviceType.Desktop
+  );
+  const mobile = devices?.find(
+    (item) => item.fields.type === DeviceType.Mobile
+  );
 
-  let pathname, hrefUrl = linkUrl;
+  let pathname,
+    hrefUrl = linkUrl;
   if (typeof window !== "undefined") {
     pathname = window.location.pathname;
   }
 
   const isRocketLawyer = () => {
-    return pathname?.includes('rocket-lawyer')
-  }
+    return pathname?.includes("rocket-lawyer");
+  };
   if (isRocketLawyer()) {
-    hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`
+    hrefUrl = `${hrefUrl}?sCode=${STATIC_SCODE.LIFE}`;
   }
+
+  if (hrefUrl?.includes("scroll-to-view#")) {
+    hrefUrl = "#";
+  }
+
+  const scrollIntoId = () => {
+    setTimeout(() => {
+      if (linkUrl) {
+        const targetId = linkUrl.replace(/.*\#/, "");
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+    }, 500);
+  };
 
   return (
     <>
       {isDesktop(screenMode) && (
         <div className="button-container">
           <a
-            className={`pointer action-btn ${rounded ? "btn-border" : ""} text-${mobile?.fields?.textAlign}`}
+            className={`pointer action-btn ${
+              rounded ? "btn-border" : ""
+            } text-${mobile?.fields?.textAlign}`}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             style={{
               fontSize: desktop?.fields?.fontSize,
-              padding: desktop?.fields?.padding ? desktop?.fields?.padding : '',
+              padding: desktop?.fields?.padding ? desktop?.fields?.padding : "",
               borderRadius: desktop?.fields?.borderRadius,
               border: desktop?.fields?.border,
-              backgroundColor: isFocused ? hoverBackground : desktop?.fields?.backgroundColor,
+              backgroundColor: isFocused
+                ? hoverBackground
+                : desktop?.fields?.backgroundColor,
               color: isFocused ? hoverColor : desktop?.fields?.textColor,
               borderColor: isFocused ? hoverColor : desktop?.fields?.textColor,
-              boxShadow: desktop?.fields?.boxShadow ? desktop?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
+              boxShadow: desktop?.fields?.boxShadow
+                ? desktop?.fields?.boxShadow
+                : "0px 2px 4px 0px rgba(0, 0, 0, 30%)",
             }}
             href={hrefUrl}
-            target={externalLink ? '_blank' : ''}
-            rel={externalLink ? 'noopener noreferrer' : ''}
+            onClick={() => scrollIntoId()}
+            target={externalLink ? "_blank" : ""}
+            rel={externalLink ? "noopener noreferrer" : ""}
           >
             {title}
           </a>
@@ -68,20 +98,27 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
           <a
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
-            className={`pointer action-btn ${rounded ? "btn-border" : ""} text-${mobile?.fields?.textAlign}`}
+            className={`pointer action-btn ${
+              rounded ? "btn-border" : ""
+            } text-${mobile?.fields?.textAlign}`}
             style={{
               fontSize: mobile?.fields?.fontSize,
-              padding: mobile?.fields?.padding ? mobile?.fields?.padding : '',
+              padding: mobile?.fields?.padding ? mobile?.fields?.padding : "",
               borderRadius: mobile?.fields?.borderRadius,
               border: mobile?.fields?.border,
-              backgroundColor: isFocused ? hoverBackground : mobile?.fields?.backgroundColor,
+              backgroundColor: isFocused
+                ? hoverBackground
+                : mobile?.fields?.backgroundColor,
               color: isFocused ? hoverColor : mobile?.fields?.textColor,
               borderColor: isFocused ? hoverColor : mobile?.fields?.textColor,
-              boxShadow: mobile?.fields?.boxShadow ? mobile?.fields?.boxShadow : '0px 2px 4px 0px rgba(0, 0, 0, 30%)'
+              boxShadow: mobile?.fields?.boxShadow
+                ? mobile?.fields?.boxShadow
+                : "0px 2px 4px 0px rgba(0, 0, 0, 30%)",
             }}
             href={hrefUrl}
-            target={externalLink ? '_blank' : ''}
-            rel={externalLink ? 'noopener noreferrer' : ''}
+            onClick={() => scrollIntoId()}
+            target={externalLink ? "_blank" : ""}
+            rel={externalLink ? "noopener noreferrer" : ""}
           >
             {title}
           </a>
