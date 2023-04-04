@@ -114,7 +114,6 @@ const HeroSection = ({ section }: { section: Type_Hero }) => {
       : 0;
 
   useEffect(() => {
-    console.log(path);
     const hero = document.getElementById("heroSection");
     const heroContent = document.getElementById("heroContent");
     hero.classList.remove("container");
