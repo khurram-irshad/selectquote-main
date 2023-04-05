@@ -1,3 +1,4 @@
+import { RichText, Type_RichText } from "./Type_RichText";
 import * as Contentful from "contentful";
 import Device from "./Type_Device";
 
@@ -9,6 +10,7 @@ export interface Image {
   quality: Contentful.EntryFields.Symbol;
   fill: Contentful.EntryFields.Boolean;
   devices: Contentful.Entry<Device>[];
+  tooltip?: Contentful.Entry<Type_RichText>;
 }
 
 export type Type_Image = Contentful.Entry<Image>;
