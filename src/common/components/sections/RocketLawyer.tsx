@@ -6,9 +6,9 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from 'src/context';
 import SectionTrustPilot from './TrustPilot'
 import {
-  SessionStorageService,
+    SessionStorageService,
 } from "@common/services/storage";
-import {  DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
+import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 
 export const RocketLawyerSection = () => {
     const section = { fields: { type: "Carousel" } } as Type_TrustPilot;
@@ -16,35 +16,39 @@ export const RocketLawyerSection = () => {
     const [phoneNumber, setPhoneNumber] = useState(DEFAULT_PHONE_NUMBER);
     const [sCode, setScode] = useState('');
     const route = useRouter();
-  
+
     useEffect(() => {
-  
-      const handleStorageChange = () => {
+
+        const handleStorageChange = () => {
+            const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
+            if (storageSiteData) {
+                const {
+                    site_campaign_phone: site_campaign_phone,
+                } = storageSiteData
+                setPhoneNumber(site_campaign_phone);
+            }
+        };
+        window.addEventListener("storage", handleStorageChange);
+        return () => {
+            window.removeEventListener("storage", handleStorageChange);
+        };
+    }, []);
+
+    const onSubmit = (e) => {
+        window.location.replace(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`)
+        e.preventDefault();
+    }
+    useEffect(() => {
+
         const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
         if (storageSiteData) {
-          const {
-            site_campaign_phone: site_campaign_phone,
-          } = storageSiteData
-          setPhoneNumber(site_campaign_phone);
+            const {
+                site_campaign_phone: site_campaign_phone,
+                site_source_code: site_source_code,
+            } = storageSiteData
+            setPhoneNumber(site_campaign_phone);
+            setScode(site_source_code);
         }
-      };
-      window.addEventListener("storage", handleStorageChange);
-      return () => {
-        window.removeEventListener("storage", handleStorageChange);
-      };
-    }, []);
-  
-    useEffect(() => {
-  
-      const storageSiteData = SessionStorageService.getItem(STORAGE.SITE_SESSION_DATA);
-      if (storageSiteData) {
-        const {
-          site_campaign_phone: site_campaign_phone,
-          site_source_code: site_source_code,
-        } = storageSiteData
-        setPhoneNumber(site_campaign_phone);
-        setScode(site_source_code);
-      }
     }, [route.query.slug]);
 
     // const queryParams: any = router.query;
@@ -97,7 +101,7 @@ export const RocketLawyerSection = () => {
                     </div>
                 </div>
                 <div className='cta-container'>
-                    <button onClick={() => { window.open(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`) }}>Get a Free Quote</button>
+                    <button onClick={() => { window.open(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`, "_self") }}>Get a Free Quote</button>
                 </div>
 
             </div>
@@ -121,7 +125,7 @@ export const RocketLawyerSection = () => {
                     />
                         <p className='product-title'>Auto & Home Insurance</p>
                         <p>We’ll work to find the best price available rates in your area.</p>
-                        <button onClick={() => { window.open(`https://homeandauto.selectquote.com/quote-form?sCode=${STATIC_SCODE.AUTO_HOME}`) }}>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://homeandauto.selectquote.com/quote-form?sCode=${STATIC_SCODE.AUTO_HOME}`, "_self") }}>Get a Free Quote</button>
                     </div>
                     <div className='medical'>
                         <img
@@ -132,7 +136,7 @@ export const RocketLawyerSection = () => {
                         />
                         <p className='product-title'>Medicare Insurance</p>
                         <p>Find the perfect plan to fill your healthcare needs.</p>
-                        <button onClick={() => { window.open(`https://medicare.selectquote.com/quote-form?sCode=${STATIC_SCODE.MEDICARE}`) }}>Get a Free Quote</button>
+                        <button onClick={() => { window.open(`https://medicare.selectquote.com/quote-form?sCode=${STATIC_SCODE.MEDICARE}`, "_self") }}>Get a Free Quote</button>
                         <p className='sub-copy'>No obligation to enroll</p>
                     </div>
                 </div>
@@ -142,14 +146,14 @@ export const RocketLawyerSection = () => {
                     <p className='title'>We do the shopping. You do the saving.</p>
                 </div>
                 <div className='cta-form'>
-                    <div >
+                    <form onSubmit={(e) => { onSubmit(e) }}>
                         <input placeholder='Enter Zip' />
-                        <button className='flat-button' onClick={() => { window.open(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`) }}>Get a Free Quote</button>
-                    </div>
+                        <button type="submit" className='flat-button' >Get a Free Quote</button>
+                    </form>
                     <p className='mini-text'>No obligation to enroll</p>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
