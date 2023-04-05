@@ -681,6 +681,12 @@ p {
   letter-spacing: 0.69px;
   font-weight: 700;
   font-family: Helvetica;
+
+
+}
+
+.rocket-number:hover {
+  color: #A01616 !important;
 }
 
 .rocket-phone {
@@ -743,11 +749,15 @@ p {
   font-family: Helvetica;
   line-height: 33px;
   letter-spacing: 1.03px;
+
+}
+
+.rocket-number-mobile:hover {
+  color: white !important;
 }
 
 .phone-number-mobile-container {
-  margin-top: 15px;
-  height: 15px
+  height: 65px;
 }
 
 .rocket-secondery-number-mobile {
