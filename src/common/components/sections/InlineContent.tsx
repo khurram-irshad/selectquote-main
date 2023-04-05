@@ -28,24 +28,29 @@ const InlineContentSection = ({ section }: { section: Type_InlineContent }) => {
                             display: desktop?.fields?.display ? desktop?.fields?.display : 'flex',
                             justifyContent: `${desktop?.fields?.justifyContent}`,
                             alignItems: desktop?.fields?.alignItems,
-                            width: desktop?.fields?.width
+                            width: desktop?.fields?.width,
                         }} >
-                        {content.map((item, index) => {
-                            const contentTypeId = _.get(item, 'sys.contentType.sys.id');
-                            const Component = ContentTypeMap[contentTypeId];
+                        <div style={{
+                            margin: desktop?.fields?.margin,
+                            padding: desktop?.fields?.padding,
+                        }}>
+                            {content.map((item, index) => {
+                                const contentTypeId = _.get(item, 'sys.contentType.sys.id');
+                                const Component = ContentTypeMap[contentTypeId];
 
-                            if (!Component) {
-                                console.warn(`${contentTypeId} can not be handled`);
-                                return null;
-                            }
+                                if (!Component) {
+                                    console.warn(`${contentTypeId} can not be handled`);
+                                    return null;
+                                }
 
-                            const { id } = section.sys;
-                            const componentProps = {
-                                section: item,
-                            };
+                                const { id } = section.sys;
+                                const componentProps = {
+                                    section: item,
+                                };
 
-                            return <Component key={`${contentTypeId}-${id}`} {...componentProps} />
-                        })}
+                                return <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+                            })}
+                        </div>
                     </div>
                 )}
                 {isMobile(screenMode) && (
@@ -56,22 +61,27 @@ const InlineContentSection = ({ section }: { section: Type_InlineContent }) => {
                             justifyContent: `${mobile?.fields?.justifyContent}`,
                             alignItems: mobile?.fields?.alignItems
                         }} >
-                        {content.map((item, index) => {
-                            const contentTypeId = _.get(item, 'sys.contentType.sys.id');
-                            const Component = ContentTypeMap[contentTypeId];
+                        <div style={{
+                            margin: mobile?.fields?.margin,
+                            padding: mobile?.fields?.padding,
+                        }}>
+                            {content.map((item, index) => {
+                                const contentTypeId = _.get(item, 'sys.contentType.sys.id');
+                                const Component = ContentTypeMap[contentTypeId];
 
-                            if (!Component) {
-                                console.warn(`${contentTypeId} can not be handled`);
-                                return null;
-                            }
+                                if (!Component) {
+                                    console.warn(`${contentTypeId} can not be handled`);
+                                    return null;
+                                }
 
-                            const { id } = section.sys;
-                            const componentProps = {
-                                section: item,
-                            };
+                                const { id } = section.sys;
+                                const componentProps = {
+                                    section: item,
+                                };
 
-                            return <Component key={`${contentTypeId}-${id}`} {...componentProps} />
-                        })}
+                                return <Component key={`${contentTypeId}-${id}`} {...componentProps} />
+                            })}
+                        </div>
                     </div>
                 )}
             </>
