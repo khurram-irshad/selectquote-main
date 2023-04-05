@@ -35,7 +35,9 @@ export const RocketLawyerSection = () => {
     }, []);
 
     const onSubmit = (e) => {
-        window.location.replace(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}`)
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
+        window.location.replace(`https://life.selectquote.com/quote-form?sCode=${STATIC_SCODE.LIFE}${formProps?.zip ? '&zip=' + formProps?.zip : ''}`)
         e.preventDefault();
     }
     useEffect(() => {
@@ -147,7 +149,7 @@ export const RocketLawyerSection = () => {
                 </div>
                 <div className='cta-form'>
                     <form onSubmit={(e) => { onSubmit(e) }}>
-                        <input placeholder='Enter Zip' />
+                        <input placeholder='Enter Zip' name="zip" className='cursor-center' minLength={5} maxLength={5} />
                         <button type="submit" className='flat-button' >Get a Free Quote</button>
                     </form>
                     <p className='mini-text'>No obligation to enroll</p>

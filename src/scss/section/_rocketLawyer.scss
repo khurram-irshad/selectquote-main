@@ -251,12 +251,17 @@
         vertical-align: middle;
     }
 
-    ::placeholder { /* Most modern browsers support this now. */
+    ::placeholder {
+        /* Most modern browsers support this now. */
         color: #F47B20;
-        padding-left:20px;
-     }
+        padding-left: 20px;
+    }
 
-    p {
+    .cursor-center {
+        text-align: center;
+    }
+
+    span {
         color: #fff;
         margin-bottom: 0;
     }
@@ -264,8 +269,9 @@
     input {
         padding: 11px 20px;
         width: 180px;
-        color: #F47B20;
-        border:1px solid #F47B20;
+        color: black;
+        border: 1px solid #F47B20;
+
         @include mediaQueries(mobile) {
             padding: 5px;
             width: 50%;
@@ -279,7 +285,7 @@
     .flat-button {
         border-radius: 0;
         padding: 11px 27px;
-        border:none;
+        border: none;
         box-shadow: none;
         margin-left: 4px;
     }
