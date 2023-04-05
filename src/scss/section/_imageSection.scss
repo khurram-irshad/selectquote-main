@@ -1,0 +1,18 @@
+.tooltip {
+  background-color: #fff;
+  color: #111;
+  width: 200px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 50%);
+  border-radius: 8px;
+  text-align: center;
+  pointer-events: auto !important;
+
+  a {
+    color: rgb(244, 123, 32) !important;
+  }
+
+  span {
+    font-family: Montserrat, sans-serif !important;
+    font-size: 13px;
+  }
+}
