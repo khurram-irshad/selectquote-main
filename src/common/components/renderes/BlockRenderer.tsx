@@ -24,6 +24,7 @@ import StaticReviewsSection from "@components/sections/StaticReviews";
 import { useGlobalContext } from "src/context";
 import { isDesktop, isMobile } from "@common/helpers/helper";
 import { RocketLawyerSection } from "@components/sections/RocketLawyer";
+import InlineContentSection from "@components/sections/InlineContent";
 
 type BlockRendererProps = {
   page?: Type_Page;
@@ -49,7 +50,7 @@ const BlockRenderer = ({ page, section }: BlockRendererProps) => {
           const fullBackgroundImage = item?.fields?.fullBackgroundImage;
           const fullWidth = desktop?.fields?.fullWidth;
           const fullWidthMobile = mobile?.fields?.fullWidth;
-            
+
           return (
             <>
               {isDesktop(screenMode) && (
@@ -142,6 +143,7 @@ const ContentTypeMap = {
   [ComponentContentTypes.TrustPilot]: SectionTrustPilot,
   [ComponentContentTypes.StaticReviews]: StaticReviewsSection,
   [ComponentContentTypes.RocketLawyer]: RocketLawyerSection,
+  [ComponentContentTypes.InlineContent]: InlineContentSection,
 };
 
 export { BlockRenderer };
