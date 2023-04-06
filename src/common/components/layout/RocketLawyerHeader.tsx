@@ -55,27 +55,23 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
         {isDesktop(screenMode) && (
           <ul className="main-nav d-flex rocket-section-nav">
             <li className='right-border'>
-              <Link href={"/"} legacyBehavior>
-                <a>
-                  <img
-                    src={header?.fields?.appLogo?.fields?.imageFile?.fields?.file?.url}
-                    width={254}
-                    height={54}
-                  />
-                </a>
-              </Link>
+              <a href={"/"}>
+                <img
+                  src={header?.fields?.appLogo?.fields?.imageFile?.fields?.file?.url}
+                  width={254}
+                  height={54}
+                />
+              </a>
 
             </li>
             <li className="rocket-logo right-border">
-              <Link href={"/"} legacyBehavior>
-                <a className='rocket-logo-link'>
-                  <img
-                    src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}
-                    width={210}
-                    height={35}
-                  />
-                </a>
-              </Link>
+              <a href={"/"} className='rocket-logo-link'>
+                <img
+                  src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}
+                  width={210}
+                  height={35}
+                />
+              </a>
             </li>
             <div className="phone d-flex align-items-center justify-content-center rocket-phone">
               <div className="phone-icon d-flex align-items-center phone-number-container">
@@ -99,26 +95,22 @@ const RocketLawyerHeader = ({ header }: { header: Type_RocketLayerHeader }) => {
         {isMobile(screenMode) && (
           <>
             <div className="container wp-container main-mobile-nav d-flex justify-content-center">
-              <Link href={"/"} legacyBehavior>
-                <div className='right-border-mobile'>
-                  <a>
-                    <img
-                      src={header?.fields?.appLogo?.fields?.imageFile?.fields?.file?.url}
-                      width={139}
-                      height={29}
-                    />
-                  </a>
-                </div>
-              </Link>
-              <Link href={"/"} legacyBehavior>
-                <a className='rocket-mobile-logo'>
+              <div className='right-border-mobile'>
+                <a href={"/"}>
                   <img
-                    src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}
-                    width={145}
-                    height={25}
+                    src={header?.fields?.appLogo?.fields?.imageFile?.fields?.file?.url}
+                    width={139}
+                    height={29}
                   />
                 </a>
-              </Link>
+              </div>
+              <a href={"/"} className='rocket-mobile-logo'>
+                <img
+                  src={header?.fields?.rocketLawyerLogo?.fields?.imageFile?.fields?.file?.url}
+                  width={145}
+                  height={25}
+                />
+              </a>
             </div>
             <div className="rocket-content-banner d-flex align-items-center justify-content-center">
               <div className="phone-icon d-flex align-items-center phone-number-mobile-container">

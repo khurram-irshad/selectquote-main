@@ -19,25 +19,20 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
   }
 
   return (
-    <Link
+    <a
       href={section.fields.scrollToId ?? (section.fields.linkUrl || "/")}
-      legacyBehavior
-      scroll={false}
+      className={type === "Button" ? "link-button hyperlink" : "hyperlink"}
+      target={externalLink ? "_blank" : ""}
+      rel={externalLink ? "noopener noreferrer" : ""}
+      style={{
+        color: section.fields?.color,
+        textDecoration: !underline ? "none" : "underline",
+        fontSize: section.fields.fontSize,
+        fontWeight: section.fields.fontWeight,
+      }}
     >
-      <a
-        className={type === "Button" ? "link-button hyperlink" : "hyperlink"}
-        target={externalLink ? "_blank" : ""}
-        rel={externalLink ? "noopener noreferrer" : ""}
-        style={{
-          color: section.fields?.color,
-          textDecoration: !underline ? "none" : "underline",
-          fontSize: section.fields.fontSize,
-          fontWeight: section.fields.fontWeight,
-        }}
-      >
-        <span dangerouslySetInnerHTML={{ __html: titleWithSuperscript }} />
-      </a>
-    </Link>
+      <span dangerouslySetInnerHTML={{ __html: titleWithSuperscript }} />
+    </a>
   );
 };
 

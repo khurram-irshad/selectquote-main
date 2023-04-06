@@ -21,11 +21,8 @@ function NavLink({ href, exact, children, ...props }) {
     props.className += " active";
   }
 
-  return (
-    <Link href={href} target="_self" legacyBehavior>
-      <a target="_self" {...props}>
-        {children}
-      </a>
-    </Link>
+  return (<a href={href} target="_self" {...props}>
+    {children}
+  </a>
   );
 }

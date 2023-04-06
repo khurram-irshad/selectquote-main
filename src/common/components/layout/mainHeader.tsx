@@ -6,7 +6,7 @@ import { NavLink } from "./navLink";
 import {
   SessionStorageService,
 } from "@common/services/storage";
-import {  DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
+import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 
 export default function MainHeader({ header }: { header: Type_Header }) {
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     }
   }, [route.query.slug]);
 
-  useEffect(() => { 
+  useEffect(() => {
     window.onpageshow = function (event) {
       if (window.location.href.includes('search')) {
         const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -66,7 +66,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           window.location.reload();
         }
       }
-    }  
+    }
   }, [])
 
   const path = router.asPath;
@@ -75,7 +75,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     const { linkUrl, linkText, hyperlink, childItems } = linkData.fields;
 
     return !childItems?.length ? (
-      <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer" onClick={()=>setShowSearch(false)}>
+      <a target="_self" href={`${linkUrl}`} rel="noopener noreferrer" onClick={() => setShowSearch(false)}>
         {linkText}
       </a>
     ) : (
@@ -97,7 +97,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
             target="_self"
             href={`${linkUrl}`}
             rel="noopener noreferrer"
-            onClick={()=>setShowSearch(false)}
+            onClick={() => setShowSearch(false)}
           >
             {linkText}
           </a>
@@ -108,9 +108,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
     if (!parent) {
       return (
         <div>
-          <Link className="basicbtn" href={linkUrl} target="_self" legacyBehavior>
-            <a target="_self" onClick={()=>setShowSearch(false)}>{linkText}</a>
-          </Link>
+          <a className="basicbtn" href={linkUrl} target="_self" onClick={() => setShowSearch(false)}>{linkText}</a>
         </div>
       );
     }
@@ -142,7 +140,7 @@ export default function MainHeader({ header }: { header: Type_Header }) {
           href={`${linkUrl}`}
           rel="noopener noreferrer"
           key={key}
-          onClick={()=>setShowSearch(false)}
+          onClick={() => setShowSearch(false)}
         >
           <div className="anchor-wrap">{linkText}</div>
         </a>
@@ -151,11 +149,9 @@ export default function MainHeader({ header }: { header: Type_Header }) {
 
     if (!parent) {
       return (
-        <Link href={linkUrl} key={key} target="_self" legacyBehavior>
-          <a target="_self" onClick={()=>setShowSearch(false)}>
-            <div className="anchor-wrap">{linkText}</div>
-          </a>
-        </Link>
+        <a href={linkUrl} key={key} target="_self" onClick={() => setShowSearch(false)}>
+          <div className="anchor-wrap">{linkText}</div>
+        </a>
       );
     }
 
@@ -273,15 +269,13 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {screenWidth > 0 && screenWidth > 1023 && (
           <ul className="main-nav d-flex">
             <li>
-              <Link href={"/"} legacyBehavior>
-                <a onClick={()=>setShowSearch(false)}>
-                  <img
-                    src={logo?.fields?.imageFile?.fields?.file?.url}
-                    width={210}
-                    alt={logo?.fields?.imageName || "logo"}
-                  />
-                </a>
-              </Link>
+              <a href={"/"} onClick={() => setShowSearch(false)}>
+                <img
+                  src={logo?.fields?.imageFile?.fields?.file?.url}
+                  width={210}
+                  alt={logo?.fields?.imageName || "logo"}
+                />
+              </a>
             </li>
             {menuItems.map((menuItem, key) => {
               return <li key={`menuItem${key}`}>{renderSubLink(menuItem)}</li>;
@@ -310,17 +304,15 @@ export default function MainHeader({ header }: { header: Type_Header }) {
         {screenWidth > 0 && screenWidth < 1024 && (
           <>
             <div className="container wp-container main-mobile-nav">
-              <Link href={"/"} legacyBehavior>
-                <a onClick={()=>setShowSearch(false)}>
-                  <img
-                    className="logo"
-                    src={logoWithTag?.fields?.imageFile?.fields?.file?.url}
-                    width={300}
-                    height={62}
-                    alt={logoWithTag?.fields?.imageName || "logo"}
-                  />
-                </a>
-              </Link>
+              <a href={"/"} onClick={() => setShowSearch(false)}>
+                <img
+                  className="logo"
+                  src={logoWithTag?.fields?.imageFile?.fields?.file?.url}
+                  width={300}
+                  height={62}
+                  alt={logoWithTag?.fields?.imageName || "logo"}
+                />
+              </a>
               <div className="right-buttons-group">
                 <div
                   className="search-logo"
@@ -397,18 +389,18 @@ export default function MainHeader({ header }: { header: Type_Header }) {
               <img src="/images/content/close.svg" />
             </div>
 
-             {/* <!-- (3) Main search bar on website --> */}
-          <div id="searchfield-container"></div>
-          <div id="autocomplete-container"></div>
-          {/* <!-- (4) Search results page UI components --> */}
-          <div id="tabs"></div>
-          <div className="select-wrapper"><div id="select-list"></div></div>
-          <div id="searchresults-container"></div>
-          <div id="loadmore"></div>
+            {/* <!-- (3) Main search bar on website --> */}
+            <div id="searchfield-container"></div>
+            <div id="autocomplete-container"></div>
+            {/* <!-- (4) Search results page UI components --> */}
+            <div id="tabs"></div>
+            <div className="select-wrapper"><div id="select-list"></div></div>
+            <div id="searchresults-container"></div>
+            <div id="loadmore"></div>
 
           </div>
         </div>
-        
+
       </div>
     </header>
   );
