@@ -1,4 +1,4 @@
-import { STATIC_SCODE } from '@common/constants/app.constant';
+import { BUSINESS_TYPE, STATIC_SCODE } from '@common/constants/app.constant';
 import { isDesktop } from '@common/helpers/helper';
 import { Type_TrustPilot } from '@common/types/Type_TrustPilot'
 import { useRouter } from 'next/router';
@@ -11,7 +11,7 @@ import {
 import { DEFAULT_PHONE_NUMBER, STORAGE } from "@constants/app.constant";
 
 export const RocketLawyerSection = () => {
-    const section = { fields: { type: "Carousel" } } as Type_TrustPilot;
+    const section = { fields: { type: "Carousel", businessType: BUSINESS_TYPE.LIFE } } as Type_TrustPilot;
     const { screenMode } = useGlobalContext();
     const [phoneNumber, setPhoneNumber] = useState(DEFAULT_PHONE_NUMBER);
     const [sCode, setScode] = useState('');
