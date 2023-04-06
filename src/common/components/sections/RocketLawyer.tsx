@@ -17,6 +17,7 @@ export const RocketLawyerSection = () => {
     const [sCode, setScode] = useState('');
     const route = useRouter();
 
+
     useEffect(() => {
 
         const handleStorageChange = () => {
