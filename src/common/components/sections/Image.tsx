@@ -121,7 +121,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
           </span>
         )}
         {tooltipId && (
-          <Tooltip id={tooltipId} className="tooltip" openOnClick>
+          <Tooltip id={tooltipId} className="tooltip" openOnClick clickable>
             <RichTextRenderer text={tooltip} />
           </Tooltip>
         )}
