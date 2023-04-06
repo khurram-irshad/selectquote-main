@@ -72,3 +72,12 @@ export const getDirection = (direction) => {
   }
 }
 
+export const matcheSlug = (slug) => {
+  return (slug === 'car-insurance' ||
+    slug === 'home-insurance' ||
+    slug === 'ccpa' ||
+    slug === 'tv' ||
+    slug === 'radio' ||
+    slug === 'tv-commercial' ||
+    slug === 'radio-ad');
+}
