@@ -7,26 +7,29 @@ import { GetServerSideProps } from 'next'
 import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const pages = await getEntries({
-        pageContentType: PageContentTypes.Page,
-    }, ctx);
-    let fields: ISitemapField[] = pages.filter(page => (page.fields?.includeInSitemap && !matcheSlug(page.fields.slug))).map((page) => ({
-        loc: `${Environment.SITE_URL}/${page.fields.slug == 'home' ? '' : page.fields.slug}`,
-        lastmod: new Date(page?.sys.updatedAt).toString()
-    }));
-    const getPage = (slug: string) => {
-        return pages.find(page => (page?.fields?.slug === slug && page.fields?.includeInSitemap));
-    }
-
-    fields = [...fields, ...[
-        ...(getPage('car-insurance') ? [{ loc: `${Environment.SITE_URL}/auto-and-home-insurance/car-insurance/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('home-insurance') ? [{ loc: `${Environment.SITE_URL}/auto-and-home-insurance/home-insurance/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('ccpa') ? [{ loc: `${Environment.SITE_URL}/privacy/ccpa/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('tv') ? [{ loc: `${Environment.SITE_URL}/commercials/tv/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('radio') ? [{ loc: `${Environment.SITE_URL}/commercials/radio/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('radio-ad') ? [{ loc: `${Environment.SITE_URL}/newsroom/radio-ad/`, lastmod: new Date().toString() }] : []),
-        ...(getPage('tv-commercial') ? [{ loc: `${Environment.SITE_URL}/newsroom/tv-commercial/`, lastmod: new Date().toString() }] : []),
-    ]]
+    let fields = [
+        {
+            "loc": `${Environment.SITE_URL + '/page-sitemap.xml'}`
+        },
+        {
+            "loc": "https://life.selectquote.com/page-sitemap.xml",
+        },
+        {
+            "loc": "https://life.selectquote.com/post-sitemap.xml"
+        },
+        {
+            "loc": "https://homeandauto.selectquote.com/page-sitemap.xml"
+        },
+        {
+            "loc": "https://homeandauto.selectquote.com/post-sitemap.xml"
+        },
+        {
+            "loc": "https://medicare.selectquote.com/page-sitemap.xml"
+        },
+        {
+            "loc": "https://medicare.selectquote.com/post-sitemap.xml"
+        }
+    ]
     return getServerSideSitemap(ctx, fields)
 }
 
