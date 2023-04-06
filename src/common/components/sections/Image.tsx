@@ -45,7 +45,10 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
       <>
         {isDesktop(screenMode) &&
           (tooltipId ? (
-            <a data-tooltip-id={tooltipId}>
+            <a
+              data-tooltip-id={tooltipId}
+              data-tooltip-position-strategy="fixed"
+            >
               <span className={"image-container"}>
                 {fill ? (
                   <Image
@@ -121,7 +124,12 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
           </span>
         )}
         {tooltipId && (
-          <Tooltip id={tooltipId} className="tooltip" openOnClick>
+          <Tooltip
+            id={tooltipId}
+            className="tooltip"
+            openOnClick
+            positionStrategy="fixed"
+          >
             <RichTextRenderer text={tooltip} />
           </Tooltip>
         )}
