@@ -8,8 +8,16 @@ import { Tooltip } from "react-tooltip";
 import RichTextRenderer from "@components/rich-text/RichTextRenderer";
 
 const ImageSection = ({ section }: { section: Type_Image }) => {
-  const { imageFile, imageName, externalLink, fill, quality, link, tooltip } =
-    section.fields;
+  const {
+    imageFile,
+    imageName,
+    externalLink,
+    fill,
+    quality,
+    link,
+    tooltip,
+    tooltipId,
+  } = section.fields;
   const desktop = section?.fields?.devices?.find(
     (item) => item?.fields?.type === DeviceType.Desktop
   );
@@ -35,10 +43,35 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
   const renderImage = () => {
     return (
       <>
-        {isDesktop(screenMode) && (
-          <span className={"image-container"}>
-            {fill ? (
-              <a data-tooltip-id="tooltip-content">
+        {isDesktop(screenMode) &&
+          (tooltipId ? (
+            <a data-tooltip-id={tooltipId}>
+              <span className={"image-container"}>
+                {fill ? (
+                  <Image
+                    quality={100}
+                    style={{ borderRadius: desktop?.fields?.borderRadius }}
+                    src={`https:${imageFile?.fields?.file?.url}`}
+                    fill
+                    className={"image h-unset"}
+                    alt={imageName || imageFile?.fields?.title}
+                  />
+                ) : (
+                  <Image
+                    quality={100}
+                    style={{ borderRadius: desktop?.fields?.borderRadius }}
+                    src={`https:${imageFile?.fields?.file?.url}`}
+                    width={Number(widthDesktop)}
+                    height={Number(heightDesktop)}
+                    className={"image "}
+                    alt={imageName || imageFile?.fields?.title}
+                  />
+                )}
+              </span>
+            </a>
+          ) : (
+            <span className={"image-container"}>
+              {fill ? (
                 <Image
                   quality={100}
                   style={{ borderRadius: desktop?.fields?.borderRadius }}
@@ -47,9 +80,7 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
                   className={"image h-unset"}
                   alt={imageName || imageFile?.fields?.title}
                 />
-              </a>
-            ) : (
-              <a data-tooltip-id="tooltip-content">
+              ) : (
                 <Image
                   quality={100}
                   style={{ borderRadius: desktop?.fields?.borderRadius }}
@@ -59,10 +90,9 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
                   className={"image "}
                   alt={imageName || imageFile?.fields?.title}
                 />
-              </a>
-            )}
-          </span>
-        )}
+              )}
+            </span>
+          ))}
         {isMobile(screenMode) && (
           <span
             className={"image-container"}
@@ -90,8 +120,8 @@ const ImageSection = ({ section }: { section: Type_Image }) => {
             )}
           </span>
         )}
-        {tooltip && (
-          <Tooltip id="tooltip-content" className="tooltip" openOnClick>
+        {tooltipId && (
+          <Tooltip id={tooltipId} className="tooltip" openOnClick clickable>
             <RichTextRenderer text={tooltip} />
           </Tooltip>
         )}

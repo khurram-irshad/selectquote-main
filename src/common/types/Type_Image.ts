@@ -11,6 +11,7 @@ export interface Image {
   fill: Contentful.EntryFields.Boolean;
   devices: Contentful.Entry<Device>[];
   tooltip?: Contentful.Entry<Type_RichText>;
+  tooltipId?: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Image = Contentful.Entry<Image>;
