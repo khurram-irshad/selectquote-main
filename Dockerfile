@@ -1,6 +1,9 @@
 # this tells docker to use node image with ubuntu linux distribution
 FROM node:16-alpine
 
+ARG E_SITE_URL
+ENV SITE_URL=$E_SITE_URL
+
 ARG E_CONTENTFUL_SPACE_ID
 ENV CONTENTFUL_SPACE_ID=$E_CONTENTFUL_SPACE_ID
 
