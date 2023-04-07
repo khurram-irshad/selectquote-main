@@ -8,6 +8,7 @@ const PageHead = ({ page }: { page: Type_Page }) => {
   if (typeof window !== "undefined") {
     baseUrl = window?.location?.origin
   }
+
   let pageTitle = title,
     pageImage = "/images/form/form-header-logo.png",
     pageUrl = "",
