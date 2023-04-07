@@ -24,6 +24,7 @@ class WebDocument extends Document {
             }}
           ></noscript>
           <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+          <script type="text/javascript" src="https://cdn.outliant.com/sq/tracking.min.js" async></script>
 
           <Main />
           <NextScript />
