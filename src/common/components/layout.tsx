@@ -117,6 +117,7 @@ export default function Layout({
     const tagManagerInit = {
       gtmId: gtmContainerId ? gtmContainerId : DEFAULT_GTM_ID,
     };
+    console.log(tagManagerInit, '-----GTM ID------')
     TagManager.initialize(tagManagerInit);
   }, []);
 
