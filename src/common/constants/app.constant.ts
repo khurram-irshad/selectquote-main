@@ -41,6 +41,8 @@ export const STATIC_SCODE = {
   AUTO_HOME: 'RLSQAH',
 }
 
+export const DEFAULT_GTM_ID = 'GTM-TZKPC7W';
+
 export const MAIN_SCODE = {
   DEFAULT: 'UCMS',
   BSQ: 'BSQ',
