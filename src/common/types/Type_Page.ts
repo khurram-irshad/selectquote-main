@@ -9,6 +9,7 @@ interface Page {
   smallNavbarOnly?: Contentful.EntryFields.Symbol;
   largeNavbarOnly?: Contentful.EntryFields.Symbol;
   slug?: Contentful.EntryFields.Symbol;
+  gtmContainerId: Contentful.EntryFields.Symbol;
   sections: Contentful.Entry<any>[];
   seo: Type_SEO;
   header: Contentful.Entry<Type_Header>;
