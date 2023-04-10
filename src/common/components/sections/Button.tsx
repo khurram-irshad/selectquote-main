@@ -16,6 +16,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     hoverBackground,
     hoverColor,
     externalLink,
+    scrollToId
   } = section.fields;
   const [isFocused, setFocus] = useState(false);
   const { screenMode } = useGlobalContext();
@@ -47,14 +48,11 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
 
   const scrollIntoId = () => {
     setTimeout(() => {
-      if (linkUrl) {
-        const targetId = linkUrl.replace(/.*\#/, "");
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
+      const el = document.getElementById(scrollToId);
+      if (el) {
+        el.scrollIntoView({
+          behavior: "smooth",
+        });
       }
     }, 500);
   };
@@ -64,9 +62,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
       {isDesktop(screenMode) && (
         <div className="button-container">
           <a
-            className={`pointer action-btn ${
-              rounded ? "btn-border" : ""
-            } text-${mobile?.fields?.textAlign}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""
+              } text-${mobile?.fields?.textAlign}`}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             style={{
@@ -98,9 +95,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
           <a
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
-            className={`pointer action-btn ${
-              rounded ? "btn-border" : ""
-            } text-${mobile?.fields?.textAlign}`}
+            className={`pointer action-btn ${rounded ? "btn-border" : ""
+              } text-${mobile?.fields?.textAlign}`}
             style={{
               fontSize: mobile?.fields?.fontSize,
               padding: mobile?.fields?.padding ? mobile?.fields?.padding : "",
