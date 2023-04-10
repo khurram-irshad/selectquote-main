@@ -10,6 +10,8 @@ import { appService } from "@common/services/app.service";
 import { foundationSchema } from "@common/schema/schema";
 import { FileUploader } from "react-drag-drop-files";
 import { fundBusinessTemplate, fundUserTemplate } from "@common/templates/fundingform";
+import { useGlobalContext } from "src/context";
+import { isDesktop } from "@common/helpers/helper";
 
 const FundingFormSection = ({ section }: { section: Type_Form }) => {
   const [isEmailSent, setIsEmailSent] = useState(false)
@@ -18,6 +20,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
   const [file, setFile] = useState(null);
   const { title } = section.fields;
   const [uploadedFileName, setUploadedFileName] = useState<any>(null);
+  const { screenMode, isTabView } = useGlobalContext();
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(foundationSchema),
@@ -81,7 +84,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
   return (
 
     <div className="pt-5 pb-5">
-      <div className="desktop-form">
+    {isDesktop(screenMode)?<div className="desktop-form" id="foundation-form">
         <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <RichTextRenderer text={title.fields.content} />
           {isEmailSent ?
@@ -276,8 +279,8 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
           </>
       }    
       </form>
-    </div>
-    <div className="mobile-form">
+    </div>:
+    <div className="mobile-form" id="foundation-form">
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <RichTextRenderer text={title.fields.content} />
           {isEmailSent ?
@@ -471,7 +474,7 @@ const FundingFormSection = ({ section }: { section: Type_Form }) => {
           </>
       }    
       </form>
-    </div>
+    </div>}
     </div>
   );
 };
