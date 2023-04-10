@@ -8,7 +8,6 @@ interface SEO {
   noFollow: Contentful.EntryFields.Boolean;
   includeInSitemap: Contentful.EntryFields.Symbol;
   shareCardImage: Contentful.Entry<Image>;
-  shareCardUrl: Contentful.EntryFields.Symbol;
   canonicalUrl: Contentful.EntryFields.Symbol;
 }
 

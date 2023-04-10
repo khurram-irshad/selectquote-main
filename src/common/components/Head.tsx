@@ -21,7 +21,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
   if (seo) {
     const {
       shareCardImage,
-      shareCardUrl,
       description,
       keywords,
       noIndex,
@@ -33,7 +32,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       pageImage = shareCardImage
         ? `https:${shareCardImage?.fields.imageFile.fields.file.url}`
         : "";
-    if (shareCardUrl) pageUrl = shareCardUrl;
     if (description) pageDescription = description;
     if (keywords) pageKeywords = keywords;
     if (canonicalUrl) pageCanonicalUrl = canonicalUrl;
