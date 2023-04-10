@@ -10,6 +10,7 @@ interface Button {
     hoverBackground: Contentful.EntryFields.Symbol;
     hoverColor: Contentful.EntryFields.Symbol;
     externalLink: Contentful.EntryFields.Boolean;
+    titleText: Contentful.EntryFields.Symbol;
 }
 
 export type Type_Button = Contentful.Entry<Button>;
