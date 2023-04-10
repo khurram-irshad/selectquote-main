@@ -95,6 +95,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
       {isMobile(screenMode) && (
         <div className="button-container">
           <a
+            title={titleText}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             className={`pointer action-btn ${rounded ? "btn-border" : ""
