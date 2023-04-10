@@ -31,8 +31,11 @@ export const getServerSideProps = async (context) => {
 
   if (!page) {
     return {
-      notFound: true,
-    };
+      redirect: {
+        permanent: false,
+        destination: "/404"
+      }
+    }
   }
 
   return {
