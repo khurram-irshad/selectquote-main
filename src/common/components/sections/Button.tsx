@@ -16,7 +16,8 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
     hoverBackground,
     hoverColor,
     externalLink,
-    scrollToId
+    scrollToId,
+    altText
   } = section.fields;
   const [isFocused, setFocus] = useState(false);
   const { screenMode } = useGlobalContext();
@@ -62,6 +63,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
       {isDesktop(screenMode) && (
         <div className="button-container">
           <a
+          title={altText}
             className={`pointer action-btn ${rounded ? "btn-border" : ""
               } text-${mobile?.fields?.textAlign}`}
             onMouseEnter={() => setFocus(true)}
@@ -93,6 +95,7 @@ const ButtonSection = ({ section }: { section: Type_Button }) => {
       {isMobile(screenMode) && (
         <div className="button-container">
           <a
+            title={altText}
             onMouseEnter={() => setFocus(true)}
             onMouseLeave={() => setFocus(false)}
             className={`pointer action-btn ${rounded ? "btn-border" : ""

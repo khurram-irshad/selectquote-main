@@ -3,6 +3,7 @@ import Device from './Type_Device';
 
 interface Button {
     title: Contentful.EntryFields.Symbol;
+    altText: Contentful.EntryFields.Symbol;
     linkUrl: Contentful.EntryFields.Symbol;
     scrollToId: Contentful.EntryFields.Symbol;
     rounded: Contentful.EntryFields.Boolean;
