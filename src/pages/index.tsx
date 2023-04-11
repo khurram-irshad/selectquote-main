@@ -25,6 +25,15 @@ export const getServerSideProps = async (context) => {
     pageContentType: PageContentTypes.Page,
   }, context);
 
+  if (!page) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/404"
+      }
+    }
+  }
+
   return {
     props: { page: page },
   };
