@@ -24,6 +24,7 @@ const Hyperlink = ({ section }: { section: Type_HyperLink }) => {
       className={type === "Button" ? "link-button hyperlink" : "hyperlink"}
       target={externalLink ? "_blank" : ""}
       rel={externalLink ? "noopener noreferrer" : ""}
+      title={titleWithSuperscript}
       style={{
         color: section.fields?.color,
         textDecoration: !underline ? "none" : "underline",
