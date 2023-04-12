@@ -41,16 +41,17 @@ const RichTextSection = ({ section }: { section: Type_RichTextCustom }) => {
       )}
 
       {isMobile(screenMode) && (
-        <span style={{
-          padding: `${mobile?.fields?.padding}`,
-          margin: `${mobile?.fields?.margin}`,
-          textAlign: `${mobile?.fields?.textAlign as TextAlign}`,
-          width: `${mobile?.fields?.width}`,
-          display: mobile?.fields?.display ? mobile?.fields?.display : 'inline-block',
-          scrollMarginTop: `${scrollTopMargin}`,
-          maxWidth: mobile?.fields?.maxWidth,
-          wordBreak: mobile?.fields?.wordBreak as WordBreak
-        }}>
+        <span
+          id={contentId} style={{
+            padding: `${mobile?.fields?.padding}`,
+            margin: `${mobile?.fields?.margin}`,
+            textAlign: `${mobile?.fields?.textAlign as TextAlign}`,
+            width: `${mobile?.fields?.width}`,
+            display: mobile?.fields?.display ? mobile?.fields?.display : 'inline-block',
+            scrollMarginTop: `${scrollTopMargin}`,
+            maxWidth: mobile?.fields?.maxWidth,
+            wordBreak: mobile?.fields?.wordBreak as WordBreak
+          }}>
           <RichTextRenderer
             text={content}
             device={mobile?.fields}

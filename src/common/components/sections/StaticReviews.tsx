@@ -60,7 +60,7 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
               <>
                 <RichTextSection key={index} section={item} />
                 <div className="trust-pilot">
-                  <img src="/images/homepage/trustpilot.png" />
+                  <img alt="TrustPilot" src="/images/homepage/trustpilot.png" />
                 </div>
               </>
             ))}
@@ -78,7 +78,7 @@ const StaticReviewsSection = ({ section }: { section: Type_Reviews }) => {
               <>
                 <RichTextSection key={index} section={item} />
                 <div className="trust-pilot">
-                  <img src="/images/homepage/trustpilot.png" />
+                  <img alt="TrustPilot" src="/images/homepage/trustpilot.png" />
                 </div>
               </>
             ))}

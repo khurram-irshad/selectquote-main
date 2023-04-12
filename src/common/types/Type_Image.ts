@@ -7,7 +7,6 @@ export interface Image {
   imageFile: Contentful.Asset;
   link?: Contentful.EntryFields.Symbol;
   externalLink: Contentful.EntryFields.Symbol;
-  quality: Contentful.EntryFields.Symbol;
   fill: Contentful.EntryFields.Boolean;
   devices: Contentful.Entry<Device>[];
   tooltip?: Contentful.Entry<Type_RichText>;

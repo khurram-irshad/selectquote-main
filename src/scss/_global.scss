@@ -804,3 +804,12 @@ a {
 input[type=text] {
   color: black;
 }
+
+a {
+  word-break: break-all;
+}
+
+span {
+  word-break: break-word;
+}
+

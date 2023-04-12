@@ -153,7 +153,6 @@ export const RocketLawyerSection = () => {
                         <input placeholder='Enter Zip' name="zip" className='cursor-center' minLength={5} maxLength={5} />
                         <button type="submit" className='flat-button' >Get a Free Quote</button>
                     </form>
-                    <p className='mini-text'>No obligation to enroll</p>
                 </div>
             </div>
         </div >

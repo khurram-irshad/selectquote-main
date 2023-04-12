@@ -4,6 +4,10 @@ import { Type_Page } from "@common/types";
 
 const PageHead = ({ page }: { page: Type_Page }) => {
   const { title, seo } = page.fields;
+  let baseUrl;
+  if (typeof window !== "undefined") {
+    baseUrl = window?.location?.origin
+  }
 
   let pageTitle = title,
     pageImage = "/images/form/form-header-logo.png",
@@ -17,7 +21,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
   if (seo) {
     const {
       shareCardImage,
-      shareCardUrl,
       description,
       keywords,
       noIndex,
@@ -29,7 +32,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       pageImage = shareCardImage
         ? `https:${shareCardImage?.fields.imageFile.fields.file.url}`
         : "";
-    if (shareCardUrl) pageUrl = shareCardUrl;
     if (description) pageDescription = description;
     if (keywords) pageKeywords = keywords;
     if (canonicalUrl) pageCanonicalUrl = canonicalUrl;
@@ -67,7 +69,6 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       injectScript(inject)
     })
 
-
     var aLink = document.createElement("link");
     aLink.rel = "stylesheet";
     aLink.href =
@@ -97,17 +98,17 @@ const PageHead = ({ page }: { page: Type_Page }) => {
       <meta name="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription}></meta>
       <meta property="og:image" content={pageImage} />
-      <meta property="og:url" content={pageUrl} />
+      <meta property="og:url" content={`${baseUrl}${pageUrl}`} />
       <meta property="og:site_name" content="SelectQuote Life" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:label1" content="Est. reading time" />
       <meta name="twitter:data1" content="9 minutes" />
-      <meta property="og:image" content={pageImage} />
+
       <meta name="keywords" content={pageKeywords} />
       {pageCanonicalUrl !== "" && (
-        <link rel="canonical" href={pageCanonicalUrl} />
+        <link rel="canonical" href={`${baseUrl}${pageCanonicalUrl}`} />
       )}
       {pageNoIndex && pageNoFollow ? (
         <meta name="robots" content="noindex, nofollow" />

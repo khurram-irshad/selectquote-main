@@ -10,11 +10,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const pages = await getEntries({
         pageContentType: PageContentTypes.Page,
     }, ctx);
-    let fields: ISitemapField[] = pages.filter(page => (page.fields?.includeInSitemap && !matcheSlug(page.fields.slug))).map((page) => ({
+    let fields: ISitemapField[] = pages.filter(page => (page.fields?.seo?.fields.includeInSitemap && !matcheSlug(page.fields.slug))).map((page) => ({
         loc: `${Environment.SITE_URL}/${page.fields.slug == 'home' ? '' : page.fields.slug}`
     }));
     const getPage = (slug: string) => {
-        return pages.find(page => (page?.fields?.slug === slug && page.fields?.includeInSitemap));
+        return pages.find(page => (page?.fields?.slug === slug && page.fields?.seo?.fields.includeInSitemap));
     }
 
     fields = [...fields, ...[
