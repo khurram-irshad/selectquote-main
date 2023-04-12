@@ -115,7 +115,7 @@ const PartnershipDetail = () => {
           <>
             <div className="row mt-4">
               <label className="form-label grey mb-30">
-                <b>Where is this company located?*</b>
+                <b>Where is this company located? <span className="text-danger">*</span></b>
               </label>
               <div className="comapny-located">
                 <UseFormTextField
@@ -135,7 +135,7 @@ const PartnershipDetail = () => {
             <div className="row top-space">
               <div className="col">
                 <label className="form-label grey mb-15">
-                  <b>How many employees does your company have?*</b>
+                  <b>How many employees does your company have? <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio">
                   <li className="radio-list">
@@ -238,7 +238,7 @@ const PartnershipDetail = () => {
             <div className="row top-space">
               <div className="col">
                 <label className="form-label grey mb-15">
-                  <b>Does your company have insurance coverage?*</b>
+                  <b>Does your company have insurance coverage? <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio">
                   <li className="radio-list">
@@ -347,9 +347,10 @@ const PartnershipDetail = () => {
             >
               <div className="col">
                 <label className="form-label grey  mb-15">
-                  <b>Can your company provide an Acord Certificate?*</b>{" "}
+                  <b>Can your company provide an Acord Certificate?</b>
                   (General Liability, Erros & Omissions, and/ or Cyber
                   Protection)
+                  <b> <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio">
                   <li className="radio-list">
@@ -462,8 +463,9 @@ const PartnershipDetail = () => {
                 } 
                   `}
               >
-                <b>What insurance verticals are you selling call/leads in?*</b>{" "}
+                <b>What insurance verticals are you selling call/leads in?</b>{" "}
                 (Select all that apply)
+                <b> <span className="text-danger">*</span></b>
               </label>
               <div className="checkbox-list relative">
                 <div className="check-list">
@@ -654,7 +656,7 @@ const PartnershipDetail = () => {
                 } 
                   `}
               >
-                <b>What lead type(s) do you currently offer?*</b>
+                <b>What lead type(s) do you currently offer? <span className="text-danger">*</span></b>
               </label>
               <div className="checkbox-list relative">
                 <div className="check-list">
@@ -814,7 +816,7 @@ const PartnershipDetail = () => {
                 } 
                   `}
               >
-                <b>What are the primary sources of these leads?*</b>
+                <b>What are the primary sources of these leads? <span className="text-danger">*</span></b>
               </label>
               <div className="checkbox-list relative">
                 <div className="check-list">
@@ -1030,7 +1032,7 @@ const PartnershipDetail = () => {
               >
                 <b>
                   What is your daily average volume by insurance vertical and
-                  lead type and how does this vary by season?*
+                  lead type and how does this vary by season? <span className="text-danger">*</span>
                 </b>
               </label>
               <div className="col">
@@ -1057,7 +1059,7 @@ const PartnershipDetail = () => {
                 <b>
                   Do you work with a Call Center? Is this an owned and operated
                   call center? Where is it located? Is the Customer data stored
-                  in the United States?*{" "}
+                  in the United States? <span className="text-danger">*</span>{" "}
                 </b>
               </label>
               <div className="col">
@@ -1082,7 +1084,7 @@ const PartnershipDetail = () => {
                 >
                   <b>
                     Are the majority of your sources (sites, ads, etc.) owned
-                    and operated or 3rd party?*
+                    and operated or 3rd party? <span className="text-danger">*</span>
                   </b>
                 </label>
                 <ul className="custom-radio simple-radio">
@@ -1157,7 +1159,7 @@ const PartnershipDetail = () => {
                   } 
                   `}
                 >
-                  <b>Can you make changes to your sources?*</b>
+                  <b>Can you make changes to your sources? <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio simple-radio">
                   <li className="mb-5">
@@ -1246,7 +1248,7 @@ const PartnershipDetail = () => {
                 } 
                   `}
               >
-                <b>What is your general pricing range by lead type?* </b>
+                <b>What is your general pricing range by lead type? <span className="text-danger">*</span></b>
               </label>
               <div className="col">
                 <UseFormTextField
@@ -1268,7 +1270,7 @@ const PartnershipDetail = () => {
                   } 
                   `}
                 >
-                  <b>Can you implement an API key for data posting?*</b>
+                  <b>Can you implement an API key for data posting? <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio simple-radio">
                   <li className="mb-5">
@@ -1359,7 +1361,7 @@ const PartnershipDetail = () => {
                   `}
               >
                 <b>
-                  What call routing system/software(s) do you currently use?*{" "}
+                  What call routing system/software(s) do you currently use? <span className="text-danger">*</span>{" "}
                 </b>
               </label>
               <div className="col">
@@ -1385,9 +1387,10 @@ const PartnershipDetail = () => {
               >
                 <b>
                   Are you able to filter calls by age/geographical
-                  area/states/zip codes?*{" "}
+                  area/states/zip codes? {" "}
                 </b>{" "}
                 (List all that apply)
+                <b><span className="text-danger">*</span></b>
               </label>
               <div className="col">
                 <UseFormTextField
@@ -1412,10 +1415,11 @@ const PartnershipDetail = () => {
               >
                 <b>
                   Are you able to send a specified amount of calls by day and/or
-                  hour?*{" "}
+                  hour? {" "}
                 </b>
                 (i.e if we give you a maximum number of calls per day of the
                 week/set schedule, etc.)
+                <b><span className="text-danger">*</span></b>
               </label>
               <div className="col">
                 <UseFormTextField
@@ -1440,7 +1444,7 @@ const PartnershipDetail = () => {
               >
                 <b>
                   Is the majority of your traffic U65 or 065, if both what is
-                  the split between both?*{" "}
+                  the split between both? <span className="text-danger">*</span>{" "}
                 </b>
               </label>
               <div className="col">
@@ -1463,7 +1467,7 @@ const PartnershipDetail = () => {
                   } 
                   `}
                 >
-                  <b>Do you use Jornaya or Trusted Form?*</b>
+                  <b>Do you use Jornaya or Trusted Form? <span className="text-danger">*</span></b>
                 </label>
                 <ul className="custom-radio simple-radio">
                   <li className="mb-5">
