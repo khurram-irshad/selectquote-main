@@ -15,6 +15,8 @@ class WebDocument extends Document {
         })(window,document,'script','dataLayer','GTM-WK9458X');`,
             }}
           ></Script>
+
+          <script type="text/javascript" src="https://cdn.outliant.com/sq/tracking.min.js"></script>
         </Head>
         <body>
           <noscript
@@ -24,8 +26,6 @@ class WebDocument extends Document {
             }}
           ></noscript>
           <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-          <script type="text/javascript" src="https://cdn.outliant.com/sq/tracking.min.js" async></script>
-
           <Main />
           <NextScript />
         </body>
